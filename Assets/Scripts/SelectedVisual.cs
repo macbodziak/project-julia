@@ -8,6 +8,13 @@ public class SelectedVisual : MonoBehaviour
 {
     [SerializeField] SpriteRenderer m_SpriteRenderer;
     [SerializeField] bool isVisible;
+
+    void Awake()
+    {
+        isVisible = false;
+        SetSelectedVisual(false);
+    }
+
     public void ShowSelectedVisual()
     {
         isVisible = true;

@@ -43,4 +43,9 @@ public class Unit : MonoBehaviour
     {
         anim.SetTrigger("Hurt");
     }
+
+    public void SetSelectionVisual(bool isVisible)
+    {
+        selectedVisual.SetSelectedVisual(isVisible);
+    }
 }
