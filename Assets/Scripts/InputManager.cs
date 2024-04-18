@@ -40,5 +40,10 @@ public class InputManager : MonoBehaviour
         {
             ActionManager.Instance.SetSelectedUnit(null);
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            ActionManager.Instance.TestingSetFirstAction();
+        }
     }
 }

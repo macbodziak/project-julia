@@ -6,40 +6,22 @@ public class Unit : MonoBehaviour
 {
     Animator anim;
     SelectedVisual selectedVisual;
-
-    // Start is called before the first frame update
+    [SerializeField] List<BaseAction> actionList;
     void Awake()
     {
         anim = GetComponent<Animator>();
         selectedVisual = GetComponent<SelectedVisual>();
+        GetComponents<BaseAction>(actionList);
     }
 
-    // Update is called once per frame
-    void Update()
+
+
+    public void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Attack();
-        }
-
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            Hurt();
-        }
-
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            selectedVisual.Toggle();
-        }
+        // anim.SetTrigger("Attack");
     }
 
-
-    void Attack()
-    {
-        anim.SetTrigger("Attack");
-    }
-
-    void Hurt()
+    public void Hurt()
     {
         anim.SetTrigger("Hurt");
     }
@@ -47,5 +29,10 @@ public class Unit : MonoBehaviour
     public void SetSelectionVisual(bool isVisible)
     {
         selectedVisual.SetSelectedVisual(isVisible);
+    }
+
+    public List<BaseAction> GetActionList()
+    {
+        return actionList;
     }
 }
