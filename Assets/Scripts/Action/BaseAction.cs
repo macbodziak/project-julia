@@ -17,7 +17,6 @@ public abstract class BaseAction : MonoBehaviour
     {
         isInProgress = false;
         unit = GetComponent<Unit>();
-        Debug.Log("Base Action  protected virtual private void Awake" + unit.name);
     }
 
     protected virtual void OnActionStarted()

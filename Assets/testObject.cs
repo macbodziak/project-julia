@@ -16,6 +16,7 @@ public class testObject : MonoBehaviour
     void Start()
     {
         ActionManager.Instance.OnSelectedUnitChanged += HandleSelectedUnitChanged;
+        ActionManager.Instance.OnSelectedActionChanged += HandleSelectedActionChanged;
         // baseAction.ActionStarted += TestObject_OnActionStarted;
         // baseAction.ActionCompleted += TestObject_OnActionCompleted;
     }
@@ -45,9 +46,15 @@ public class testObject : MonoBehaviour
         SetRandomColor();
     }
 
+    public void HandleSelectedActionChanged(object sender, EventArgs e)
+    {
+        SetRandomColor();
+    }
+
     private void OnDestroy()
     {
         ActionManager.Instance.OnSelectedUnitChanged -= HandleSelectedUnitChanged;
+        ActionManager.Instance.OnSelectedActionChanged -= HandleSelectedActionChanged;
     }
 
 }

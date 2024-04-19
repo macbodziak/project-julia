@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4170320503972803089}
   - component: {fileID: 4170320503972803088}
   m_Layer: 5
-  m_Name: Image
+  m_Name: SelectedImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,21 +53,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4170320503972803090}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.4292453, b: 0.4292453, a: 1}
+  m_Color: {r: 1, g: 0.4292453, b: 0.4292453, a: 0.49019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bec69b6e7414d1041af87f86ed1472f7, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: e315c2d28580b6541b54a8e2cedb639e, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 4170320505031103795}
   - component: {fileID: 4170320505031103794}
   - component: {fileID: 4170320505031103797}
+  - component: {fileID: 7267394236945407060}
   m_Layer: 5
   m_Name: AbilityButton
   m_TagString: Untagged
@@ -334,3 +335,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7267394236945407060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4170320505031103799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6d4fdb7cf65506488d42d812202a56c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
+  selectedImage: {fileID: 4170320503972803088}

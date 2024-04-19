@@ -32,13 +32,13 @@ public class InputManager : MonoBehaviour
                 Debug.Log(clickedGameObject.name + " clicked");
 
                 Unit clickedUnit = clickedGameObject.GetComponent<Unit>();
-                ActionManager.Instance.SetSelectedUnit(clickedUnit);
+                ActionManager.Instance.SelectedUnit = clickedUnit;
             }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ActionManager.Instance.SetSelectedUnit(null);
+            ActionManager.Instance.SelectedUnit = null;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))

@@ -7,30 +7,32 @@ using UnityEngine.UI;
 
 public class AbilityLayoutController : MonoBehaviour
 {
-    List<Button> buttonList;
-    [SerializeField] Button buttonPrefab;
+    List<ActionButton> buttonList;
+    [SerializeField] ActionButton buttonPrefab;
 
     private void Awake()
     {
-        buttonList = new List<Button>();
+        buttonList = new List<ActionButton>();
     }
     public void ClearList()
     {
         foreach (var button in buttonList)
         {
             Destroy(button.gameObject);
-            Debug.Log("ClearList()" + button.gameObject.name);
         }
         buttonList.Clear();
     }
 
-    public void ShowAbilityList(List<BaseAction> actions)
+    public void CreateAndShowAbilityList(List<BaseAction> actions)
     {
         foreach (var action in actions)
         {
-            Button newButton = Instantiate(buttonPrefab, transform);
-            newButton.GetComponentInChildren<TextMeshProUGUI>().text = action.Name();
-            buttonList.Add(newButton);
+            ActionButton newActionButton = Instantiate(buttonPrefab, transform);
+            // newButton.GetComponentInChildren<TextMeshProUGUI>().text = action.Name();
+            // replace with
+            newActionButton.ActionName = action.Name();
+            newActionButton.button.onClick.AddListener(() => { ActionManager.Instance.SelectedAction = action; });
+            buttonList.Add(newActionButton);
         }
     }
 }

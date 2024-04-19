@@ -6,6 +6,7 @@ using System;
 public class ActionManager : MonoBehaviour
 {
     public event EventHandler OnSelectedUnitChanged;
+    public event EventHandler OnSelectedActionChanged;
     private static ActionManager _instance;
     [SerializeField] Unit selectedUnit;
     [SerializeField] BaseAction selectedAction;
@@ -13,6 +14,13 @@ public class ActionManager : MonoBehaviour
     public Unit SelectedUnit
     {
         get { return selectedUnit; }
+        set { SetSelectedUnit(value); }
+    }
+
+    public BaseAction SelectedAction
+    {
+        get { return selectedAction; }
+        set { SetSelectedAction(value); }
     }
 
     public static ActionManager Instance { get { return _instance; } }
@@ -28,7 +36,7 @@ public class ActionManager : MonoBehaviour
         }
     }
 
-    public void SetSelectedUnit(Unit newSelectedUnit)
+    void SetSelectedUnit(Unit newSelectedUnit)
     {
         //Unit Unselected
         if (newSelectedUnit == null)
@@ -38,6 +46,8 @@ public class ActionManager : MonoBehaviour
                 selectedUnit.SetSelectionVisual(false);
                 selectedUnit = null;
                 OnSelectedUnitChanged?.Invoke(this, EventArgs.Empty);
+                //when unit sellection gets canceled we also need to cancel action selection
+                SetSelectedAction(null);
             }
             return;
         }
@@ -84,29 +94,35 @@ public class ActionManager : MonoBehaviour
         Debug.Log(debugString);
     }
 
-    public void SetSelectedAction(BaseAction newSelectedAction)
+    void SetSelectedAction(BaseAction newSelectedAction)
     {
+        //Action Unselected
         if (newSelectedAction == null)
         {
             if (selectedAction != null)
             {
-                //unckeck visual for selected action
+                // selectedAction.SetSelectionVisual(false);
+                selectedAction = null;
+                OnSelectedActionChanged?.Invoke(this, EventArgs.Empty);
             }
-            selectedAction = null;
             return;
         }
 
+        //Clicked already selected Action
         if (newSelectedAction == selectedAction)
         {
             return;
         }
 
+        //Change Action selection
         if (selectedAction != null)
         {
-            ///unckeck visual for selected action
+            // selectedAction.SetSelectionVisual(false);
         }
         selectedAction = newSelectedAction;
-        // show action selection as true
+        // selectedAction.SetSelectionVisual(true);
+        OnSelectedActionChanged?.Invoke(this, EventArgs.Empty);
+
     }
 
     public void TestingSetFirstAction()

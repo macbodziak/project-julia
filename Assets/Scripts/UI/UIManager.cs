@@ -35,10 +35,14 @@ public class UIManager : MonoBehaviour
         if (selectedUnit != null)
         {
             List<BaseAction> actionList = selectedUnit.GetActionList();
-            abilityLayoutController.ShowAbilityList(actionList);
+            abilityLayoutController.CreateAndShowAbilityList(actionList);
         }
     }
 
+    public void handleSelectedActionChanged()
+    {
+
+    }
 
     private void OnDestroy()
     {
