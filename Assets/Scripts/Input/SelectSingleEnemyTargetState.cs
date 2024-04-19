@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class SelectSingleEnemyTargetState : BaseInputState
@@ -48,13 +49,17 @@ public class SelectSingleEnemyTargetState : BaseInputState
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ActionManager.Instance.SelectedUnit = null;
             InputManager.Instance.SetInputState(InputManager.State.SelectUnitAndAction);
-            if (hoveredOverUnit != null)
-            {
-                hoveredOverUnit.SetSelectionVisual(false);
-            }
-            //CHANGE TO SELECTUNITSTATE
+        }
+    }
+
+    public override void OnExit()
+    {
+        ActionManager.Instance.SelectedUnit = null;
+        if (hoveredOverUnit != null)
+        {
+            hoveredOverUnit.SetSelectionVisual(false);
         }
     }
 }
+
