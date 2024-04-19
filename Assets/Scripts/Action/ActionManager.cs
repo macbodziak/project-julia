@@ -8,8 +8,9 @@ public class ActionManager : MonoBehaviour
     public event EventHandler OnSelectedUnitChanged;
     public event EventHandler OnSelectedActionChanged;
     private static ActionManager _instance;
-    [SerializeField] Unit selectedUnit;
-    [SerializeField] BaseAction selectedAction;
+    private Unit selectedUnit;
+    [SerializeField] private List<Unit> TargetList;
+    private BaseAction selectedAction;
 
     public Unit SelectedUnit
     {
@@ -33,10 +34,11 @@ public class ActionManager : MonoBehaviour
         else
         {
             _instance = this;
+            InitializeOnAwake();
         }
     }
 
-    void SetSelectedUnit(Unit newSelectedUnit)
+    private void SetSelectedUnit(Unit newSelectedUnit)
     {
         //Unit Unselected
         if (newSelectedUnit == null)
@@ -94,14 +96,13 @@ public class ActionManager : MonoBehaviour
         Debug.Log(debugString);
     }
 
-    void SetSelectedAction(BaseAction newSelectedAction)
+    private void SetSelectedAction(BaseAction newSelectedAction)
     {
         //Action Unselected
         if (newSelectedAction == null)
         {
             if (selectedAction != null)
             {
-                // selectedAction.SetSelectionVisual(false);
                 selectedAction = null;
                 OnSelectedActionChanged?.Invoke(this, EventArgs.Empty);
             }
@@ -115,30 +116,27 @@ public class ActionManager : MonoBehaviour
         }
 
         //Change Action selection
-        if (selectedAction != null)
-        {
-            // selectedAction.SetSelectionVisual(false);
-        }
         selectedAction = newSelectedAction;
-        // selectedAction.SetSelectionVisual(true);
+        //// here check what type of state should there be
+        InputManager.Instance.SetInputState(InputManager.State.SelectSingleEnemyTarget);
         OnSelectedActionChanged?.Invoke(this, EventArgs.Empty);
 
     }
 
-    public void TestingSetFirstAction()
+    private void InitializeOnAwake()
     {
-        if (selectedUnit == null)
-        {
-            return;
-        }
-
-        List<BaseAction> actions = selectedUnit.GetActionList();
-        if (actions.Count == 0)
-        {
-            Debug.Log("no actions");
-            return;
-        }
-        SetSelectedAction(actions[0]);
-        selectedAction.StartAction();
+        TargetList = new List<Unit>();
     }
+
+    public void SetSingleTarget(Unit target)
+    {
+        TargetList.Clear();
+        TargetList.Add(target);
+    }
+
+    public void ClearTargetList()
+    {
+        TargetList.Clear();
+    }
+
 }

@@ -39,11 +39,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void handleSelectedActionChanged()
-    {
-
-    }
-
     private void OnDestroy()
     {
         if (ActionManager.Instance != null)

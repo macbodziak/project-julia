@@ -15,4 +15,9 @@ public class AttackAction : BaseAction
         Animator anim = GetComponent<Animator>();
         anim.SetTrigger("Attack");
     }
+
+    public override ActionType Type()
+    {
+        return ActionType.SingleEnemyTarget;
+    }
 }

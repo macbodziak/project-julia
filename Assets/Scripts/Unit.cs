@@ -7,6 +7,13 @@ public class Unit : MonoBehaviour
     Animator anim;
     SelectedVisual selectedVisual;
     [SerializeField] List<BaseAction> actionList;
+    [SerializeField] bool isPlayer;
+
+    public bool IsPlayer
+    {
+        get { return isPlayer; }
+    }
+
     void Awake()
     {
         anim = GetComponent<Animator>();

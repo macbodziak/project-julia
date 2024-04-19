@@ -5,6 +5,7 @@ using System;
 
 public abstract class BaseAction : MonoBehaviour
 {
+    public enum ActionType { SingleEnemyTarget, };
     //Events:
     public event EventHandler ActionStarted;
     public event EventHandler ActionCompleted;
@@ -33,4 +34,6 @@ public abstract class BaseAction : MonoBehaviour
     }
 
     public abstract string Name();
+
+    public abstract ActionType Type();
 }
