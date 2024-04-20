@@ -10,17 +10,20 @@ public class InputManager : MonoBehaviour
     {
         SelectUnitAndAction,
         SelectSingleEnemyTarget,
+        Blocked,
         NULL
     };
     private static InputManager _instance;
     public event EventHandler OnInputStateChanged;
-    private BaseInputState currentInputState;
+    private BaseInputState currentInputStateHandler;
     State currentState;
     State nextState;
     bool isStateChangeRequested;
+    bool isActionInProgress;
     BaseInputState[] inputStateArray = {
         new SelectUnitAndActionState(),
-        new SelectSingleEnemyTargetState()
+        new SelectSingleEnemyTargetState(),
+        new InputBlockedState()
         };
 
     public static InputManager Instance { get { return _instance; } }
@@ -39,7 +42,7 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-        currentInputState.HandleInput();
+        currentInputStateHandler.HandleInput();
 
         if (isStateChangeRequested)
         {
@@ -47,20 +50,28 @@ public class InputManager : MonoBehaviour
         }
     }
 
-
-    //This funtion handles the transition, but setting the state to be transitioned is done via SetInputState(State state)
+    //
+    // Summary:
+    // This funtion handles the transition, but setting the state to be transitioned is done 
+    // via SetInputState(State state).
+    // should not be called form outside of this class
     private void TransitionInputState()
     {
-        currentInputState.OnExit();
+        currentInputStateHandler.OnExit();
         currentState = nextState;
-        currentInputState = inputStateArray[(int)nextState];
+        currentInputStateHandler = inputStateArray[(int)nextState];
         Debug.Log("Changing Input state to" + nextState + "");
         nextState = State.NULL;
-        currentInputState.OnEnter();
+        currentInputStateHandler.OnEnter();
         isStateChangeRequested = false;
+        OnInputStateChanged?.Invoke(this, EventArgs.Empty);
     }
 
-    //Set the state to be transitioned to. The actual transition happen it TransitionInputState() at the end of Update(), after finishing handling input form previous state
+    //
+    // Summary:
+    // Set the state to be transitioned to. The actual transition happen it TransitionInputState()
+    // at the end of Update(), after finishing handling input form previous state
+    // This method should be called from outside this class to request a state change
     public void SetInputState(State state)
     {
         if (state == currentState)
@@ -71,11 +82,19 @@ public class InputManager : MonoBehaviour
         isStateChangeRequested = true;
     }
 
+    public State GetInputState()
+    {
+        return currentState;
+    }
+
     private void InitializationStateOnAwake()
     {
+        isActionInProgress = false;
+
+        //state related variables
         isStateChangeRequested = false;
         currentState = State.SelectUnitAndAction;
         nextState = State.NULL;
-        currentInputState = inputStateArray[(int)currentState];
+        currentInputStateHandler = inputStateArray[(int)currentState];
     }
 }

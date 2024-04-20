@@ -8,6 +8,7 @@ public class ActionManager : MonoBehaviour
     public event EventHandler OnSelectedUnitChanged;
     public event EventHandler OnSelectedActionChanged;
     public event EventHandler OnSelectedTargetsChanged;
+    public event EventHandler OnActionCompleted;
     private static ActionManager _instance;
     private Unit selectedUnit;
     [SerializeField] private List<Unit> TargetList;
@@ -147,6 +148,22 @@ public class ActionManager : MonoBehaviour
         TargetList.Clear();
         Debug.Log("clearing target list");
         OnSelectedTargetsChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void StartSelectedAction()
+    {
+        // if(selectedAction.ValidateArguments(TargetList))
+        InputManager.Instance.SetInputState(InputManager.State.Blocked);
+        selectedAction.StartAction(TargetList, InternalOnActionCompleted);
+    }
+
+    // summary
+    // this function is being provided as a callback for an action to inform the Action Manager 
+    // that the action has finished
+    private void InternalOnActionCompleted()
+    {
+        InputManager.Instance.SetInputState(InputManager.State.SelectUnitAndAction);
+        OnActionCompleted?.Invoke(this, EventArgs.Empty);
     }
 
 }

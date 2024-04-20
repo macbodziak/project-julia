@@ -33,6 +33,7 @@ public class SelectSingleEnemyTargetState : BaseInputState
                         if (Input.GetMouseButtonDown(0))
                         {
                             ActionManager.Instance.SetSingleTarget(hitUnit);
+                            ActionManager.Instance.StartSelectedAction();
                             Debug.Log(hitUnit + " choosen as target");
                         }
                     }
@@ -44,6 +45,7 @@ public class SelectSingleEnemyTargetState : BaseInputState
                 {
                     hoveredOverUnit.SetSelectionVisual(false);
                 }
+                hoveredOverUnit = null;
             }
         }
 
