@@ -7,6 +7,7 @@ public class ActionManager : MonoBehaviour
 {
     public event EventHandler OnSelectedUnitChanged;
     public event EventHandler OnSelectedActionChanged;
+    public event EventHandler OnSelectedTargetsChanged;
     private static ActionManager _instance;
     private Unit selectedUnit;
     [SerializeField] private List<Unit> TargetList;
@@ -130,13 +131,22 @@ public class ActionManager : MonoBehaviour
 
     public void SetSingleTarget(Unit target)
     {
+        if (TargetList.Contains(target))
+        {
+            return;
+        }
+
         TargetList.Clear();
         TargetList.Add(target);
+        OnSelectedTargetsChanged?.Invoke(this, EventArgs.Empty);
+        Debug.Log("adding target");
     }
 
     public void ClearTargetList()
     {
         TargetList.Clear();
+        Debug.Log("clearing target list");
+        OnSelectedTargetsChanged?.Invoke(this, EventArgs.Empty);
     }
 
 }
