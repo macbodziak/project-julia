@@ -10,9 +10,9 @@ public class ActionManager : MonoBehaviour
     public event EventHandler OnSelectedTargetsChanged;
     public event EventHandler OnActionCompleted;
     private static ActionManager _instance;
-    private Unit selectedUnit;
+    [SerializeField] private Unit selectedUnit;
     [SerializeField] private List<Unit> TargetList;
-    private BaseAction selectedAction;
+    [SerializeField] private BaseAction selectedAction;
 
     public Unit SelectedUnit
     {

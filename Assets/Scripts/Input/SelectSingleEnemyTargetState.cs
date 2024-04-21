@@ -57,8 +57,6 @@ public class SelectSingleEnemyTargetState : BaseInputState
 
     public override void OnExit()
     {
-        ActionManager.Instance.SelectedUnit = null;
-        ActionManager.Instance.ClearTargetList();
         if (hoveredOverUnit != null)
         {
             hoveredOverUnit.SetSelectionVisual(false);

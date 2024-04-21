@@ -30,4 +30,10 @@ public class SelectUnitAndActionState : BaseInputState
             ActionManager.Instance.SelectedUnit = null;
         }
     }
+
+    public override void OnEnter()
+    {
+        ActionManager.Instance.SelectedUnit = null;
+        ActionManager.Instance.ClearTargetList();
+    }
 }

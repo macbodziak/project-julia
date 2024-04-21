@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    Animator anim;
     SelectedVisual selectedVisual;
     [SerializeField] List<BaseAction> actionList;
     [SerializeField] bool isPlayer;
 
+    [SerializeField]
+    int healthPoints;
     public bool IsPlayer
     {
         get { return isPlayer; }
@@ -16,22 +17,10 @@ public class Unit : MonoBehaviour
 
     void Awake()
     {
-        anim = GetComponent<Animator>();
         selectedVisual = GetComponent<SelectedVisual>();
         GetComponents<BaseAction>(actionList);
     }
 
-
-
-    public void Attack()
-    {
-        // anim.SetTrigger("Attack");
-    }
-
-    public void Hurt()
-    {
-        anim.SetTrigger("Hurt");
-    }
 
     public void SetSelectionVisual(bool isVisible)
     {
@@ -41,5 +30,10 @@ public class Unit : MonoBehaviour
     public List<BaseAction> GetActionList()
     {
         return actionList;
+    }
+
+    public void TakeDamage(int damage)
+    {
+
     }
 }

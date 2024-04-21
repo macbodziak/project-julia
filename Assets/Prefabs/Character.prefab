@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1742735379046579339}
   - component: {fileID: 1742735379046579337}
   - component: {fileID: 6847566828056256262}
-  - component: {fileID: 4735473536228659994}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -71,6 +70,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionList: []
+  isPlayer: 0
+  healthPoints: 0
 --- !u!114 &6847566828056256262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,18 +86,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SpriteRenderer: {fileID: 7265899229540423764}
   isVisible: 0
---- !u!114 &4735473536228659994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1742735379046579338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d720f3590ce602d499ffb03dd36db8e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1742735379654307739
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,8 +257,8 @@ MonoBehaviour:
   - {fileID: 1742735379991340154}
   - {fileID: 1742735380410397130}
   m_Bounds:
-    m_Center: {x: 0.74873245, y: -0.121292114, z: 0}
-    m_Extent: {x: 2.0242743, y: 4.3876476, z: 0}
+    m_Center: {x: 1.0080082, y: -0.11250973, z: 0}
+    m_Extent: {x: 2.554455, y: 4.3760233, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0

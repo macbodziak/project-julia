@@ -19,7 +19,7 @@ public class InputManager : MonoBehaviour
     State currentState;
     State nextState;
     bool isStateChangeRequested;
-    bool isActionInProgress;
+
     BaseInputState[] inputStateArray = {
         new SelectUnitAndActionState(),
         new SelectSingleEnemyTargetState(),
@@ -89,8 +89,6 @@ public class InputManager : MonoBehaviour
 
     private void InitializationStateOnAwake()
     {
-        isActionInProgress = false;
-
         //state related variables
         isStateChangeRequested = false;
         currentState = State.SelectUnitAndAction;
