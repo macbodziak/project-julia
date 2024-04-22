@@ -10,8 +10,11 @@ public class ActionManager : MonoBehaviour
     public event EventHandler OnSelectedTargetsChanged;
     public event EventHandler OnActionCompleted;
     private static ActionManager _instance;
+    //Debug - Serialized for debugging only
     [SerializeField] private Unit selectedUnit;
+    //Debug - Serialized for debugging only
     [SerializeField] private List<Unit> TargetList;
+    //Debug - Serialized for debugging only
     [SerializeField] private BaseAction selectedAction;
 
     public Unit SelectedUnit
@@ -119,8 +122,11 @@ public class ActionManager : MonoBehaviour
 
         //Change Action selection
         selectedAction = newSelectedAction;
-        //// here check what type of state should there be
-        InputManager.Instance.SetInputState(InputManager.State.SelectSingleEnemyTarget);
+
+        InputManager.State inputState = GetInputStateBasedOnActionType(selectedAction.Type());
+        InputManager.Instance.SetInputState(inputState);
+
+        ///
         OnSelectedActionChanged?.Invoke(this, EventArgs.Empty);
 
     }
@@ -140,13 +146,18 @@ public class ActionManager : MonoBehaviour
         TargetList.Clear();
         TargetList.Add(target);
         OnSelectedTargetsChanged?.Invoke(this, EventArgs.Empty);
-        Debug.Log("adding target");
+    }
+
+    public void SetTargetList(List<Unit> targets)
+    {
+        TargetList.Clear();
+        TargetList.AddRange(targets);
+        OnSelectedTargetsChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public void ClearTargetList()
     {
         TargetList.Clear();
-        Debug.Log("clearing target list");
         OnSelectedTargetsChanged?.Invoke(this, EventArgs.Empty);
     }
 
@@ -166,4 +177,22 @@ public class ActionManager : MonoBehaviour
         OnActionCompleted?.Invoke(this, EventArgs.Empty);
     }
 
+    // summary
+    // this function maps the input state based on the declared Action Type
+    private InputManager.State GetInputStateBasedOnActionType(BaseAction.ActionType actionType)
+    {
+        switch (actionType)
+        {
+            case BaseAction.ActionType.SingleEnemyTarget:
+                return InputManager.State.SelectSingleEnemyTarget;
+            case BaseAction.ActionType.MultipleEnemyTargets:
+                return InputManager.State.SelectMultipleEnemyTargets;
+            case BaseAction.ActionType.AllEnemyTargets:
+                return InputManager.State.SelectAllEnemyTargets;
+        }
+
+        //default value;
+        return InputManager.State.SelectUnitAndAction;
+
+    }
 }

@@ -10,6 +10,8 @@ public class InputManager : MonoBehaviour
     {
         SelectUnitAndAction,
         SelectSingleEnemyTarget,
+        SelectMultipleEnemyTargets,
+        SelectAllEnemyTargets,
         Blocked,
         NULL
     };
@@ -23,6 +25,8 @@ public class InputManager : MonoBehaviour
     BaseInputState[] inputStateArray = {
         new SelectUnitAndActionState(),
         new SelectSingleEnemyTargetState(),
+        new SelectMultipleEnemyTargetsState(),
+        new SelectAllEnemyTargetsState(),
         new InputBlockedState()
         };
 
@@ -60,7 +64,6 @@ public class InputManager : MonoBehaviour
         currentInputStateHandler.OnExit();
         currentState = nextState;
         currentInputStateHandler = inputStateArray[(int)nextState];
-        Debug.Log("Changing Input state to" + nextState + "");
         nextState = State.NULL;
         currentInputStateHandler.OnEnter();
         isStateChangeRequested = false;

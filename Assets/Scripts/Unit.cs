@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 
 public class Unit : MonoBehaviour
@@ -8,8 +9,9 @@ public class Unit : MonoBehaviour
     [SerializeField] List<BaseAction> actionList;
     [SerializeField] bool isPlayer;
 
-    [SerializeField]
-    int healthPoints;
+    [SerializeField] int maxHealthPoints;
+    //Debug - Serialized for debugging only
+    [SerializeField] int currentHealthPoints;
     public bool IsPlayer
     {
         get { return isPlayer; }
@@ -17,6 +19,7 @@ public class Unit : MonoBehaviour
 
     void Awake()
     {
+        currentHealthPoints = maxHealthPoints;
         selectedVisual = GetComponent<SelectedVisual>();
         GetComponents<BaseAction>(actionList);
     }
@@ -34,6 +37,12 @@ public class Unit : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        currentHealthPoints -= damage;
 
+        if (currentHealthPoints <= 0)
+        {
+            currentHealthPoints = 0;
+            Debug.Log(gameObject + "  DIED");
+        }
     }
 }

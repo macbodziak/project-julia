@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 
 public abstract class BaseAction : MonoBehaviour
 {
-    public enum ActionType { SingleEnemyTarget };
+    public enum ActionType { SingleEnemyTarget, MultipleEnemyTargets, AllEnemyTargets };
 
     // this delegate will be used to pass a private function form the Action MAnager to know when action has completed
     protected Action OnActionCompletedCallback;
@@ -15,6 +15,7 @@ public abstract class BaseAction : MonoBehaviour
     protected bool isInProgress;
     protected Animator animator;
 
+    [SerializeField] protected string actionName;
 
     protected virtual void Awake()
     {
@@ -42,7 +43,11 @@ public abstract class BaseAction : MonoBehaviour
         OnActionCompletedCallback();
     }
 
-    public abstract string Name();
+    public string Name()
+    {
+        return actionName;
+    }
+
 
     public abstract ActionType Type();
 
@@ -50,9 +55,9 @@ public abstract class BaseAction : MonoBehaviour
 
     protected abstract void ExecuteActionLogic();
 
-    private void OnExecuteActionAnimationEventTriggered()
+    public virtual int GetNumberOfTargets()
     {
-        ExecuteActionLogic();
+        return 1;
     }
 
 }

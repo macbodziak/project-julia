@@ -1,23 +1,28 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class AttackSingleTargetAction : BaseAction
+public class AttackMultipleTargetsAction : BaseAction
 {
+
 
     [SerializeField] float actionDuration = 1.2f;
     [SerializeField] private int damage;
+    [SerializeField] private int numberOfTargets;
+
+    [SerializeField] private bool attacksAll;
+    private
+    // [SerializeField] private string actionName;
 
 
-    Unit targetUnit;
+    List<Unit> targetList;
 
     public override void StartAction(List<Unit> targets, Action onActionComplete)
     {
         this.OnActionCompletedCallback = onActionComplete;
-        targetUnit = targets[0];
-        animator.SetTrigger("Attack");
+        targetList = targets;
+        animator.SetTrigger("Attack2");
 
         StartCoroutine(PerformAction());
         OnActionStarted();
@@ -25,12 +30,16 @@ public class AttackSingleTargetAction : BaseAction
 
     public override ActionType Type()
     {
-        return ActionType.SingleEnemyTarget;
+        if (attacksAll)
+        {
+            return BaseAction.ActionType.AllEnemyTargets;
+        }
+        return BaseAction.ActionType.MultipleEnemyTargets;
     }
 
     public override bool ValidateArguments(List<Unit> targets)
     {
-        if (targets.Count == 1)
+        if (targets.Count >= 1)
         {
             return true;
         }
@@ -40,8 +49,12 @@ public class AttackSingleTargetAction : BaseAction
 
     protected override void ExecuteActionLogic()
     {
-        Debug.Log("" + unit.gameObject + " attacking " + targetUnit.gameObject);
-        targetUnit.TakeDamage(damage);
+
+        foreach (Unit target in targetList)
+        {
+            Debug.Log("" + unit.gameObject + " attacking " + target.gameObject);
+            target.TakeDamage(damage);
+        }
     }
 
     IEnumerator PerformAction()
@@ -50,5 +63,10 @@ public class AttackSingleTargetAction : BaseAction
         ExecuteActionLogic();
         OnActionCompleted();
         yield return null;
+    }
+
+    public override int GetNumberOfTargets()
+    {
+        return numberOfTargets;
     }
 }
