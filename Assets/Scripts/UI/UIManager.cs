@@ -28,6 +28,8 @@ public class UIManager : MonoBehaviour
     }
     private void Start()
     {
+        StateText.text = "Input State" + InputManager.Instance.GetInputState();
+
         ActionManager.Instance.OnSelectedUnitChanged += HandleSelectedUnitChanged;
         InputManager.Instance.OnInputStateChanged += HandleInputStateChanged;
     }
@@ -62,6 +64,6 @@ public class UIManager : MonoBehaviour
 
     private void InitializationOnAwake()
     {
-        StateText.text = "Input State" + InputManager.Instance.GetInputState();
+
     }
 }

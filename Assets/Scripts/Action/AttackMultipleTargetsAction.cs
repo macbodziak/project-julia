@@ -22,7 +22,7 @@ public class AttackMultipleTargetsAction : BaseAction
     {
         this.OnActionCompletedCallback = onActionComplete;
         targetList = targets;
-        animator.SetTrigger("Attack2");
+        animator.SetTrigger("AttackCombo");
 
         StartCoroutine(PerformAction());
         OnActionStarted();

@@ -8,10 +8,9 @@ public class SelectSingleEnemyTargetState : BaseInputState
     private Unit hoveredOverUnit;
     public override void HandleInput()
     {
-        RaycastHit2D hit = GetRaycastHit();
-        if (hit.collider != null)
+        GameObject hitGameObject = RaycastToGameObject();
+        if (hitGameObject != null)
         {
-            GameObject hitGameObject = hit.collider.transform.parent.gameObject;
             Unit hitUnit = hitGameObject.GetComponent<Unit>();
             if (hitUnit != null)
             {

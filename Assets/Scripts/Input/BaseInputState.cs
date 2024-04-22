@@ -4,11 +4,19 @@ using UnityEngine;
 
 public abstract class BaseInputState
 {
-    protected RaycastHit2D GetRaycastHit()
+    const int unitLayerMask = 1 << 3;
+    protected GameObject RaycastToGameObject()
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-        return Physics2D.Raycast(mousePos2D, Vector2.zero);
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        Physics.Raycast(ray, out hit, Mathf.Infinity, unitLayerMask);
+
+        if (hit.collider == null)
+        {
+            return null;
+        }
+        return hit.collider.gameObject;
     }
 
     public abstract void HandleInput();

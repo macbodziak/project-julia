@@ -8,10 +8,10 @@ public class SelectUnitAndActionState : BaseInputState
     {
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit2D hit = GetRaycastHit();
-            if (hit.collider != null)
+            GameObject clickedGameObject = RaycastToGameObject();
+            if (clickedGameObject != null)
             {
-                GameObject clickedGameObject = hit.collider.transform.parent.gameObject;
+                // GameObject clickedGameObject = hit.collider.transform.parent.gameObject;
                 Unit clickedUnit = clickedGameObject.GetComponent<Unit>();
                 if (clickedUnit != null)
                 {

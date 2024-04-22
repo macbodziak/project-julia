@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class SelectedVisual : MonoBehaviour
 {
-    [SerializeField] SpriteRenderer m_SpriteRenderer;
+    // [SerializeField] SpriteRenderer m_SpriteRenderer;
+    [SerializeField] MeshRenderer meshRenderer;
     [SerializeField] bool isVisible;
 
     void Awake()
@@ -30,7 +31,8 @@ public class SelectedVisual : MonoBehaviour
     public void SetSelectedVisual(bool b)
     {
         isVisible = b;
-        m_SpriteRenderer.enabled = b;
+        // m_SpriteRenderer.enabled = b;
+        meshRenderer.enabled = b;
     }
 
     public void Toggle()
