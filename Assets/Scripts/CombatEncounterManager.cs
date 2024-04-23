@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,6 +30,12 @@ public class CombatEncounterManager : MonoBehaviour
         // inititlization code comes here
     }
 
+    private void Start()
+    {
+        Unit.OnAnyUnitDied += HandleAnyUnitDied;
+    }
+
+
     public int GetEnemyCount()
     {
         return enemyUnits.Count;
@@ -37,5 +44,36 @@ public class CombatEncounterManager : MonoBehaviour
     public List<Unit> GetEnemyUnitList()
     {
         return enemyUnits;
+    }
+
+    private void HandleAnyUnitDied(object sender, EventArgs e)
+    {
+        Unit unit = (Unit)sender;
+        if (unit.IsPlayer)
+        {
+            RegisterPlayerCharacterDeath(unit);
+        }
+        else
+        {
+            RegisterEnemyDeath(unit);
+        }
+    }
+
+    private void RegisterEnemyDeath(Unit unit)
+    {
+        enemyUnits.Remove(unit);
+        if (enemyUnits.Count == 0)
+        {
+            Debug.Log("All enemies are dead");
+        }
+    }
+
+    private void RegisterPlayerCharacterDeath(Unit unit)
+    {
+        playerUnits.Remove(unit);
+        if (playerUnits.Count == 0)
+        {
+            Debug.Log("All player characters are dead");
+        }
     }
 }

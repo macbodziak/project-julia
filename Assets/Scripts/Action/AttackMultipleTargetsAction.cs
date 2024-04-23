@@ -5,18 +5,13 @@ using UnityEngine;
 
 public class AttackMultipleTargetsAction : BaseAction
 {
-
-
-    [SerializeField] float actionDuration = 1.2f;
     [SerializeField] private int damage;
     [SerializeField] private int numberOfTargets;
 
     [SerializeField] private bool attacksAll;
-    private
-    // [SerializeField] private string actionName;
 
 
-    List<Unit> targetList;
+    private List<Unit> targetList;
 
     public override void StartAction(List<Unit> targets, Action onActionComplete)
     {
@@ -52,17 +47,8 @@ public class AttackMultipleTargetsAction : BaseAction
 
         foreach (Unit target in targetList)
         {
-            Debug.Log("" + unit.gameObject + " attacking " + target.gameObject);
             target.TakeDamage(damage);
         }
-    }
-
-    IEnumerator PerformAction()
-    {
-        yield return new WaitForSeconds(actionDuration);
-        ExecuteActionLogic();
-        OnActionCompleted();
-        yield return null;
     }
 
     public override int GetNumberOfTargets()

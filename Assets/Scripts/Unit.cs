@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
+using System;
 
 public class Unit : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class Unit : MonoBehaviour
     [SerializeField] List<BaseAction> actionList;
     [SerializeField] bool isPlayer;
 
+    public static event EventHandler OnAnyUnitDied;
     [SerializeField] int maxHealthPoints;
     //Debug - Serialized for debugging only
     [SerializeField] int currentHealthPoints;
@@ -42,7 +45,31 @@ public class Unit : MonoBehaviour
         if (currentHealthPoints <= 0)
         {
             currentHealthPoints = 0;
-            Debug.Log(gameObject + "  DIED");
+            OnDeath();
         }
+        else
+        {
+            Animator anim = GetComponent<Animator>();
+            anim.SetTrigger("HitReaction");
+        }
+    }
+
+    // private void OnMouseEnter()
+    // {
+    //     Debug.Log(gameObject + " on mouse enter");
+    // }
+    private void OnDeath()
+    {
+        Debug.Log(gameObject + "  DIED");
+        Animator anim = GetComponent<Animator>();
+        //after death we do not vare avout restrivting root motion anymore and it improves death animation
+        anim.applyRootMotion = true;
+        //TO DO trigger some VFX and SFX on death
+        anim.SetTrigger("Die");
+
+        //disable collider so the unit cannot be clicked anymore
+        Collider collider = GetComponent<Collider>();
+        collider.enabled = false;
+        OnAnyUnitDied?.Invoke(this, EventArgs.Empty);
     }
 }

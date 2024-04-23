@@ -357,6 +357,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 508309180124409411, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: maxHealthPoints
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2365483820219811357, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -404,6 +408,10 @@ PrefabInstance:
     - target: {fileID: 2365483820219978411, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365483820229437467, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
@@ -740,6 +748,10 @@ PrefabInstance:
     - target: {fileID: 1920343570404700170, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: actionName
       value: Smash
+      objectReference: {fileID: 0}
+    - target: {fileID: 2351763844855192657, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: damage
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2351763844855192657, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: actionName
@@ -1394,6 +1406,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 508309180124409411, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: maxHealthPoints
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2365483820219811357, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1441,6 +1457,10 @@ PrefabInstance:
     - target: {fileID: 2365483820219978411, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365483820229437467, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
@@ -2098,6 +2118,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 508309180124409411, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: maxHealthPoints
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 2365483820219811357, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2145,6 +2169,18 @@ PrefabInstance:
     - target: {fileID: 2365483820219978411, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365483820220055541, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365483820220084097, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365483820229437467, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}

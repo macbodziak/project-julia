@@ -7,7 +7,6 @@ using UnityEngine;
 public class AttackSingleTargetAction : BaseAction
 {
 
-    [SerializeField] float actionDuration = 1.2f;
     [SerializeField] private int damage;
 
 
@@ -40,15 +39,6 @@ public class AttackSingleTargetAction : BaseAction
 
     protected override void ExecuteActionLogic()
     {
-        Debug.Log("" + unit.gameObject + " attacking " + targetUnit.gameObject);
         targetUnit.TakeDamage(damage);
-    }
-
-    IEnumerator PerformAction()
-    {
-        yield return new WaitForSeconds(actionDuration);
-        ExecuteActionLogic();
-        OnActionCompleted();
-        yield return null;
     }
 }

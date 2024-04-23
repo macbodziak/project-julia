@@ -14,6 +14,7 @@ public abstract class BaseAction : MonoBehaviour
     protected Unit unit;
     protected bool isInProgress;
     protected Animator animator;
+    [SerializeField] float actionDuration = 1.2f;
 
     [SerializeField] protected string actionName;
 
@@ -58,6 +59,15 @@ public abstract class BaseAction : MonoBehaviour
     public virtual int GetNumberOfTargets()
     {
         return 1;
+    }
+    protected virtual IEnumerator PerformAction()
+    {
+        yield return new WaitForSeconds(actionDuration * 0.3f);
+        ExecuteActionLogic();
+        //TO DO play audio
+        yield return new WaitForSeconds(actionDuration * 0.7f);
+        OnActionCompleted();
+        yield return null;
     }
 
 }
