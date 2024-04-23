@@ -12,12 +12,19 @@ public class Unit : MonoBehaviour
     [SerializeField] bool isPlayer;
 
     public static event EventHandler OnAnyUnitDied;
+    public static event EventHandler OnMouseEnterAnyUnit;
+    public static event EventHandler OnMouseExitAnyUnit;
     [SerializeField] int maxHealthPoints;
     //Debug - Serialized for debugging only
     [SerializeField] int currentHealthPoints;
     public bool IsPlayer
     {
         get { return isPlayer; }
+    }
+
+    public int CurrentHealthPoints
+    {
+        get { return currentHealthPoints; }
     }
 
     void Awake()
@@ -54,10 +61,6 @@ public class Unit : MonoBehaviour
         }
     }
 
-    // private void OnMouseEnter()
-    // {
-    //     Debug.Log(gameObject + " on mouse enter");
-    // }
     private void OnDeath()
     {
         Debug.Log(gameObject + "  DIED");
@@ -70,6 +73,17 @@ public class Unit : MonoBehaviour
         //disable collider so the unit cannot be clicked anymore
         Collider collider = GetComponent<Collider>();
         collider.enabled = false;
+
         OnAnyUnitDied?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void OnMouseEnter()
+    {
+        OnMouseEnterAnyUnit?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void OnMouseExit()
+    {
+        OnMouseExitAnyUnit?.Invoke(this, EventArgs.Empty);
     }
 }
