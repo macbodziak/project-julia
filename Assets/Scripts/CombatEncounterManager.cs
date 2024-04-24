@@ -32,7 +32,7 @@ public class CombatEncounterManager : MonoBehaviour
 
     private void Start()
     {
-        Unit.OnAnyUnitDied += HandleAnyUnitDied;
+        Unit.OnAnyUnitTookDamage += HandleAnyUnitTookDamage;
     }
 
 
@@ -46,16 +46,21 @@ public class CombatEncounterManager : MonoBehaviour
         return enemyUnits;
     }
 
-    private void HandleAnyUnitDied(object sender, EventArgs e)
+
+    private void HandleAnyUnitTookDamage(object sender, DamageTakenEventArgs eventArgs)
     {
         Unit unit = (Unit)sender;
-        if (unit.IsPlayer)
+
+        if (eventArgs.IsKillingBlow)
         {
-            RegisterPlayerCharacterDeath(unit);
-        }
-        else
-        {
-            RegisterEnemyDeath(unit);
+            if (unit.IsPlayer)
+            {
+                RegisterPlayerCharacterDeath(unit);
+            }
+            else
+            {
+                RegisterEnemyDeath(unit);
+            }
         }
     }
 

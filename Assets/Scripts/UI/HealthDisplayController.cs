@@ -19,17 +19,26 @@ public class HealthDisplayController : MonoBehaviour
     {
         Unit.OnMouseEnterAnyUnit += HandleMouseEnterAnyUnit;
         Unit.OnMouseExitAnyUnit += HandleMouseExitAnyUnit;
+
+        Unit.OnAnyUnitTookDamage += HandleAnyUnitTookDamage;
     }
 
     private void HandleMouseEnterAnyUnit(object sender, EventArgs e)
     {
         Unit unit = (Unit)sender;
-        string text = "< " + unit.CurrentHealthPoints + " > HP";
+        string text = "HP " + unit.CurrentHealthPoints + "\nAP " + unit.ActionPoints;
         dislayedText = textDrawer.DisplayTextAtGameObject(text, unit.gameObject, new Vector2(0, -50));
     }
 
     private void HandleMouseExitAnyUnit(object sender, EventArgs e)
     {
         Destroy(dislayedText.gameObject);
+    }
+
+    private void HandleAnyUnitTookDamage(object sender, EventArgs e)
+    {
+        DamageTakenEventArgs args = (DamageTakenEventArgs)e;
+        Unit unit = (Unit)sender;
+        textDrawer.DisplayRaisingTextAtGameObject("-" + args.Damage, unit.gameObject, new Vector2(0f, 50f), 90f, 1.2f);
     }
 }

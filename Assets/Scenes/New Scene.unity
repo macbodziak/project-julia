@@ -265,7 +265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3283594947867021223, guid: 82b0625ffdf2bb0409104cef0c65e076, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3283594947867021223, guid: 82b0625ffdf2bb0409104cef0c65e076, type: 3}
       propertyPath: m_AnchorMax.x
@@ -745,6 +745,10 @@ PrefabInstance:
       propertyPath: actionName
       value: bang
       objectReference: {fileID: 0}
+    - target: {fileID: 334379717127689139, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: actionPointCost
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1920343570404700170, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: actionName
       value: Smash
@@ -757,13 +761,17 @@ PrefabInstance:
       propertyPath: actionName
       value: Fireball
       objectReference: {fileID: 0}
+    - target: {fileID: 2351763844855192657, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: actionPointCost
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3401980568171535901, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: m_Name
       value: Player_Hero (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3415351027952980191, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3415351027952980191, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -808,6 +816,10 @@ PrefabInstance:
     - target: {fileID: 4167539627588839332, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937388909013420697, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: actionPoints
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9009305048716636242, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: m_IsActive
@@ -2038,6 +2050,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 334379717127689139, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: actionPointCost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2351763844855192657, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: actionPointCost
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3401980568171535901, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: m_Name
       value: Player_Hero
@@ -2090,6 +2110,10 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6937388909013420697, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: actionPoints
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
 --- !u!114 &1921367328 stripped
@@ -2121,7 +2145,7 @@ GameObject:
   - component: {fileID: 1961936174}
   - component: {fileID: 1961936173}
   m_Layer: 5
-  m_Name: HealthCanvas
+  m_Name: DynamicText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

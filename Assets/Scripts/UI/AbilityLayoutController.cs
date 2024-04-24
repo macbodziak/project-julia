@@ -28,10 +28,12 @@ public class AbilityLayoutController : MonoBehaviour
         foreach (var action in actions)
         {
             ActionButton newActionButton = Instantiate(buttonPrefab, transform);
-            // newButton.GetComponentInChildren<TextMeshProUGUI>().text = action.Name();
-            // replace with
             newActionButton.ActionName = action.Name();
             newActionButton.button.onClick.AddListener(() => { ActionManager.Instance.SelectedAction = action; });
+            if (ActionManager.Instance.SelectedUnit.ActionPoints < action.ActionPointCost)
+            {
+                newActionButton.button.interactable = false;
+            }
             buttonList.Add(newActionButton);
         }
     }

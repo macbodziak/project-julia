@@ -11,12 +11,14 @@ public class Unit : MonoBehaviour
     [SerializeField] List<BaseAction> actionList;
     [SerializeField] bool isPlayer;
 
-    public static event EventHandler OnAnyUnitDied;
+    public static event EventHandler<DamageTakenEventArgs> OnAnyUnitTookDamage;
     public static event EventHandler OnMouseEnterAnyUnit;
     public static event EventHandler OnMouseExitAnyUnit;
     [SerializeField] int maxHealthPoints;
-    //Debug - Serialized for debugging only
-    [SerializeField] int currentHealthPoints;
+
+    [SerializeField] int actionPoints;
+
+    int currentHealthPoints;
     public bool IsPlayer
     {
         get { return isPlayer; }
@@ -25,6 +27,12 @@ public class Unit : MonoBehaviour
     public int CurrentHealthPoints
     {
         get { return currentHealthPoints; }
+    }
+
+    public int ActionPoints
+    {
+        get { return actionPoints; }
+        set { actionPoints = value; }
     }
 
     void Awake()
@@ -56,9 +64,10 @@ public class Unit : MonoBehaviour
         }
         else
         {
-            Animator anim = GetComponent<Animator>();
-            anim.SetTrigger("HitReaction");
+            OnDamageTaken(damage);
         }
+
+        OnAnyUnitTookDamage?.Invoke(this, new DamageTakenEventArgs(damage, currentHealthPoints <= 0));
     }
 
     private void OnDeath()
@@ -73,8 +82,12 @@ public class Unit : MonoBehaviour
         //disable collider so the unit cannot be clicked anymore
         Collider collider = GetComponent<Collider>();
         collider.enabled = false;
+    }
 
-        OnAnyUnitDied?.Invoke(this, EventArgs.Empty);
+    private void OnDamageTaken(int damage)
+    {
+        Animator anim = GetComponent<Animator>();
+        anim.SetTrigger("HitReaction");
     }
 
     private void OnMouseEnter()

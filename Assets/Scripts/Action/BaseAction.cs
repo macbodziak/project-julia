@@ -7,6 +7,13 @@ using Unity.VisualScripting;
 public abstract class BaseAction : MonoBehaviour
 {
     public enum ActionType { SingleEnemyTarget, MultipleEnemyTargets, AllEnemyTargets };
+    [SerializeField] private int actionPointCost;
+
+    public int ActionPointCost
+    {
+        get { return actionPointCost; }
+        private set { actionPointCost = value; }
+    }
 
     // this delegate will be used to pass a private function form the Action MAnager to know when action has completed
     protected Action OnActionCompletedCallback;
@@ -62,6 +69,7 @@ public abstract class BaseAction : MonoBehaviour
     }
     protected virtual IEnumerator PerformAction()
     {
+        unit.ActionPoints -= actionPointCost;
         yield return new WaitForSeconds(actionDuration * 0.3f);
         ExecuteActionLogic();
         //TO DO play audio

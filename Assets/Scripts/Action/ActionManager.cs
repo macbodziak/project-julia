@@ -121,13 +121,16 @@ public class ActionManager : MonoBehaviour
         }
 
         //Change Action selection
-        selectedAction = newSelectedAction;
+        if (newSelectedAction.ActionPointCost <= selectedUnit.ActionPoints)
+        {
 
-        InputManager.State inputState = GetInputStateBasedOnActionType(selectedAction.Type());
-        InputManager.Instance.SetInputState(inputState);
+            selectedAction = newSelectedAction;
 
-        ///
-        OnSelectedActionChanged?.Invoke(this, EventArgs.Empty);
+            InputManager.State inputState = GetInputStateBasedOnActionType(selectedAction.Type());
+            InputManager.Instance.SetInputState(inputState);
+
+            OnSelectedActionChanged?.Invoke(this, EventArgs.Empty);
+        }
 
     }
 
