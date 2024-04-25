@@ -35,6 +35,10 @@ public class AbilityLayoutController : MonoBehaviour
             {
                 newActionButton.button.interactable = false;
             }
+            else
+            {
+                newActionButton.button.interactable = true;
+            }
             buttonList.Add(newActionButton);
         }
     }
@@ -51,7 +55,21 @@ public class AbilityLayoutController : MonoBehaviour
             {
                 actionButton.button.interactable = true;
             }
-            // actionButton.SetSelectedVisual(false);
+        }
+    }
+
+    public void SetInteractable(bool _interactable)
+    {
+        if (_interactable == false)
+        {
+            foreach (ActionButton actionButton in buttonList)
+            {
+                actionButton.button.interactable = false;
+            }
+        }
+        else
+        {
+            RefreshAbilityList();
         }
     }
 }

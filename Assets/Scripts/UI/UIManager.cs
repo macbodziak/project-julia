@@ -14,6 +14,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] Button endTurnButton;
     [SerializeField] TextMeshProUGUI endTurnText;
 
+    bool isInputBlocked;
+
     static UIManager _instance;
 
     public static UIManager Instance { get { return _instance; } }
@@ -31,6 +33,8 @@ public class UIManager : MonoBehaviour
     }
     private void Start()
     {
+        isInputBlocked = false;
+
         stateText.text = "Input State" + InputManager.Instance.CurrentState;
         endTurnButton.onClick.AddListener(TurnManager.Instance.EndTurn);
 
@@ -59,6 +63,25 @@ public class UIManager : MonoBehaviour
         stateText.text = "Input State" + InputManager.Instance.CurrentState;
 
         //if blocked, grey out all interactable elements
+        if (InputManager.Instance.CurrentState == InputManager.State.Blocked)
+        {
+            isInputBlocked = true;
+            OnBlockedInputStateEnter();
+        }
+        else if (isInputBlocked == true)
+        {
+            isInputBlocked = false;
+            OnBlockedInputStateExit();
+        }
+    }
+
+    private void OnBlockedInputStateEnter()
+    {
+        abilityLayoutController.SetInteractable(false);
+    }
+    private void OnBlockedInputStateExit()
+    {
+        abilityLayoutController.SetInteractable(true);
     }
 
     private void HandleTurnEnded(object Sender, EventArgs eventArgs)
