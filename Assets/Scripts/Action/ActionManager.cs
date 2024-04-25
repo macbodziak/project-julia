@@ -192,6 +192,8 @@ public class ActionManager : MonoBehaviour
                 return InputManager.State.SelectMultipleEnemyTargets;
             case BaseAction.ActionType.AllEnemyTargets:
                 return InputManager.State.SelectAllEnemyTargets;
+            case BaseAction.ActionType.NoTarget:
+                return InputManager.State.SelectNoTarget;
         }
 
         //default value;

@@ -3,19 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackSingleTargetAction : BaseAction
+public class IdleAction : BaseAction
 {
-
-    [SerializeField] private int damage;
-
-
-    Unit targetUnit;
-
     public override void StartAction(List<Unit> targets, Action onActionComplete)
     {
         this.OnActionCompletedCallback = onActionComplete;
-        targetUnit = targets[0];
-        animator.SetTrigger("Attack");
+        animator.SetTrigger("Confused");
 
         StartCoroutine(PerformAction());
         OnActionStarted();
@@ -23,11 +16,11 @@ public class AttackSingleTargetAction : BaseAction
 
     public override ActionType Type()
     {
-        return ActionType.SingleEnemyTarget;
+        return ActionType.NoTarget;
     }
 
     protected override void ExecuteActionLogic()
     {
-        targetUnit.TakeDamage(damage);
+        Debug.Log(gameObject + " is doing nothing...");
     }
 }

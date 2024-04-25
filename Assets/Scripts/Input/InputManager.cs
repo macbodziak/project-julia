@@ -12,6 +12,11 @@ public class InputManager : MonoBehaviour
         SelectSingleEnemyTarget,
         SelectMultipleEnemyTargets,
         SelectAllEnemyTargets,
+        // SelectSelfTarget,
+        // SelectSingleAllyTarget,
+        // SelectMultipleAllyTargets,
+        // SelectAllAllyTargets,
+        SelectNoTarget,
         Blocked,
         NULL
     };
@@ -32,7 +37,8 @@ public class InputManager : MonoBehaviour
         new SelectSingleEnemyTargetState(),
         new SelectMultipleEnemyTargetsState(),
         new SelectAllEnemyTargetsState(),
-        new InputBlockedState()
+        new SelectNoTargetState(),
+        new InputBlockedState(),
         };
 
     public static InputManager Instance { get { return _instance; } }

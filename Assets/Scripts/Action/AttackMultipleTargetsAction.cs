@@ -32,16 +32,6 @@ public class AttackMultipleTargetsAction : BaseAction
         return BaseAction.ActionType.MultipleEnemyTargets;
     }
 
-    public override bool ValidateArguments(List<Unit> targets)
-    {
-        if (targets.Count >= 1)
-        {
-            return true;
-        }
-
-        return false;
-    }
-
     protected override void ExecuteActionLogic()
     {
 

@@ -6,7 +6,17 @@ using Unity.VisualScripting;
 
 public abstract class BaseAction : MonoBehaviour
 {
-    public enum ActionType { SingleEnemyTarget, MultipleEnemyTargets, AllEnemyTargets };
+    public enum ActionType
+    {
+        SingleEnemyTarget,
+        MultipleEnemyTargets,
+        AllEnemyTargets,
+        SelfTarget,
+        SingleAllyTarget,
+        MultipleAllyTargets,
+        AllAllyTargets,
+        NoTarget
+    };
     [SerializeField] private int actionPointCost;
 
     public int ActionPointCost
@@ -58,8 +68,6 @@ public abstract class BaseAction : MonoBehaviour
 
 
     public abstract ActionType Type();
-
-    public abstract bool ValidateArguments(List<Unit> targets);
 
     protected abstract void ExecuteActionLogic();
 
