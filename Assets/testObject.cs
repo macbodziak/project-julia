@@ -15,9 +15,9 @@ public class testObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ActionManager.Instance.OnSelectedUnitChanged += HandleSelectedUnitChanged;
-        ActionManager.Instance.OnSelectedActionChanged += HandleSelectedActionChanged;
-        ActionManager.Instance.OnSelectedTargetsChanged += HandleSelectedTargetsChanged;
+        ActionManager.Instance.SelectedUnitChangedEvent += HandleSelectedUnitChanged;
+        ActionManager.Instance.SelectedActionChangedEvent += HandleSelectedActionChanged;
+        ActionManager.Instance.SelectedTargetsChangedEvent += HandleSelectedTargetsChanged;
         // baseAction.ActionStarted += TestObject_OnActionStarted;
         // baseAction.ActionCompleted += TestObject_OnActionCompleted;
     }
@@ -54,9 +54,9 @@ public class testObject : MonoBehaviour
 
     private void OnDestroy()
     {
-        ActionManager.Instance.OnSelectedUnitChanged -= HandleSelectedUnitChanged;
-        ActionManager.Instance.OnSelectedActionChanged -= HandleSelectedActionChanged;
-        ActionManager.Instance.OnSelectedTargetsChanged -= HandleSelectedTargetsChanged;
+        ActionManager.Instance.SelectedUnitChangedEvent -= HandleSelectedUnitChanged;
+        ActionManager.Instance.SelectedActionChangedEvent -= HandleSelectedActionChanged;
+        ActionManager.Instance.SelectedTargetsChangedEvent -= HandleSelectedTargetsChanged;
     }
 
     public void HandleSelectedTargetsChanged(object sender, EventArgs e)

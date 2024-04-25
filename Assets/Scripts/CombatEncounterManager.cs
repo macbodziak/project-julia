@@ -46,6 +46,11 @@ public class CombatEncounterManager : MonoBehaviour
         return enemyUnits;
     }
 
+    public List<Unit> GetPlayerUnitList()
+    {
+        return playerUnits;
+    }
+
 
     private void HandleAnyUnitTookDamage(object sender, DamageTakenEventArgs eventArgs)
     {

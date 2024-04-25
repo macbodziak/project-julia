@@ -16,6 +16,7 @@ public class Unit : MonoBehaviour
     public static event EventHandler OnMouseExitAnyUnit;
     [SerializeField] int maxHealthPoints;
 
+    [SerializeField] int maxActionPoints;
     [SerializeField] int actionPoints;
 
     int currentHealthPoints;
@@ -38,6 +39,8 @@ public class Unit : MonoBehaviour
     void Awake()
     {
         currentHealthPoints = maxHealthPoints;
+        ActionPoints = maxActionPoints;
+
         selectedVisual = GetComponent<SelectedVisual>();
         GetComponents<BaseAction>(actionList);
     }
@@ -88,6 +91,11 @@ public class Unit : MonoBehaviour
     {
         Animator anim = GetComponent<Animator>();
         anim.SetTrigger("HitReaction");
+    }
+
+    public void ResetActionPoints()
+    {
+        ActionPoints = maxActionPoints;
     }
 
     private void OnMouseEnter()

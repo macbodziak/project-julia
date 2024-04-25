@@ -5,10 +5,10 @@ using System;
 
 public class ActionManager : MonoBehaviour
 {
-    public event EventHandler OnSelectedUnitChanged;
-    public event EventHandler OnSelectedActionChanged;
-    public event EventHandler OnSelectedTargetsChanged;
-    public event EventHandler OnActionCompleted;
+    public event EventHandler SelectedUnitChangedEvent;
+    public event EventHandler SelectedActionChangedEvent;
+    public event EventHandler SelectedTargetsChangedEvent;
+    public event EventHandler ActionCompletedEvent;
     private static ActionManager _instance;
     //Debug - Serialized for debugging only
     [SerializeField] private Unit selectedUnit;
@@ -52,7 +52,7 @@ public class ActionManager : MonoBehaviour
             {
                 selectedUnit.SetSelectionVisual(false);
                 selectedUnit = null;
-                OnSelectedUnitChanged?.Invoke(this, EventArgs.Empty);
+                SelectedUnitChangedEvent?.Invoke(this, EventArgs.Empty);
                 //when unit sellection gets canceled we also need to cancel action selection
                 SetSelectedAction(null);
             }
@@ -73,7 +73,7 @@ public class ActionManager : MonoBehaviour
         selectedUnit = newSelectedUnit;
         selectedUnit.SetSelectionVisual(true);
         PrintUnitActions();
-        OnSelectedUnitChanged?.Invoke(this, EventArgs.Empty);
+        SelectedUnitChangedEvent?.Invoke(this, EventArgs.Empty);
 
     }
 
@@ -109,7 +109,7 @@ public class ActionManager : MonoBehaviour
             if (selectedAction != null)
             {
                 selectedAction = null;
-                OnSelectedActionChanged?.Invoke(this, EventArgs.Empty);
+                SelectedActionChangedEvent?.Invoke(this, EventArgs.Empty);
             }
             return;
         }
@@ -127,9 +127,9 @@ public class ActionManager : MonoBehaviour
             selectedAction = newSelectedAction;
 
             InputManager.State inputState = GetInputStateBasedOnActionType(selectedAction.Type());
-            InputManager.Instance.SetInputState(inputState);
+            InputManager.Instance.CurrentState = inputState;
 
-            OnSelectedActionChanged?.Invoke(this, EventArgs.Empty);
+            SelectedActionChangedEvent?.Invoke(this, EventArgs.Empty);
         }
 
     }
@@ -148,26 +148,26 @@ public class ActionManager : MonoBehaviour
 
         TargetList.Clear();
         TargetList.Add(target);
-        OnSelectedTargetsChanged?.Invoke(this, EventArgs.Empty);
+        SelectedTargetsChangedEvent?.Invoke(this, EventArgs.Empty);
     }
 
     public void SetTargetList(List<Unit> targets)
     {
         TargetList.Clear();
         TargetList.AddRange(targets);
-        OnSelectedTargetsChanged?.Invoke(this, EventArgs.Empty);
+        SelectedTargetsChangedEvent?.Invoke(this, EventArgs.Empty);
     }
 
     public void ClearTargetList()
     {
         TargetList.Clear();
-        OnSelectedTargetsChanged?.Invoke(this, EventArgs.Empty);
+        SelectedTargetsChangedEvent?.Invoke(this, EventArgs.Empty);
     }
 
     public void StartSelectedAction()
     {
         // if(selectedAction.ValidateArguments(TargetList))
-        InputManager.Instance.SetInputState(InputManager.State.Blocked);
+        InputManager.Instance.CurrentState = InputManager.State.Blocked;
         selectedAction.StartAction(TargetList, InternalOnActionCompleted);
     }
 
@@ -176,8 +176,8 @@ public class ActionManager : MonoBehaviour
     // that the action has finished
     private void InternalOnActionCompleted()
     {
-        InputManager.Instance.SetInputState(InputManager.State.SelectUnitAndAction);
-        OnActionCompleted?.Invoke(this, EventArgs.Empty);
+        InputManager.Instance.CurrentState = InputManager.State.SelectUnitAndAction;
+        ActionCompletedEvent?.Invoke(this, EventArgs.Empty);
     }
 
     // summary

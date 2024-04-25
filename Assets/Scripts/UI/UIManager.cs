@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+
     [SerializeField] AbilityLayoutController abilityLayoutController;
     [SerializeField] TextMeshProUGUI StateText;
 
@@ -28,10 +29,10 @@ public class UIManager : MonoBehaviour
     }
     private void Start()
     {
-        StateText.text = "Input State" + InputManager.Instance.GetInputState();
+        StateText.text = "Input State" + InputManager.Instance.CurrentState;
 
-        ActionManager.Instance.OnSelectedUnitChanged += HandleSelectedUnitChanged;
-        InputManager.Instance.OnInputStateChanged += HandleInputStateChanged;
+        ActionManager.Instance.SelectedUnitChangedEvent += HandleSelectedUnitChanged;
+        InputManager.Instance.InputStateChangedEvent += HandleInputStateChanged;
     }
 
     private void HandleSelectedUnitChanged(object Sender, EventArgs eventArgs)
@@ -49,17 +50,17 @@ public class UIManager : MonoBehaviour
     {
         if (ActionManager.Instance != null)
         {
-            ActionManager.Instance.OnSelectedUnitChanged -= HandleSelectedUnitChanged;
+            ActionManager.Instance.SelectedUnitChangedEvent -= HandleSelectedUnitChanged;
         }
         if (InputManager.Instance != null)
         {
-            InputManager.Instance.OnInputStateChanged -= HandleInputStateChanged;
+            InputManager.Instance.InputStateChangedEvent -= HandleInputStateChanged;
         }
     }
 
     private void HandleInputStateChanged(object Sender, EventArgs eventArgs)
     {
-        StateText.text = "Input State" + InputManager.Instance.GetInputState();
+        StateText.text = "Input State" + InputManager.Instance.CurrentState;
     }
 
     private void InitializationOnAwake()

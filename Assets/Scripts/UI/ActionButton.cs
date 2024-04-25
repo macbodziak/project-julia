@@ -17,11 +17,12 @@ public class ActionButton : MonoBehaviour
     {
         button = GetComponent<Button>();
 
-        ActionManager.Instance.OnSelectedActionChanged += handleSelectedActionChanged;
+        ActionManager.Instance.SelectedActionChangedEvent += handleSelectedActionChanged;
     }
 
     public string ActionName
     {
+
         set { actionName = value; GetComponentInChildren<TMPro.TextMeshProUGUI>().text = value; }
         get { return actionName; }
     }
@@ -50,7 +51,7 @@ public class ActionButton : MonoBehaviour
 
     private void OnDestroy()
     {
-        ActionManager.Instance.OnSelectedActionChanged -= handleSelectedActionChanged;
+        ActionManager.Instance.SelectedActionChangedEvent -= handleSelectedActionChanged;
     }
     // to be implemented later:
     // public void SetImage();

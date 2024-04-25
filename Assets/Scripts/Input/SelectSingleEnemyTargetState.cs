@@ -46,7 +46,7 @@ public class SelectSingleEnemyTargetState : BaseInputState
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            InputManager.Instance.SetInputState(InputManager.State.SelectUnitAndAction);
+            InputManager.Instance.CurrentState = InputManager.State.SelectUnitAndAction;
         }
     }
 
