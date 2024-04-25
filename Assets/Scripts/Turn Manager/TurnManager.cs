@@ -8,7 +8,9 @@ public class TurnManager : MonoBehaviour
     private int m_turnNumber;
     private bool m_isPlayerTurn;
 
-    private Unit lastSelectedUnit;
+    private static TurnManager _instance;
+
+    // private Unit lastSelectedUnit;
     public int TurnNumber
     {
         get { return m_turnNumber; }
@@ -21,11 +23,27 @@ public class TurnManager : MonoBehaviour
         private set { m_isPlayerTurn = value; }
     }
 
-    public event EventHandler NewPlayerTurnEvent;
+    public static TurnManager Instance { get { return _instance; } }
+
+    public event EventHandler TurnEndedEvent;
+
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
 
     private void Start()
     {
         IsPlayerTurn = true;
+        TurnNumber = 1;
         ActionManager.Instance.SelectedUnitChangedEvent += HandleSelectedUnitChanged;
     }
 
@@ -41,8 +59,8 @@ public class TurnManager : MonoBehaviour
             IsPlayerTurn = true;
             StartPalyerTurn();
             TurnNumber++;
-            NewPlayerTurnEvent?.Invoke(this, EventArgs.Empty);
         }
+        TurnEndedEvent?.Invoke(this, EventArgs.Empty);
     }
 
 
@@ -52,7 +70,8 @@ public class TurnManager : MonoBehaviour
         //perform enemy AI
 
         Debug.Log("Enemy turn started...");
-        EndTurn();
+        DisableInputAndUnitSelection();
+        StartCoroutine(EnemyTurnIdleMock());
     }
 
     private void StartPalyerTurn()
@@ -63,7 +82,7 @@ public class TurnManager : MonoBehaviour
 
     private void HandleSelectedUnitChanged(object sender, EventArgs e)
     {
-        lastSelectedUnit = ActionManager.Instance.SelectedUnit;
+        //to do
     }
 
     private void ResetPlayerActionPoints()
@@ -77,16 +96,29 @@ public class TurnManager : MonoBehaviour
 
     private void ResetUnitSelection()
     {
-        ActionManager.Instance.SelectedUnit = lastSelectedUnit;
+        ActionManager.Instance.SelectedUnit = null;
         ActionManager.Instance.SelectedAction = null;
         InputManager.Instance.CurrentState = InputManager.State.SelectUnitAndAction;
     }
 
+    private void DisableInputAndUnitSelection()
+    {
+        ActionManager.Instance.SelectedUnit = null;
+        ActionManager.Instance.SelectedAction = null;
+        InputManager.Instance.CurrentState = InputManager.State.Blocked;
+    }
     private void OnDestroy()
     {
         if (ActionManager.Instance != null)
         {
             ActionManager.Instance.SelectedUnitChangedEvent -= HandleSelectedUnitChanged;
         }
+    }
+
+    private IEnumerator EnemyTurnIdleMock()
+    {
+        Debug.Log("Enemy turn started...");
+        yield return new WaitForSeconds(2.2f);
+        EndTurn();
     }
 }

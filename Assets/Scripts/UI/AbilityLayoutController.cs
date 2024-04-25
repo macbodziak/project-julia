@@ -29,12 +29,29 @@ public class AbilityLayoutController : MonoBehaviour
         {
             ActionButton newActionButton = Instantiate(buttonPrefab, transform);
             newActionButton.ActionName = action.Name();
+            newActionButton.action = action;
             newActionButton.button.onClick.AddListener(() => { ActionManager.Instance.SelectedAction = action; });
             if (ActionManager.Instance.SelectedUnit.ActionPoints < action.ActionPointCost)
             {
                 newActionButton.button.interactable = false;
             }
             buttonList.Add(newActionButton);
+        }
+    }
+
+    public void RefreshAbilityList()
+    {
+        foreach (ActionButton actionButton in buttonList)
+        {
+            if (ActionManager.Instance.SelectedUnit.ActionPoints < actionButton.action.ActionPointCost)
+            {
+                actionButton.button.interactable = false;
+            }
+            else
+            {
+                actionButton.button.interactable = true;
+            }
+            // actionButton.SetSelectedVisual(false);
         }
     }
 }

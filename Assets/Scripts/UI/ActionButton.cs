@@ -7,8 +7,10 @@ using System;
 public class ActionButton : MonoBehaviour
 {
     string actionName;
+    public BaseAction action;
     public Button button;
     [SerializeField] Image selectedImage;
+
 
 
 
@@ -36,6 +38,7 @@ public class ActionButton : MonoBehaviour
     {
         if (ActionManager.Instance.SelectedAction == null)
         {
+            SetSelectedVisual(false);
             return;
         }
 

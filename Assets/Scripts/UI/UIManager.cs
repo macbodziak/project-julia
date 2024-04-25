@@ -3,13 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class UIManager : MonoBehaviour
 {
 
     [SerializeField] AbilityLayoutController abilityLayoutController;
-    [SerializeField] TextMeshProUGUI StateText;
+    [SerializeField] TextMeshProUGUI stateText;
+    [SerializeField] Button endTurnButton;
+    [SerializeField] TextMeshProUGUI endTurnText;
 
     static UIManager _instance;
 
@@ -24,15 +27,18 @@ public class UIManager : MonoBehaviour
         else
         {
             _instance = this;
-            InitializationOnAwake();
         }
     }
     private void Start()
     {
-        StateText.text = "Input State" + InputManager.Instance.CurrentState;
+        stateText.text = "Input State" + InputManager.Instance.CurrentState;
+        endTurnButton.onClick.AddListener(TurnManager.Instance.EndTurn);
 
+        //register with event publishers
         ActionManager.Instance.SelectedUnitChangedEvent += HandleSelectedUnitChanged;
+        ActionManager.Instance.ActionCompletedEvent += HandleActionCompleted;
         InputManager.Instance.InputStateChangedEvent += HandleInputStateChanged;
+        TurnManager.Instance.TurnEndedEvent += HandleTurnEnded;
     }
 
     private void HandleSelectedUnitChanged(object Sender, EventArgs eventArgs)
@@ -46,25 +52,49 @@ public class UIManager : MonoBehaviour
         }
     }
 
+
+
+    private void HandleInputStateChanged(object Sender, EventArgs eventArgs)
+    {
+        stateText.text = "Input State" + InputManager.Instance.CurrentState;
+
+        //if blocked, grey out all interactable elements
+    }
+
+    private void HandleTurnEnded(object Sender, EventArgs eventArgs)
+    {
+        if (TurnManager.Instance.IsPlayerTurn == false)
+        {
+            endTurnButton.interactable = false;
+            abilityLayoutController.ClearList();
+        }
+        else
+        {
+            endTurnButton.interactable = true;
+            endTurnText.text = "Turn " + TurnManager.Instance.TurnNumber;
+        }
+    }
+
+    private void HandleActionCompleted(object Sender, EventArgs eventArgs)
+    {
+        abilityLayoutController.RefreshAbilityList();
+    }
+
     private void OnDestroy()
     {
         if (ActionManager.Instance != null)
         {
             ActionManager.Instance.SelectedUnitChangedEvent -= HandleSelectedUnitChanged;
+            ActionManager.Instance.ActionCompletedEvent -= HandleActionCompleted;
         }
         if (InputManager.Instance != null)
         {
             InputManager.Instance.InputStateChangedEvent -= HandleInputStateChanged;
         }
+        if (TurnManager.Instance != null)
+        {
+            TurnManager.Instance.TurnEndedEvent -= HandleTurnEnded;
+        }
     }
 
-    private void HandleInputStateChanged(object Sender, EventArgs eventArgs)
-    {
-        StateText.text = "Input State" + InputManager.Instance.CurrentState;
-    }
-
-    private void InitializationOnAwake()
-    {
-
-    }
 }

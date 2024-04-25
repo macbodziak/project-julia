@@ -31,7 +31,9 @@ public class SelectUnitAndActionState : BaseInputState
 
     public override void OnEnter()
     {
-        ActionManager.Instance.SelectedUnit = null;
+        //  check if selected Unit still is alive and active
+        // ActionManager.Instance.SelectedUnit = null;
+        ActionManager.Instance.SelectedAction = null;
         ActionManager.Instance.ClearTargetList();
     }
 }
