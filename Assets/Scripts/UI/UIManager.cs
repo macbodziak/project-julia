@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI stateText;
     [SerializeField] Button endTurnButton;
     [SerializeField] TextMeshProUGUI endTurnText;
+    [SerializeField] TextMeshProUGUI currentTurnPlayerText;
 
     bool isInputBlocked;
 
@@ -78,10 +79,12 @@ public class UIManager : MonoBehaviour
     private void OnBlockedInputStateEnter()
     {
         abilityLayoutController.SetInteractable(false);
+        endTurnButton.interactable = false;
     }
     private void OnBlockedInputStateExit()
     {
         abilityLayoutController.SetInteractable(true);
+        endTurnButton.interactable = true;
     }
 
     private void HandleTurnEnded(object Sender, EventArgs eventArgs)
@@ -90,11 +93,14 @@ public class UIManager : MonoBehaviour
         {
             endTurnButton.interactable = false;
             abilityLayoutController.ClearList();
+            currentTurnPlayerText.text = "Enemy Turn";
+
         }
         else
         {
             endTurnButton.interactable = true;
             endTurnText.text = "Turn " + TurnManager.Instance.TurnNumber;
+            currentTurnPlayerText.text = "Players Turn";
         }
     }
 
