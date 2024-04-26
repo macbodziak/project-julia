@@ -7,27 +7,14 @@ public class AttackSingleTargetAction : BaseAction
 {
 
     [SerializeField] private int damage;
-
-
-    Unit targetUnit;
-
-    public override void StartAction(List<Unit> targets, Action onActionComplete)
+    protected override void Awake()
     {
-        this.OnActionCompletedCallback = onActionComplete;
-        targetUnit = targets[0];
-        animator.SetTrigger("Attack");
-
-        StartCoroutine(PerformAction());
-        OnActionStarted();
-    }
-
-    public override ActionType Type()
-    {
-        return ActionType.SingleEnemyTarget;
+        base.Awake();
+        actionType = ActionType.SingleEnemyTarget;
     }
 
     protected override void ExecuteActionLogic()
     {
-        targetUnit.TakeDamage(damage);
+        targets[0].TakeDamage(damage);
     }
 }

@@ -791,6 +791,10 @@ PrefabInstance:
       value: bang
       objectReference: {fileID: 0}
     - target: {fileID: 334379717127689139, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: targetNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 334379717127689139, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: actionPointCost
       value: 1
       objectReference: {fileID: 0}
@@ -817,6 +821,10 @@ PrefabInstance:
     - target: {fileID: 2351763844855192657, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: actionName
       value: Fireball
+      objectReference: {fileID: 0}
+    - target: {fileID: 2351763844855192657, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: targetNumber
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2351763844855192657, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: actionPointCost
@@ -2142,6 +2150,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 561834855bfd36c4bbf3748371fdd938, type: 2}
     - target: {fileID: 334379717127689139, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: targetNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 334379717127689139, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: actionPointCost
       value: 1
       objectReference: {fileID: 0}
@@ -2157,6 +2169,10 @@ PrefabInstance:
       propertyPath: data
       value: 
       objectReference: {fileID: 11400000, guid: 561834855bfd36c4bbf3748371fdd938, type: 2}
+    - target: {fileID: 2351763844855192657, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: targetNumber
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2351763844855192657, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: actionPointCost
       value: 2

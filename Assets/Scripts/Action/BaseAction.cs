@@ -15,6 +15,9 @@ public abstract class BaseAction : MonoBehaviour
     protected bool isInProgress;
     protected Animator animator;
 
+    protected List<Unit> targets;
+
+    protected ActionType m_actionType;
     public int ActionPointCost
     {
         get { return data.ActionPointCost; }
@@ -29,14 +32,19 @@ public abstract class BaseAction : MonoBehaviour
     {
         get { return data.Icon; }
     }
+
+    public ActionType actionType
+    {
+        get { return m_actionType; }
+        protected set { m_actionType = value; }
+    }
+
     protected virtual void Awake()
     {
         isInProgress = false;
         unit = GetComponent<Unit>();
         animator = GetComponent<Animator>();
     }
-
-    // public abstract void Update();
 
     protected virtual void OnActionStarted()
     {
@@ -47,7 +55,15 @@ public abstract class BaseAction : MonoBehaviour
     // This method initiates the action, starts animation, receives all needed paramaters
     // the actual logic execution starts later and should be trigger bu the animation
     // via an animation event
-    public abstract void StartAction(List<Unit> targets, Action onActionComplete);
+    public void StartAction(List<Unit> targets, Action onActionComplete)
+    {
+        this.OnActionCompletedCallback = onActionComplete;
+        this.targets = targets;
+        animator.SetTrigger(data.AnimationTrigger);
+
+        StartCoroutine(PerformAction());
+        OnActionStarted();
+    }
 
     protected virtual void OnActionCompleted()
     {
@@ -55,18 +71,9 @@ public abstract class BaseAction : MonoBehaviour
         OnActionCompletedCallback();
     }
 
-
-
-
-    public abstract ActionType Type();
-
     protected abstract void ExecuteActionLogic();
 
-    public virtual int GetNumberOfTargets()
-    {
-        return 1;
-    }
-    protected virtual IEnumerator PerformAction()
+    protected IEnumerator PerformAction()
     {
         unit.ActionPoints -= data.ActionPointCost;
         yield return new WaitForSeconds(data.Duration * 0.3f);

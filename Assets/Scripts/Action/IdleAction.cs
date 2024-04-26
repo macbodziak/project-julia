@@ -5,18 +5,10 @@ using UnityEngine;
 
 public class IdleAction : BaseAction
 {
-    public override void StartAction(List<Unit> targets, Action onActionComplete)
+    protected override void Awake()
     {
-        this.OnActionCompletedCallback = onActionComplete;
-        animator.SetTrigger("Confused");
-
-        StartCoroutine(PerformAction());
-        OnActionStarted();
-    }
-
-    public override ActionType Type()
-    {
-        return ActionType.NoTarget;
+        base.Awake();
+        actionType = ActionType.SingleEnemyTarget;
     }
 
     protected override void ExecuteActionLogic()

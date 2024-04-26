@@ -106,7 +106,7 @@ public class ActionManager : MonoBehaviour
 
             selectedAction = newSelectedAction;
 
-            InputState inputState = GetInputStateBasedOnActionType(selectedAction.Type());
+            InputState inputState = GetInputStateBasedOnActionType(selectedAction.actionType);
             InputManager.Instance.CurrentState = inputState;
 
             SelectedActionChangedEvent?.Invoke(this, EventArgs.Empty);

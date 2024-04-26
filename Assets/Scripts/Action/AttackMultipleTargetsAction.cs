@@ -3,46 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackMultipleTargetsAction : BaseAction
+public class AttackMultipleTargetsAction : BaseAction, IMultipleTargets
 {
     [SerializeField] private int damage;
-    [SerializeField] private int numberOfTargets;
 
-    [SerializeField] private bool attacksAll;
+    [SerializeField] private int targetNumber;
 
-
-    private List<Unit> targetList;
-
-    public override void StartAction(List<Unit> targets, Action onActionComplete)
+    public int GetNumberOfTargets()
     {
-        this.OnActionCompletedCallback = onActionComplete;
-        targetList = targets;
-        animator.SetTrigger("AttackCombo");
-
-        StartCoroutine(PerformAction());
-        OnActionStarted();
+        return targetNumber;
     }
 
-    public override ActionType Type()
+    protected override void Awake()
     {
-        if (attacksAll)
-        {
-            return ActionType.AllEnemyTargets;
-        }
-        return ActionType.MultipleEnemyTargets;
+        base.Awake();
+        actionType = ActionType.MultipleEnemyTargets;
     }
 
     protected override void ExecuteActionLogic()
     {
-
-        foreach (Unit target in targetList)
+        foreach (Unit target in targets)
         {
             target.TakeDamage(damage);
         }
     }
 
-    public override int GetNumberOfTargets()
-    {
-        return numberOfTargets;
-    }
 }
