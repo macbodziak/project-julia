@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public abstract class BaseAction : MonoBehaviour
 {
@@ -17,24 +17,29 @@ public abstract class BaseAction : MonoBehaviour
         AllAllyTargets,
         NoTarget
     };
-    [SerializeField] private int actionPointCost;
 
-    public int ActionPointCost
-    {
-        get { return actionPointCost; }
-        private set { actionPointCost = value; }
-    }
-
+    [SerializeField] protected ActionData data;
     // this delegate will be used to pass a private function form the Action MAnager to know when action has completed
     protected Action OnActionCompletedCallback;
     //member fields
     protected Unit unit;
     protected bool isInProgress;
     protected Animator animator;
-    [SerializeField] float actionDuration = 1.2f;
 
-    [SerializeField] protected string actionName;
+    public int ActionPointCost
+    {
+        get { return data.ActionPointCost; }
+    }
 
+    public string Name
+    {
+        get { return data.Name; }
+    }
+
+    public Sprite Icon
+    {
+        get { return data.Icon; }
+    }
     protected virtual void Awake()
     {
         isInProgress = false;
@@ -61,10 +66,7 @@ public abstract class BaseAction : MonoBehaviour
         OnActionCompletedCallback();
     }
 
-    public string Name()
-    {
-        return actionName;
-    }
+
 
 
     public abstract ActionType Type();
@@ -77,11 +79,11 @@ public abstract class BaseAction : MonoBehaviour
     }
     protected virtual IEnumerator PerformAction()
     {
-        unit.ActionPoints -= actionPointCost;
-        yield return new WaitForSeconds(actionDuration * 0.3f);
+        unit.ActionPoints -= data.ActionPointCost;
+        yield return new WaitForSeconds(data.Duration * 0.3f);
         ExecuteActionLogic();
         //TO DO play audio
-        yield return new WaitForSeconds(actionDuration * 0.7f);
+        yield return new WaitForSeconds(data.Duration * 0.7f);
         OnActionCompleted();
         yield return null;
     }

@@ -783,6 +783,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 334379717127689139, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 561834855bfd36c4bbf3748371fdd938, type: 2}
+    - target: {fileID: 334379717127689139, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: actionName
       value: bang
       objectReference: {fileID: 0}
@@ -791,6 +795,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1920343570404700170, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: a362a1c9cf9248848b10edb1b06111a5, type: 2}
+    - target: {fileID: 1920343570404700170, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: actionName
       value: Smash
       objectReference: {fileID: 0}
@@ -798,6 +806,10 @@ PrefabInstance:
       propertyPath: actionPointCost
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2351763844855192657, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 561834855bfd36c4bbf3748371fdd938, type: 2}
     - target: {fileID: 2351763844855192657, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: damage
       value: 30
@@ -1754,9 +1766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b367c5468cbb3b4b8f7c785aff8db71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionPointCost: 0
-  actionDuration: 5.6
-  actionName: Idle
+  data: {fileID: 11400000, guid: af52a7db0e3c04c43a88b50cc11cb65c, type: 2}
 --- !u!1001 &1668827278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2128,13 +2138,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 334379717127689139, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 561834855bfd36c4bbf3748371fdd938, type: 2}
+    - target: {fileID: 334379717127689139, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: actionPointCost
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1920343570404700170, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: a362a1c9cf9248848b10edb1b06111a5, type: 2}
+    - target: {fileID: 1920343570404700170, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: actionPointCost
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2351763844855192657, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 561834855bfd36c4bbf3748371fdd938, type: 2}
     - target: {fileID: 2351763844855192657, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: actionPointCost
       value: 2

@@ -72,7 +72,6 @@ public class ActionManager : MonoBehaviour
         }
         selectedUnit = newSelectedUnit;
         selectedUnit.SetSelectionVisual(true);
-        PrintUnitActions();
         SelectedUnitChangedEvent?.Invoke(this, EventArgs.Empty);
 
     }
@@ -80,25 +79,6 @@ public class ActionManager : MonoBehaviour
     public void ClearUnitSelection()
     {
         selectedUnit = null;
-    }
-
-    public void PrintUnitActions()
-    {
-        if (selectedUnit == null)
-        {
-            return;
-        }
-
-        List<BaseAction> actions = selectedUnit.GetActionList();
-
-        String debugString = "Actions available: ";
-        int i = 1;
-        foreach (BaseAction action in actions)
-        {
-            debugString += i + " " + action.Name() + " | ";
-            i++;
-        }
-        Debug.Log(debugString);
     }
 
     private void SetSelectedAction(BaseAction newSelectedAction)

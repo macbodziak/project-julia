@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2cef689b9412849a2dccef958b2ed9, type: 3}
+  m_Name: AttackMelee_02
+  m_EditorClassIdentifier: 
+  m_name: Combo
+  m_actionPointCost: 2
+  m_duration: 2.6
+  m_animationTrigger: AttackCombo
+  m_sprite: {fileID: 21300000, guid: 840bb35415cae5241ac5eefac6c83913, type: 3}
