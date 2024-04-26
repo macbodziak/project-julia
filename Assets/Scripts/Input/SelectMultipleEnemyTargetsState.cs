@@ -71,7 +71,7 @@ public class SelectMultipleEnemyTargetsState : BaseInputState
         {
             if (selectedTargets.Count == 0)
             {
-                InputManager.Instance.CurrentState = InputManager.State.SelectUnitAndAction;
+                InputManager.Instance.CurrentState = InputState.SelectUnitAndAction;
             }
             else
             {

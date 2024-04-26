@@ -64,7 +64,7 @@ public class UIManager : MonoBehaviour
         stateText.text = "Input State" + InputManager.Instance.CurrentState;
 
         //if blocked, grey out all interactable elements
-        if (InputManager.Instance.CurrentState == InputManager.State.Blocked)
+        if (InputManager.Instance.CurrentState == InputState.Blocked)
         {
             isInputBlocked = true;
             OnBlockedInputStateEnter();

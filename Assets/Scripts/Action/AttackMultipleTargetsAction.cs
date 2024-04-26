@@ -27,9 +27,9 @@ public class AttackMultipleTargetsAction : BaseAction
     {
         if (attacksAll)
         {
-            return BaseAction.ActionType.AllEnemyTargets;
+            return ActionType.AllEnemyTargets;
         }
-        return BaseAction.ActionType.MultipleEnemyTargets;
+        return ActionType.MultipleEnemyTargets;
     }
 
     protected override void ExecuteActionLogic()

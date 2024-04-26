@@ -14,7 +14,7 @@ public class SelectNoTargetState : BaseInputState
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            InputManager.Instance.CurrentState = InputManager.State.SelectUnitAndAction;
+            InputManager.Instance.CurrentState = InputState.SelectUnitAndAction;
         }
     }
 }

@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class SelectSingleEnemyTargetState : BaseInputState
+public class SelectSingleAllyTargetState : BaseInputState
 {
     private Unit hoveredOverUnit;
     public override void HandleInput()
@@ -14,15 +13,15 @@ public class SelectSingleEnemyTargetState : BaseInputState
             Unit hitUnit = hitGameObject.GetComponent<Unit>();
             if (hitUnit != null)
             {
-                if (hitUnit.IsPlayer == false)
+                if (hitUnit.IsPlayer == true && hitUnit != ActionManager.Instance.SelectedUnit)
                 {
                     if (hitUnit != hoveredOverUnit)
                     {
                         if (hoveredOverUnit != null)
                         {
-                            hoveredOverUnit.SetSelectionVisual(false);
+                            hoveredOverUnit.SetSelectionVisual(true);
                         }
-                        hitUnit.SetSelectionVisual(true);
+                        hitUnit.SetSelectionVisual(false);
                         hoveredOverUnit = hitUnit;
                     }
 

@@ -106,7 +106,7 @@ public class ActionManager : MonoBehaviour
 
             selectedAction = newSelectedAction;
 
-            InputManager.State inputState = GetInputStateBasedOnActionType(selectedAction.Type());
+            InputState inputState = GetInputStateBasedOnActionType(selectedAction.Type());
             InputManager.Instance.CurrentState = inputState;
 
             SelectedActionChangedEvent?.Invoke(this, EventArgs.Empty);
@@ -147,7 +147,7 @@ public class ActionManager : MonoBehaviour
     public void StartSelectedAction()
     {
         // if(selectedAction.ValidateArguments(TargetList))
-        InputManager.Instance.CurrentState = InputManager.State.Blocked;
+        InputManager.Instance.CurrentState = InputState.Blocked;
         selectedAction.StartAction(TargetList, InternalOnActionCompleted);
     }
 
@@ -156,28 +156,28 @@ public class ActionManager : MonoBehaviour
     // that the action has finished
     private void InternalOnActionCompleted()
     {
-        InputManager.Instance.CurrentState = InputManager.State.SelectUnitAndAction;
+        InputManager.Instance.CurrentState = InputState.SelectUnitAndAction;
         ActionCompletedEvent?.Invoke(this, EventArgs.Empty);
     }
 
     // summary
     // this function maps the input state based on the declared Action Type
-    private InputManager.State GetInputStateBasedOnActionType(BaseAction.ActionType actionType)
+    private InputState GetInputStateBasedOnActionType(ActionType actionType)
     {
         switch (actionType)
         {
-            case BaseAction.ActionType.SingleEnemyTarget:
-                return InputManager.State.SelectSingleEnemyTarget;
-            case BaseAction.ActionType.MultipleEnemyTargets:
-                return InputManager.State.SelectMultipleEnemyTargets;
-            case BaseAction.ActionType.AllEnemyTargets:
-                return InputManager.State.SelectAllEnemyTargets;
-            case BaseAction.ActionType.NoTarget:
-                return InputManager.State.SelectNoTarget;
+            case ActionType.SingleEnemyTarget:
+                return InputState.SelectSingleEnemyTarget;
+            case ActionType.MultipleEnemyTargets:
+                return InputState.SelectMultipleEnemyTargets;
+            case ActionType.AllEnemyTargets:
+                return InputState.SelectAllEnemyTargets;
+            case ActionType.NoTarget:
+                return InputState.SelectNoTarget;
         }
 
         //default value;
-        return InputManager.State.SelectUnitAndAction;
+        return InputState.SelectUnitAndAction;
 
     }
 }

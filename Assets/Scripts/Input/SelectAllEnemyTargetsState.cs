@@ -53,7 +53,7 @@ public class SelectAllEnemyTargetsState : BaseInputState
             {
                 enemyUnit.SetSelectionVisual(false);
             }
-            InputManager.Instance.CurrentState = InputManager.State.SelectUnitAndAction;
+            InputManager.Instance.CurrentState = InputState.SelectUnitAndAction;
         }
     }
 

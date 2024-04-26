@@ -6,17 +6,6 @@ using UnityEngine.UI;
 
 public abstract class BaseAction : MonoBehaviour
 {
-    public enum ActionType
-    {
-        SingleEnemyTarget,
-        MultipleEnemyTargets,
-        AllEnemyTargets,
-        SelfTarget,
-        SingleAllyTarget,
-        MultipleAllyTargets,
-        AllAllyTargets,
-        NoTarget
-    };
 
     [SerializeField] protected ActionData data;
     // this delegate will be used to pass a private function form the Action MAnager to know when action has completed

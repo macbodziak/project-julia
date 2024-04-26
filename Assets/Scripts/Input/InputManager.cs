@@ -6,28 +6,28 @@ using System;
 
 public class InputManager : MonoBehaviour
 {
-    public enum State
-    {
-        SelectUnitAndAction,
-        SelectSingleEnemyTarget,
-        SelectMultipleEnemyTargets,
-        SelectAllEnemyTargets,
-        // SelectSelfTarget,
-        // SelectSingleAllyTarget,
-        // SelectMultipleAllyTargets,
-        // SelectAllAllyTargets,
-        SelectNoTarget,
-        Blocked,
-        NULL
-    };
+    // public enum State
+    // {
+    //     SelectUnitAndAction,
+    //     SelectSingleEnemyTarget,
+    //     SelectMultipleEnemyTargets,
+    //     SelectAllEnemyTargets,
+    //     // SelectSelfTarget,
+    //     SelectSingleAllyTarget,
+    //     // SelectMultipleAllyTargets,
+    //     // SelectAllAllyTargets,
+    //     SelectNoTarget,
+    //     Blocked,
+    //     NULL
+    // };
     private static InputManager _instance;
     public event EventHandler InputStateChangedEvent;
     private BaseInputState currentInputStateHandler;
-    private State currentState;
-    private State nextState;
+    private InputState currentState;
+    private InputState nextState;
     private bool isStateChangeRequested;
 
-    public State CurrentState
+    public InputState CurrentState
     {
         get { return currentState; }
         set { SetInputState(value); }
@@ -37,6 +37,7 @@ public class InputManager : MonoBehaviour
         new SelectSingleEnemyTargetState(),
         new SelectMultipleEnemyTargetsState(),
         new SelectAllEnemyTargetsState(),
+        new SelectSingleAllyTargetState(),
         new SelectNoTargetState(),
         new InputBlockedState(),
         };
@@ -75,7 +76,7 @@ public class InputManager : MonoBehaviour
         currentInputStateHandler.OnExit();
         currentState = nextState;
         currentInputStateHandler = inputStateArray[(int)nextState];
-        nextState = State.NULL;
+        nextState = InputState.NULL;
         currentInputStateHandler.OnEnter();
         isStateChangeRequested = false;
         InputStateChangedEvent?.Invoke(this, EventArgs.Empty);
@@ -86,7 +87,7 @@ public class InputManager : MonoBehaviour
     // Set the state to be transitioned to. The actual transition happen it TransitionInputState()
     // at the end of Update(), after finishing handling input form previous state
     // This method should be called from outside this class to request a state change
-    private void SetInputState(State state)
+    private void SetInputState(InputState state)
     {
         if (state == currentState)
         {
@@ -101,8 +102,8 @@ public class InputManager : MonoBehaviour
     {
         //state related variables
         isStateChangeRequested = false;
-        currentState = State.SelectUnitAndAction;
-        nextState = State.NULL;
+        currentState = InputState.SelectUnitAndAction;
+        nextState = InputState.NULL;
         currentInputStateHandler = inputStateArray[(int)currentState];
     }
 }
