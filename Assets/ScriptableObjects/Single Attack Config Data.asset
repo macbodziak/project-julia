@@ -9,11 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc2cef689b9412849a2dccef958b2ed9, type: 3}
-  m_Name: AttackMelee_01
+  m_Script: {fileID: 11500000, guid: 99beffae8ec0b2d4da07cb4d5db75957, type: 3}
+  m_Name: Single Attack Config Data
   m_EditorClassIdentifier: 
-  m_name: Slash
+  m_name: SingleAttack
   m_actionPointCost: 1
-  m_duration: 2.5
+  m_duration: 2.4
   m_animationTrigger: Attack
   m_sprite: {fileID: 21300000, guid: 07f3292d26436674a9658c7a7e3193bb, type: 3}
+  minDamage: 10
+  maxDamage: 20
+  hitChance: 90
+  critChance: 10
+  damageType: 0

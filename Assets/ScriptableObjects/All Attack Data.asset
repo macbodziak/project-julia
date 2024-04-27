@@ -9,11 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc2cef689b9412849a2dccef958b2ed9, type: 3}
-  m_Name: AttackMelee_02
+  m_Script: {fileID: 11500000, guid: 99beffae8ec0b2d4da07cb4d5db75957, type: 3}
+  m_Name: All Attack Data
   m_EditorClassIdentifier: 
-  m_name: Combo
+  m_name: All Attack
   m_actionPointCost: 2
-  m_duration: 2.6
+  m_duration: 3
   m_animationTrigger: AttackCombo
-  m_sprite: {fileID: 21300000, guid: 840bb35415cae5241ac5eefac6c83913, type: 3}
+  m_sprite: {fileID: 21300000, guid: 2afdd2360abcf6748bf6d59b1afb9a6d, type: 3}
+  minDamage: 10
+  maxDamage: 15
+  hitChance: 80
+  critChance: 5
+  damageType: 0

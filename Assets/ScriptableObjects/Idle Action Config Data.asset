@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc2cef689b9412849a2dccef958b2ed9, type: 3}
-  m_Name: Default
+  m_Name: Idle Action Config Data
   m_EditorClassIdentifier: 
-  m_name: no name
+  m_name: Idle
   m_actionPointCost: 1
   m_duration: 5
   m_animationTrigger: Confused
-  m_sprite: {fileID: 0}
+  m_sprite: {fileID: 21300000, guid: 999d04c0ea94ccc41b3d80788160695b, type: 3}

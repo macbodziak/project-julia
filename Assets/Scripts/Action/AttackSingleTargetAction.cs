@@ -5,16 +5,17 @@ using UnityEngine;
 
 public class AttackSingleTargetAction : BaseAction
 {
-
-    [SerializeField] private int damage;
+    [SerializeField] AttackActionData data;
     protected override void Awake()
     {
+        baseData = data;
         base.Awake();
         actionType = ActionType.SingleEnemyTarget;
     }
 
-    protected override void ExecuteActionLogic()
+    protected override void ExecuteLogic()
     {
-        targets[0].TakeDamage(damage);
+        int damageDealt = UnityEngine.Random.Range(data.MinDamage, data.MaxDamage);
+        targets[0].TakeDamage(damageDealt);
     }
 }

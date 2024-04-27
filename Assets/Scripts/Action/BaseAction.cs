@@ -4,10 +4,16 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 
+// Summary
+// this is the base class for actions. To implement another action, the derived class
+// needs to: 
+//      implement the ExecuteLogic() method
+//      override the Awake() method and set the right Type of Action
+
 public abstract class BaseAction : MonoBehaviour
 {
 
-    [SerializeField] protected ActionData data;
+    protected BaseActionData baseData;
     // this delegate will be used to pass a private function form the Action MAnager to know when action has completed
     protected Action OnActionCompletedCallback;
     //member fields
@@ -20,17 +26,17 @@ public abstract class BaseAction : MonoBehaviour
     protected ActionType m_actionType;
     public int ActionPointCost
     {
-        get { return data.ActionPointCost; }
+        get { return baseData.ActionPointCost; }
     }
 
     public string Name
     {
-        get { return data.Name; }
+        get { return baseData.Name; }
     }
 
     public Sprite Icon
     {
-        get { return data.Icon; }
+        get { return baseData.Icon; }
     }
 
     public ActionType actionType
@@ -59,7 +65,7 @@ public abstract class BaseAction : MonoBehaviour
     {
         this.OnActionCompletedCallback = onActionComplete;
         this.targets = targets;
-        animator.SetTrigger(data.AnimationTrigger);
+        animator.SetTrigger(baseData.AnimationTrigger);
 
         StartCoroutine(PerformAction());
         OnActionStarted();
@@ -71,15 +77,15 @@ public abstract class BaseAction : MonoBehaviour
         OnActionCompletedCallback();
     }
 
-    protected abstract void ExecuteActionLogic();
+    protected abstract void ExecuteLogic();
 
     protected IEnumerator PerformAction()
     {
-        unit.ActionPoints -= data.ActionPointCost;
-        yield return new WaitForSeconds(data.Duration * 0.3f);
-        ExecuteActionLogic();
+        unit.ActionPoints -= baseData.ActionPointCost;
+        yield return new WaitForSeconds(baseData.Duration * 0.3f);
+        ExecuteLogic();
         //TO DO play audio
-        yield return new WaitForSeconds(data.Duration * 0.7f);
+        yield return new WaitForSeconds(baseData.Duration * 0.7f);
         OnActionCompleted();
         yield return null;
     }
