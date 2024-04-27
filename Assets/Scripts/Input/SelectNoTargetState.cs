@@ -9,7 +9,10 @@ public class SelectNoTargetState : BaseInputState
 
         if (Input.GetMouseButtonDown(0))
         {
-            ActionManager.Instance.StartSelectedAction();
+            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject() == false)
+            {
+                ActionManager.Instance.StartSelectedAction();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
