@@ -66,12 +66,18 @@ public class TurnManager : MonoBehaviour
 
     private void StartEnemyTurn()
     {
-        //implement
-        //perform enemy AI
-
-        Debug.Log("Enemy turn started...");
         DisableInputAndUnitSelection();
-        StartCoroutine(EnemyTurnIdleMock());
+        ResetEnemyActionPoints();
+        EnemyAIManager.Instnace.StartEnemyTurn();
+    }
+
+    private void ResetEnemyActionPoints()
+    {
+        List<Unit> enemyUnits = CombatEncounterManager.Instance.GetEnemyUnitList();
+        foreach (Unit unit in enemyUnits)
+        {
+            unit.ResetActionPoints();
+        }
     }
 
     private void StartPalyerTurn()
@@ -113,12 +119,5 @@ public class TurnManager : MonoBehaviour
         {
             ActionManager.Instance.SelectedUnitChangedEvent -= HandleSelectedUnitChanged;
         }
-    }
-
-    private IEnumerator EnemyTurnIdleMock()
-    {
-        Debug.Log("Enemy turn started...");
-        yield return new WaitForSeconds(2.2f);
-        EndTurn();
     }
 }

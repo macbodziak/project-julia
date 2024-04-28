@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEngine.UI;
 
 // Summary
 // this is the base class for actions. To implement another action, the derived class
@@ -90,4 +89,8 @@ public abstract class BaseAction : MonoBehaviour
         yield return null;
     }
 
+    public float GetDuration()
+    {
+        return baseData.Duration;
+    }
 }
