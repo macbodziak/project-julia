@@ -9,11 +9,13 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
 
-    [SerializeField] AbilityLayoutController abilityLayoutController;
-    [SerializeField] TextMeshProUGUI stateText;
-    [SerializeField] Button endTurnButton;
-    [SerializeField] TextMeshProUGUI endTurnText;
-    [SerializeField] TextMeshProUGUI currentTurnPlayerText;
+    [SerializeField] private AbilityLayoutController abilityLayoutController;
+    [SerializeField] private TextMeshProUGUI stateText;
+    [SerializeField] private Button endTurnButton;
+    [SerializeField] private TextMeshProUGUI endTurnText;
+    [SerializeField] private TextMeshProUGUI currentTurnPlayerText;
+
+    [SerializeField] private EncounterOverScreen encounterOverScreen;
 
     bool isInputBlocked;
 
@@ -44,6 +46,7 @@ public class UIManager : MonoBehaviour
         ActionManager.Instance.ActionCompletedEvent += HandleActionCompleted;
         InputManager.Instance.InputStateChangedEvent += HandleInputStateChanged;
         TurnManager.Instance.TurnEndedEvent += HandleTurnEnded;
+        CombatEncounterManager.Instance.EncounterOverEvent += HandleEncounterOver;
     }
 
     private void HandleSelectedUnitChanged(object Sender, EventArgs eventArgs)
@@ -116,14 +119,26 @@ public class UIManager : MonoBehaviour
             ActionManager.Instance.SelectedUnitChangedEvent -= HandleSelectedUnitChanged;
             ActionManager.Instance.ActionCompletedEvent -= HandleActionCompleted;
         }
+
         if (InputManager.Instance != null)
         {
             InputManager.Instance.InputStateChangedEvent -= HandleInputStateChanged;
         }
+
         if (TurnManager.Instance != null)
         {
             TurnManager.Instance.TurnEndedEvent -= HandleTurnEnded;
         }
+
+        if (CombatEncounterManager.Instance != null)
+        {
+            CombatEncounterManager.Instance.EncounterOverEvent -= HandleEncounterOver;
+        }
+    }
+
+    public void HandleEncounterOver(object sender, EncounterOverEventArgs eventArgs)
+    {
+        encounterOverScreen.Show(eventArgs.PlayerWon);
     }
 
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CombatEncounterManager : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class CombatEncounterManager : MonoBehaviour
     [SerializeField] List<Unit> enemyUnits;
 
     private static CombatEncounterManager _instance;
-
+    public event EventHandler<EncounterOverEventArgs> EncounterOverEvent;
 
     public static CombatEncounterManager Instance { get { return _instance; } }
     private void Awake()
@@ -74,6 +75,7 @@ public class CombatEncounterManager : MonoBehaviour
         enemyUnits.Remove(unit);
         if (enemyUnits.Count == 0)
         {
+            OnEncounterOver(true);
             Debug.Log("All enemies are dead");
         }
     }
@@ -83,7 +85,22 @@ public class CombatEncounterManager : MonoBehaviour
         playerUnits.Remove(unit);
         if (playerUnits.Count == 0)
         {
+            OnEncounterOver(false);
             Debug.Log("All player characters are dead");
+        }
+    }
+
+    private void OnEncounterOver(bool playerWon)
+    {
+        if (playerWon)
+        {
+            EncounterOverEvent?.Invoke(this, new EncounterOverEventArgs(true));
+            Debug.Log("Player Won");
+        }
+        else
+        {
+            EncounterOverEvent?.Invoke(this, new EncounterOverEventArgs(false));
+            Debug.Log("Player Lost");
         }
     }
 }
