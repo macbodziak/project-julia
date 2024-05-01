@@ -10,9 +10,9 @@ public class CombatEncounterManager : MonoBehaviour
     [SerializeField] List<Unit> enemyUnits;
 
     private static CombatEncounterManager _instance;
+    public static CombatEncounterManager Instance { get { return _instance; } }
     public event EventHandler<EncounterOverEventArgs> EncounterOverEvent;
 
-    public static CombatEncounterManager Instance { get { return _instance; } }
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -76,7 +76,6 @@ public class CombatEncounterManager : MonoBehaviour
         if (enemyUnits.Count == 0)
         {
             OnEncounterOver(true);
-            Debug.Log("All enemies are dead");
         }
     }
 
@@ -86,7 +85,6 @@ public class CombatEncounterManager : MonoBehaviour
         if (playerUnits.Count == 0)
         {
             OnEncounterOver(false);
-            Debug.Log("All player characters are dead");
         }
     }
 
@@ -95,12 +93,10 @@ public class CombatEncounterManager : MonoBehaviour
         if (playerWon)
         {
             EncounterOverEvent?.Invoke(this, new EncounterOverEventArgs(true));
-            Debug.Log("Player Won");
         }
         else
         {
             EncounterOverEvent?.Invoke(this, new EncounterOverEventArgs(false));
-            Debug.Log("Player Lost");
         }
     }
 }

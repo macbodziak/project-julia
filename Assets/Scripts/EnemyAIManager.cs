@@ -10,6 +10,7 @@ public class EnemyAIManager : MonoBehaviour
     private List<Unit> enemies;
 
     public static EnemyAIManager Instnace { get => _instance; }
+    private bool enemyWon = false;
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -21,7 +22,22 @@ public class EnemyAIManager : MonoBehaviour
             _instance = this;
         }
 
+        InitializeOnAwake();
+    }
+
+    private void InitializeOnAwake()
+    {
         enemies = new List<Unit>();
+        enemyWon = false;
+        CombatEncounterManager.Instance.EncounterOverEvent += HandleEncounterOver;
+    }
+
+    private void OnDestroy()
+    {
+        if (CombatEncounterManager.Instance != null)
+        {
+            CombatEncounterManager.Instance.EncounterOverEvent -= HandleEncounterOver;
+        }
     }
 
     public void StartEnemyTurn()
@@ -40,6 +56,7 @@ public class EnemyAIManager : MonoBehaviour
             return null;
         }
         //TO DO - here use a complex mechanism for selecting best availalbe action
+        //TO DO - make sure unit has enough AP for given action
         return unit.GetActionList().First();
     }
 
@@ -49,25 +66,19 @@ public class EnemyAIManager : MonoBehaviour
         //TO DO: determine target list
         //TO DO: a better callback for startr ACtion? 
 
-        action.StartAction(CombatEncounterManager.Instance.GetPlayerUnitList(), CheckWinCondition);
+        action.StartAction(ChooseTargets(action), OnActionCompleted);
     }
 
-    // private void OnActionCompleted()
-    // {
-
-    // }
-
-    private void CheckWinCondition()
+    // TO DO is this really necassary?
+    private void OnActionCompleted()
     {
-        //TO DO check if encounter won / lost
-        Debug.Log("TO IMPLEMENT  -  check for win lost condition");
+
     }
 
     private IEnumerator EnemyTurn()
     {
-        Debug.Log("Enemy turn started...");
         yield return new WaitForSeconds(0.2f);
-        // get list aof all enemy units
+        enemies.Clear();
         enemies.AddRange(CombatEncounterManager.Instance.GetEnemyUnitList());
         BaseAction action;
         foreach (Unit enemy in enemies)
@@ -77,11 +88,29 @@ public class EnemyAIManager : MonoBehaviour
             {
                 StartAction(action);
                 yield return new WaitForSeconds(action.GetDuration() + 0.2f);
-                CheckWinCondition();
+                if (enemyWon)
+                {
+                    break;
+                }
                 action = ChooseAction(enemy);
+            }
+            if (enemyWon)
+            {
+                break;
             }
         }
 
         TurnManager.Instance.EndTurn();
+    }
+
+    private List<Unit> ChooseTargets(BaseAction action)
+    {
+        //TO DO - implement
+        return CombatEncounterManager.Instance.GetPlayerUnitList();
+    }
+
+    private void HandleEncounterOver(object sender, EncounterOverEventArgs eventArgs)
+    {
+        enemyWon = !eventArgs.PlayerWon;
     }
 }
