@@ -10,12 +10,10 @@ public class ActionManager : MonoBehaviour
     public event EventHandler SelectedTargetsChangedEvent;
     public event EventHandler ActionCompletedEvent;
     private static ActionManager _instance;
-    //Debug - Serialized for debugging only
-    [SerializeField] private Unit selectedUnit;
-    //Debug - Serialized for debugging only
-    [SerializeField] private List<Unit> TargetList;
-    //Debug - Serialized for debugging only
-    [SerializeField] private BaseAction selectedAction;
+
+    private Unit selectedUnit;
+    private List<Unit> TargetList;
+    private BaseAction selectedAction;
 
     public Unit SelectedUnit
     {

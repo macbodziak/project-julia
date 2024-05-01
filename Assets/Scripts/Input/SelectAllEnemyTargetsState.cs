@@ -17,7 +17,6 @@ public class SelectAllEnemyTargetsState : BaseInputState
                 {
                     if (isHovereingOverAnyUnit == false)
                     {
-                        Debug.Log("enabling all visuals");
                         foreach (Unit enemyUnit in CombatEncounterManager.Instance.GetEnemyUnitList())
                         {
                             enemyUnit.SetSelectionVisual(true);
@@ -37,7 +36,6 @@ public class SelectAllEnemyTargetsState : BaseInputState
         {
             if (isHovereingOverAnyUnit == true)
             {
-                Debug.Log("clearing all visuals");
                 foreach (Unit enemyUnit in CombatEncounterManager.Instance.GetEnemyUnitList())
                 {
                     enemyUnit.SetSelectionVisual(false);

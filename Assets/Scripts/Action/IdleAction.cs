@@ -15,6 +15,6 @@ public class IdleAction : BaseAction
 
     protected override void ExecuteLogic()
     {
-        Debug.Log(gameObject + " is doing nothing...");
+        // does nothing usefull other than playing an animation
     }
 }
