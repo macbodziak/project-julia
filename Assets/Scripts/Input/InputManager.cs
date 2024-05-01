@@ -6,20 +6,6 @@ using System;
 
 public class InputManager : MonoBehaviour
 {
-    // public enum State
-    // {
-    //     SelectUnitAndAction,
-    //     SelectSingleEnemyTarget,
-    //     SelectMultipleEnemyTargets,
-    //     SelectAllEnemyTargets,
-    //     // SelectSelfTarget,
-    //     SelectSingleAllyTarget,
-    //     // SelectMultipleAllyTargets,
-    //     // SelectAllAllyTargets,
-    //     SelectNoTarget,
-    //     Blocked,
-    //     NULL
-    // };
     private static InputManager _instance;
     public event EventHandler InputStateChangedEvent;
     private BaseInputState currentInputStateHandler;
@@ -39,6 +25,7 @@ public class InputManager : MonoBehaviour
         new SelectAllEnemyTargetsState(),
         new SelectSingleAllyTargetState(),
         new SelectNoTargetState(),
+        new EncounterOverScreenState(),
         new InputBlockedState(),
         };
 

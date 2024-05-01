@@ -154,7 +154,10 @@ public class ActionManager : MonoBehaviour
     // that the action has finished
     private void InternalOnActionCompleted()
     {
-        InputManager.Instance.CurrentState = InputState.SelectUnitAndAction;
+        if (CombatEncounterManager.Instance.IsEncounterOver == false)
+        {
+            InputManager.Instance.CurrentState = InputState.SelectUnitAndAction;
+        }
         ActionCompletedEvent?.Invoke(this, EventArgs.Empty);
     }
 

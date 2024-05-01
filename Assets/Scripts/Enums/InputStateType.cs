@@ -9,6 +9,7 @@ public enum InputState
     // SelectMultipleAllyTargets,
     // SelectAllAllyTargets,
     SelectNoTarget,
+    EncounterOverScreen,
     Blocked,
     NULL
 };

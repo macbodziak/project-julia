@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currentTurnPlayerText;
 
     [SerializeField] private EncounterOverScreen encounterOverScreen;
+    [SerializeField] private GameObject HUD;
 
     bool isInputBlocked;
 
@@ -84,6 +85,7 @@ public class UIManager : MonoBehaviour
         abilityLayoutController.SetInteractable(false);
         endTurnButton.interactable = false;
     }
+
     private void OnBlockedInputStateExit()
     {
         abilityLayoutController.SetInteractable(true);
@@ -136,9 +138,18 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void HandleEncounterOver(object sender, EncounterOverEventArgs eventArgs)
+    private void HandleEncounterOver(object sender, EncounterOverEventArgs eventArgs)
     {
-        encounterOverScreen.Show(eventArgs.PlayerWon);
+        IEnumerator coroutine = OnEncounterOverDelayed(eventArgs.PlayerWon, 6.3f);
+        StartCoroutine(coroutine);
+    }
+
+    private IEnumerator OnEncounterOverDelayed(bool playerWon, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        HUD.SetActive(false);
+        encounterOverScreen.Show(playerWon);
+        yield return null;
     }
 
 }

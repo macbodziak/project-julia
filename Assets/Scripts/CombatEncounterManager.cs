@@ -13,6 +13,8 @@ public class CombatEncounterManager : MonoBehaviour
     public static CombatEncounterManager Instance { get { return _instance; } }
     public event EventHandler<EncounterOverEventArgs> EncounterOverEvent;
 
+    public bool IsEncounterOver { get; private set; }
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -28,7 +30,7 @@ public class CombatEncounterManager : MonoBehaviour
 
     private void InitializeOnAwake()
     {
-        // inititlization code comes here
+        IsEncounterOver = false;
     }
 
     private void Start()
@@ -90,6 +92,9 @@ public class CombatEncounterManager : MonoBehaviour
 
     private void OnEncounterOver(bool playerWon)
     {
+        InputManager.Instance.CurrentState = InputState.EncounterOverScreen;
+        IsEncounterOver = true;
+
         if (playerWon)
         {
             EncounterOverEvent?.Invoke(this, new EncounterOverEventArgs(true));

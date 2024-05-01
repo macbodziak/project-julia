@@ -68,7 +68,7 @@ public class TurnManager : MonoBehaviour
     {
         DisableInputAndUnitSelection();
         ResetEnemyActionPoints();
-        EnemyAIManager.Instnace.StartEnemyTurn();
+        EnemyAIManager.Instance.StartEnemyTurn();
     }
 
     private void ResetEnemyActionPoints()

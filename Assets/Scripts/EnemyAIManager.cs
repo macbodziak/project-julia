@@ -9,7 +9,7 @@ public class EnemyAIManager : MonoBehaviour
     private static EnemyAIManager _instance;
     private List<Unit> enemies;
 
-    public static EnemyAIManager Instnace { get => _instance; }
+    public static EnemyAIManager Instance { get => _instance; }
     private bool enemyWon = false;
     private void Awake()
     {
@@ -62,7 +62,6 @@ public class EnemyAIManager : MonoBehaviour
 
     private void StartAction(BaseAction action)
     {
-        Debug.Log("starting action " + action);
         //TO DO: determine target list
         //TO DO: a better callback for startr ACtion? 
 
@@ -100,7 +99,10 @@ public class EnemyAIManager : MonoBehaviour
             }
         }
 
-        TurnManager.Instance.EndTurn();
+        if (!enemyWon)
+        {
+            TurnManager.Instance.EndTurn();
+        }
     }
 
     private List<Unit> ChooseTargets(BaseAction action)
