@@ -92,7 +92,7 @@ public class CombatEncounterManager : MonoBehaviour
 
     private void OnEncounterOver(bool playerWon)
     {
-        InputManager.Instance.SetState(InputState.EncounterOverScreen);
+        InputManager.Instance.SetState(InputState.Blocked);
         IsEncounterOver = true;
 
         if (playerWon)

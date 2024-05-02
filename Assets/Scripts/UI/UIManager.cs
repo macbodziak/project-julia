@@ -147,6 +147,7 @@ public class UIManager : MonoBehaviour
     private IEnumerator OnEncounterOverDelayed(bool playerWon, float delay)
     {
         yield return new WaitForSeconds(delay);
+        InputManager.Instance.SetState(InputState.EncounterOverScreen);
         HUD.SetActive(false);
         encounterOverScreen.Show(playerWon);
         yield return null;
