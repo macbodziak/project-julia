@@ -105,7 +105,7 @@ public class ActionManager : MonoBehaviour
             selectedAction = newSelectedAction;
 
             InputState inputState = GetInputStateBasedOnActionType(selectedAction.actionType);
-            InputManager.Instance.CurrentState = inputState;
+            InputManager.Instance.SetState(inputState);
 
             SelectedActionChangedEvent?.Invoke(this, EventArgs.Empty);
         }
@@ -145,7 +145,7 @@ public class ActionManager : MonoBehaviour
     public void StartSelectedAction()
     {
         // if(selectedAction.ValidateArguments(TargetList))
-        InputManager.Instance.CurrentState = InputState.Blocked;
+        InputManager.Instance.SetState(InputState.Blocked);
         selectedAction.StartAction(TargetList, InternalOnActionCompleted);
     }
 
@@ -156,7 +156,7 @@ public class ActionManager : MonoBehaviour
     {
         if (CombatEncounterManager.Instance.IsEncounterOver == false)
         {
-            InputManager.Instance.CurrentState = InputState.SelectUnitAndAction;
+            InputManager.Instance.SetState(InputState.SelectUnitAndAction);
         }
         ActionCompletedEvent?.Invoke(this, EventArgs.Empty);
     }

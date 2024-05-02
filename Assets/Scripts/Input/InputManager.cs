@@ -16,7 +16,6 @@ public class InputManager : MonoBehaviour
     public InputState CurrentState
     {
         get { return currentState; }
-        set { SetInputState(value); }
     }
     private BaseInputState[] inputStateArray = {
         new SelectUnitAndActionState(),
@@ -56,7 +55,7 @@ public class InputManager : MonoBehaviour
     //
     // Summary:
     // This funtion handles the transition, but setting the state to be transitioned is done 
-    // via SetInputState(State state).
+    // via SetState(State state).
     // should not be called form outside of this class
     private void TransitionInputState()
     {
@@ -74,7 +73,7 @@ public class InputManager : MonoBehaviour
     // Set the state to be transitioned to. The actual transition happen it TransitionInputState()
     // at the end of Update(), after finishing handling input form previous state
     // This method should be called from outside this class to request a state change
-    private void SetInputState(InputState state)
+    public void SetState(InputState state)
     {
         if (state == currentState)
         {

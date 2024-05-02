@@ -104,14 +104,14 @@ public class TurnManager : MonoBehaviour
     {
         ActionManager.Instance.SelectedUnit = null;
         ActionManager.Instance.SelectedAction = null;
-        InputManager.Instance.CurrentState = InputState.SelectUnitAndAction;
+        InputManager.Instance.SetState(InputState.SelectUnitAndAction);
     }
 
     private void DisableInputAndUnitSelection()
     {
         ActionManager.Instance.SelectedUnit = null;
         ActionManager.Instance.SelectedAction = null;
-        InputManager.Instance.CurrentState = InputState.Blocked;
+        InputManager.Instance.SetState(InputState.Blocked);
     }
     private void OnDestroy()
     {
