@@ -7,7 +7,7 @@ public enum InputState
     // SelectSelfTarget,
     SelectSingleAllyTarget,
     // SelectMultipleAllyTargets,
-    // SelectAllAllyTargets,
+    SelectAllAllyTargets,
     SelectNoTarget,
     EncounterOverScreen,
     Blocked,

@@ -169,10 +169,19 @@ public class ActionManager : MonoBehaviour
         {
             case ActionType.SingleEnemyTarget:
                 return InputState.SelectSingleEnemyTarget;
+
             case ActionType.MultipleEnemyTargets:
                 return InputState.SelectMultipleEnemyTargets;
+
             case ActionType.AllEnemyTargets:
                 return InputState.SelectAllEnemyTargets;
+
+            case ActionType.SingleAllyTarget:
+                return InputState.SelectSingleAllyTarget;
+
+            case ActionType.AllAllyTargets:
+                return InputState.SelectAllAllyTargets;
+
             case ActionType.NoTarget:
                 return InputState.SelectNoTarget;
         }

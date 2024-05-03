@@ -13,6 +13,7 @@ public class Unit : MonoBehaviour
     [SerializeField] bool isPlayer;
 
     public static event EventHandler<DamageTakenEventArgs> OnAnyUnitTookDamage;
+    public static event EventHandler<HealingReceivedEventArgs> OnAnyUnitReceivedHealing;
     public static event EventHandler OnMouseEnterAnyUnit;
     public static event EventHandler OnMouseExitAnyUnit;
     [SerializeField] int maxHealthPoints;
@@ -97,6 +98,19 @@ public class Unit : MonoBehaviour
             OnDodge();
         }
 
+    }
+
+    public void ReceiveHealing(HealingInfo healing)
+    {
+        int amount = UnityEngine.Random.Range(healing.MinAmount, healing.MaxAmount);
+
+        if (amount > maxHealthPoints - currentHealthPoints)
+        {
+            amount = maxHealthPoints - currentHealthPoints;
+        }
+        currentHealthPoints += amount;
+
+        OnAnyUnitReceivedHealing?.Invoke(this, new HealingReceivedEventArgs(amount));
     }
 
     private void TakeDamage(int damage, bool isCritical)

@@ -13,15 +13,15 @@ public class SelectSingleAllyTargetState : BaseInputState
             Unit hitUnit = hitGameObject.GetComponent<Unit>();
             if (hitUnit != null)
             {
-                if (hitUnit.IsPlayer == true && hitUnit != ActionManager.Instance.SelectedUnit)
+                if (hitUnit.IsPlayer == true)
                 {
-                    if (hitUnit != hoveredOverUnit)
+                    if (hitUnit != hoveredOverUnit && hitUnit != ActionManager.Instance.SelectedUnit)
                     {
                         if (hoveredOverUnit != null)
                         {
-                            hoveredOverUnit.SetSelectionVisual(true);
+                            hoveredOverUnit.SetSelectionVisual(false);
                         }
-                        hitUnit.SetSelectionVisual(false);
+                        hitUnit.SetSelectionVisual(true);
                         hoveredOverUnit = hitUnit;
                     }
 

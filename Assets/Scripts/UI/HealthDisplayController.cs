@@ -21,6 +21,7 @@ public class HealthDisplayController : MonoBehaviour
         Unit.OnMouseExitAnyUnit += HandleMouseExitAnyUnit;
 
         Unit.OnAnyUnitTookDamage += HandleAnyUnitTookDamage;
+        Unit.OnAnyUnitReceivedHealing += HanldeAnyUnitReceivedHealing;
     }
 
     private void HandleMouseEnterAnyUnit(object sender, EventArgs e)
@@ -45,5 +46,14 @@ public class HealthDisplayController : MonoBehaviour
             textToShow = "CRIT " + textToShow;
         }
         textDrawer.DisplayRaisingTextAtGameObject(textToShow, unit.gameObject, new Vector2(0f, 50f), 90f, 1.2f);
+    }
+
+    private void HanldeAnyUnitReceivedHealing(object sender, HealingReceivedEventArgs args)
+    {
+        Unit unit = (Unit)sender;
+        string textToShow = "+" + args.Amount;
+
+        TextMeshProUGUI textGUI = textDrawer.DisplayRaisingTextAtGameObject(textToShow, unit.gameObject, new Vector2(0f, 50f), 90f, 1.2f);
+        textGUI.color = new Color(0f, 1f, 1f, 1f);
     }
 }

@@ -17,12 +17,16 @@ public class InputManager : MonoBehaviour
     {
         get { return currentState; }
     }
+
+    // this array of input states must be the same as the order of enums in InputState
+    // there has to be an input state class created for derived from BaseInputState 
     private BaseInputState[] inputStateArray = {
         new SelectUnitAndActionState(),
         new SelectSingleEnemyTargetState(),
         new SelectMultipleEnemyTargetsState(),
         new SelectAllEnemyTargetsState(),
         new SelectSingleAllyTargetState(),
+        new SelectAllAllyTargetsState(),
         new SelectNoTargetState(),
         new EncounterOverScreenState(),
         new InputBlockedState(),
