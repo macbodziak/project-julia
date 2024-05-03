@@ -140,7 +140,7 @@ public class UIManager : MonoBehaviour
 
     private void HandleEncounterOver(object sender, EncounterOverEventArgs eventArgs)
     {
-        IEnumerator coroutine = OnEncounterOverDelayed(eventArgs.PlayerWon, 6.3f);
+        IEnumerator coroutine = OnEncounterOverDelayed(eventArgs.PlayerWon, 2.1f);
         StartCoroutine(coroutine);
     }
 

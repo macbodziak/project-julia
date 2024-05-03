@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: All Attack
   m_actionPointCost: 2
-  m_duration: 3
+  m_duration: 2.1
   m_animationTrigger: AttackCombo
   m_sprite: {fileID: 21300000, guid: 2afdd2360abcf6748bf6d59b1afb9a6d, type: 3}
   minDamage: 10
