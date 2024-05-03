@@ -14,4 +14,9 @@ public class AttackActionData : BaseActionData
     public int HitChance { get => hitChance; protected set => hitChance = value; }
     public int CritChance { get => critChance; protected set => critChance = value; }
     public DamageType DamageType { get => damageType; protected set => damageType = value; }
+
+    public AttackInfo GetAttackInfo()
+    {
+        return new AttackInfo(MinDamage, MaxDamage, HitChance, CritChance, DamageType);
+    }
 }

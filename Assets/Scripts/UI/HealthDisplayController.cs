@@ -39,6 +39,11 @@ public class HealthDisplayController : MonoBehaviour
     {
         DamageTakenEventArgs args = (DamageTakenEventArgs)e;
         Unit unit = (Unit)sender;
-        textDrawer.DisplayRaisingTextAtGameObject("-" + args.Damage, unit.gameObject, new Vector2(0f, 50f), 90f, 1.2f);
+        string textToShow = "-" + args.Damage;
+        if (args.IsCritical == true)
+        {
+            textToShow = "CRIT " + textToShow;
+        }
+        textDrawer.DisplayRaisingTextAtGameObject(textToShow, unit.gameObject, new Vector2(0f, 50f), 90f, 1.2f);
     }
 }

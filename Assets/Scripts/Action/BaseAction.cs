@@ -47,6 +47,7 @@ public abstract class BaseAction : MonoBehaviour
     protected virtual void Awake()
     {
         isInProgress = false;
+        targets = new List<Unit>();
         unit = GetComponent<Unit>();
         animator = GetComponent<Animator>();
     }
@@ -60,10 +61,11 @@ public abstract class BaseAction : MonoBehaviour
     // This method initiates the action, starts animation, receives all needed paramaters
     // the actual logic execution starts later and should be trigger bu the animation
     // via an animation event
-    public void StartAction(List<Unit> targets, Action onActionComplete)
+    public void StartAction(List<Unit> targetList, Action onActionComplete)
     {
         this.OnActionCompletedCallback = onActionComplete;
-        this.targets = targets;
+        targets.Clear();
+        targets.AddRange(targetList);
         animator.SetTrigger(baseData.AnimationTrigger);
 
         StartCoroutine(PerformAction());

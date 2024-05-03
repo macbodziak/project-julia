@@ -15,7 +15,6 @@ public class AttackSingleTargetAction : BaseAction
 
     protected override void ExecuteLogic()
     {
-        int damageDealt = UnityEngine.Random.Range(data.MinDamage, data.MaxDamage);
-        targets[0].TakeDamage(damageDealt);
+        targets[0].ReceiveAttack(data.GetAttackInfo());
     }
 }

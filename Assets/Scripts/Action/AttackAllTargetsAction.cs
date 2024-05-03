@@ -17,8 +17,7 @@ public class AttackAllTargetsAction : BaseAction
     {
         foreach (Unit target in targets)
         {
-            int damageDealt = UnityEngine.Random.Range(data.MinDamage, data.MaxDamage);
-            target.TakeDamage(damageDealt);
+            target.ReceiveAttack(data.GetAttackInfo());
         }
     }
 

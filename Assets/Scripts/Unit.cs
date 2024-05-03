@@ -5,6 +5,7 @@ using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using System;
 
+[RequireComponent(typeof(DamageResistance))]
 public class Unit : MonoBehaviour
 {
     SelectedVisual selectedVisual;
@@ -15,11 +16,15 @@ public class Unit : MonoBehaviour
     public static event EventHandler OnMouseEnterAnyUnit;
     public static event EventHandler OnMouseExitAnyUnit;
     [SerializeField] int maxHealthPoints;
+    int currentHealthPoints;
 
     [SerializeField] int maxActionPoints;
     [SerializeField] int actionPoints;
 
-    int currentHealthPoints;
+    [SerializeField] int dodge;
+
+    DamageResistance damageResistance;
+
     public bool IsPlayer
     {
         get { return isPlayer; }
@@ -43,6 +48,7 @@ public class Unit : MonoBehaviour
 
         selectedVisual = GetComponent<SelectedVisual>();
         GetComponents<BaseAction>(actionList);
+        damageResistance = GetComponent<DamageResistance>();
     }
 
 
@@ -56,7 +62,44 @@ public class Unit : MonoBehaviour
         return actionList;
     }
 
-    public void TakeDamage(int damage)
+    public void ReceiveAttack(AttackInfo attack)
+    {
+        bool isCritical = false;
+
+        int hitRoll = UnityEngine.Random.Range(0, 100);
+        int requiredRoll = 100 - attack.HitChance + dodge;
+        requiredRoll = Mathf.Clamp(requiredRoll, 5, 100);
+        Debug.Log($"Rolling attack dice: {hitRoll} vs {requiredRoll}");
+
+        if (hitRoll >= requiredRoll)
+        {
+            int damageReceived = UnityEngine.Random.Range(attack.MinDamage, attack.MaxDamage);
+            Debug.Log($"Rolling Damage dice: {damageReceived}");
+            //check if is critical
+            int critRoll = UnityEngine.Random.Range(0, 100);
+            int requiredCritRoll = 100 - attack.CritChance;
+            Debug.Log($"Rolling Crit dice: {critRoll} vs {requiredCritRoll}");
+
+            if (critRoll >= requiredCritRoll)
+            {
+                isCritical = true;
+                damageReceived *= 2;
+                Debug.Log($"Damage after crit: {damageReceived}");
+            }
+            //account for resistance
+            damageReceived = damageResistance.ApplyResistance(damageReceived, attack.Type);
+            Debug.Log($"Final damage after resitance: {damageReceived}");
+
+            TakeDamage(damageReceived, isCritical);
+        }
+        else
+        {
+            OnDodge();
+        }
+
+    }
+
+    private void TakeDamage(int damage, bool isCritical)
     {
         currentHealthPoints -= damage;
 
@@ -70,7 +113,7 @@ public class Unit : MonoBehaviour
             OnDamageTaken(damage);
         }
 
-        OnAnyUnitTookDamage?.Invoke(this, new DamageTakenEventArgs(damage, currentHealthPoints <= 0));
+        OnAnyUnitTookDamage?.Invoke(this, new DamageTakenEventArgs(damage, isCritical, currentHealthPoints <= 0));
     }
 
     private void OnDeath()
@@ -91,6 +134,12 @@ public class Unit : MonoBehaviour
     {
         Animator anim = GetComponent<Animator>();
         anim.SetTrigger("HitReaction");
+    }
+
+    private void OnDodge()
+    {
+        Animator anim = GetComponent<Animator>();
+        anim.SetTrigger("Dodge");
     }
 
     public void ResetActionPoints()

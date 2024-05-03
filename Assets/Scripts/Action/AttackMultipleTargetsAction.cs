@@ -22,8 +22,7 @@ public class AttackMultipleTargetsAction : BaseAction, IMultipleTargets
     {
         foreach (Unit target in targets)
         {
-            int damageDealt = UnityEngine.Random.Range(data.MinDamage, data.MaxDamage);
-            target.TakeDamage(damageDealt);
+            target.ReceiveAttack(data.GetAttackInfo());
         }
     }
 

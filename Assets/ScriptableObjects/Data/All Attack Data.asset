@@ -19,6 +19,6 @@ MonoBehaviour:
   m_sprite: {fileID: 21300000, guid: 2afdd2360abcf6748bf6d59b1afb9a6d, type: 3}
   minDamage: 10
   maxDamage: 15
-  hitChance: 80
+  hitChance: 70
   critChance: 5
   damageType: 0
