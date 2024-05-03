@@ -6,7 +6,7 @@ using System;
 
 // Summary
 // This component should be attached to an Canvas and will display Text When mouse is hovering over a unit
-public class HealthDisplayController : MonoBehaviour
+public class PopUpTextDisplayController : MonoBehaviour
 {
     TextMeshProUGUI dislayedText;
     TextToCanvasDrawer textDrawer;
@@ -45,7 +45,8 @@ public class HealthDisplayController : MonoBehaviour
         {
             textToShow = "CRIT " + textToShow;
         }
-        textDrawer.DisplayRaisingTextAtGameObject(textToShow, unit.gameObject, new Vector2(0f, 50f), 90f, 1.2f);
+        TextMeshProUGUI textMesh = textDrawer.DisplayRaisingTextAtGameObject(textToShow, unit.gameObject, new Vector2(0f, 50f), 90f, 1.2f);
+        textMesh.color = new Color(1f, 0.4f, 0.3f, 1f);
     }
 
     private void HanldeAnyUnitReceivedHealing(object sender, HealingReceivedEventArgs args)
@@ -53,7 +54,7 @@ public class HealthDisplayController : MonoBehaviour
         Unit unit = (Unit)sender;
         string textToShow = "+" + args.Amount;
 
-        TextMeshProUGUI textGUI = textDrawer.DisplayRaisingTextAtGameObject(textToShow, unit.gameObject, new Vector2(0f, 50f), 90f, 1.2f);
-        textGUI.color = new Color(0f, 1f, 1f, 1f);
+        TextMeshProUGUI textMesh = textDrawer.DisplayRaisingTextAtGameObject(textToShow, unit.gameObject, new Vector2(0f, 50f), 90f, 1.2f);
+        textMesh.color = new Color(0.6f, 1f, 1f, 1f);
     }
 }
