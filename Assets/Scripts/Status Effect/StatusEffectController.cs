@@ -29,7 +29,6 @@ public class StatusEffectController : MonoBehaviour
             //remove status effect from list if expired
             if (statusEffects[i].RemainingDuration == 0)
             {
-                statusEffects[i].OnEffectExpired();
                 Destroy(statusEffects[i]);
                 statusEffects.RemoveAt(i);
             }
@@ -50,7 +49,6 @@ public class StatusEffectController : MonoBehaviour
         {
             //add new status effect
             statusEffect = gameObject.AddComponent<T>();
-            statusEffect.OnEffectReceived();
             statusEffects.Add(statusEffect);
         }
     }
@@ -60,7 +58,6 @@ public class StatusEffectController : MonoBehaviour
         StatusEffect statusEffect = GetComponent<T>();
         if (statusEffect != null)
         {
-            statusEffect.OnEffectExpired();
             //TO DO remove from list
             Destroy(statusEffect);
         }

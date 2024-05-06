@@ -36,6 +36,12 @@ public class CombatEncounterManager : MonoBehaviour
     private void Start()
     {
         Unit.OnAnyUnitTookDamage += HandleAnyUnitTookDamage;
+
+        //DEBUG - for testing only
+        playerUnits[1].ReceiveStatusEffect<BurningStatusEffect>();
+        playerUnits[1].ReceiveStatusEffect<BleedingStatusEffect>();
+        playerUnits[0].ReceiveStatusEffect<BleedingStatusEffect>();
+        //end of testing code
     }
 
 

@@ -10,13 +10,7 @@ public class BurningStatusEffect : StatusEffect
 
     protected void Awake()
     {
-        data = Resources.Load<BurningStatusEffectData>("StatusEffects/Burning Status Effect Data");
-        if (data == null)
-        {
-            Debug.LogWarning("not able to load data", this);
-        }
-        RemainingDuration = data.Duration;
-
+        data = LoadData<BurningStatusEffectData>("StatusEffects/Burning Status Effect Data");
     }
 
     protected override void Start()
@@ -27,7 +21,7 @@ public class BurningStatusEffect : StatusEffect
 
     public override void ApplyEffect(Action onCompletedcallback)
     {
-        Debug.Log($"applying burning status effect: {data.Name} with {data.DamageAmount} damage");
+        Debug.Log($"applying status effect: {data.Name} with {data.DamageAmount} damage");
         unit.TakeDamage(data.DamageAmount, false);
     }
 
@@ -46,7 +40,7 @@ public class BurningStatusEffect : StatusEffect
         if (_particleSystem != null)
         {
             _particleSystem.transform.parent = gameObject.transform;
-            _particleSystem.transform.position = new Vector3(0f, 0f, 0f);
+            _particleSystem.transform.localPosition = new Vector3(0f, 0f, 0f);
         }
     }
 }
