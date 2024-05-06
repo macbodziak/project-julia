@@ -22,12 +22,10 @@ public class PopUpTextDisplayController : MonoBehaviour
 
     [SerializeField] Color poisonDamageColor;
 
-    private void Awake()
-    {
-        textDrawer = GetComponent<TextToCanvasDrawer>();
-    }
     private void Start()
     {
+        textDrawer = GetComponent<TextToCanvasDrawer>();
+
         Unit.OnMouseEnterAnyUnit += HandleMouseEnterAnyUnit;
         Unit.OnMouseExitAnyUnit += HandleMouseExitAnyUnit;
 

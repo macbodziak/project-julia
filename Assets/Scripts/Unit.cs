@@ -47,13 +47,15 @@ public class Unit : MonoBehaviour
     {
         currentHealthPoints = maxHealthPoints;
         ActionPoints = maxActionPoints;
+    }
 
+    private void Start()
+    {
         selectedVisual = GetComponent<SelectedVisual>();
         GetComponents<BaseAction>(actionList);
         damageResistance = GetComponent<DamageResistance>();
         statusEffectController = GetComponent<StatusEffectController>();
     }
-
 
     public void SetSelectionVisual(bool isVisible)
     {
@@ -72,27 +74,22 @@ public class Unit : MonoBehaviour
         int hitRoll = UnityEngine.Random.Range(0, 100);
         int requiredRoll = 100 - attack.HitChance + dodge;
         requiredRoll = Mathf.Clamp(requiredRoll, 5, 100);
-        Debug.Log($"Rolling attack dice: {hitRoll} vs {requiredRoll}");
 
         //if hit was successful
         if (hitRoll >= requiredRoll)
         {
             int damageReceived = UnityEngine.Random.Range(attack.MinDamage, attack.MaxDamage);
-            Debug.Log($"Rolling Damage dice: {damageReceived}");
             //check if is critical
             int critRoll = UnityEngine.Random.Range(0, 100);
             int requiredCritRoll = 100 - attack.CritChance;
-            Debug.Log($"Rolling Crit dice: {critRoll} vs {requiredCritRoll}");
 
             if (critRoll >= requiredCritRoll)
             {
                 isCritical = true;
                 damageReceived *= 2;
-                Debug.Log($"Damage after crit: {damageReceived}");
             }
             //account for resistance
             damageReceived = damageResistance.ApplyResistance(damageReceived, attack.Type);
-            Debug.Log($"Final damage after resitance: {damageReceived}");
 
             TakeDamage(damageReceived, attack.Type, isCritical, true);
         }
@@ -148,7 +145,6 @@ public class Unit : MonoBehaviour
 
     private void OnDeath()
     {
-        Debug.Log(gameObject + "  DIED");
         Animator anim = GetComponent<Animator>();
         //after death we do not vare avout restrivting root motion anymore and it improves death animation
         anim.applyRootMotion = true;

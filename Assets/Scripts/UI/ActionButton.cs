@@ -10,15 +10,13 @@ public class ActionButton : MonoBehaviour
     private BaseAction m_action;
     public Button button;
     [SerializeField] Image selectedImage;
-    [SerializeField]
-    TextMeshProUGUI APCostText;
+    [SerializeField] TextMeshProUGUI APCostText;
 
     private Sprite m_icon;
 
     public Sprite icon
     {
         get { return m_icon; }
-        // private set { SetIcon(value); }
     }
 
     public BaseAction action
@@ -27,10 +25,9 @@ public class ActionButton : MonoBehaviour
         set { SetAction(value); }
     }
 
-    private void Awake()
+    private void Start()
     {
         button = GetComponent<Button>();
-
         ActionManager.Instance.SelectedActionChangedEvent += handleSelectedActionChanged;
     }
 
@@ -61,12 +58,15 @@ public class ActionButton : MonoBehaviour
     {
         ActionManager.Instance.SelectedActionChangedEvent -= handleSelectedActionChanged;
     }
-    // to be implemented later:
 
     public void SetIcon(Sprite inIcon)
     {
         if (inIcon != null)
         {
+            if (button == null)
+            {
+                button = GetComponent<Button>();
+            }
             button.GetComponent<Image>().sprite = inIcon;
         }
     }

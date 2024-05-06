@@ -8,11 +8,11 @@ public class BleedingStatusEffect : StatusEffect
     protected void Awake()
     {
         data = LoadData<BleedingStatusEffectData>("StatusEffects/Bleeding Status Effect Data");
+        baseData = data;
     }
 
     public override void ApplyEffect()
     {
-        Debug.Log($"applying status effect: {data.Name} with {data.DamageAmount} damage");
         unit.TakeDamage(data.DamageAmount, data.Type, false, false);
     }
 

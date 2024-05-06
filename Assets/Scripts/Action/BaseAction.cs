@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Unity.VisualScripting;
 
 // Summary
 // this is the base class for actions. To implement another action, the derived class
@@ -48,10 +49,13 @@ public abstract class BaseAction : MonoBehaviour
     {
         isInProgress = false;
         targets = new List<Unit>();
+    }
+
+    protected virtual void Start()
+    {
         unit = GetComponent<Unit>();
         animator = GetComponent<Animator>();
     }
-
     protected virtual void OnActionStarted()
     {
         isInProgress = true;

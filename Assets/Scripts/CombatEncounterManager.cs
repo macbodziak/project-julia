@@ -38,14 +38,23 @@ public class CombatEncounterManager : MonoBehaviour
         Unit.OnAnyUnitTookDamage += HandleAnyUnitTookDamage;
 
         //DEBUG - for testing only
+        StartCoroutine(DebugStatusEffects());
+
+        //end of testing code
+    }
+
+    //DEBUG - for testing only
+    private IEnumerator DebugStatusEffects()
+    {
+        yield return null;
         playerUnits[1].ReceiveStatusEffect<BurningStatusEffect>();
         playerUnits[1].ReceiveStatusEffect<BleedingStatusEffect>();
         playerUnits[0].ReceiveStatusEffect<BleedingStatusEffect>();
         enemyUnits[0].ReceiveStatusEffect<BleedingStatusEffect>();
         enemyUnits[0].ReceiveStatusEffect<BurningStatusEffect>();
-        //end of testing code
+        yield return null;
     }
-
+    //end of testing code
 
     public int GetEnemyCount()
     {
