@@ -10,7 +10,6 @@ public class TurnManager : MonoBehaviour
 
     private static TurnManager _instance;
 
-    // private Unit lastSelectedUnit;
     public int TurnNumber
     {
         get { return m_turnNumber; }

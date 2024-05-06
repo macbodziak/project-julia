@@ -4,8 +4,9 @@ using UnityEngine;
 using TMPro;
 using System;
 
-// Summary
+// <summary>
 // This component should be attached to an Canvas and will display Text When mouse is hovering over a unit
+// </summary>
 public class PopUpTextDisplayController : MonoBehaviour
 {
     private TextMeshProUGUI dislayedText;

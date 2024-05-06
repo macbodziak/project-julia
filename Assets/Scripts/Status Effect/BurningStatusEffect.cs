@@ -11,6 +11,7 @@ public class BurningStatusEffect : StatusEffect
     protected void Awake()
     {
         data = LoadData<BurningStatusEffectData>("StatusEffects/Burning Status Effect Data");
+        baseData = data;
     }
 
     protected override void Start()

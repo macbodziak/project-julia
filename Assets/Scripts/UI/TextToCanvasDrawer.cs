@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-// Summary
+// <summary>
 // Utility component
 // This component draws Text to UI Elements such as a Canvas
 // Should be attached to a UI object and be referenced from another object,
 // that calls its methods
+// </summary>
 public class TextToCanvasDrawer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI textPrefab;
