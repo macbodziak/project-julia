@@ -96,14 +96,15 @@ public class UIManager : MonoBehaviour
     {
         if (TurnManager.Instance.IsPlayerTurn == false)
         {
-            endTurnButton.interactable = false;
+            // endTurnButton.interactable = false;
             abilityLayoutController.ClearList();
             currentTurnPlayerText.text = "Enemy Turn";
 
         }
         else
         {
-            endTurnButton.interactable = true;
+            // endTurnButton.interactable = true will be set when Turn manager changes input state 
+            // from Blacked and the OnBlockedInputStateExit() method will be called
             endTurnText.text = "Turn " + TurnManager.Instance.TurnNumber;
             currentTurnPlayerText.text = "Players Turn";
         }

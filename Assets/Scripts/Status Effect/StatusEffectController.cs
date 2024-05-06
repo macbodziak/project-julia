@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,16 +6,32 @@ using System.Net.Security;
 using UnityEditor;
 using UnityEngine;
 
+// <summary>
+// This class handles the status effects of the given unit
+// </summary>
 public class StatusEffectController : MonoBehaviour
 {
     [SerializeField] private List<StatusEffect> statusEffects;
+    private bool isProcessing = false;
+
+    public bool IsProcessing { get => isProcessing; private set => isProcessing = value; }
 
     private void Awake()
     {
         statusEffects = new();
     }
+
+    // <summary>
+    // This method gets called in the Turn Manager before the units turn 
+    // </summary>
     public void ApplyStatusEffects()
     {
+        StartCoroutine(ApplyStatusEffectsCoroutine());
+    }
+
+    private IEnumerator ApplyStatusEffectsCoroutine()
+    {
+        IsProcessing = true;
         //cycle backwards, becasue we might need to remove elements while iterating over list
         for (int i = statusEffects.Count - 1; i >= 0; i--)
         {
@@ -22,6 +39,7 @@ public class StatusEffectController : MonoBehaviour
             if (statusEffects[i].IsAppliedEachTurn() == true)
             {
                 statusEffects[i].ApplyEffect(OnStatusEffectApplied);
+                yield return new WaitForSeconds(0.33f);
             }
 
             statusEffects[i].Decrement();
@@ -33,6 +51,8 @@ public class StatusEffectController : MonoBehaviour
                 statusEffects.RemoveAt(i);
             }
         }
+        IsProcessing = false;
+        yield return null;
     }
 
     public void ReceiveStatusEffect<T>() where T : StatusEffect

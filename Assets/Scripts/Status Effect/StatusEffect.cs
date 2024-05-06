@@ -47,10 +47,6 @@ public abstract class StatusEffect : MonoBehaviour
         unit = GetComponent<Unit>();
     }
 
-    //TO  DO remove, start and ondestroy will handle this
-    public virtual void OnEffectReceived() {; }
-
-    public virtual void OnEffectExpired() {; }
 
     public virtual bool IsAppliedEachTurn() { return false; }
 
