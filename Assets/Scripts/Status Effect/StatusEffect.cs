@@ -40,7 +40,7 @@ public abstract class StatusEffect : MonoBehaviour
         get { return baseData.Icon; }
     }
 
-    public abstract void ApplyEffect(Action onCompletedcallback);
+    public abstract void ApplyEffect();
 
     protected virtual void Start()
     {

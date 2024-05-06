@@ -10,7 +10,7 @@ public class BleedingStatusEffect : StatusEffect
         data = LoadData<BleedingStatusEffectData>("StatusEffects/Bleeding Status Effect Data");
     }
 
-    public override void ApplyEffect(Action onCompletedcallback)
+    public override void ApplyEffect()
     {
         Debug.Log($"applying status effect: {data.Name} with {data.DamageAmount} damage");
         unit.TakeDamage(data.DamageAmount, false);

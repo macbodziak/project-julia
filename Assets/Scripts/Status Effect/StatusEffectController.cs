@@ -11,6 +11,7 @@ using UnityEngine;
 // </summary>
 public class StatusEffectController : MonoBehaviour
 {
+    [SerializeField] const float TIME_BETWEEN_STATUS_EFFECTS = 0.5f;
     [SerializeField] private List<StatusEffect> statusEffects;
     private bool isProcessing = false;
 
@@ -38,8 +39,8 @@ public class StatusEffectController : MonoBehaviour
             //if the status effect needs to be apllied each turn
             if (statusEffects[i].IsAppliedEachTurn() == true)
             {
-                statusEffects[i].ApplyEffect(OnStatusEffectApplied);
-                yield return new WaitForSeconds(0.33f);
+                statusEffects[i].ApplyEffect();
+                yield return new WaitForSeconds(TIME_BETWEEN_STATUS_EFFECTS);
             }
 
             statusEffects[i].Decrement();
@@ -83,8 +84,15 @@ public class StatusEffectController : MonoBehaviour
         }
     }
 
-    private void OnStatusEffectApplied()
+    public void Clear()
     {
-        Debug.Log("status effect applied... moving on to the next");
+        foreach (StatusEffect statusEffect in statusEffects)
+        {
+            Destroy(statusEffect);
+        }
+
+        statusEffects.Clear();
+        StopAllCoroutines();
+        isProcessing = false;
     }
 }

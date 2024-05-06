@@ -155,6 +155,8 @@ public class Unit : MonoBehaviour
         //disable collider so the unit cannot be clicked anymore
         Collider collider = GetComponent<Collider>();
         collider.enabled = false;
+
+        statusEffectController.Clear();
     }
 
     private void OnDamageTaken(int damage)

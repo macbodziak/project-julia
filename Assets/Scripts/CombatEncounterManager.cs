@@ -41,6 +41,8 @@ public class CombatEncounterManager : MonoBehaviour
         playerUnits[1].ReceiveStatusEffect<BurningStatusEffect>();
         playerUnits[1].ReceiveStatusEffect<BleedingStatusEffect>();
         playerUnits[0].ReceiveStatusEffect<BleedingStatusEffect>();
+        enemyUnits[0].ReceiveStatusEffect<BleedingStatusEffect>();
+        enemyUnits[0].ReceiveStatusEffect<BurningStatusEffect>();
         //end of testing code
     }
 

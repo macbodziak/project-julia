@@ -19,7 +19,7 @@ public class BurningStatusEffect : StatusEffect
         StartParticleSystem();
     }
 
-    public override void ApplyEffect(Action onCompletedcallback)
+    public override void ApplyEffect()
     {
         Debug.Log($"applying status effect: {data.Name} with {data.DamageAmount} damage");
         unit.TakeDamage(data.DamageAmount, false);

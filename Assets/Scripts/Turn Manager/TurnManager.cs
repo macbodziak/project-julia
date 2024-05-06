@@ -65,9 +65,10 @@ public class TurnManager : MonoBehaviour
     private List<StatusEffectController> ProcessStatusEffects(List<Unit> units)
     {
         List<StatusEffectController> statusEffectControllers = new();
-        foreach (Unit unit in units)
+        //iterating from the end becuase units might get removed while iterating if they die
+        for (int i = units.Count - 1; i >= 0; i--)
         {
-            StatusEffectController statusEffectController = unit.GetComponent<StatusEffectController>();
+            StatusEffectController statusEffectController = units[i].GetComponent<StatusEffectController>();
             statusEffectControllers.Add(statusEffectController);
             statusEffectController.ApplyStatusEffects();
         }
@@ -80,7 +81,7 @@ public class TurnManager : MonoBehaviour
         List<StatusEffectController> statusControllers = ProcessStatusEffects(CombatEncounterManager.Instance.GetEnemyUnitList());
         while (HasStatusEffectProcessingCompleted(statusControllers) == false)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.12f);
         }
         ResetEnemyActionPoints();
         EnemyAIManager.Instance.StartEnemyTurn();
