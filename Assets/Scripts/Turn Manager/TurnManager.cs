@@ -63,25 +63,26 @@ public class TurnManager : MonoBehaviour
         TurnEndedEvent?.Invoke(this, EventArgs.Empty);
     }
 
+    private void ProcessStatusEffects(List<Unit> units)
+    {
+        foreach (Unit unit in units)
+        {
+            StatusEffectController statusEffectController = unit.GetComponent<StatusEffectController>();
+            statusEffectController.ApplyStatusEffects();
+        }
+    }
 
     private void StartEnemyTurn()
     {
+        ProcessStatusEffects(CombatEncounterManager.Instance.GetEnemyUnitList());
         DisableInputAndUnitSelection();
         ResetEnemyActionPoints();
         EnemyAIManager.Instance.StartEnemyTurn();
     }
 
-    private void ResetEnemyActionPoints()
-    {
-        List<Unit> enemyUnits = CombatEncounterManager.Instance.GetEnemyUnitList();
-        foreach (Unit unit in enemyUnits)
-        {
-            unit.ResetActionPoints();
-        }
-    }
-
     private void StartPalyerTurn()
     {
+        ProcessStatusEffects(CombatEncounterManager.Instance.GetPlayerUnitList());
         ResetUnitSelection();
         ResetPlayerActionPoints();
     }
@@ -95,6 +96,15 @@ public class TurnManager : MonoBehaviour
     {
         List<Unit> playerUnits = CombatEncounterManager.Instance.GetPlayerUnitList();
         foreach (Unit unit in playerUnits)
+        {
+            unit.ResetActionPoints();
+        }
+    }
+
+    private void ResetEnemyActionPoints()
+    {
+        List<Unit> enemyUnits = CombatEncounterManager.Instance.GetEnemyUnitList();
+        foreach (Unit unit in enemyUnits)
         {
             unit.ResetActionPoints();
         }

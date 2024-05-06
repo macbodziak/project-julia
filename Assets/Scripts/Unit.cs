@@ -5,7 +5,7 @@ using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using System;
 
-[RequireComponent(typeof(DamageResistance))]
+[RequireComponent(typeof(DamageResistance), typeof(StatusEffectController))]
 public class Unit : MonoBehaviour
 {
     SelectedVisual selectedVisual;
@@ -25,6 +25,7 @@ public class Unit : MonoBehaviour
     [SerializeField] int dodge;
 
     DamageResistance damageResistance;
+    StatusEffectController statusEffectController;
 
     public bool IsPlayer
     {
@@ -50,6 +51,7 @@ public class Unit : MonoBehaviour
         selectedVisual = GetComponent<SelectedVisual>();
         GetComponents<BaseAction>(actionList);
         damageResistance = GetComponent<DamageResistance>();
+        statusEffectController = GetComponent<StatusEffectController>();
     }
 
 
@@ -66,12 +68,13 @@ public class Unit : MonoBehaviour
     public void ReceiveAttack(AttackInfo attack)
     {
         bool isCritical = false;
-
+        //make hit roll 
         int hitRoll = UnityEngine.Random.Range(0, 100);
         int requiredRoll = 100 - attack.HitChance + dodge;
         requiredRoll = Mathf.Clamp(requiredRoll, 5, 100);
         Debug.Log($"Rolling attack dice: {hitRoll} vs {requiredRoll}");
 
+        //if hit was successful
         if (hitRoll >= requiredRoll)
         {
             int damageReceived = UnityEngine.Random.Range(attack.MinDamage, attack.MaxDamage);
@@ -113,7 +116,17 @@ public class Unit : MonoBehaviour
         OnAnyUnitReceivedHealing?.Invoke(this, new HealingReceivedEventArgs(amount));
     }
 
-    private void TakeDamage(int damage, bool isCritical)
+    public void ReceiveStatusEffect<T>() where T : StatusEffect
+    {
+        statusEffectController.ReceiveStatusEffect<T>();
+    }
+
+    public void RemoveStatusEffect<T>() where T : StatusEffect
+    {
+        statusEffectController.RemoveStatusEffect<T>();
+    }
+
+    public void TakeDamage(int damage, bool isCritical)
     {
         currentHealthPoints -= damage;
 
