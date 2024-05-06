@@ -8,7 +8,9 @@ public class BurningStatusEffectData : BaseStatusEffectData
 {
     [SerializeField] private int damageAmount = 1;
     [SerializeField] private ParticleSystem m_particleSystem;
+    [SerializeField] private DamageType _damageType = DamageType.Fire;
 
-    public int DamageAmount { get => damageAmount; set => damageAmount = value; }
-    public ParticleSystem ParticleSystemPrefab { get => m_particleSystem; set => m_particleSystem = value; }
+    public int DamageAmount { get => damageAmount; private set => damageAmount = value; }
+    public ParticleSystem ParticleSystemPrefab { get => m_particleSystem; private set => m_particleSystem = value; }
+    public DamageType Type { get => _damageType; private set => _damageType = value; }
 }

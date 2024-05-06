@@ -94,7 +94,7 @@ public class Unit : MonoBehaviour
             damageReceived = damageResistance.ApplyResistance(damageReceived, attack.Type);
             Debug.Log($"Final damage after resitance: {damageReceived}");
 
-            TakeDamage(damageReceived, isCritical);
+            TakeDamage(damageReceived, attack.Type, isCritical, true);
         }
         else
         {
@@ -126,7 +126,7 @@ public class Unit : MonoBehaviour
         statusEffectController.RemoveStatusEffect<T>();
     }
 
-    public void TakeDamage(int damage, bool isCritical)
+    public void TakeDamage(int damage, DamageType damageType, bool isCritical, bool playAnimation = true)
     {
         currentHealthPoints -= damage;
 
@@ -137,10 +137,13 @@ public class Unit : MonoBehaviour
         }
         else
         {
-            OnDamageTaken(damage);
+            if (playAnimation == true)
+            {
+                PlayDamageTakenAnimation();
+            }
         }
 
-        OnAnyUnitTookDamage?.Invoke(this, new DamageTakenEventArgs(damage, isCritical, currentHealthPoints <= 0));
+        OnAnyUnitTookDamage?.Invoke(this, new DamageTakenEventArgs(damage, damageType, isCritical, currentHealthPoints <= 0));
     }
 
     private void OnDeath()
@@ -159,7 +162,7 @@ public class Unit : MonoBehaviour
         statusEffectController.Clear();
     }
 
-    private void OnDamageTaken(int damage)
+    private void PlayDamageTakenAnimation()
     {
         Animator anim = GetComponent<Animator>();
         anim.SetTrigger("HitReaction");

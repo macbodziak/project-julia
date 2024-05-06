@@ -6,8 +6,10 @@ using UnityEngine;
 public class BleedingStatusEffectData : BaseStatusEffectData
 {
     [SerializeField] private int damageAmount = 1;
+    [SerializeField] private DamageType _damageType = DamageType.Physical;
     // [SerializeField] private ParticleSystem m_particleSystem;
 
-    public int DamageAmount { get => damageAmount; set => damageAmount = value; }
+    public int DamageAmount { get => damageAmount; private set => damageAmount = value; }
+    public DamageType Type { get => _damageType; private set => _damageType = value; }
     // public ParticleSystem ParticleSystemPrefab { get => m_particleSystem; set => m_particleSystem = value; }
 }

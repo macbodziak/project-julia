@@ -13,7 +13,7 @@ public class BleedingStatusEffect : StatusEffect
     public override void ApplyEffect()
     {
         Debug.Log($"applying status effect: {data.Name} with {data.DamageAmount} damage");
-        unit.TakeDamage(data.DamageAmount, false);
+        unit.TakeDamage(data.DamageAmount, data.Type, false, false);
     }
 
     public override bool IsAppliedEachTurn() { return true; }
