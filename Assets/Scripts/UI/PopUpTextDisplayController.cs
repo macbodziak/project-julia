@@ -8,8 +8,18 @@ using System;
 // This component should be attached to an Canvas and will display Text When mouse is hovering over a unit
 public class PopUpTextDisplayController : MonoBehaviour
 {
-    TextMeshProUGUI dislayedText;
-    TextToCanvasDrawer textDrawer;
+    private TextMeshProUGUI dislayedText;
+    private TextToCanvasDrawer textDrawer;
+
+    [SerializeField] Color physicalDamageColor;
+
+    [SerializeField] Color fireDamageColor;
+
+    [SerializeField] Color iceDamageColor;
+
+    [SerializeField] Color electricDamageColor;
+
+    [SerializeField] Color poisonDamageColor;
 
     private void Awake()
     {
@@ -46,7 +56,7 @@ public class PopUpTextDisplayController : MonoBehaviour
             textToShow = "CRIT " + textToShow;
         }
         TextMeshProUGUI textMesh = textDrawer.DisplayRaisingTextAtGameObject(textToShow, unit.gameObject, new Vector2(0f, 50f), 90f, 1.2f);
-        textMesh.color = new Color(1f, 0.4f, 0.3f, 1f);
+        textMesh.color = GetDamageColor(args.Type);
     }
 
     private void HanldeAnyUnitReceivedHealing(object sender, HealingReceivedEventArgs args)
@@ -56,5 +66,25 @@ public class PopUpTextDisplayController : MonoBehaviour
 
         TextMeshProUGUI textMesh = textDrawer.DisplayRaisingTextAtGameObject(textToShow, unit.gameObject, new Vector2(0f, 50f), 90f, 1.2f);
         textMesh.color = new Color(0.6f, 1f, 1f, 1f);
+    }
+
+    public Color GetDamageColor(DamageType damageType)
+    {
+        switch (damageType)
+        {
+            case DamageType.Physical:
+                return physicalDamageColor;
+            case DamageType.Fire:
+                return new Color(1f, 0.56f, 0.17f, 1f);
+            case DamageType.Ice:
+                return new Color(0.38f, 0.71f, 0.99f, 1f);
+            case DamageType.Electric:
+                return new Color(0.57f, 0.55f, 1f, 1f);
+            case DamageType.Poision:
+                return new Color(0.55f, 0.77f, 0.22f, 1f);
+            default:
+                return new Color(0.8f, 0.8f, 0.8f, 1f);
+
+        }
     }
 }

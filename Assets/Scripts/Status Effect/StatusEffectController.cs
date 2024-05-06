@@ -79,8 +79,8 @@ public class StatusEffectController : MonoBehaviour
         StatusEffect statusEffect = GetComponent<T>();
         if (statusEffect != null)
         {
-            //TO DO remove from list
             Destroy(statusEffect);
+            statusEffects.Remove(statusEffect);
         }
     }
 

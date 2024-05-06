@@ -3384,6 +3384,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a640795e3fa8a749b71a307397e63c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physicalDamageColor: {r: 0.8773585, g: 0.59180313, b: 0.59180313, a: 1}
+  fireDamageColor: {r: 1, g: 0.6726045, b: 0.13679248, a: 1}
+  iceDamageColor: {r: 0.43952474, g: 0.76733625, b: 0.7830189, a: 1}
+  electricDamageColor: {r: 0.7709594, g: 0.81856066, b: 0.990566, a: 1}
+  poisonDamageColor: {r: 0.7037006, g: 1, b: 0.25943398, a: 1}
 --- !u!114 &872484685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7255,7 +7260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 508309180124409411, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: maxHealthPoints
-      value: 50
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2365483820219763281, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: m_LocalPosition.x
