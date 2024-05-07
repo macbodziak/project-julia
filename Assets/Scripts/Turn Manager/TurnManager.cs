@@ -94,8 +94,11 @@ public class TurnManager : MonoBehaviour
         {
             yield return new WaitForSeconds(0.12f);
         }
-        ResetUnitSelection();
-        ResetPlayerActionPoints();
+        if (CombatEncounterManager.Instance.IsEncounterOver == false)
+        {
+            ResetPlayerActionPoints();
+            ResetUnitSelection();
+        }
         yield return null;
     }
 

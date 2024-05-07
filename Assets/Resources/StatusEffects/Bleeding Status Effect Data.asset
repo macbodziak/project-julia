@@ -15,4 +15,5 @@ MonoBehaviour:
   m_name: Bleeding
   m_duration: 2
   m_sprite: {fileID: 21300000, guid: 8d11e4fd03b978b4c80296e3f88f1625, type: 3}
-  damageAmount: 33
+  damageAmount: 30
+  _damageType: 0

@@ -5,7 +5,7 @@ using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using System;
 
-[RequireComponent(typeof(DamageResistance), typeof(StatusEffectController))]
+[RequireComponent(typeof(StatusEffectController))]
 public class Unit : MonoBehaviour
 {
     SelectedVisual selectedVisual;
@@ -16,6 +16,8 @@ public class Unit : MonoBehaviour
     public static event EventHandler<HealingReceivedEventArgs> OnAnyUnitReceivedHealing;
     public static event EventHandler OnMouseEnterAnyUnit;
     public static event EventHandler OnMouseExitAnyUnit;
+
+    [Header("----Basic Stats-----------")]
     [SerializeField] int maxHealthPoints;
     int currentHealthPoints;
 
@@ -24,7 +26,13 @@ public class Unit : MonoBehaviour
 
     [SerializeField] int dodge;
 
-    DamageResistance damageResistance;
+    [Header("--- Damage Resistance ---")]
+    [Range(-100, 100)] public int PhysicalResistance;
+    [Range(-100, 100)] public int FireResistance;
+    [Range(-100, 100)] public int IceResistance;
+    [Range(-100, 100)] public int ElectricResistance;
+    [Range(-100, 100)] public int PoisionResistance;
+    // CombatStats combatStats;
     StatusEffectController statusEffectController;
 
     public bool IsPlayer
@@ -53,7 +61,7 @@ public class Unit : MonoBehaviour
     {
         selectedVisual = GetComponent<SelectedVisual>();
         GetComponents<BaseAction>(actionList);
-        damageResistance = GetComponent<DamageResistance>();
+        // combatStats = GetComponent<CombatStats>();
         statusEffectController = GetComponent<StatusEffectController>();
     }
 
@@ -88,9 +96,6 @@ public class Unit : MonoBehaviour
                 isCritical = true;
                 damageReceived *= 2;
             }
-            //account for resistance
-            damageReceived = damageResistance.ApplyResistance(damageReceived, attack.Type);
-
             TakeDamage(damageReceived, attack.Type, isCritical, true);
         }
         else
@@ -125,6 +130,7 @@ public class Unit : MonoBehaviour
 
     public void TakeDamage(int damage, DamageType damageType, bool isCritical, bool playAnimation = true)
     {
+        damage = ApplyResistance(damage, damageType);
         currentHealthPoints -= damage;
 
         if (currentHealthPoints <= 0)
@@ -183,5 +189,30 @@ public class Unit : MonoBehaviour
     private void OnMouseExit()
     {
         OnMouseExitAnyUnit?.Invoke(this, EventArgs.Empty);
+    }
+
+    public int ApplyResistance(int damageAmount, DamageType damageType)
+    {
+        float modifier = (100f - GetResistanceValue(damageType)) / 100f;
+        return (int)(damageAmount * modifier);
+    }
+
+    public int GetResistanceValue(DamageType damageType)
+    {
+        switch (damageType)
+        {
+            case DamageType.Physical:
+                return PhysicalResistance;
+            case DamageType.Fire:
+                return FireResistance;
+            case DamageType.Ice:
+                return IceResistance;
+            case DamageType.Electric:
+                return ElectricResistance;
+            case DamageType.Poision:
+                return PoisionResistance;
+            default:
+                return 0;
+        }
     }
 }

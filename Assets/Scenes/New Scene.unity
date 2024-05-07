@@ -1539,7 +1539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2365483820219978411, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2365483820219982047, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: m_IsActive
@@ -2623,6 +2623,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.59186697
       objectReference: {fileID: 0}
+    - target: {fileID: 6408700017839855688, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: FireResistance
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6799114870049279510, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.801531
@@ -2708,12 +2712,16 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6937388909013420697, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: FireResistance
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937388909013420697, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: maxActionPoints
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6937388909013420697, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: maxHealthPoints
-      value: 50
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 7132514738340129430, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3030,6 +3038,10 @@ PrefabInstance:
     - target: {fileID: 9012046299224511783, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.0103731835
+      objectReference: {fileID: 0}
+    - target: {fileID: 9191870162249139994, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: FireResistance
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 9196763816610382661, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3498,6 +3510,8 @@ MonoBehaviour:
   - {fileID: 1921367328}
   enemyUnits:
   - {fileID: 2872737468122016216}
+  - {fileID: 2088895143}
+  - {fileID: 2061065316}
 --- !u!114 &893299311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5012,7 +5026,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2365483820219978411, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2365483820229437467, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: m_ApplyRootMotion
@@ -6358,7 +6372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6937388909013420697, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: maxHealthPoints
-      value: 10000
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7132514738340129430, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6926,6 +6940,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: af1c65edd9698f946b511b647e819d26, type: 2}
+--- !u!114 &2061065316 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 508309180124409411, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+  m_PrefabInstance: {fileID: 168340438}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061065308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82495ea3497c8b44fb3035d20afc5dba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2067486997
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7005,6 +7030,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 9fdb59d2e867ed340bb1822a2ff5d6b7, type: 2}
+--- !u!114 &2088895143 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 508309180124409411, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+  m_PrefabInstance: {fileID: 1442107979}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088895124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82495ea3497c8b44fb3035d20afc5dba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2110566436
 GameObject:
   m_ObjectHideFlags: 0
@@ -7260,7 +7296,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 508309180124409411, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: maxHealthPoints
-      value: 200
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 508309180124409411, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: PhysicalResistance
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: PhysicalResistance
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2365483820219763281, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: m_LocalPosition.x
