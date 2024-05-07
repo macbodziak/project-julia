@@ -6447,12 +6447,36 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6408700017839855688, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: dodgeModifier
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6408700017839855688, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: maxActionPoints
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6408700017839855688, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: maxHealthPoints
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6408700017839855688, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: damageMultiplier
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6408700017839855688, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: HitChanceModifier
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6408700017839855688, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: CritChanceModifier
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6408700017839855688, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: ActionPointsModifier
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6408700017839855688, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: actionPointsModifier
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6799114870049279510, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7501,6 +7525,10 @@ PrefabInstance:
     - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: dodge
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: DodgeModifier
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: maxActionPoints

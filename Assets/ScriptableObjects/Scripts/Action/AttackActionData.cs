@@ -15,8 +15,19 @@ public class AttackActionData : BaseActionData
     public int CritChance { get => critChance; protected set => critChance = value; }
     public DamageType DamageType { get => damageType; protected set => damageType = value; }
 
-    public AttackInfo GetAttackInfo()
+    public AttackInfo GetAttackInfo(CombatStats combatStats = null)
     {
-        return new AttackInfo(MinDamage, MaxDamage, HitChance, CritChance, DamageType);
+        if (combatStats == null)
+        {
+            return new AttackInfo(MinDamage, MaxDamage, HitChance, CritChance, DamageType);
+        }
+        else
+        {
+            int _minDamage = (int)(MinDamage * combatStats.DamageMultiplier);
+            int _maxDamage = (int)(MaxDamage * combatStats.DamageMultiplier);
+            int _hitChance = HitChance + combatStats.HitChanceModifier;
+            int _critChance = CritChance + combatStats.CritChanceModifier;
+            return new AttackInfo(_minDamage, _maxDamage, _hitChance, _critChance, DamageType);
+        }
     }
 }

@@ -15,6 +15,8 @@ public class AttackSingleTargetAction : BaseAction
 
     protected override void ExecuteLogic()
     {
-        targets[0].combatStats.ReceiveAttack(data.GetAttackInfo());
+        CombatStats combatStats = GetComponent<CombatStats>();
+        AttackInfo attack = data.GetAttackInfo(combatStats);
+        targets[0].combatStats.ReceiveAttack(attack);
     }
 }

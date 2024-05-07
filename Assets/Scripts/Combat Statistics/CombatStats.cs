@@ -22,11 +22,31 @@ public class CombatStats : MonoBehaviour
     [Range(-100, 100)] public int ElectricResistance;
     [Range(-100, 100)] public int PoisionResistance;
 
+    [Space(20)]
+    [Header("Modifiers:")]
+    [Space(6)]
+    [SerializeField] public float DamageMultiplier = 1.0f;
+    [SerializeField] public int DodgeModifier = 0;
+    [SerializeField] private int actionPointsModifier = 0;
+    [SerializeField] public int HitChanceModifier = 0;
+    [SerializeField] public int CritChanceModifier = 0;
+    // [SerializeField]
+    // [SerializeField]
+    // [SerializeField]
+
     public int CurrentActionPoints { get => currentActionPoints; set => currentActionPoints = value; }
     public int CurrentHealthPoints { get => currentHealthPoints; private set => currentHealthPoints = value; }
     public int Dodge { get => dodge; private set => dodge = value; }
     public int MaxActionPoints { get => maxActionPoints; private set => maxActionPoints = value; }
     public int MaxHealthPoints { get => maxHealthPoints; private set => maxHealthPoints = value; }
+    public int ActionPointsModifier
+    {
+        get => actionPointsModifier;
+        set
+        {
+            SetActionPointModifier(value);
+        }
+    }
 
     public static event EventHandler<DamageTakenEventArgs> OnAnyUnitTookDamage;
     public static event EventHandler<HealingReceivedEventArgs> OnAnyUnitReceivedHealing;
@@ -89,7 +109,7 @@ public class CombatStats : MonoBehaviour
         bool isCritical = false;
         //make hit roll 
         int hitRoll = UnityEngine.Random.Range(0, 100);
-        int requiredRoll = 100 - attack.HitChance + dodge;
+        int requiredRoll = 100 - attack.HitChance + dodge + DodgeModifier;
         requiredRoll = Mathf.Clamp(requiredRoll, 5, 100);
 
         //if hit was successful
@@ -128,8 +148,16 @@ public class CombatStats : MonoBehaviour
 
     public void ResetActionPoints()
     {
-        currentActionPoints = maxActionPoints;
+        currentActionPoints = maxActionPoints + ActionPointsModifier;
     }
+
+    private void SetActionPointModifier(int value)
+    {
+        actionPointsModifier = value;
+        currentActionPoints += value;
+        currentActionPoints = Mathf.Clamp(currentActionPoints, 0, 10);
+    }
+
     public void TakeDamage(int damage, DamageType damageType, bool isCritical, bool playAnimation = true)
     {
         damage = ApplyResistance(damage, damageType);

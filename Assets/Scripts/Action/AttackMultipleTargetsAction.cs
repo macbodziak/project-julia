@@ -20,9 +20,11 @@ public class AttackMultipleTargetsAction : BaseAction, IMultipleTargets
 
     protected override void ExecuteLogic()
     {
+        CombatStats combatStats = GetComponent<CombatStats>();
+        AttackInfo attack = data.GetAttackInfo(combatStats);
         foreach (Unit target in targets)
         {
-            target.combatStats.ReceiveAttack(data.GetAttackInfo());
+            target.combatStats.ReceiveAttack(attack);
         }
     }
 
