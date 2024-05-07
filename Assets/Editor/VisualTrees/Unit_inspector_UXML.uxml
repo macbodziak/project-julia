@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:Label tabindex="-1" text="Basic Stats" parse-escape-sequences="true" display-tooltip-when-elided="true" />
+    <ui:IMGUIContainer style="flex-direction: row;">
+        <ui:IntegerField label="HP" value="42" binding-path="currentHealthPoints" readonly="false" usage-hints="None" style="flex-direction: row; -unity-text-align: middle-left; width: 205px; display: flex; flex-basis: auto; align-items: center; opacity: 1; position: relative; align-self: auto; flex-wrap: nowrap; justify-content: flex-start;" />
+        <ui:Label tabindex="-1" text=" / " parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: auto; -unity-text-align: middle-left;" />
+        <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" binding-path="maxHealthPoints" name="maxHP" style="justify-content: flex-start; -unity-text-align: middle-left;" />
+    </ui:IMGUIContainer>
+</ui:UXML>

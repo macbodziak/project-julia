@@ -17,7 +17,7 @@ public class HealAllTargetsAction : BaseAction
     {
         foreach (Unit target in targets)
         {
-            target.ReceiveHealing(data.GetHealingInfo());
+            target.combatStats.ReceiveHealing(data.GetHealingInfo());
         }
     }
 

@@ -15,7 +15,7 @@ public class HealSingleTargetAction : BaseAction
 
     protected override void ExecuteLogic()
     {
-        targets[0].ReceiveHealing(data.GetHealingInfo());
+        targets[0].combatStats.ReceiveHealing(data.GetHealingInfo());
         targets[0].RemoveStatusEffect<BleedingStatusEffect>();
     }
 }

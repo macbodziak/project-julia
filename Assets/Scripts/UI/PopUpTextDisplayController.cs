@@ -29,8 +29,8 @@ public class PopUpTextDisplayController : MonoBehaviour
         Unit.OnMouseEnterAnyUnit += HandleMouseEnterAnyUnit;
         Unit.OnMouseExitAnyUnit += HandleMouseExitAnyUnit;
 
-        Unit.OnAnyUnitTookDamage += HandleAnyUnitTookDamage;
-        Unit.OnAnyUnitReceivedHealing += HanldeAnyUnitReceivedHealing;
+        CombatStats.OnAnyUnitTookDamage += HandleAnyUnitTookDamage;
+        CombatStats.OnAnyUnitReceivedHealing += HanldeAnyUnitReceivedHealing;
     }
 
     private void HandleMouseEnterAnyUnit(object sender, EventArgs e)
@@ -48,22 +48,22 @@ public class PopUpTextDisplayController : MonoBehaviour
     private void HandleAnyUnitTookDamage(object sender, EventArgs e)
     {
         DamageTakenEventArgs args = (DamageTakenEventArgs)e;
-        Unit unit = (Unit)sender;
+        CombatStats combatStats = (CombatStats)sender;
         string textToShow = "-" + args.Damage;
         if (args.IsCritical == true)
         {
             textToShow = "CRIT " + textToShow;
         }
-        TextMeshProUGUI textMesh = textDrawer.DisplayRaisingTextAtGameObject(textToShow, unit.gameObject, new Vector2(0f, 50f), 90f, 1.2f);
+        TextMeshProUGUI textMesh = textDrawer.DisplayRaisingTextAtGameObject(textToShow, combatStats.gameObject, new Vector2(0f, 50f), 90f, 1.2f);
         textMesh.color = GetDamageColor(args.Type);
     }
 
     private void HanldeAnyUnitReceivedHealing(object sender, HealingReceivedEventArgs args)
     {
-        Unit unit = (Unit)sender;
+        CombatStats combatStats = (CombatStats)sender;
         string textToShow = "+" + args.Amount;
 
-        TextMeshProUGUI textMesh = textDrawer.DisplayRaisingTextAtGameObject(textToShow, unit.gameObject, new Vector2(0f, 50f), 90f, 1.2f);
+        TextMeshProUGUI textMesh = textDrawer.DisplayRaisingTextAtGameObject(textToShow, combatStats.gameObject, new Vector2(0f, 50f), 90f, 1.2f);
         textMesh.color = new Color(0.6f, 1f, 1f, 1f);
     }
 

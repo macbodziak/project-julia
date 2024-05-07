@@ -35,7 +35,7 @@ public class CombatEncounterManager : MonoBehaviour
 
     private void Start()
     {
-        Unit.OnAnyUnitTookDamage += HandleAnyUnitTookDamage;
+        CombatStats.OnAnyUnitTookDamage += HandleAnyUnitTookDamage;
 
         //DEBUG - for testing only
         StartCoroutine(DebugStatusEffects());
@@ -74,7 +74,8 @@ public class CombatEncounterManager : MonoBehaviour
 
     private void HandleAnyUnitTookDamage(object sender, DamageTakenEventArgs eventArgs)
     {
-        Unit unit = (Unit)sender;
+        CombatStats combatStats = (CombatStats)sender;
+        Unit unit = combatStats.GetComponent<Unit>();
 
         if (eventArgs.IsKillingBlow)
         {

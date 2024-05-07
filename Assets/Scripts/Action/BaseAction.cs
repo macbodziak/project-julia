@@ -86,7 +86,7 @@ public abstract class BaseAction : MonoBehaviour
 
     protected IEnumerator PerformAction()
     {
-        unit.ActionPoints -= baseData.ActionPointCost;
+        unit.combatStats.CurrentActionPoints -= baseData.ActionPointCost;
         yield return new WaitForSeconds(baseData.Duration * 0.3f);
         ExecuteLogic();
         //TO DO play audio

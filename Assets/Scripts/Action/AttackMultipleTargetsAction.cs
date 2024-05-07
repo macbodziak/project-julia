@@ -22,7 +22,7 @@ public class AttackMultipleTargetsAction : BaseAction, IMultipleTargets
     {
         foreach (Unit target in targets)
         {
-            target.ReceiveAttack(data.GetAttackInfo());
+            target.combatStats.ReceiveAttack(data.GetAttackInfo());
         }
     }
 

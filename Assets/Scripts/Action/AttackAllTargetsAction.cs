@@ -17,7 +17,7 @@ public class AttackAllTargetsAction : BaseAction
     {
         foreach (Unit target in targets)
         {
-            target.ReceiveAttack(data.GetAttackInfo());
+            target.combatStats.ReceiveAttack(data.GetAttackInfo());
         }
     }
 

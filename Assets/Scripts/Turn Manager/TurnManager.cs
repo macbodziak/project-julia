@@ -108,7 +108,7 @@ public class TurnManager : MonoBehaviour
         List<Unit> playerUnits = CombatEncounterManager.Instance.GetPlayerUnitList();
         foreach (Unit unit in playerUnits)
         {
-            unit.ResetActionPoints();
+            unit.combatStats.ResetActionPoints();
         }
     }
 
@@ -117,7 +117,7 @@ public class TurnManager : MonoBehaviour
         List<Unit> enemyUnits = CombatEncounterManager.Instance.GetEnemyUnitList();
         foreach (Unit unit in enemyUnits)
         {
-            unit.ResetActionPoints();
+            unit.combatStats.ResetActionPoints();
         }
     }
 
