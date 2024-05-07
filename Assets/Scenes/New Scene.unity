@@ -3489,11 +3489,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a640795e3fa8a749b71a307397e63c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  physicalDamageColor: {r: 0.8773585, g: 0.59180313, b: 0.59180313, a: 1}
-  fireDamageColor: {r: 1, g: 0.6726045, b: 0.13679248, a: 1}
-  iceDamageColor: {r: 0.43952474, g: 0.76733625, b: 0.7830189, a: 1}
-  electricDamageColor: {r: 0.7709594, g: 0.81856066, b: 0.990566, a: 1}
-  poisonDamageColor: {r: 0.7037006, g: 1, b: 0.25943398, a: 1}
+  damageColors:
+    content:
+    - {r: 0.87843144, g: 0.5921569, b: 0.5921569, a: 1}
+    - {r: 1, g: 0.6745098, b: 0.13725491, a: 1}
+    - {r: 0.43921572, g: 0.7686275, b: 0.7843138, a: 1}
+    - {r: 0.7725491, g: 0.8196079, b: 0.9921569, a: 1}
+    - {r: 0.7019608, g: 1, b: 0.25882354, a: 1}
+    enumType: 0
 --- !u!114 &872484685
 MonoBehaviour:
   m_ObjectHideFlags: 0

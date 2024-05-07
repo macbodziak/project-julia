@@ -8,9 +8,9 @@ public class CombatStats : MonoBehaviour
     [Header("Basic Stats:")]
     [Space(6)]
     [SerializeField] private int maxHealthPoints;
-    [SerializeField] private int currentHealthPoints;
+    [SerializeField][ReadOnly] private int currentHealthPoints;
     [SerializeField] private int maxActionPoints;
-    [SerializeField] private int currentActionPoints;
+    [SerializeField][ReadOnly] private int currentActionPoints;
     [SerializeField] private int dodge;
 
     [Space(20)]

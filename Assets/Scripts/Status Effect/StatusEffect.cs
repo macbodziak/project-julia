@@ -9,11 +9,12 @@ using UnityEngine;
 // To create a specific status effect:
 // 1. create a Scritpalbe Object to hold data sepcific to this effect 
 //    derived from BaseStatusEffectData
-// 2. create a class derived from this class and implemet its ApplyEffect method
-//    and add effect specific data and behaviour
+// 2. create a class derived from this class
 // 3. override the IsAppliedEachTurn() method to return true, if the effect should
 //    be apllied each turn, like do damage each turn
-// 4. call the LoadData method in the derived Awake method with the path to the 
+// 4. Implemet the ApplyEffect method if it  applies every turn (like damage),
+//    otherwise implement Start and OnDestory methods to add / subract modifiers 
+// 5. call the LoadData method in the derived Awake method with the path to the 
 //    Scriptable Object containing data for the specific status effect
 // </summary>
 public abstract class StatusEffect : MonoBehaviour
@@ -40,7 +41,7 @@ public abstract class StatusEffect : MonoBehaviour
         get { return baseData.Icon; }
     }
 
-    public abstract void ApplyEffect();
+    public virtual void ApplyEffect() {; }
 
     protected virtual void Start()
     {

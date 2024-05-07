@@ -1,8 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// <summary
+// apply fire damage over several rounds
+// </summary>
 public class BurningStatusEffect : StatusEffect
 {
     [SerializeField] BurningStatusEffectData data;

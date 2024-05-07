@@ -1,6 +1,10 @@
 using System;
 using UnityEngine;
 
+// <summary
+// apply physical damage over time
+// </summary>
+
 public class BleedingStatusEffect : StatusEffect
 {
     [SerializeField] BleedingStatusEffectData data;
