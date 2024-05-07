@@ -12,6 +12,7 @@ public class PopUpTextDisplayController : MonoBehaviour
     private TextMeshProUGUI dislayedText;
     private TextToCanvasDrawer textDrawer;
 
+    [SerializeField] EnumMappedArray<Color, DamageType> damageColors;
     [SerializeField] Color physicalDamageColor;
 
     [SerializeField] Color fireDamageColor;
