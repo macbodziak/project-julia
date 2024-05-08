@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "Base Action Data", menuName = "Scriptable Objects/Base Action Data Config", order = 10)]
+[CreateAssetMenu(fileName = "Base Action Data", menuName = "Scriptable Objects/Actions/Base Action Data Config", order = 10)]
 public class BaseActionData : ScriptableObject
 {
     [SerializeField] private string m_name = "no name";

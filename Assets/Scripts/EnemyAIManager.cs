@@ -47,7 +47,7 @@ public class EnemyAIManager : MonoBehaviour
 
     private BaseAction ChooseAction(Unit unit)
     {
-        if (unit.ActionPoints == 0)
+        if (unit.ActionPoints <= 0)
         {
             return null;
         }

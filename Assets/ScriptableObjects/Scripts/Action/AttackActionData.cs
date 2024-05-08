@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Attack Config Data", menuName = "Scriptable Objects/Attack Config Data", order = 1)]
+[CreateAssetMenu(fileName = "Attack Config Data", menuName = "Scriptable Objects/Actions/Attack Config Data", order = 1)]
 public class AttackActionData : BaseActionData
 {
     [SerializeField] private int minDamage;

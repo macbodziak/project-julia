@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Heal Config Data", menuName = "Scriptable Objects/Heal Config Data", order = 3)]
+[CreateAssetMenu(fileName = "Heal Config Data", menuName = "Scriptable Objects/Actions/Heal Config Data", order = 3)]
 public class HealActionData : BaseActionData
 {
     [SerializeField] private int minAmount;
