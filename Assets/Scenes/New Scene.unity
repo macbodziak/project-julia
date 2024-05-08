@@ -456,7 +456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: statusEffectSaveValues.content.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: damageResistanceValues.content.Array.data[1]
@@ -464,7 +464,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: statusEffectSaveValues.content.Array.data[1]
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2365483820219763281, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2704,7 +2704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6408700017839855688, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: statusEffectSaveValues.content.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6799114870049279510, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4079,7 +4079,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: statusEffectSaveValues.content.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2365483820219763281, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5418,7 +5418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6349f90a0401e6448f4ad1112838b19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: fe1b67b62eed9604b83d0be5e92a8206, type: 2}
+  data: {fileID: 11400000, guid: 15ea5ce65da9f44448b203658d31edee, type: 2}
 --- !u!1001 &1668827278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6554,7 +6554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6408700017839855688, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: statusEffectSaveValues.content.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6799114870049279510, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7671,11 +7671,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: statusEffectSaveValues.content.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: damageResistanceValues.content.Array.data[0]
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: statusEffectSaveValues.content.Array.data[0]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: statusEffectSaveValues.content.Array.data[1]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: statusEffectSaveValues.content.Array.data[2]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: statusEffectSaveValues.content.Array.data[3]
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2365483820219763281, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: m_LocalPosition.x

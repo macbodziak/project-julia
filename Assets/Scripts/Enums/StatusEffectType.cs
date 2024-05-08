@@ -4,5 +4,6 @@ public enum StatusEffectType
     Burning,
     Poisened,
     Slowed,
-    IncreasedDamage
+    IncreasedDamage,
+    Rage
 }

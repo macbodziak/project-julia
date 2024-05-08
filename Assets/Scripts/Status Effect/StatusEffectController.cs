@@ -125,6 +125,9 @@ public class StatusEffectController : MonoBehaviour
             case StatusEffectType.IncreasedDamage:
                 ReceiveStatusEffect<IncreasedDamageStatusEffect>();
                 break;
+            case StatusEffectType.Rage:
+                ReceiveStatusEffect<RageStatusEffect>();
+                break;
         }
     }
 
@@ -157,6 +160,9 @@ public class StatusEffectController : MonoBehaviour
                 break;
             case StatusEffectType.IncreasedDamage:
                 RemoveStatusEffect<IncreasedDamageStatusEffect>();
+                break;
+            case StatusEffectType.Rage:
+                RemoveStatusEffect<RageStatusEffect>();
                 break;
         }
     }
