@@ -36,7 +36,27 @@ public class CombatEncounterManager : MonoBehaviour
     private void Start()
     {
         CombatStats.OnAnyUnitTookDamage += HandleAnyUnitTookDamage;
+
+        //DEBUG - for testing only
+        StartCoroutine(DebugStatusEffects());
+
+        //end of testing code
     }
+
+    //DEBUG - for testing only
+    private IEnumerator DebugStatusEffects()
+    {
+        yield return null;
+        playerUnits[1].TryReceivingStatusEffect(StatusEffectType.Bleeding);
+        playerUnits[1].TryReceivingStatusEffect(StatusEffectType.Burning);
+        playerUnits[0].TryReceivingStatusEffect(StatusEffectType.Bleeding);
+        // playerUnits[0].ReceiveStatusEffect<SlowStatusEffect>();
+        enemyUnits[0].TryReceivingStatusEffect(StatusEffectType.Burning);
+        enemyUnits[0].TryReceivingStatusEffect(StatusEffectType.Bleeding);
+
+        yield return null;
+    }
+    //end of testing code
 
     public int GetEnemyCount()
     {

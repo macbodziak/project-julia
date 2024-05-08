@@ -62,9 +62,9 @@ public class Unit : MonoBehaviour
         return actionList;
     }
 
-    public void ReceiveStatusEffect(StatusEffectType type)
+    public void TryReceivingStatusEffect(StatusEffectType type)
     {
-        _statusEffectController.ReceiveStatusEffect(type);
+        _statusEffectController.TryReceivingStatusEffect(type);
     }
 
     public void RemoveStatusEffect(StatusEffectType type)

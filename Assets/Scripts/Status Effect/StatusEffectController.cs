@@ -17,6 +17,10 @@ public class StatusEffectController : MonoBehaviour
 
     public bool IsProcessing { get => isProcessing; private set => isProcessing = value; }
 
+    public static event EventHandler AnyUnitImmuneToStatusEffectEvent;
+    public static event EventHandler AnyUnitSavedFromStatusEffectEvent;
+    public static event EventHandler<StatusEffect> AnyUnitReceivedStatusEffectEvent;
+    public static event EventHandler<StatusEffect> AnyUnitRemovedStatusEffectEvent;
     private void Awake()
     {
         statusEffects = new();
@@ -47,6 +51,7 @@ public class StatusEffectController : MonoBehaviour
                 //remove status effect from list if expired
                 if (statusEffects[i].RemainingDuration == 0)
                 {
+                    AnyUnitRemovedStatusEffectEvent?.Invoke(this, statusEffects[i]);
                     Destroy(statusEffects[i]);
                     statusEffects.RemoveAt(i);
                 }
@@ -69,6 +74,7 @@ public class StatusEffectController : MonoBehaviour
                 //remove status effect from list if expired
                 if (statusEffects[i].RemainingDuration == 0)
                 {
+                    AnyUnitRemovedStatusEffectEvent?.Invoke(this, statusEffects[i]);
                     Destroy(statusEffects[i]);
                     statusEffects.RemoveAt(i);
                 }
@@ -96,10 +102,11 @@ public class StatusEffectController : MonoBehaviour
             //add new status effect
             statusEffect = gameObject.AddComponent<T>();
             statusEffects.Add(statusEffect);
+            AnyUnitReceivedStatusEffectEvent?.Invoke(this, statusEffect);
         }
     }
 
-    public void ReceiveStatusEffect(StatusEffectType type)
+    private void ReceiveStatusEffect(StatusEffectType type)
     {
         switch (type)
         {
@@ -126,6 +133,7 @@ public class StatusEffectController : MonoBehaviour
         StatusEffect statusEffect = GetComponent<T>();
         if (statusEffect != null)
         {
+            AnyUnitRemovedStatusEffectEvent?.Invoke(this, statusEffect);
             Destroy(statusEffect);
             statusEffects.Remove(statusEffect);
         }
@@ -153,6 +161,30 @@ public class StatusEffectController : MonoBehaviour
         }
     }
 
+    public bool TryReceivingStatusEffect(StatusEffectType type)
+    {
+        CombatStats combatStats = GetComponent<CombatStats>();
+        int requiredSavingThrow = 100 - combatStats.GetStatusEffectSaveValue(type);
+        if (requiredSavingThrow <= 0)
+        {
+            AnyUnitImmuneToStatusEffectEvent?.Invoke(this, EventArgs.Empty);
+            return false;
+        }
+        else
+        {
+            int savingThrow = UnityEngine.Random.Range(0, 100);
+            if (savingThrow > requiredSavingThrow)
+            {
+                AnyUnitSavedFromStatusEffectEvent?.Invoke(this, EventArgs.Empty);
+                return true;
+            }
+            else
+            {
+                ReceiveStatusEffect(type);
+                return false;
+            }
+        }
+    }
     public void Clear()
     {
         foreach (StatusEffect statusEffect in statusEffects)

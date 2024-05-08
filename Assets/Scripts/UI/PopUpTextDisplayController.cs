@@ -23,6 +23,11 @@ public class PopUpTextDisplayController : MonoBehaviour
 
         CombatStats.OnAnyUnitTookDamage += HandleAnyUnitTookDamage;
         CombatStats.OnAnyUnitReceivedHealing += HanldeAnyUnitReceivedHealing;
+
+        StatusEffectController.AnyUnitImmuneToStatusEffectEvent += HandleAnyUnitImmuneToStatusEffect;
+        StatusEffectController.AnyUnitReceivedStatusEffectEvent += HandleAnyUnitReceivedStatusEffect;
+        StatusEffectController.AnyUnitRemovedStatusEffectEvent += HandlAnyUnitRemovedStatusEffect;
+        StatusEffectController.AnyUnitSavedFromStatusEffectEvent += HandleAnyUnitSavedFromStatusEffect;
     }
 
     private void HandleMouseEnterAnyUnit(object sender, EventArgs e)
@@ -64,5 +69,44 @@ public class PopUpTextDisplayController : MonoBehaviour
 
         TextMeshProUGUI textMesh = textDrawer.DisplayRaisingTextAtGameObject(textToShow, combatStats.gameObject, new Vector2(0f, 50f), 90f, 1.2f);
         textMesh.color = new Color(0.6f, 1f, 1f, 1f);
+    }
+
+    private void HandleAnyUnitImmuneToStatusEffect(object sender, EventArgs args)
+    {
+        StatusEffectController controller = (StatusEffectController)sender;
+        string textToShow = "Immune ";
+
+        TextMeshProUGUI textMesh = textDrawer.DisplayRaisingTextAtGameObject(textToShow, controller.gameObject, GetRandomPosition(), 90f, 1.2f);
+    }
+    private void HandleAnyUnitSavedFromStatusEffect(object sender, EventArgs args)
+    {
+        StatusEffectController controller = (StatusEffectController)sender;
+        string textToShow = "Saved ";
+
+        TextMeshProUGUI textMesh = textDrawer.DisplayRaisingTextAtGameObject(textToShow, controller.gameObject, GetRandomPosition(), 90f, 1.2f);
+    }
+    private void HandleAnyUnitReceivedStatusEffect(object sender, StatusEffect statusEffect)
+    {
+
+        StatusEffectController controller = (StatusEffectController)sender;
+        string textToShow = "" + statusEffect.Name;
+
+        TextMeshProUGUI textMesh = textDrawer.DisplayRaisingTextAtGameObject(textToShow, controller.gameObject, GetRandomPosition(), 90f, 1.2f);
+    }
+    private void HandlAnyUnitRemovedStatusEffect(object sender, StatusEffect statusEffect)
+    {
+        StatusEffectController controller = (StatusEffectController)sender;
+        string textToShow = "" + statusEffect.Name;
+
+        TextMeshProUGUI textMesh = textDrawer.DisplayRaisingTextAtGameObject(textToShow, controller.gameObject, GetRandomPosition(), 90f, 1.2f);
+
+        textMesh.fontStyle = FontStyles.Strikethrough;
+    }
+
+    private Vector2 GetRandomPosition()
+    {
+        float random_x = UnityEngine.Random.Range(-15f, 15f);
+        float random_y = UnityEngine.Random.Range(0f, 40f);
+        return new Vector2(random_x, random_y);
     }
 }

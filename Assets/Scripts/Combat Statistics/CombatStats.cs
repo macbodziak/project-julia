@@ -13,12 +13,16 @@ public class CombatStats : MonoBehaviour
     [SerializeField][ReadOnly] private int currentActionPoints;
     [SerializeField] private int dodge;
 
-    [Space(20)]
+    [Space(12)]
     [Header("Damage Resistance:")]
     [Space(6)]
     [SerializeField] EnumMappedArray<int, DamageType> damageResistanceValues;
 
-    [Space(20)]
+    [Space(12)]
+    [Header("Status Effect Savinng Throws:")]
+    [Space(6)]
+    [SerializeField] EnumMappedArray<int, StatusEffectType> statusEffectSaveValues;
+    [Space(12)]
     [Header("Modifiers:")]
     [Space(6)]
     [SerializeField] public float DamageMultiplier = 1.0f;
@@ -26,9 +30,6 @@ public class CombatStats : MonoBehaviour
     [SerializeField] private int actionPointsModifier = 0;
     [SerializeField] public int HitChanceModifier = 0;
     [SerializeField] public int CritChanceModifier = 0;
-    // [SerializeField]
-    // [SerializeField]
-    // [SerializeField]
 
     public int CurrentActionPoints { get => currentActionPoints; set => currentActionPoints = value; }
     public int CurrentHealthPoints { get => currentHealthPoints; private set => currentHealthPoints = value; }
@@ -57,6 +58,16 @@ public class CombatStats : MonoBehaviour
     {
         float modifier = (100f - damageResistanceValues[(int)damageType]) / 100f;
         return (int)(damageAmount * modifier);
+    }
+
+    public int GetDamageResistance(DamageType type)
+    {
+        return damageResistanceValues[(int)type];
+    }
+
+    public int GetStatusEffectSaveValue(StatusEffectType type)
+    {
+        return statusEffectSaveValues[(int)type];
     }
 
     private void OnDeath()

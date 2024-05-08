@@ -12,6 +12,6 @@ public class BuffSingleAllyAction : BaseAction
 
     protected override void ExecuteLogic()
     {
-        targets[0].ReceiveStatusEffect(data.StatusEffectType);
+        targets[0].TryReceivingStatusEffect(data.StatusEffectType);
     }
 }

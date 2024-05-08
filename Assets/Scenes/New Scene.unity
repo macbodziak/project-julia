@@ -455,8 +455,16 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: statusEffectSaveValues.content.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: damageResistanceValues.content.Array.data[1]
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: statusEffectSaveValues.content.Array.data[1]
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2365483820219763281, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2690,6 +2698,14 @@ PrefabInstance:
       propertyPath: maxHealthPoints
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 6408700017839855688, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: damageResistanceValues.content.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6408700017839855688, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: statusEffectSaveValues.content.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6799114870049279510, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.801531
@@ -4059,6 +4075,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: damageResistanceValues.content.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: statusEffectSaveValues.content.Array.size
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2365483820219763281, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
@@ -6532,6 +6552,10 @@ PrefabInstance:
       propertyPath: damageResistanceValues.content.Array.size
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6408700017839855688, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: statusEffectSaveValues.content.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6799114870049279510, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.801531
@@ -7643,6 +7667,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: damageResistanceValues.content.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: statusEffectSaveValues.content.Array.size
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
