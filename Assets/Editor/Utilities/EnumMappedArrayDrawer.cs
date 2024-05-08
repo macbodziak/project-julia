@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 public class EnumMappedArrayDrawer : PropertyDrawer
 {
     private const float FOLDOUT_HEIGHT = 16f;
+    private const float PADDING = 3f;
     private SerializedProperty content;
     private SerializedProperty enumType;
 
@@ -29,7 +30,7 @@ public class EnumMappedArrayDrawer : PropertyDrawer
             }
             for (int i = 0; i < content.arraySize; i++)
             {
-                height += EditorGUI.GetPropertyHeight(content.GetArrayElementAtIndex(i));
+                height += EditorGUI.GetPropertyHeight(content.GetArrayElementAtIndex(i)) + PADDING;
             }
         }
 
@@ -50,7 +51,7 @@ public class EnumMappedArrayDrawer : PropertyDrawer
             for (int i = 0; i < content.arraySize; i++)
             {
                 Rect rect = new Rect(position.x, position.y + yOffset, position.width, EditorGUI.GetPropertyHeight(content.GetArrayElementAtIndex(i)));
-                yOffset += rect.height;
+                yOffset += rect.height + PADDING;
                 EditorGUI.PropertyField(rect, content.GetArrayElementAtIndex(i), new GUIContent(enumType.enumNames[i]), true);
             }
             EditorGUI.indentLevel--;

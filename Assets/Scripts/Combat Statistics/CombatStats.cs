@@ -16,11 +16,7 @@ public class CombatStats : MonoBehaviour
     [Space(20)]
     [Header("Damage Resistance:")]
     [Space(6)]
-    [Range(-100, 100)] public int PhysicalResistance;
-    [Range(-100, 100)] public int FireResistance;
-    [Range(-100, 100)] public int IceResistance;
-    [Range(-100, 100)] public int ElectricResistance;
-    [Range(-100, 100)] public int PoisionResistance;
+    [SerializeField] EnumMappedArray<int, DamageType> damageResistanceValues;
 
     [Space(20)]
     [Header("Modifiers:")]
@@ -59,28 +55,8 @@ public class CombatStats : MonoBehaviour
 
     public int ApplyResistance(int damageAmount, DamageType damageType)
     {
-        float modifier = (100f - GetResistanceValue(damageType)) / 100f;
+        float modifier = (100f - damageResistanceValues[(int)damageType]) / 100f;
         return (int)(damageAmount * modifier);
-    }
-
-
-    public int GetResistanceValue(DamageType damageType)
-    {
-        switch (damageType)
-        {
-            case DamageType.Physical:
-                return PhysicalResistance;
-            case DamageType.Fire:
-                return FireResistance;
-            case DamageType.Ice:
-                return IceResistance;
-            case DamageType.Electric:
-                return ElectricResistance;
-            case DamageType.Poision:
-                return PoisionResistance;
-            default:
-                return 0;
-        }
     }
 
     private void OnDeath()

@@ -450,6 +450,14 @@ PrefabInstance:
       propertyPath: maxHealthPoints
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: damageResistanceValues.content.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: damageResistanceValues.content.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2365483820219763281, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.164438
@@ -4049,6 +4057,10 @@ PrefabInstance:
       propertyPath: maxHealthPoints
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: damageResistanceValues.content.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2365483820219763281, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.164438
@@ -6516,6 +6528,10 @@ PrefabInstance:
       propertyPath: actionPointsModifier
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6408700017839855688, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      propertyPath: damageResistanceValues.content.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6799114870049279510, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.801531
@@ -7611,7 +7627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: DodgeModifier
-      value: 15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: maxActionPoints
@@ -7624,6 +7640,14 @@ PrefabInstance:
     - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: PhysicalResistance
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: damageResistanceValues.content.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
+      propertyPath: damageResistanceValues.content.Array.data[0]
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 2365483820219763281, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: m_LocalPosition.x
