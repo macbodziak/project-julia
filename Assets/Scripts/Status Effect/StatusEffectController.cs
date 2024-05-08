@@ -81,7 +81,7 @@ public class StatusEffectController : MonoBehaviour
         return statusEffects;
     }
 
-    public void ReceiveStatusEffect<T>() where T : StatusEffect
+    private void ReceiveStatusEffect<T>() where T : StatusEffect
     {
         StatusEffect statusEffect;
 
@@ -99,6 +99,28 @@ public class StatusEffectController : MonoBehaviour
         }
     }
 
+    public void ReceiveStatusEffect(StatusEffectType type)
+    {
+        switch (type)
+        {
+            case StatusEffectType.Bleeding:
+                ReceiveStatusEffect<BleedingStatusEffect>();
+                break;
+            case StatusEffectType.Burning:
+                ReceiveStatusEffect<BurningStatusEffect>();
+                break;
+            case StatusEffectType.Poisened:
+                // ReceiveStatusEffect<BleedingStatusEffect>();
+                break;
+            case StatusEffectType.Slowed:
+                ReceiveStatusEffect<SlowedStatusEffect>();
+                break;
+            case StatusEffectType.IncreasedDamage:
+                ReceiveStatusEffect<IncreasedDamageStatusEffect>();
+                break;
+        }
+    }
+
     public void RemoveStatusEffect<T>() where T : StatusEffect
     {
         StatusEffect statusEffect = GetComponent<T>();
@@ -106,6 +128,28 @@ public class StatusEffectController : MonoBehaviour
         {
             Destroy(statusEffect);
             statusEffects.Remove(statusEffect);
+        }
+    }
+
+    public void RemoveStatusEffect(StatusEffectType type)
+    {
+        switch (type)
+        {
+            case StatusEffectType.Bleeding:
+                RemoveStatusEffect<BleedingStatusEffect>();
+                break;
+            case StatusEffectType.Burning:
+                RemoveStatusEffect<BurningStatusEffect>();
+                break;
+            case StatusEffectType.Poisened:
+                // RemoveStatusEffect<BleedingStatusEffect>();
+                break;
+            case StatusEffectType.Slowed:
+                RemoveStatusEffect<SlowedStatusEffect>();
+                break;
+            case StatusEffectType.IncreasedDamage:
+                RemoveStatusEffect<IncreasedDamageStatusEffect>();
+                break;
         }
     }
 
@@ -119,5 +163,10 @@ public class StatusEffectController : MonoBehaviour
         statusEffects.Clear();
         StopAllCoroutines();
         isProcessing = false;
+    }
+
+    public int Count()
+    {
+        return statusEffects.Count;
     }
 }

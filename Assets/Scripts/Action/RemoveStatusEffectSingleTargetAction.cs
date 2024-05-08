@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DebuffSingleTargetAction : BaseAction
+public class RemoveStatusEffectSingleTargetAction : BaseAction
 {
     [SerializeField] StatusEffectActionData data;
     protected override void Awake()
@@ -12,6 +12,6 @@ public class DebuffSingleTargetAction : BaseAction
 
     protected override void ExecuteLogic()
     {
-        targets[0].ReceiveStatusEffect(data.StatusEffectType);
+        targets[0].RemoveStatusEffect(data.StatusEffectType);
     }
 }

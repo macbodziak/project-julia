@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc2cef689b9412849a2dccef958b2ed9, type: 3}
-  m_Name: Slow Debuff Data
+  m_Script: {fileID: 11500000, guid: 9ef844b772aa7154da0a01113e371b19, type: 3}
+  m_Name: Increased Damage Status Effect Data
   m_EditorClassIdentifier: 
-  m_name: Slow
-  m_actionPointCost: 1
-  m_duration: 2.2
-  m_animationTrigger: CastSpell_2
-  m_sprite: {fileID: 21300000, guid: 46d3e9011d16e274888b42138b4472b8, type: 3}
+  m_name: Super Strong
+  m_duration: 1
+  m_sprite: {fileID: 21300000, guid: f47cb8fd7924a944396613e2e33c2eae, type: 3}
+  damageMultiplier: 1.33

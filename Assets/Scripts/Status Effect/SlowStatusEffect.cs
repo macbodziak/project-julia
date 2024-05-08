@@ -3,7 +3,7 @@ using UnityEngine;
 // <summary
 // Decrease Amount of action points
 // </summary>
-public class SlowStatusEffect : StatusEffect
+public class SlowedStatusEffect : StatusEffect
 {
     // [SerializeField] SlowStatusEffectData data;
 

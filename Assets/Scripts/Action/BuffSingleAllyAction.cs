@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class DebuffSingleTargetAction : BaseAction
+public class BuffSingleAllyAction : BaseAction
 {
     [SerializeField] StatusEffectActionData data;
     protected override void Awake()
     {
         baseData = data;
         base.Awake();
-        actionType = ActionType.SingleEnemyTarget;
+        actionType = ActionType.SingleAllyTarget;
     }
 
     protected override void ExecuteLogic()

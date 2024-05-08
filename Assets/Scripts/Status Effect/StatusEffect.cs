@@ -16,6 +16,7 @@ using UnityEngine;
 //    otherwise implement Start and OnDestory methods to add / subract modifiers 
 // 5. call the LoadData method in the derived Awake method with the path to the 
 //    Scriptable Object containing data for the specific status effect
+// 6/ create an entry in the enum StatusEffectType and add this type to the switch statement in  
 // </summary>
 public abstract class StatusEffect : MonoBehaviour
 {
