@@ -49,7 +49,7 @@ public abstract class StatusEffect : MonoBehaviour
     }
 
 
-    public virtual bool IsAppliedEachTurn() { return false; }
+    public virtual bool IsActive() { return false; }
 
     public void ResetDuration()
     {

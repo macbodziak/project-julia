@@ -49,11 +49,13 @@ public class TurnManager : MonoBehaviour
     {
         if (IsPlayerTurn)
         {
+            ProcessPassiveStatusEffects(CombatEncounterManager.Instance.GetPlayerUnitList());
             IsPlayerTurn = false;
             StartCoroutine(StartEnemyTurn());
         }
         else
         {
+            ProcessPassiveStatusEffects(CombatEncounterManager.Instance.GetEnemyUnitList());
             IsPlayerTurn = true;
             StartCoroutine(StartPlayerTurn());
             TurnNumber++;
@@ -61,7 +63,12 @@ public class TurnManager : MonoBehaviour
         TurnEndedEvent?.Invoke(this, EventArgs.Empty);
     }
 
-    private List<StatusEffectController> ProcessStatusEffects(List<Unit> units)
+    //<summary>
+    // get a list containing status controller from all processed unit
+    // invoke apply status for each
+    // return the list, so it can be used to verify if all status controllers have finished processing
+    //</summary>
+    private List<StatusEffectController> ProcessActiveStatusEffects(List<Unit> units)
     {
         List<StatusEffectController> statusEffectControllers = new();
         //iterating from the end becuase units might get removed while iterating if they die
@@ -69,15 +76,25 @@ public class TurnManager : MonoBehaviour
         {
             StatusEffectController statusEffectController = units[i].GetComponent<StatusEffectController>();
             statusEffectControllers.Add(statusEffectController);
-            statusEffectController.ApplyStatusEffects();
+            statusEffectController.ApplyActiveStatusEffects();
         }
         return statusEffectControllers;
+    }
+
+    private void ProcessPassiveStatusEffects(List<Unit> units)
+    {
+        //iterating from the end becuase units might get removed while iterating if they die
+        for (int i = units.Count - 1; i >= 0; i--)
+        {
+            StatusEffectController statusEffectController = units[i].GetComponent<StatusEffectController>();
+            statusEffectController.ApplyPassiveStatusEffects();
+        }
     }
 
     private IEnumerator StartEnemyTurn()
     {
         DisableInputAndUnitSelection();
-        List<StatusEffectController> statusControllers = ProcessStatusEffects(CombatEncounterManager.Instance.GetEnemyUnitList());
+        List<StatusEffectController> statusControllers = ProcessActiveStatusEffects(CombatEncounterManager.Instance.GetEnemyUnitList());
         while (HasStatusEffectProcessingCompleted(statusControllers) == false)
         {
             yield return new WaitForSeconds(0.12f);
@@ -89,7 +106,7 @@ public class TurnManager : MonoBehaviour
 
     private IEnumerator StartPlayerTurn()
     {
-        List<StatusEffectController> statusControllers = ProcessStatusEffects(CombatEncounterManager.Instance.GetPlayerUnitList());
+        List<StatusEffectController> statusControllers = ProcessActiveStatusEffects(CombatEncounterManager.Instance.GetPlayerUnitList());
         while (HasStatusEffectProcessingCompleted(statusControllers) == false)
         {
             yield return new WaitForSeconds(0.12f);

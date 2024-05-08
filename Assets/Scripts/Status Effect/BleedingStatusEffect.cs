@@ -20,5 +20,5 @@ public class BleedingStatusEffect : StatusEffect
         unit.combatStats.TakeDamage(data.DamageAmount, data.Type, false, false);
     }
 
-    public override bool IsAppliedEachTurn() { return true; }
+    public override bool IsActive() { return true; }
 }

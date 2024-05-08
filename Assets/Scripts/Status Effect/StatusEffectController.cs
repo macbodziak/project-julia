@@ -25,35 +25,55 @@ public class StatusEffectController : MonoBehaviour
     // <summary>
     // This method gets called in the Turn Manager before the units turn 
     // </summary>
-    public void ApplyStatusEffects()
+    public void ApplyActiveStatusEffects()
     {
-        StartCoroutine(ApplyStatusEffectsCoroutine());
+        StartCoroutine(ApplyActiveStatusEffectsCoroutine());
     }
 
-    private IEnumerator ApplyStatusEffectsCoroutine()
+    private IEnumerator ApplyActiveStatusEffectsCoroutine()
     {
         IsProcessing = true;
         //cycle backwards, becasue we might need to remove elements while iterating over list
         for (int i = statusEffects.Count - 1; i >= 0; i--)
         {
             //if the status effect needs to be apllied each turn
-            if (statusEffects[i].IsAppliedEachTurn() == true)
+            if (statusEffects[i].IsActive() == true)
             {
                 statusEffects[i].ApplyEffect();
                 yield return new WaitForSeconds(TIME_BETWEEN_STATUS_EFFECTS);
-            }
 
-            statusEffects[i].Decrement();
+                statusEffects[i].Decrement();
 
-            //remove status effect from list if expired
-            if (statusEffects[i].RemainingDuration == 0)
-            {
-                Destroy(statusEffects[i]);
-                statusEffects.RemoveAt(i);
+                //remove status effect from list if expired
+                if (statusEffects[i].RemainingDuration == 0)
+                {
+                    Destroy(statusEffects[i]);
+                    statusEffects.RemoveAt(i);
+                }
             }
         }
         IsProcessing = false;
         yield return null;
+    }
+
+    public void ApplyPassiveStatusEffects()
+    {
+        //cycle backwards, becasue we might need to remove elements while iterating over list
+        for (int i = statusEffects.Count - 1; i >= 0; i--)
+        {
+            //if the status effect needs to be apllied each turn
+            if (statusEffects[i].IsActive() == false)
+            {
+                statusEffects[i].Decrement();
+
+                //remove status effect from list if expired
+                if (statusEffects[i].RemainingDuration == 0)
+                {
+                    Destroy(statusEffects[i]);
+                    statusEffects.RemoveAt(i);
+                }
+            }
+        }
     }
 
     public List<StatusEffect> GetStatusEffects()
