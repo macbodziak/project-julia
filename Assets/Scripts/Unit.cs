@@ -14,15 +14,6 @@ public class Unit : MonoBehaviour
 
     public static event EventHandler OnMouseEnterAnyUnit;
     public static event EventHandler OnMouseExitAnyUnit;
-    // [SerializeField] int maxHealthPoints;
-    // int currentHealthPoints;
-
-    // [SerializeField] int maxActionPoints;
-    // [SerializeField] int actionPoints;
-
-    // [SerializeField] int dodge;
-    // public static event EventHandler<DamageTakenEventArgs> OnAnyUnitTookDamage;
-    // public static event EventHandler<HealingReceivedEventArgs> OnAnyUnitReceivedHealing;
 
     private CombatStats _combatStats;
     private StatusEffectController _statusEffectController;
@@ -51,6 +42,7 @@ public class Unit : MonoBehaviour
     {
         get { return _combatStats.CurrentActionPoints; }
     }
+
 
     private void Start()
     {

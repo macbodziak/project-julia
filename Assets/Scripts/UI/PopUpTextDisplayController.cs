@@ -28,7 +28,12 @@ public class PopUpTextDisplayController : MonoBehaviour
     private void HandleMouseEnterAnyUnit(object sender, EventArgs e)
     {
         Unit unit = (Unit)sender;
-        string text = "HP " + unit.CurrentHealthPoints + "\nAP " + unit.ActionPoints;
+        string text = "HP " + unit.CurrentHealthPoints + "\nAP " + unit.ActionPoints + "\n";
+        List<StatusEffect> statusEffects = unit.statusEffectController.GetStatusEffects();
+        foreach (StatusEffect statusEffect in statusEffects)
+        {
+            text += statusEffect.Name + "(" + statusEffect.RemainingDuration + ") ";
+        }
         dislayedText = textDrawer.DisplayTextAtGameObject(text, unit.gameObject, new Vector2(0, -50));
     }
 

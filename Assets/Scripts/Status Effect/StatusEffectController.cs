@@ -56,6 +56,11 @@ public class StatusEffectController : MonoBehaviour
         yield return null;
     }
 
+    public List<StatusEffect> GetStatusEffects()
+    {
+        return statusEffects;
+    }
+
     public void ReceiveStatusEffect<T>() where T : StatusEffect
     {
         StatusEffect statusEffect;
