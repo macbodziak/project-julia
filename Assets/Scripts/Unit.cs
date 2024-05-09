@@ -62,14 +62,14 @@ public class Unit : MonoBehaviour
         return actionList;
     }
 
-    public void TryReceivingStatusEffect(StatusEffectType type)
+    public void TryReceivingStatusEffect(StatusEffect statusEffect)
     {
-        _statusEffectController.TryReceivingStatusEffect(type);
+        _statusEffectController.TryReceivingStatusEffect(statusEffect);
     }
 
-    public void RemoveStatusEffect(StatusEffectType type)
+    public void RemoveStatusEffect(StatusEffect statusEffect)
     {
-        _statusEffectController.RemoveStatusEffect(type);
+        _statusEffectController.RemoveStatusEffect(statusEffect);
     }
 
     private void OnMouseEnter()

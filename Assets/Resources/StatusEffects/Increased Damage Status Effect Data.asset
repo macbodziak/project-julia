@@ -15,4 +15,7 @@ MonoBehaviour:
   m_name: Super Strong
   m_duration: 1
   m_sprite: {fileID: 21300000, guid: f47cb8fd7924a944396613e2e33c2eae, type: 3}
+  m_isActive: 0
+  m_type: 4
+  m_particleSystemPrefab: {fileID: 0}
   damageMultiplier: 1.33

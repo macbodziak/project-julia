@@ -5406,7 +5406,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 959967e8003e4fb4db946b837b5cf4cf, type: 2}
---- !u!114 &1657760038
+--- !u!114 &1657760046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393573697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f733e1ca1b8b1c4f98312ed79289df5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: e2b3ca8921ce3664a9f9b539d0e422cb, type: 2}
+--- !u!114 &1657760047
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5418,7 +5431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6349f90a0401e6448f4ad1112838b19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 15ea5ce65da9f44448b203658d31edee, type: 2}
+  data: {fileID: 11400000, guid: fe1b67b62eed9604b83d0be5e92a8206, type: 2}
 --- !u!1001 &1668827278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7051,7 +7064,10 @@ PrefabInstance:
       addedObject: {fileID: 1657760037}
     - targetCorrespondingSourceObject: {fileID: 3401980568171535901, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1657760038}
+      addedObject: {fileID: 1657760046}
+    - targetCorrespondingSourceObject: {fileID: 3401980568171535901, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1657760047}
   m_SourcePrefab: {fileID: 100100000, guid: 826be33ceb24b494f9dcb10eea27510a, type: 3}
 --- !u!114 &1921367328 stripped
 MonoBehaviour:
@@ -7683,7 +7699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: statusEffectSaveValues.content.Array.data[1]
-      value: 15
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 690031267751448961, guid: dd7c00ea399fbb148af04fc9f33e7dd4, type: 3}
       propertyPath: statusEffectSaveValues.content.Array.data[2]

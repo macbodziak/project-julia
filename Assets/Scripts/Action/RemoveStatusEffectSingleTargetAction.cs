@@ -12,6 +12,6 @@ public class RemoveStatusEffectSingleTargetAction : BaseAction
 
     protected override void ExecuteLogic()
     {
-        targets[0].RemoveStatusEffect(data.StatusEffectType);
+        targets[0].RemoveStatusEffect(data.statusEffect);
     }
 }

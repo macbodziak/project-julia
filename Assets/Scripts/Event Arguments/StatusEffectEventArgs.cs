@@ -2,8 +2,8 @@ using System;
 
 public class StatusEffectEventArgs : EventArgs
 {
-    public StatusEffect statusEffect;
-    public StatusEffectEventArgs(StatusEffect _statusEffect)
+    public StatusEffectBehaviour statusEffect;
+    public StatusEffectEventArgs(StatusEffectBehaviour _statusEffect)
     {
         statusEffect = _statusEffect;
     }

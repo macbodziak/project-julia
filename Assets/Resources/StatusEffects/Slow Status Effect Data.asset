@@ -15,4 +15,7 @@ MonoBehaviour:
   m_name: Slowed
   m_duration: 2
   m_sprite: {fileID: 21300000, guid: 8d11e4fd03b978b4c80296e3f88f1625, type: 3}
+  m_isActive: 0
+  m_type: 3
+  m_particleSystemPrefab: {fileID: 0}
   actionPointModifier: -1

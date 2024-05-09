@@ -35,8 +35,8 @@ public class PopUpTextDisplayController : MonoBehaviour
         Unit unit = (Unit)sender;
 
         string text = "HP " + unit.CurrentHealthPoints + "/" + unit.combatStats.MaxHealthPoints + "\nAP " + unit.ActionPoints + "\n";
-        List<StatusEffect> statusEffects = unit.statusEffectController.GetStatusEffects();
-        foreach (StatusEffect statusEffect in statusEffects)
+        List<StatusEffectBehaviour> statusEffects = unit.statusEffectController.GetStatusEffects();
+        foreach (StatusEffectBehaviour statusEffect in statusEffects)
         {
             text += statusEffect.Name + "(" + statusEffect.RemainingDuration + ") ";
         }
@@ -71,17 +71,17 @@ public class PopUpTextDisplayController : MonoBehaviour
         textMesh.color = new Color(0.6f, 1f, 1f, 1f);
     }
 
-    private void HandleAnyUnitImmuneToStatusEffect(object sender, EventArgs args)
+    private void HandleAnyUnitImmuneToStatusEffect(object sender, StatusEffect statusEffect)
     {
         StatusEffectController controller = (StatusEffectController)sender;
-        string textToShow = "Immune ";
+        string textToShow = "Immune to " + statusEffect.Name;
 
         TextMeshProUGUI textMesh = textDrawer.DisplayRaisingTextAtGameObject(textToShow, controller.gameObject, GetRandomPosition(), 90f, 1.2f);
     }
-    private void HandleAnyUnitSavedFromStatusEffect(object sender, EventArgs args)
+    private void HandleAnyUnitSavedFromStatusEffect(object sender, StatusEffect statusEffect)
     {
         StatusEffectController controller = (StatusEffectController)sender;
-        string textToShow = "Saved ";
+        string textToShow = "Resisted " + statusEffect.Name;
 
         TextMeshProUGUI textMesh = textDrawer.DisplayRaisingTextAtGameObject(textToShow, controller.gameObject, GetRandomPosition(), 90f, 1.2f);
     }

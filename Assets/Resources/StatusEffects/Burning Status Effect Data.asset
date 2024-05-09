@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Burning Status Effect Data
   m_EditorClassIdentifier: 
   m_name: Burning
-  m_duration: 3
+  m_duration: 1
   m_sprite: {fileID: 21300000, guid: 8d11e4fd03b978b4c80296e3f88f1625, type: 3}
+  m_isActive: 1
+  m_particleSystemPrefab: {fileID: 3905109386515407172, guid: f4eeed4aa36129d4a9511ab2d9c81fe4, type: 3}
   damageAmount: 15
-  m_particleSystem: {fileID: 3905109386515407172, guid: f4eeed4aa36129d4a9511ab2d9c81fe4, type: 3}
+  m_damageType: 1

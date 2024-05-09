@@ -12,6 +12,7 @@ public class DebuffSingleTargetAction : BaseAction
 
     protected override void ExecuteLogic()
     {
-        targets[0].TryReceivingStatusEffect(data.StatusEffectType);
+        // TO DO
+        targets[0].TryReceivingStatusEffect(data.statusEffect);
     }
 }

@@ -47,12 +47,12 @@ public class CombatEncounterManager : MonoBehaviour
     private IEnumerator DebugStatusEffects()
     {
         yield return null;
-        playerUnits[1].TryReceivingStatusEffect(StatusEffectType.Bleeding);
-        playerUnits[1].TryReceivingStatusEffect(StatusEffectType.Burning);
-        playerUnits[0].TryReceivingStatusEffect(StatusEffectType.Bleeding);
-        // playerUnits[0].ReceiveStatusEffect<SlowStatusEffect>();
-        enemyUnits[0].TryReceivingStatusEffect(StatusEffectType.Burning);
-        enemyUnits[0].TryReceivingStatusEffect(StatusEffectType.Bleeding);
+        // playerUnits[1].TryReceivingStatusEffect(StatusEffectType.Bleeding);
+        // playerUnits[1].TryReceivingStatusEffect(StatusEffectType.Burning);
+        // playerUnits[0].TryReceivingStatusEffect(StatusEffectType.Bleeding);
+        // // playerUnits[0].ReceiveStatusEffect<SlowStatusEffect>();
+        // enemyUnits[0].TryReceivingStatusEffect(StatusEffectType.Burning);
+        // enemyUnits[0].TryReceivingStatusEffect(StatusEffectType.Bleeding);
 
         yield return null;
     }

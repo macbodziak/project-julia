@@ -17,4 +17,4 @@ MonoBehaviour:
   m_duration: 2.1
   m_animationTrigger: CastSpell_2
   m_sprite: {fileID: 21300000, guid: 3967faec95490b343b45b2cc24c1b667, type: 3}
-  statusEffectType: 1
+  m_statusEffect: {fileID: 11400000, guid: cff717007bbe058428604c2b6d6dfb7d, type: 2}
