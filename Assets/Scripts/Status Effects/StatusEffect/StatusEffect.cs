@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 [CreateAssetMenu(fileName = "Base Status Effect Data", menuName = "Scriptable Objects/Status Effects/Base Status Effect Data Config", order = 10)]
 public abstract class StatusEffect : ScriptableObject
@@ -11,7 +12,7 @@ public abstract class StatusEffect : ScriptableObject
     [SerializeField] private int m_duration = 1;
     [SerializeField] private Sprite m_sprite;
     [Tooltip("will this status effect be executed each turn?")]
-    [SerializeField] private ParticleSystem m_particleSystemPrefab;
+    [SerializeField] private VisualEffect m_visualEffect;
 
     private Unit m_unit;
     public string Name { get => m_name; protected set => m_name = value; }
@@ -20,7 +21,7 @@ public abstract class StatusEffect : ScriptableObject
     public abstract bool IsActive { get; }
     public Unit unit { get => m_unit; set => m_unit = value; }
     public abstract StatusEffectType Type { get; }
-    public ParticleSystem ParticleSystemPrefab { get => m_particleSystemPrefab; private set => m_particleSystemPrefab = value; }
+    public VisualEffect VisualEffectPrefab { get => m_visualEffect; private set => m_visualEffect = value; }
 
     public virtual void OnStart(Unit effectedUnit)
     {

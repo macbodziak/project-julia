@@ -1,11 +1,12 @@
 using UnityEngine;
+using UnityEngine.VFX;
 
 [CreateAssetMenu(fileName = "Burning Status Effect", menuName = "Scriptable Objects/Status Effects/Burning Status Effect Preset", order = 10)]
 public class BurningStatusEffect : StatusEffect
 {
     [SerializeField] private int damageAmount = 1;
     [SerializeField] private DamageType m_damageType = DamageType.Fire;
-    private ParticleSystem particleSystemInstance;
+    private VisualEffect visualEffectInstance;
 
     public int DamageAmount { get => damageAmount; private set => damageAmount = value; }
     public DamageType damageType { get => m_damageType; private set => m_damageType = value; }
@@ -14,16 +15,16 @@ public class BurningStatusEffect : StatusEffect
 
     public override void OnEnd()
     {
-        particleSystemInstance.Stop();
-        Destroy(particleSystemInstance.gameObject, 1f);
+        visualEffectInstance.Stop();
+        Destroy(visualEffectInstance.gameObject, 1f);
     }
 
     public override void OnStart(Unit effectedUnit)
     {
         base.OnStart(effectedUnit);
-        if (ParticleSystemPrefab != null)
+        if (VisualEffectPrefab != null)
         {
-            StartParticleSystem();
+            StartVisualEffect();
         }
     }
 
@@ -32,14 +33,14 @@ public class BurningStatusEffect : StatusEffect
         unit.combatStats.TakeDamage(DamageAmount, damageType, false, false);
     }
 
-    private void StartParticleSystem()
+    private void StartVisualEffect()
     {
-        particleSystemInstance = Instantiate<ParticleSystem>(ParticleSystemPrefab);
+        visualEffectInstance = Instantiate<VisualEffect>(VisualEffectPrefab);
 
-        if (particleSystemInstance != null)
+        if (visualEffectInstance != null)
         {
-            particleSystemInstance.transform.parent = unit.gameObject.transform;
-            particleSystemInstance.transform.localPosition = new Vector3(0f, 0f, 0f);
+            visualEffectInstance.transform.parent = unit.gameObject.transform;
+            visualEffectInstance.transform.localPosition = new Vector3(0f, 0f, 0f);
         }
     }
 }
