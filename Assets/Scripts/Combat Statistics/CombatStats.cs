@@ -91,7 +91,7 @@ public class CombatStats : MonoBehaviour
         anim.SetTrigger("Dodge");
     }
 
-    public void ReceiveAttack(AttackInfo attack)
+    public bool ReceiveAttack(AttackInfo attack)
     {
         bool isCritical = false;
         //make hit roll 
@@ -113,10 +113,12 @@ public class CombatStats : MonoBehaviour
                 damageReceived *= 2;
             }
             TakeDamage(damageReceived, attack.Type, isCritical, true);
+            return true;
         }
         else
         {
             OnDodge();
+            return false;
         }
     }
 

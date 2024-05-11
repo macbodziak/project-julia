@@ -7,7 +7,7 @@ using TMPro;
 
 public class ActionButton : MonoBehaviour
 {
-    private BaseAction m_action;
+    private ActionBehaviour m_action;
     public Button button;
     [SerializeField] Image selectedImage;
     [SerializeField] TextMeshProUGUI APCostText;
@@ -19,7 +19,7 @@ public class ActionButton : MonoBehaviour
         get { return m_icon; }
     }
 
-    public BaseAction action
+    public ActionBehaviour action
     {
         get { return m_action; }
         set { SetAction(value); }
@@ -71,7 +71,7 @@ public class ActionButton : MonoBehaviour
         }
     }
 
-    private void SetAction(BaseAction _action)
+    private void SetAction(ActionBehaviour _action)
     {
         m_action = _action;
         APCostText.text = "" + m_action.ActionPointCost;

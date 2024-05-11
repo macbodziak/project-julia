@@ -13,7 +13,7 @@ public class ActionManager : MonoBehaviour
 
     private Unit selectedUnit;
     private List<Unit> TargetList;
-    private BaseAction selectedAction;
+    private ActionBehaviour selectedAction;
 
     public Unit SelectedUnit
     {
@@ -21,7 +21,7 @@ public class ActionManager : MonoBehaviour
         set { SetSelectedUnit(value); }
     }
 
-    public BaseAction SelectedAction
+    public ActionBehaviour SelectedAction
     {
         get { return selectedAction; }
         set { SetSelectedAction(value); }
@@ -79,7 +79,7 @@ public class ActionManager : MonoBehaviour
         selectedUnit = null;
     }
 
-    private void SetSelectedAction(BaseAction newSelectedAction)
+    private void SetSelectedAction(ActionBehaviour newSelectedAction)
     {
         //Action Unselected
         if (newSelectedAction == null)
@@ -104,7 +104,7 @@ public class ActionManager : MonoBehaviour
 
             selectedAction = newSelectedAction;
 
-            InputState inputState = GetInputStateBasedOnActionType(selectedAction.actionType);
+            InputState inputState = GetInputStateBasedOnActionType(selectedAction.ActionType);
             InputManager.Instance.SetState(inputState);
 
             SelectedActionChangedEvent?.Invoke(this, EventArgs.Empty);
@@ -163,26 +163,26 @@ public class ActionManager : MonoBehaviour
 
     // summary
     // this function maps the input state based on the declared Action Type
-    private InputState GetInputStateBasedOnActionType(ActionType actionType)
+    private InputState GetInputStateBasedOnActionType(TargetingModeType actionType)
     {
         switch (actionType)
         {
-            case ActionType.SingleEnemyTarget:
+            case TargetingModeType.SingleEnemyTarget:
                 return InputState.SelectSingleEnemyTarget;
 
-            case ActionType.MultipleEnemyTargets:
+            case TargetingModeType.MultipleEnemyTargets:
                 return InputState.SelectMultipleEnemyTargets;
 
-            case ActionType.AllEnemyTargets:
+            case TargetingModeType.AllEnemyTargets:
                 return InputState.SelectAllEnemyTargets;
 
-            case ActionType.SingleAllyTarget:
+            case TargetingModeType.SingleAllyTarget:
                 return InputState.SelectSingleAllyTarget;
 
-            case ActionType.AllAllyTargets:
+            case TargetingModeType.AllAllyTargets:
                 return InputState.SelectAllAllyTargets;
 
-            case ActionType.NoTarget:
+            case TargetingModeType.NoTarget:
                 return InputState.SelectNoTarget;
         }
 

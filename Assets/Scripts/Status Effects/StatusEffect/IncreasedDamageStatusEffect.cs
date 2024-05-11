@@ -7,7 +7,7 @@ public class IncreasedDamageStatusEffect : StatusEffect
 
     public float DamageMultiplier { get => damageMultiplier; private set => damageMultiplier = value; }
     public override bool IsActive { get { return false; } }
-    public override StatusEffectType Type { get { return StatusEffectType.Rage; } }
+    public override StatusEffectType Type { get { return StatusEffectType.IncreasedDamage; } }
 
     public override void OnStart(Unit effectedUnit)
     {

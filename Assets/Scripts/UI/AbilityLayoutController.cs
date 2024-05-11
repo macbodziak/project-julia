@@ -23,7 +23,7 @@ public class AbilityLayoutController : MonoBehaviour
         buttonList.Clear();
     }
 
-    public void CreateAndShowAbilityList(List<BaseAction> actions)
+    public void CreateAndShowAbilityList(List<ActionBehaviour> actions)
     {
         foreach (var action in actions)
         {

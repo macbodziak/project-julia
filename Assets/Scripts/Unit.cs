@@ -9,7 +9,7 @@ using System;
 public class Unit : MonoBehaviour
 {
     SelectedVisual selectedVisual;
-    [SerializeField] List<BaseAction> actionList;
+    [SerializeField] List<ActionBehaviour> actionList;
     [SerializeField] bool isPlayer;
 
     public static event EventHandler OnMouseEnterAnyUnit;
@@ -47,7 +47,7 @@ public class Unit : MonoBehaviour
     private void Start()
     {
         selectedVisual = GetComponent<SelectedVisual>();
-        GetComponents<BaseAction>(actionList);
+        GetComponents<ActionBehaviour>(actionList);
         _combatStats = GetComponent<CombatStats>();
         _statusEffectController = GetComponent<StatusEffectController>();
     }
@@ -57,7 +57,7 @@ public class Unit : MonoBehaviour
         selectedVisual.SetSelectedVisual(isVisible);
     }
 
-    public List<BaseAction> GetActionList()
+    public List<ActionBehaviour> GetActionList()
     {
         return actionList;
     }

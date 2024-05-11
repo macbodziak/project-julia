@@ -45,7 +45,7 @@ public class EnemyAIManager : MonoBehaviour
         StartCoroutine(EnemyTurn());
     }
 
-    private BaseAction ChooseAction(Unit unit)
+    private ActionBehaviour ChooseAction(Unit unit)
     {
         if (unit.ActionPoints <= 0)
         {
@@ -60,7 +60,7 @@ public class EnemyAIManager : MonoBehaviour
         return unit.GetActionList().First();
     }
 
-    private void StartAction(BaseAction action)
+    private void StartAction(ActionBehaviour action)
     {
         //TO DO: determine target list
         //TO DO: a better callback for startr ACtion? 
@@ -79,7 +79,7 @@ public class EnemyAIManager : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         enemies.Clear();
         enemies.AddRange(CombatEncounterManager.Instance.GetEnemyUnitList());
-        BaseAction action;
+        ActionBehaviour action;
         foreach (Unit enemy in enemies)
         {
             action = ChooseAction(enemy);
@@ -105,10 +105,15 @@ public class EnemyAIManager : MonoBehaviour
         }
     }
 
-    private List<Unit> ChooseTargets(BaseAction action)
+    private List<Unit> ChooseTargets(ActionBehaviour action)
     {
-        //TO DO - implement
-        return CombatEncounterManager.Instance.GetPlayerUnitList();
+        //TO DO - implement proper logic, right now just one random target 
+        //TO DO - should account for unmber of targets / targeting mode
+        List<Unit> allPlayerUnits = CombatEncounterManager.Instance.GetPlayerUnitList();
+        int i = UnityEngine.Random.Range(0, CombatEncounterManager.Instance.GetPlayerUnitList().Count);
+        List<Unit> returnList = new();
+        returnList.Add(allPlayerUnits[i]);
+        return returnList;
     }
 
     private void HandleEncounterOver(object sender, EncounterOverEventArgs eventArgs)

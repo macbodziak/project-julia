@@ -1,10 +1,21 @@
-Actions:
-The Action Manager handles selecting lplayer unit, selecting a given action and selecting the target for the action. The specific behaviour depends on action type, which in turn determines the input state type that is set in the input manager
+--- Actions:
 
-To create a new Action:
-1. create a Scritpalbe Object to hold data sepcific to this action derived from BaseActionData
-create a class that inherits from BaseAction
-override the ExecuteLogic() method
+the Action system consits of the following elements:
+
+Action Manager
+	The Action Manager handles selecting player unit, selecting a given action a starting player actions. Selecting the targets for the given action in handles by the Input Manager and depends on the targeting mode of a given action. 
+
+TargetingModeType enum 
+	Determines the possible targets for the given action, like one enemy, all enemies, one ally, all allies etc.
+
+Action Behaviour
+	This class derives form MonoBehaviour and is attached to the Unit game object. There needs to be one Action Behaviour for one possible action. The Action Behaviour is a wrapper class that holds a reference to an Action Definition (Scriptalbe Object), which in turns holds all the data and executable logic specific to a given action. This class is responsible for starting a given action and holds data such as targets and executing unit which it 	passes to the action definition.
+
+Action Definition
+	This Class is a ScriptableObject, which means it can not be directly attached to a GameObject. Thats why a reference to it needs to be provided to the Action Behaviour, which acts as an interface between the Action Definition and the Game Object. 
+	Action Definitions hold the data and logic for a specific action. Common Actions are attacks, Healing, Buffs and Debuffs. 
+	To Add a new Action Definition, create a class that derives from Action Definition and implement the ExecuteLogic(Unit actingUnit, List<Unit> targets) method.
+	To create a new Action Definition, right click right-clicking > Actions > ... in the Editor and choose the template action definition. Populate all proporties (icon sprites are not required for enemy actions) and assign it to an Action Behaviour component.
 
 --- Status Effects:
 
@@ -16,6 +27,7 @@ StatusEffectController
 	To apply a status effect to a unit, TryReceivingStatusEffect should be invoked 
 	To remove a status effect before it is expired, inovoke RemoveStatusEffect
 	both methods take a status effect preset (StatusEffect) as parameter which describes the status effect
+	invokes events when status effect is applied, removed, succeeded saving throw or immune
 
 StatusEffectBehaviour
 	This class in a wrapper for the status effect. It is derived from MonoBehaviour, and as such can easily access and manipulate the game object and its componenets.
@@ -34,7 +46,13 @@ StatusEffect
 	properties:
 		IsActive - should return true, if the status effect needs to be applied each turn, like damage etc.
 		Type - should return a value from the StatusEffectType enum. This uniqly identifies a status effect, and a unit can have only one instance of an effect. When creating a new status effect add a coresponding value to the status type enum
+	Status Effect object can be created in the Editor via context menu, by right-clicking > Scriptable Objects > Status Effect
 		
 StatusEffectType
 	This enum should have a value for each status effect. 
 	It is used to distinquish status effects (make sure we do not apply a status effect a second time but refresh its duration) and also to as a lookup key in tables for Saving Throws etc.
+
+	
+--- Creating new Enemies
+
+make sure layer is set to unit!!!!

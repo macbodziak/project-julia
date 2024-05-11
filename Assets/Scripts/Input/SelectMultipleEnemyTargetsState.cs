@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -86,8 +87,7 @@ public class SelectMultipleEnemyTargetsState : BaseInputState
 
     public override void OnEnter()
     {
-        IMultipleTargets manyTargetAction = ActionManager.Instance.SelectedAction as IMultipleTargets;
-        numberOfTargets = manyTargetAction.GetNumberOfTargets();
+        numberOfTargets = ActionManager.Instance.SelectedAction.NumberOfTargets;
         if (numberOfTargets > CombatEncounterManager.Instance.GetEnemyCount())
         {
             numberOfTargets = CombatEncounterManager.Instance.GetEnemyCount();

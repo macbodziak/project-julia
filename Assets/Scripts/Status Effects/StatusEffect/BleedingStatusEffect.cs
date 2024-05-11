@@ -14,7 +14,7 @@ public class BleedingStatusEffect : StatusEffect
 
     public override void OnEnd()
     {
-        throw new System.NotImplementedException();
+
     }
 
     public override void OnStart(Unit effectedUnit)

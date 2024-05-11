@@ -56,7 +56,7 @@ public class UIManager : MonoBehaviour
         Unit selectedUnit = ActionManager.Instance.SelectedUnit;
         if (selectedUnit != null)
         {
-            List<BaseAction> actionList = selectedUnit.GetActionList();
+            List<ActionBehaviour> actionList = selectedUnit.GetActionList();
             abilityLayoutController.CreateAndShowAbilityList(actionList);
         }
     }
