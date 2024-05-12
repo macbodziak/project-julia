@@ -18,6 +18,8 @@ MonoBehaviour:
   m_animationTrigger: CastSpell_1
   m_sprite: {fileID: 0}
   m_targetingMode: 0
+  m_numberOfTargets: 0
+  m_visualEffectOnHit: {fileID: 3870619047674659968, guid: 25a31304a4ee0b348bcc872c6db6b9ab, type: 3}
   minDamage: 10
   maxDamage: 40
   hitChance: 75

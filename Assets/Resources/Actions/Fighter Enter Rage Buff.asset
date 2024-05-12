@@ -18,6 +18,8 @@ MonoBehaviour:
   m_animationTrigger: CastSpell_3
   m_sprite: {fileID: 21300000, guid: 4a48906eafc1c7b40832bc95bf1709fd, type: 3}
   m_targetingMode: 3
+  m_numberOfTargets: 0
+  m_visualEffectOnHit: {fileID: 5179082204400995527, guid: 66229317109820246a5744aecd41c762, type: 3}
   _statusEffectsApplied:
   - {fileID: 11400000, guid: 5220440a09d64a440a8212407b80e191, type: 2}
   _statusEffectsRemoved: []

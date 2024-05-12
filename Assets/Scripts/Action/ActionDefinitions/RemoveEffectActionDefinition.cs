@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 [CreateAssetMenu(fileName = "Remove Effect Action Definition", menuName = "Scriptable Objects/Actions/Remove Effect Action Definition", order = 201)]
 public class RemoveEffectActionDefinition : ActionDefinition
@@ -14,6 +15,9 @@ public class RemoveEffectActionDefinition : ActionDefinition
         {
             //remove status effects if this action definition has status effects
             RemoveStatusEffects(target, StatusEffectsRemoved);
+
+            VisualEffect vfx = PlayVisualEffect(VisualEffectOnHitPrefab, target.transform);
+            Destroy(vfx.gameObject, 2.5f);
         }
     }
 

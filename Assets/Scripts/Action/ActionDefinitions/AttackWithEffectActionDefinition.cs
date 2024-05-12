@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 [CreateAssetMenu(fileName = "Attack with Status Effect Action Definition", menuName = "Scriptable Objects/Actions/Attack with Effect Action Definition", order = 2)]
 public class AttackWithEffectActionDefinition : ActionDefinition
@@ -29,6 +30,9 @@ public class AttackWithEffectActionDefinition : ActionDefinition
             if (hit && target.combatStats.CurrentHealthPoints > 0)
             {
                 ApplyStatusEffects(target, StatusEffectsApplied);
+                // PlayVisualEffect(VisualEffectOnHitPrefab, target.transform.position + new Vector3(0f, 1.2f, 0f));
+                VisualEffect vfx = PlayVisualEffect(VisualEffectOnHitPrefab, target.transform);
+                Destroy(vfx, 2.5f);
             }
         }
     }

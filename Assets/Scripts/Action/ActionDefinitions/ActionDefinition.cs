@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 [CreateAssetMenu(fileName = "Base Action Data", menuName = "Scriptable Objects/Actions/Base Action Data Config", order = 300)]
 public abstract class ActionDefinition : ScriptableObject
@@ -13,6 +14,7 @@ public abstract class ActionDefinition : ScriptableObject
     [SerializeField] private Sprite m_sprite;
     [SerializeField] private TargetingModeType m_targetingMode;
     [Tooltip("Only used for Multiple Targets, not for Single or All")][SerializeField] private int m_numberOfTargets;
+    [SerializeField] private VisualEffect m_visualEffectOnHit;
 
     public string Name { get => m_name; protected set => m_name = value; }
     public int ActionPointCost { get => m_actionPointCost; protected set => m_actionPointCost = value; }
@@ -21,6 +23,7 @@ public abstract class ActionDefinition : ScriptableObject
     public Sprite Icon { get => m_sprite; protected set => m_sprite = value; }
     public TargetingModeType TargetingMode { get { return m_targetingMode; } }
     public int NumberOfTargets { get => m_numberOfTargets; set => m_numberOfTargets = value; }
+    public VisualEffect VisualEffectOnHitPrefab { get => m_visualEffectOnHit; set => m_visualEffectOnHit = value; }
 
     public abstract void ExecuteLogic(Unit actingUnit, List<Unit> targets);
 
@@ -44,5 +47,15 @@ public abstract class ActionDefinition : ScriptableObject
                 target.statusEffectController.RemoveStatusEffect(StatusEffectsRemoved[i]);
             }
         }
+    }
+
+    protected VisualEffect PlayVisualEffect(VisualEffect vfx, Transform transformArg)
+    {
+        if (vfx != null)
+        {
+            VisualEffect vfxInstance = Instantiate<VisualEffect>(vfx, transformArg);
+            return vfxInstance;
+        }
+        return null;
     }
 }

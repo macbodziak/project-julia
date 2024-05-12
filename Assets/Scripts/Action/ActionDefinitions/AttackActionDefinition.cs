@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 [CreateAssetMenu(fileName = "Attack Action Definition", menuName = "Scriptable Objects/Actions/Attack Action Definition", order = 1)]
 public class AttackActionDefinition : ActionDefinition
@@ -23,6 +24,13 @@ public class AttackActionDefinition : ActionDefinition
         foreach (Unit target in targets)
         {
             bool hit = target.combatStats.ReceiveAttack(attack);
+
+            if (hit)
+            {
+                // PlayVisualEffect(VisualEffectOnHitPrefab, target.transform.position + new Vector3(0f, 1.2f, 0f));
+                VisualEffect vfx = PlayVisualEffect(VisualEffectOnHitPrefab, target.transform);
+                Destroy(vfx.gameObject, 2.5f);
+            }
         }
     }
 

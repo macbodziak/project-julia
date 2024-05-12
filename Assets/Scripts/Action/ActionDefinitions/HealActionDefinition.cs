@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 [CreateAssetMenu(fileName = "Heal Action Definition", menuName = "Scriptable Objects/Actions/Heal Action Definition", order = 100)]
 public class HealActionDefinition : ActionDefinition
@@ -15,6 +16,9 @@ public class HealActionDefinition : ActionDefinition
         foreach (Unit target in targets)
         {
             target.combatStats.ReceiveHealing(GetHealingInfo());
+
+            VisualEffect vfx = PlayVisualEffect(VisualEffectOnHitPrefab, target.transform);
+            Destroy(vfx.gameObject, 2.5f);
         }
     }
 

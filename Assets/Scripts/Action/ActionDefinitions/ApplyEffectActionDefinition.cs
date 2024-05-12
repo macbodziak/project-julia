@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 [CreateAssetMenu(fileName = "Apply Effect Action Definition", menuName = "Scriptable Objects/Actions/Apply Effect Action Definition", order = 200)]
 public class ApplyEffectActionDefinition : ActionDefinition
@@ -14,6 +15,10 @@ public class ApplyEffectActionDefinition : ActionDefinition
         {
             //apply status effects if this action definition has status effects
             ApplyStatusEffects(target, StatusEffectsApplied);
+            //TO DO - if hit
+            VisualEffect vfx = PlayVisualEffect(VisualEffectOnHitPrefab, target.transform);
+            Destroy(vfx.gameObject, 2.5f);
+
         }
     }
 

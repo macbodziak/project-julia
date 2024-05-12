@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 [CreateAssetMenu(fileName = "Heal with Effect Action Definition", menuName = "Scriptable Objects/Actions/Heal with Effect Action Definition", order = 101)]
 public class HealWithEffectActionDefinition : ActionDefinition
@@ -19,6 +20,10 @@ public class HealWithEffectActionDefinition : ActionDefinition
         foreach (Unit target in targets)
         {
             target.combatStats.ReceiveHealing(GetHealingInfo());
+
+            // PlayVisualEffect(VisualEffectOnHitPrefab, target.transform.position + new Vector3(0f, 1.2f, 0f));
+            VisualEffect vfx = PlayVisualEffect(VisualEffectOnHitPrefab, target.transform);
+            Destroy(vfx.gameObject, 2.5f);
 
             //remove status effects if this action definition has status effects
             RemoveStatusEffects(target, StatusEffectsRemoved);
