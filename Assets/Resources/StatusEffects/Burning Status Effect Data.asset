@@ -15,6 +15,6 @@ MonoBehaviour:
   m_name: Burning
   m_duration: 2
   m_sprite: {fileID: 21300000, guid: 8d11e4fd03b978b4c80296e3f88f1625, type: 3}
-  m_particleSystemPrefab: {fileID: 3905109386515407172, guid: f4eeed4aa36129d4a9511ab2d9c81fe4, type: 3}
+  m_visualEffect: {fileID: 7795362849151572297, guid: b00be917654564c4285278fa87756bd9, type: 3}
   damageAmount: 15
   m_damageType: 1
