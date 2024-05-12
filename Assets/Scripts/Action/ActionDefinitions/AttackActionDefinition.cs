@@ -29,7 +29,10 @@ public class AttackActionDefinition : ActionDefinition
             {
                 // PlayVisualEffect(VisualEffectOnHitPrefab, target.transform.position + new Vector3(0f, 1.2f, 0f));
                 VisualEffect vfx = PlayVisualEffect(VisualEffectOnHitPrefab, target.transform);
-                Destroy(vfx.gameObject, 2.5f);
+                if (vfx != null)
+                {
+                    Destroy(vfx.gameObject, 2.5f);
+                }
             }
         }
     }

@@ -17,7 +17,10 @@ public class RemoveEffectActionDefinition : ActionDefinition
             RemoveStatusEffects(target, StatusEffectsRemoved);
 
             VisualEffect vfx = PlayVisualEffect(VisualEffectOnHitPrefab, target.transform);
-            Destroy(vfx.gameObject, 2.5f);
+            if (vfx != null)
+            {
+                Destroy(vfx.gameObject, 2.5f);
+            }
         }
     }
 

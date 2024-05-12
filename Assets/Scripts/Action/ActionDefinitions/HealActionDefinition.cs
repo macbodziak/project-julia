@@ -18,7 +18,10 @@ public class HealActionDefinition : ActionDefinition
             target.combatStats.ReceiveHealing(GetHealingInfo());
 
             VisualEffect vfx = PlayVisualEffect(VisualEffectOnHitPrefab, target.transform);
-            Destroy(vfx.gameObject, 2.5f);
+            if (vfx != null)
+            {
+                Destroy(vfx.gameObject, 2.5f);
+            }
         }
     }
 
