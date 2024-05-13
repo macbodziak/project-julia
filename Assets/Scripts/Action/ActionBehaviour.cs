@@ -13,7 +13,7 @@ using Unity.VisualScripting;
 public class ActionBehaviour : MonoBehaviour
 {
 
-    [SerializeField] private ActionDefinition actionDefinition;
+    [SerializeField] private ActionDefinition _actionDefinition;
     // this delegate will be used to pass a private function form the Action MAnager to know when action has completed
     private Action OnActionCompletedCallback;
     //member fields
@@ -49,6 +49,7 @@ public class ActionBehaviour : MonoBehaviour
     }
 
     public bool IsInProgress { get => isInProgress; private set => isInProgress = value; }
+    public ActionDefinition actionDefinition { get => _actionDefinition; private set => _actionDefinition = value; }
 
     protected virtual void Awake()
     {
@@ -102,4 +103,15 @@ public class ActionBehaviour : MonoBehaviour
     {
         return actionDefinition.Duration;
     }
+
+    // TO DO - rework, maybe make Attack info a a class?
+    // public AttackInfo GetAttackInfo()
+    // {
+    //     AttackActionDefinition attackAction = actionDefinition as AttackActionDefinition;
+    //     if (attackAction != null)
+    //     {
+    //         return attackAction.GetAttackInfo(GetComponent<CombatStats>());
+    //     }
+    //     return new AttackInfo(0, 0, 0, 0, DamageType.Physical);
+    // }
 }

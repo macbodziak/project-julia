@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private EncounterOverScreen encounterOverScreen;
     [SerializeField] private GameObject HUD;
 
+
     bool isInputBlocked;
 
     static UIManager _instance;

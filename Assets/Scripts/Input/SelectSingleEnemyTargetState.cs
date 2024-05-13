@@ -23,6 +23,7 @@ public class SelectSingleEnemyTargetState : BaseInputState
                             hoveredOverUnit.SetSelectionVisual(false);
                         }
                         hitUnit.SetSelectionVisual(true);
+                        // Cursor.SetCursor(UIManager.Instance.AttackCursor, Vector2.zero, CursorMode.Auto);
                         hoveredOverUnit = hitUnit;
                     }
 
@@ -39,6 +40,7 @@ public class SelectSingleEnemyTargetState : BaseInputState
             if (hoveredOverUnit != null)
             {
                 hoveredOverUnit.SetSelectionVisual(false);
+                // Cursor.SetCursor(UIManager.Instance.DefaultCursor, Vector2.zero, CursorMode.Auto);
             }
             hoveredOverUnit = null;
         }

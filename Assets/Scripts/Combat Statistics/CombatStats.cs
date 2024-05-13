@@ -60,6 +60,13 @@ public class CombatStats : MonoBehaviour
         return (int)(damageAmount * modifier);
     }
 
+    public int GetRequiredRoll(AttackInfo attack)
+    {
+        int requiredRoll = 100 - attack.HitChance + dodge + DodgeModifier;
+        requiredRoll = Mathf.Clamp(requiredRoll, 5, 100);
+        return requiredRoll;
+    }
+
     public int GetDamageResistance(DamageType type)
     {
         return damageResistanceValues[(int)type];
@@ -96,8 +103,9 @@ public class CombatStats : MonoBehaviour
         bool isCritical = false;
         //make hit roll 
         int hitRoll = UnityEngine.Random.Range(0, 100);
-        int requiredRoll = 100 - attack.HitChance + dodge + DodgeModifier;
-        requiredRoll = Mathf.Clamp(requiredRoll, 5, 100);
+        int requiredRoll = GetRequiredRoll(attack);
+
+        Debug.Log(gameObject + " : required Roll: " + requiredRoll + " actual Roll: " + hitRoll);
 
         //if hit was successful
         if (hitRoll >= requiredRoll)

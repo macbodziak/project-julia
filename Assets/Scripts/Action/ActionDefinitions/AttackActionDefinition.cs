@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.VFX;
 
 [CreateAssetMenu(fileName = "Attack Action Definition", menuName = "Scriptable Objects/Actions/Attack Action Definition", order = 1)]
-public class AttackActionDefinition : ActionDefinition
+public class AttackActionDefinition : ActionDefinition, ICanAttack
 {
     [SerializeField] private int minDamage;
     [SerializeField] private int maxDamage;
