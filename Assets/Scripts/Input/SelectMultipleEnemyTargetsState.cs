@@ -87,7 +87,7 @@ public class SelectMultipleEnemyTargetsState : BaseInputState
 
     public override void OnEnter()
     {
-        numberOfTargets = ActionManager.Instance.SelectedAction.NumberOfTargets;
+        numberOfTargets = ActionManager.Instance.SelectedAction.numberOfTargets;
         if (numberOfTargets > CombatEncounterManager.Instance.GetEnemyCount())
         {
             numberOfTargets = CombatEncounterManager.Instance.GetEnemyCount();

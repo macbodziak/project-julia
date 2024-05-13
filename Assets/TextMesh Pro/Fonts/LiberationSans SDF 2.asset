@@ -31,7 +31,7 @@ Material:
     m_Floats:
     - _FaceDilate: 0.127
     - _OutlineWidth: 0.423
-    - _ScaleRatioA: 0.8333333
+    - _ScaleRatioA: 0.6734007
     - _ScaleRatioB: 0.57125
     - _ScaleRatioC: 0.26036918
     - _UnderlayDilate: 1

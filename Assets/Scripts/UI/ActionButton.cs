@@ -9,9 +9,9 @@ public class ActionButton : MonoBehaviour
 {
     private ActionBehaviour m_action;
     public Button button;
-    [SerializeField] Image selectedImage;
-    [SerializeField] TextMeshProUGUI APCostText;
-
+    [SerializeField] Image _selectedImage;
+    [SerializeField] private TextMeshProUGUI _APCostTextMesh;
+    [SerializeField] private TextMeshProUGUI _cooldownTextMesh;
     private Sprite m_icon;
 
     public Sprite icon
@@ -33,7 +33,7 @@ public class ActionButton : MonoBehaviour
 
     public void SetSelectedVisual(bool isSelected)
     {
-        selectedImage.enabled = isSelected;
+        _selectedImage.enabled = isSelected;
     }
 
     public void handleSelectedActionChanged(object sender, EventArgs e)
@@ -71,10 +71,24 @@ public class ActionButton : MonoBehaviour
         }
     }
 
+    public void UpdateCooldownText()
+    {
+        int value = action.cooldown;
+        if (value > 0)
+        {
+            _cooldownTextMesh.enabled = true;
+            _cooldownTextMesh.text = action.cooldown.ToString();
+        }
+        else
+        {
+            _cooldownTextMesh.enabled = false;
+        }
+    }
+
     private void SetAction(ActionBehaviour _action)
     {
         m_action = _action;
-        APCostText.text = "" + m_action.ActionPointCost;
-        SetIcon(m_action.Icon);
+        _APCostTextMesh.text = "" + m_action.actionPointCost;
+        SetIcon(m_action.icon);
     }
 }

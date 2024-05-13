@@ -12,18 +12,20 @@ using Unity.VisualScripting;
 
 public class ActionBehaviour : MonoBehaviour
 {
-
     [SerializeField] private ActionDefinition _actionDefinition;
+    [SerializeField]
+    [ReadOnly] // TO DO - remove readonly attribute
+    private int _cooldown;
     // this delegate will be used to pass a private function form the Action MAnager to know when action has completed
     private Action OnActionCompletedCallback;
     //member fields
-    private Unit unit;
-    private bool isInProgress;
-    private Animator animator;
+    private Unit _unit;
+    private bool _isInProgress;
+    private bool _available;
+    private Animator _animator;
+    private List<Unit> _targets;
 
-    private List<Unit> targets;
-
-    public int ActionPointCost
+    public int actionPointCost
     {
         get { return actionDefinition.ActionPointCost; }
     }
@@ -33,38 +35,61 @@ public class ActionBehaviour : MonoBehaviour
         get { return actionDefinition.Name; }
     }
 
-    public Sprite Icon
+    public Sprite icon
     {
         get { return actionDefinition.Icon; }
     }
 
-    public TargetingModeType ActionType
+    public TargetingModeType targetingMode
     {
         get { return actionDefinition.TargetingMode; }
     }
 
-    public int NumberOfTargets
+    public int numberOfTargets
     {
         get { return actionDefinition.NumberOfTargets; }
     }
 
-    public bool IsInProgress { get => isInProgress; private set => isInProgress = value; }
+    public bool isInProgress { get => _isInProgress; private set => _isInProgress = value; }
     public ActionDefinition actionDefinition { get => _actionDefinition; private set => _actionDefinition = value; }
+    public int cooldown { get => _cooldown; private set { SetCooldown(value); } }
+
+    public bool available { get => _available; private set => _available = value; }
+
+    private void SetCooldown(int arg)
+    {
+        _cooldown = arg;
+        if (_cooldown > 0)
+        {
+            available = false;
+        }
+        else
+        {
+            _cooldown = 0;
+            available = true;
+        }
+    }
 
     protected virtual void Awake()
     {
-        IsInProgress = false;
-        targets = new List<Unit>();
+        isInProgress = false;
+        available = true;
+        _targets = new List<Unit>();
     }
 
     protected virtual void Start()
     {
-        unit = GetComponent<Unit>();
-        animator = GetComponent<Animator>();
+        _unit = GetComponent<Unit>();
+        _animator = GetComponent<Animator>();
     }
     protected virtual void OnActionStarted()
     {
-        IsInProgress = true;
+        isInProgress = true;
+    }
+
+    public void DecrementCooldown()
+    {
+        cooldown--;
     }
 
     // Summary
@@ -74,25 +99,25 @@ public class ActionBehaviour : MonoBehaviour
     public void StartAction(List<Unit> targetList, Action onActionComplete)
     {
         this.OnActionCompletedCallback = onActionComplete;
-        targets.Clear();
-        targets.AddRange(targetList);
-        animator.SetTrigger(actionDefinition.AnimationTrigger);
-
+        _targets.Clear();
+        _targets.AddRange(targetList);
+        _animator.SetTrigger(actionDefinition.AnimationTrigger);
+        cooldown = actionDefinition.Cooldown;
         StartCoroutine(PerformAction());
         OnActionStarted();
     }
 
     protected virtual void OnActionCompleted()
     {
-        IsInProgress = false;
+        isInProgress = false;
         OnActionCompletedCallback();
     }
 
     protected IEnumerator PerformAction()
     {
-        unit.combatStats.CurrentActionPoints -= actionDefinition.ActionPointCost;
+        _unit.combatStats.CurrentActionPoints -= actionDefinition.ActionPointCost;
         yield return new WaitForSeconds(actionDefinition.Duration * 0.3f);
-        actionDefinition.ExecuteLogic(unit, targets);
+        actionDefinition.ExecuteLogic(_unit, _targets);
         //TO DO play audio
         yield return new WaitForSeconds(actionDefinition.Duration * 0.7f);
         OnActionCompleted();
@@ -103,15 +128,4 @@ public class ActionBehaviour : MonoBehaviour
     {
         return actionDefinition.Duration;
     }
-
-    // TO DO - rework, maybe make Attack info a a class?
-    // public AttackInfo GetAttackInfo()
-    // {
-    //     AttackActionDefinition attackAction = actionDefinition as AttackActionDefinition;
-    //     if (attackAction != null)
-    //     {
-    //         return attackAction.GetAttackInfo(GetComponent<CombatStats>());
-    //     }
-    //     return new AttackInfo(0, 0, 0, 0, DamageType.Physical);
-    // }
 }

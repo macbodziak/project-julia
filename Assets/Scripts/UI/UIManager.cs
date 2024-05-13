@@ -113,7 +113,8 @@ public class UIManager : MonoBehaviour
 
     private void HandleActionCompleted(object Sender, EventArgs eventArgs)
     {
-        abilityLayoutController.RefreshAbilityList();
+        //TO DO - remove, this is handles by exit blocked state anyway
+        // abilityLayoutController.RefreshAbilityList();
     }
 
     private void OnDestroy()

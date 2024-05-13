@@ -113,12 +113,26 @@ public class TurnManager : MonoBehaviour
         }
         if (CombatEncounterManager.Instance.IsEncounterOver == false)
         {
+            TickCooldownCounter(CombatEncounterManager.Instance.GetPlayerUnitList());
             ResetPlayerActionPoints();
             ResetUnitSelection();
         }
         yield return null;
     }
 
+    private void TickCooldownCounter(List<Unit> units)
+    {
+        foreach (Unit unit in units)
+        {
+            //iterate through all action behaviours
+            List<ActionBehaviour> actions = unit.GetActionList();
+            foreach (ActionBehaviour action in actions)
+            {
+                //decrements cooldown if applicable
+                action.DecrementCooldown();
+            }
+        }
+    }
 
     private void ResetPlayerActionPoints()
     {

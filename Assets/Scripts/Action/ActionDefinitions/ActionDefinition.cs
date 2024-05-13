@@ -10,6 +10,7 @@ public abstract class ActionDefinition : ScriptableObject
     [SerializeField] private string m_name = "no name";
     [SerializeField] private int m_actionPointCost = 1;
     [SerializeField] private float m_duration = 5f;
+    [SerializeField] private int m_cooldown = 0;
     [SerializeField] private string m_animationTrigger;
     [SerializeField] private Sprite m_sprite;
     [SerializeField] private TargetingModeType m_targetingMode;
@@ -22,8 +23,9 @@ public abstract class ActionDefinition : ScriptableObject
     public string AnimationTrigger { get => m_animationTrigger; protected set => m_animationTrigger = value; }
     public Sprite Icon { get => m_sprite; protected set => m_sprite = value; }
     public TargetingModeType TargetingMode { get { return m_targetingMode; } }
-    public int NumberOfTargets { get => m_numberOfTargets; set => m_numberOfTargets = value; }
-    public VisualEffect VisualEffectOnHitPrefab { get => m_visualEffectOnHit; set => m_visualEffectOnHit = value; }
+    public int NumberOfTargets { get => m_numberOfTargets; protected set => m_numberOfTargets = value; }
+    public VisualEffect VisualEffectOnHitPrefab { get => m_visualEffectOnHit; protected set => m_visualEffectOnHit = value; }
+    public int Cooldown { get => m_cooldown; protected set => m_cooldown = value; }
 
     public abstract void ExecuteLogic(Unit actingUnit, List<Unit> targets);
 

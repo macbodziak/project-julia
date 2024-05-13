@@ -30,7 +30,7 @@ public class AbilityLayoutController : MonoBehaviour
             ActionButton newActionButton = Instantiate(buttonPrefab, transform);
             newActionButton.action = action;
             newActionButton.button.onClick.AddListener(() => { ActionManager.Instance.SelectedAction = action; });
-            if (ActionManager.Instance.SelectedUnit.ActionPoints < action.ActionPointCost)
+            if (isActionAvailable(action))
             {
                 newActionButton.button.interactable = false;
             }
@@ -38,6 +38,7 @@ public class AbilityLayoutController : MonoBehaviour
             {
                 newActionButton.button.interactable = true;
             }
+            newActionButton.UpdateCooldownText();
             buttonList.Add(newActionButton);
         }
     }
@@ -46,7 +47,7 @@ public class AbilityLayoutController : MonoBehaviour
     {
         foreach (ActionButton actionButton in buttonList)
         {
-            if (ActionManager.Instance.SelectedUnit.ActionPoints < actionButton.action.ActionPointCost)
+            if (isActionAvailable(actionButton.action))
             {
                 actionButton.button.interactable = false;
             }
@@ -54,6 +55,7 @@ public class AbilityLayoutController : MonoBehaviour
             {
                 actionButton.button.interactable = true;
             }
+            actionButton.UpdateCooldownText();
         }
     }
 
@@ -70,5 +72,10 @@ public class AbilityLayoutController : MonoBehaviour
         {
             RefreshAbilityList();
         }
+    }
+
+    private bool isActionAvailable(ActionBehaviour action)
+    {
+        return ActionManager.Instance.SelectedUnit.ActionPoints < action.actionPointCost || !action.available;
     }
 }

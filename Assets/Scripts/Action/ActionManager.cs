@@ -99,12 +99,12 @@ public class ActionManager : MonoBehaviour
         }
 
         //Change Action selection
-        if (newSelectedAction.ActionPointCost <= selectedUnit.ActionPoints)
+        if (newSelectedAction.actionPointCost <= selectedUnit.ActionPoints)
         {
 
             selectedAction = newSelectedAction;
 
-            InputState inputState = GetInputStateBasedOnActionType(selectedAction.ActionType);
+            InputState inputState = GetInputStateBasedOnActionType(selectedAction.targetingMode);
             InputManager.Instance.SetState(inputState);
 
             SelectedActionChangedEvent?.Invoke(this, EventArgs.Empty);
