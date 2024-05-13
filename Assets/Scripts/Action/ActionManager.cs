@@ -99,7 +99,7 @@ public class ActionManager : MonoBehaviour
         }
 
         //Change Action selection
-        if (newSelectedAction.actionPointCost <= selectedUnit.ActionPoints)
+        if (newSelectedAction.ActionPointCost <= selectedUnit.ActionPoints)
         {
 
             selectedAction = newSelectedAction;

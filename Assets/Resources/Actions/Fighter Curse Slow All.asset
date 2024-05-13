@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: 'Curse: Slow'
   m_actionPointCost: 2
+  m_powerPointCost: 3
   m_duration: 2
+  m_cooldown: 0
   m_animationTrigger: CastSpell_3
   m_sprite: {fileID: 21300000, guid: e93aa82fdf0b4f54f930a93426812358, type: 3}
   m_targetingMode: 2

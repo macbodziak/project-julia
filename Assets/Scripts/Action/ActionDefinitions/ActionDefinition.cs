@@ -9,6 +9,7 @@ public abstract class ActionDefinition : ScriptableObject
 {
     [SerializeField] private string m_name = "no name";
     [SerializeField] private int m_actionPointCost = 1;
+    [SerializeField] private int m_powerPointCost = 0;
     [SerializeField] private float m_duration = 5f;
     [SerializeField] private int m_cooldown = 0;
     [SerializeField] private string m_animationTrigger;
@@ -26,6 +27,7 @@ public abstract class ActionDefinition : ScriptableObject
     public int NumberOfTargets { get => m_numberOfTargets; protected set => m_numberOfTargets = value; }
     public VisualEffect VisualEffectOnHitPrefab { get => m_visualEffectOnHit; protected set => m_visualEffectOnHit = value; }
     public int Cooldown { get => m_cooldown; protected set => m_cooldown = value; }
+    public int PowerPointCost { get => m_powerPointCost; protected set => m_powerPointCost = value; }
 
     public abstract void ExecuteLogic(Unit actingUnit, List<Unit> targets);
 

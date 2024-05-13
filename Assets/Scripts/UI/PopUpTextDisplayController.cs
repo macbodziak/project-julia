@@ -34,7 +34,7 @@ public class PopUpTextDisplayController : MonoBehaviour
     {
         Unit unit = (Unit)sender;
 
-        string text = "HP " + unit.CurrentHealthPoints + "/" + unit.combatStats.MaxHealthPoints + "\nAP " + unit.ActionPoints + "\n";
+        string text = "HP " + unit.CurrentHealthPoints + "/" + unit.combatStats.MaxHealthPoints + "\nAP " + unit.ActionPoints + " | PP " + unit.PowerPoints + "\n";
         List<StatusEffectBehaviour> statusEffects = unit.statusEffectController.GetStatusEffects();
         foreach (StatusEffectBehaviour statusEffect in statusEffects)
         {

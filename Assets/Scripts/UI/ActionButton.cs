@@ -12,6 +12,7 @@ public class ActionButton : MonoBehaviour
     [SerializeField] Image _selectedImage;
     [SerializeField] private TextMeshProUGUI _APCostTextMesh;
     [SerializeField] private TextMeshProUGUI _cooldownTextMesh;
+    [SerializeField] private TextMeshProUGUI _PPCostTextMesh;
     private Sprite m_icon;
 
     public Sprite icon
@@ -73,11 +74,11 @@ public class ActionButton : MonoBehaviour
 
     public void UpdateCooldownText()
     {
-        int value = action.cooldown;
+        int value = action.Cooldown;
         if (value > 0)
         {
             _cooldownTextMesh.enabled = true;
-            _cooldownTextMesh.text = action.cooldown.ToString();
+            _cooldownTextMesh.text = action.Cooldown.ToString();
         }
         else
         {
@@ -88,7 +89,8 @@ public class ActionButton : MonoBehaviour
     private void SetAction(ActionBehaviour _action)
     {
         m_action = _action;
-        _APCostTextMesh.text = "" + m_action.actionPointCost;
-        SetIcon(m_action.icon);
+        _APCostTextMesh.text = "" + m_action.ActionPointCost;
+        _PPCostTextMesh.text = "" + m_action.PowerPointCost;
+        SetIcon(m_action.Icon);
     }
 }

@@ -11,6 +11,8 @@ public class CombatStats : MonoBehaviour
     [SerializeField][ReadOnly] private int currentHealthPoints;
     [SerializeField] private int maxActionPoints;
     [SerializeField][ReadOnly] private int currentActionPoints;
+    [SerializeField] private int maxPowerPoints;
+    [SerializeField][ReadOnly] private int currentPowerPoints;
     [SerializeField] private int dodge;
 
     [Space(12)]
@@ -36,6 +38,8 @@ public class CombatStats : MonoBehaviour
     public int Dodge { get => dodge; private set => dodge = value; }
     public int MaxActionPoints { get => maxActionPoints; private set => maxActionPoints = value; }
     public int MaxHealthPoints { get => maxHealthPoints; private set => maxHealthPoints = value; }
+    public int MaxPowerPoints { get => maxPowerPoints; private set => maxPowerPoints = value; }
+    public int CurrentPowerPoints { get => currentPowerPoints; set => currentPowerPoints = value; }
     public int ActionPointsModifier
     {
         get => actionPointsModifier;
@@ -45,6 +49,7 @@ public class CombatStats : MonoBehaviour
         }
     }
 
+
     public static event EventHandler<DamageTakenEventArgs> OnAnyUnitTookDamage;
     public static event EventHandler<HealingReceivedEventArgs> OnAnyUnitReceivedHealing;
 
@@ -52,6 +57,7 @@ public class CombatStats : MonoBehaviour
     {
         CurrentHealthPoints = MaxHealthPoints;
         CurrentActionPoints = MaxActionPoints;
+        CurrentPowerPoints = MaxPowerPoints;
     }
 
     public int ApplyResistance(int damageAmount, DamageType damageType)
@@ -60,7 +66,7 @@ public class CombatStats : MonoBehaviour
         return (int)(damageAmount * modifier);
     }
 
-    public int GetRequiredRoll(AttackInfo attack)
+    public int GetRequiredHitRoll(AttackInfo attack)
     {
         int requiredRoll = 100 - attack.HitChance + dodge + DodgeModifier;
         requiredRoll = Mathf.Clamp(requiredRoll, 5, 100);
@@ -103,7 +109,7 @@ public class CombatStats : MonoBehaviour
         bool isCritical = false;
         //make hit roll 
         int hitRoll = UnityEngine.Random.Range(0, 100);
-        int requiredRoll = GetRequiredRoll(attack);
+        int requiredRoll = GetRequiredHitRoll(attack);
 
         Debug.Log(gameObject + " : required Roll: " + requiredRoll + " actual Roll: " + hitRoll);
 
@@ -146,6 +152,11 @@ public class CombatStats : MonoBehaviour
     public void ResetActionPoints()
     {
         currentActionPoints = maxActionPoints + ActionPointsModifier;
+    }
+
+    public void ResetPowerPoints()
+    {
+        currentPowerPoints = maxPowerPoints;
     }
 
     private void SetActionPointModifier(int value)

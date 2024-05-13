@@ -76,6 +76,8 @@ public class AbilityLayoutController : MonoBehaviour
 
     private bool isActionAvailable(ActionBehaviour action)
     {
-        return ActionManager.Instance.SelectedUnit.ActionPoints < action.actionPointCost || !action.available;
+        return ActionManager.Instance.SelectedUnit.ActionPoints < action.ActionPointCost
+        || ActionManager.Instance.SelectedUnit.PowerPoints < action.PowerPointCost
+        || !action.Available;
     }
 }

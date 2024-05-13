@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: Flaming Sword
   m_actionPointCost: 1
+  m_powerPointCost: 1
   m_duration: 1.9
   m_cooldown: 2
   m_animationTrigger: Attack

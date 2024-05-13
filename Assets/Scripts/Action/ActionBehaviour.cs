@@ -25,9 +25,14 @@ public class ActionBehaviour : MonoBehaviour
     private Animator _animator;
     private List<Unit> _targets;
 
-    public int actionPointCost
+    public int ActionPointCost
     {
         get { return actionDefinition.ActionPointCost; }
+    }
+
+    public int PowerPointCost
+    {
+        get { return actionDefinition.PowerPointCost; }
     }
 
     public string Name
@@ -35,7 +40,7 @@ public class ActionBehaviour : MonoBehaviour
         get { return actionDefinition.Name; }
     }
 
-    public Sprite icon
+    public Sprite Icon
     {
         get { return actionDefinition.Icon; }
     }
@@ -45,35 +50,35 @@ public class ActionBehaviour : MonoBehaviour
         get { return actionDefinition.TargetingMode; }
     }
 
-    public int numberOfTargets
+    public int NumberOfTargets
     {
         get { return actionDefinition.NumberOfTargets; }
     }
 
     public bool isInProgress { get => _isInProgress; private set => _isInProgress = value; }
     public ActionDefinition actionDefinition { get => _actionDefinition; private set => _actionDefinition = value; }
-    public int cooldown { get => _cooldown; private set { SetCooldown(value); } }
+    public int Cooldown { get => _cooldown; private set { SetCooldown(value); } }
 
-    public bool available { get => _available; private set => _available = value; }
+    public bool Available { get => _available; private set => _available = value; }
 
     private void SetCooldown(int arg)
     {
         _cooldown = arg;
         if (_cooldown > 0)
         {
-            available = false;
+            Available = false;
         }
         else
         {
             _cooldown = 0;
-            available = true;
+            Available = true;
         }
     }
 
     protected virtual void Awake()
     {
         isInProgress = false;
-        available = true;
+        Available = true;
         _targets = new List<Unit>();
     }
 
@@ -89,7 +94,7 @@ public class ActionBehaviour : MonoBehaviour
 
     public void DecrementCooldown()
     {
-        cooldown--;
+        Cooldown--;
     }
 
     // Summary
@@ -102,7 +107,6 @@ public class ActionBehaviour : MonoBehaviour
         _targets.Clear();
         _targets.AddRange(targetList);
         _animator.SetTrigger(actionDefinition.AnimationTrigger);
-        cooldown = actionDefinition.Cooldown;
         StartCoroutine(PerformAction());
         OnActionStarted();
     }
@@ -116,6 +120,9 @@ public class ActionBehaviour : MonoBehaviour
     protected IEnumerator PerformAction()
     {
         _unit.combatStats.CurrentActionPoints -= actionDefinition.ActionPointCost;
+        _unit.combatStats.CurrentPowerPoints -= actionDefinition.PowerPointCost;
+        Cooldown = actionDefinition.Cooldown;
+
         yield return new WaitForSeconds(actionDefinition.Duration * 0.3f);
         actionDefinition.ExecuteLogic(_unit, _targets);
         //TO DO play audio

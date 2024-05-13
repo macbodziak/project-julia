@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: Healing Hand
   m_actionPointCost: 1
+  m_powerPointCost: 1
   m_duration: 2
   m_cooldown: 2
   m_animationTrigger: CastSpell_1

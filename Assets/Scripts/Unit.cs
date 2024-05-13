@@ -41,6 +41,11 @@ public class Unit : MonoBehaviour
         get { return _combatStats.CurrentActionPoints; }
     }
 
+    public int PowerPoints
+    {
+        get { return _combatStats.CurrentPowerPoints; }
+    }
+
 
     private void Start()
     {
