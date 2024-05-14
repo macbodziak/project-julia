@@ -29,9 +29,17 @@ public class CombatStats : MonoBehaviour
     [Space(6)]
     [SerializeField] public float DamageMultiplier = 1.0f;
     [SerializeField] public int DodgeModifier = 0;
-    [SerializeField] private int actionPointsModifier = 0;
+    [SerializeField] private int _actionPointsModifier = 0;
     [SerializeField] public int HitChanceModifier = 0;
     [SerializeField] public int CritChanceModifier = 0;
+    // <summary>
+    // Modifier flags are like boolean, but since several status effects might have the same effect
+    // we use a counter instead of bool so one effect does not canceld out another one too early
+    // </summary>
+    [Space(6)]
+    [Header("Modifier Flags:")]
+    [Space(6)]
+    [SerializeField] public int NoActionPointsRefresh = 0;
 
     public int CurrentActionPoints { get => currentActionPoints; set => currentActionPoints = value; }
     public int CurrentHealthPoints { get => currentHealthPoints; private set => currentHealthPoints = value; }
@@ -42,7 +50,7 @@ public class CombatStats : MonoBehaviour
     public int CurrentPowerPoints { get => currentPowerPoints; set => currentPowerPoints = value; }
     public int ActionPointsModifier
     {
-        get => actionPointsModifier;
+        get => _actionPointsModifier;
         set
         {
             SetActionPointModifier(value);
@@ -151,7 +159,10 @@ public class CombatStats : MonoBehaviour
 
     public void ResetActionPoints()
     {
-        currentActionPoints = maxActionPoints + ActionPointsModifier;
+        if (NoActionPointsRefresh <= 0)
+        {
+            currentActionPoints = maxActionPoints + ActionPointsModifier;
+        }
     }
 
     public void ResetPowerPoints()
@@ -161,9 +172,9 @@ public class CombatStats : MonoBehaviour
 
     private void SetActionPointModifier(int value)
     {
-        actionPointsModifier = value;
+        _actionPointsModifier = value;
         currentActionPoints += value;
-        currentActionPoints = Mathf.Clamp(currentActionPoints, 0, 10);
+        currentActionPoints = Mathf.Clamp(currentActionPoints, -5, 5);
     }
 
     public void TakeDamage(int damage, DamageType damageType, bool isCritical, bool playAnimation = true)

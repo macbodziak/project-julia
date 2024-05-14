@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dbc633df8e0cbb49abcca58d65f288a, type: 3}
+  m_Name: Fighter Stunning Blow
+  m_EditorClassIdentifier: 
+  m_name: Bash
+  m_actionPointCost: 1
+  m_powerPointCost: 0
+  m_duration: 2
+  m_cooldown: 1
+  m_animationTrigger: AttackCombo
+  m_sprite: {fileID: 21300000, guid: f0a33ea45e732974f9730275ff3f1c24, type: 3}
+  m_targetingMode: 0
+  m_numberOfTargets: 0
+  m_visualEffectOnHit: {fileID: 1886665790968416815, guid: 1bd8192ab230dae4986b8dabddbdf77e, type: 3}
+  minDamage: 0
+  maxDamage: 5
+  hitChance: 95
+  critChance: 0
+  damageType: 0
+  _statusEffects:
+  - {fileID: 11400000, guid: 1d931fae3e234fb469da080d4b45837d, type: 2}
