@@ -300,6 +300,89 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0067825317, y: 83.69909, z: -3.4454021}
     m_Extent: {x: 103.800064, y: 94.99288, z: 25.033636}
   m_DirtyAABB: 0
+--- !u!1 &802403677954713074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5868818296278035461}
+  - component: {fileID: 8531006721875335393}
+  - component: {fileID: 5887017166182837211}
+  m_Layer: 3
+  m_Name: SelectedVisual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5868818296278035461
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802403677954713074}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: -0.21000004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2609003918164214248}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!33 &8531006721875335393
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802403677954713074}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &5887017166182837211
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802403677954713074}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 7ca06c34e5037b24cbd18fd1adff1b19, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &839493979165692203
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,13 +760,15 @@ GameObject:
   m_Component:
   - component: {fileID: 2609003918164214248}
   - component: {fileID: 393735518661240442}
-  - component: {fileID: 3540231782061842753}
+  - component: {fileID: 6402526630220366030}
+  - component: {fileID: 1283687829037358754}
   - component: {fileID: 3692882631394820891}
   - component: {fileID: 4257269674305626172}
+  - component: {fileID: 8526355461935007978}
   - component: {fileID: 1649013968720037916}
   - component: {fileID: 7336994949534536357}
   - component: {fileID: 5553988726225538882}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character_Skeleton_Soldier_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -703,6 +788,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5868818296278035461}
   - {fileID: 6273059789908950585}
   - {fileID: 2717602052037205636}
   - {fileID: 8891495244853287615}
@@ -735,7 +821,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: af471b8f4e2255b48a4fa525dda8febc, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -743,7 +829,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3540231782061842753
+--- !u!114 &6402526630220366030
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -752,11 +838,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1117094404287530423}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82495ea3497c8b44fb3035d20afc5dba, type: 3}
+  m_Script: {fileID: 11500000, guid: c24f09dd13d4c53469bea82299d981f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionList: []
   isPlayer: 0
+--- !u!114 &1283687829037358754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117094404287530423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb7e8cfcaf1d4f4bbda33e7087ccd20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 5887017166182837211}
+  isVisible: 0
 --- !u!114 &3692882631394820891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -780,13 +879,14 @@ MonoBehaviour:
     content: 0000000000000000000000000000000064000000
     enumType: 0
   statusEffectSaveValues:
-    content: 640000000000000064000000000000000000000000000000
+    content: 64000000000000006400000000000000000000000000000000000000
     enumType: 0
   DamageMultiplier: 1
   DodgeModifier: 0
-  actionPointsModifier: 0
+  _actionPointsModifier: 0
   HitChanceModifier: 0
   CritChanceModifier: 0
+  NoActionPointsRefresh: 0
 --- !u!114 &4257269674305626172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -800,6 +900,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusEffectsBehaviours: []
+--- !u!114 &8526355461935007978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117094404287530423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8927f73b228449409ad82156e706cd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionList: []
 --- !u!114 &1649013968720037916
 MonoBehaviour:
   m_ObjectHideFlags: 0

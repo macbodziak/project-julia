@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Skeleton Shield Bash
   m_EditorClassIdentifier: 
   m_name: Skeleton Shield Bash
-  m_actionPointCost: 1
+  m_actionPointCost: 2
   m_powerPointCost: 0
-  m_duration: 5
+  m_duration: 2
   m_cooldown: 2
   m_animationTrigger: ShieldAttack
   m_sprite: {fileID: 0}
@@ -28,4 +28,4 @@ MonoBehaviour:
   critChance: 0
   damageType: 0
   _statusEffects:
-  - {fileID: 11400000, guid: d65fa9f04e8589d4090e5c0e8371eee7, type: 2}
+  - {fileID: 11400000, guid: 1d931fae3e234fb469da080d4b45837d, type: 2}

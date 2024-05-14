@@ -99,6 +99,7 @@ public class TurnManager : MonoBehaviour
         {
             yield return new WaitForSeconds(0.12f);
         }
+        TickCooldownCounter(CombatEncounterManager.Instance.GetEnemyUnitList());
         ResetEnemyActionPoints();
         EnemyAIManager.Instance.StartEnemyTurn();
         yield return null;

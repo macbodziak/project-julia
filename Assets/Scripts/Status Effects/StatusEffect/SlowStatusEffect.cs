@@ -15,12 +15,12 @@ public class SlowStatusEffect : StatusEffect
 
     public override void OnEnd()
     {
-        unit.combatStats.ActionPointsModifier += actionPointModifier;
+        unit.combatStats.ActionPointsModifier -= actionPointModifier;
     }
 
     public override void OnStart(Unit effectedUnit)
     {
         base.OnStart(effectedUnit);
-        unit.combatStats.ActionPointsModifier -= actionPointModifier;
+        unit.combatStats.ActionPointsModifier += actionPointModifier;
     }
 }

@@ -10,6 +10,7 @@ using Unity.VisualScripting;
 //      implement the ExecuteLogic() method
 //      override the Awake() method and set the right Type of Action
 
+[System.Serializable]
 public class ActionBehaviour : MonoBehaviour
 {
     [SerializeField] private ActionDefinition _actionDefinition;
@@ -21,7 +22,7 @@ public class ActionBehaviour : MonoBehaviour
     //member fields
     private Unit _unit;
     private bool _isInProgress;
-    private bool _available;
+    private bool _ready;
     private Animator _animator;
     private List<Unit> _targets;
 
@@ -59,26 +60,26 @@ public class ActionBehaviour : MonoBehaviour
     public ActionDefinition actionDefinition { get => _actionDefinition; private set => _actionDefinition = value; }
     public int Cooldown { get => _cooldown; private set { SetCooldown(value); } }
 
-    public bool Available { get => _available; private set => _available = value; }
+    public bool Ready { get => _ready; private set => _ready = value; }
 
     private void SetCooldown(int arg)
     {
         _cooldown = arg;
         if (_cooldown > 0)
         {
-            Available = false;
+            Ready = false;
         }
         else
         {
             _cooldown = 0;
-            Available = true;
+            Ready = true;
         }
     }
 
     protected virtual void Awake()
     {
         isInProgress = false;
-        Available = true;
+        Ready = true;
         _targets = new List<Unit>();
     }
 

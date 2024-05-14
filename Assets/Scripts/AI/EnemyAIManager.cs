@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using BehaviorDesigner.Runtime;
 using UnityEngine;
 
 public class EnemyAIManager : MonoBehaviour
@@ -82,21 +83,30 @@ public class EnemyAIManager : MonoBehaviour
         ActionBehaviour action;
         foreach (Unit enemy in enemies)
         {
-            action = ChooseAction(enemy);
-            while (action != null)
+            BehaviorTree BT = enemy.GetComponent<BehaviorTree>();
+            if (BT != null)
             {
-                StartAction(action);
-                yield return new WaitForSeconds(action.GetDuration() + 0.2f);
-                if (enemyWon)
-                {
-                    break;
-                }
-                action = ChooseAction(enemy);
+                BT.EnableBehavior();
             }
-            if (enemyWon)
+            else
             {
-                break;
+                Debug.Log("no BehaviorTree");
             }
+            // action = ChooseAction(enemy);
+            // while (action != null)
+            // {
+            //     StartAction(action);
+            //     yield return new WaitForSeconds(action.GetDuration() + 0.2f);
+            //     if (enemyWon)
+            //     {
+            //         break;
+            //     }
+            //     action = ChooseAction(enemy);
+            // }
+            // if (enemyWon)
+            // {
+            //     break;
+            // }
         }
 
         if (!enemyWon)

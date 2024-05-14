@@ -78,6 +78,6 @@ public class AbilityLayoutController : MonoBehaviour
     {
         return ActionManager.Instance.SelectedUnit.ActionPoints < action.ActionPointCost
         || ActionManager.Instance.SelectedUnit.PowerPoints < action.PowerPointCost
-        || !action.Available;
+        || !action.Ready;
     }
 }
