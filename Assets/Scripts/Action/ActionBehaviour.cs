@@ -45,7 +45,7 @@ public class ActionBehaviour : MonoBehaviour
         get { return actionDefinition.Icon; }
     }
 
-    public TargetingModeType targetingMode
+    public TargetingMode targetingMode
     {
         get { return actionDefinition.TargetingMode; }
     }

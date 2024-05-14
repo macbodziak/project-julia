@@ -4,7 +4,7 @@ public enum InputState
     SelectSingleEnemyTarget,
     SelectMultipleEnemyTargets,
     SelectAllEnemyTargets,
-    // SelectSelfTarget,
+    SelectSelfTarget,
     SelectSingleAllyTarget,
     // SelectMultipleAllyTargets,
     SelectAllAllyTargets,

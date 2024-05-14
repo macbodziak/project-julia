@@ -1,9 +1,9 @@
-public enum TargetingModeType
+public enum TargetingMode
 {
     SingleEnemyTarget,
     MultipleEnemyTargets,
     AllEnemyTargets,
-    // SelfTarget,
+    SelfTarget,
     SingleAllyTarget,
     // MultipleAllyTargets,
     AllAllyTargets,

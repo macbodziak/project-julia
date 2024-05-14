@@ -14,7 +14,7 @@ public abstract class ActionDefinition : ScriptableObject
     [SerializeField] private int m_cooldown = 0;
     [SerializeField] private string m_animationTrigger;
     [SerializeField] private Sprite m_sprite;
-    [SerializeField] private TargetingModeType m_targetingMode;
+    [SerializeField] private TargetingMode m_targetingMode;
     [Tooltip("Only used for Multiple Targets, not for Single or All")][SerializeField] private int m_numberOfTargets;
     [SerializeField] private VisualEffect m_visualEffectOnHit;
 
@@ -23,7 +23,7 @@ public abstract class ActionDefinition : ScriptableObject
     public float Duration { get => m_duration; protected set => m_duration = value; }
     public string AnimationTrigger { get => m_animationTrigger; protected set => m_animationTrigger = value; }
     public Sprite Icon { get => m_sprite; protected set => m_sprite = value; }
-    public TargetingModeType TargetingMode { get { return m_targetingMode; } }
+    public TargetingMode TargetingMode { get { return m_targetingMode; } }
     public int NumberOfTargets { get => m_numberOfTargets; protected set => m_numberOfTargets = value; }
     public VisualEffect VisualEffectOnHitPrefab { get => m_visualEffectOnHit; protected set => m_visualEffectOnHit = value; }
     public int Cooldown { get => m_cooldown; protected set => m_cooldown = value; }

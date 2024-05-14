@@ -25,6 +25,7 @@ public class InputManager : MonoBehaviour
         new SelectSingleEnemyTargetState(),
         new SelectMultipleEnemyTargetsState(),
         new SelectAllEnemyTargetsState(),
+        new SelectSelfTargetState(),
         new SelectSingleAllyTargetState(),
         new SelectAllAllyTargetsState(),
         new SelectNoTargetState(),

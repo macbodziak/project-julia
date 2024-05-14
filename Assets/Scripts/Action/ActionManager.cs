@@ -163,27 +163,31 @@ public class ActionManager : MonoBehaviour
 
     // summary
     // this function maps the input state based on the declared Action Type
-    private InputState GetInputStateBasedOnActionType(TargetingModeType actionType)
+    private InputState GetInputStateBasedOnActionType(TargetingMode actionType)
     {
         switch (actionType)
         {
-            case TargetingModeType.SingleEnemyTarget:
+            case TargetingMode.SingleEnemyTarget:
                 return InputState.SelectSingleEnemyTarget;
 
-            case TargetingModeType.MultipleEnemyTargets:
+            case TargetingMode.MultipleEnemyTargets:
                 return InputState.SelectMultipleEnemyTargets;
 
-            case TargetingModeType.AllEnemyTargets:
+            case TargetingMode.AllEnemyTargets:
                 return InputState.SelectAllEnemyTargets;
 
-            case TargetingModeType.SingleAllyTarget:
+            case TargetingMode.SelfTarget:
+                return InputState.SelectSelfTarget;
+
+            case TargetingMode.SingleAllyTarget:
                 return InputState.SelectSingleAllyTarget;
 
-            case TargetingModeType.AllAllyTargets:
+            case TargetingMode.AllAllyTargets:
                 return InputState.SelectAllAllyTargets;
 
-            case TargetingModeType.NoTarget:
+            case TargetingMode.NoTarget:
                 return InputState.SelectNoTarget;
+
         }
 
         //default value;
