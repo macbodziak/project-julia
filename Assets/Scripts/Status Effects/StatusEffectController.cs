@@ -104,7 +104,6 @@ public class StatusEffectController : MonoBehaviour
         StatusEffectBehaviour statusEffectBehaviour;
 
         //check if Status Effect is already applied
-        //TO DO - get all components and see if of this type already
         statusEffectBehaviour = GetStatusEffectBehaviour(statusEffectPreset);
         if (statusEffectBehaviour != null)
         {

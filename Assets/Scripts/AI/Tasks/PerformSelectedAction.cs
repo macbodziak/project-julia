@@ -2,40 +2,56 @@ using UnityEngine;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 
-public class PerformSelectedAction : Action
+namespace EnemyAI
 {
-	bool isRunning = false;
-	bool hasStarted = false;
-	public SharedActionBehaviour selectedAction;
-	public override void OnStart()
+	[TaskCategory("My Tasks")]
+	[TaskDescription("Starts the \"Selected Action\" with the \"Selected Targets\". Both Shared Variables need to be set (excpet for no target Actions)")]
+	public class PerformSelectedAction : Action
 	{
-		isRunning = false;
-		hasStarted = false;
-		Debug.Log("the following action has been selected for execution: " + selectedAction.Value.actionDefinition);
-	}
-
-	public override TaskStatus OnUpdate()
-	{
-		if (hasStarted == false)
+		bool isRunning = false;
+		bool hasStarted = false;
+		[SerializeField] SharedActionBehaviour selectedAction;
+		[SerializeField] SharedUnitList selectedTargets;
+		public override void OnStart()
 		{
-			hasStarted = true;
-			isRunning = true;
-			selectedAction.Value.StartAction(CombatEncounterManager.Instance.GetPlayerUnitList(), OnActionCompleted);
-
+			isRunning = false;
+			hasStarted = false;
+			Debug.Log("the following action has been selected for execution: <color=#ffe05e>" + selectedAction.Value.actionDefinition + "</color>");
 		}
 
-		if (isRunning)
+		public override TaskStatus OnUpdate()
 		{
-			return TaskStatus.Running;
-		}
-		else
-		{
-			return TaskStatus.Success;
-		}
-	}
+			if (hasStarted == false)
+			{
+				hasStarted = true;
+				isRunning = true;
 
-	private void OnActionCompleted()
-	{
-		isRunning = false;
+				if (selectedAction.Value == null)
+				{
+					return TaskStatus.Failure;
+				}
+
+				if (selectedAction.Value.targetingMode != TargetingMode.NoTarget && selectedTargets.Value == null)
+				{
+					return TaskStatus.Failure;
+				}
+
+				selectedAction.Value.StartAction(selectedTargets.Value, OnActionCompleted);
+			}
+
+			if (isRunning)
+			{
+				return TaskStatus.Running;
+			}
+			else
+			{
+				return TaskStatus.Success;
+			}
+		}
+
+		private void OnActionCompleted()
+		{
+			isRunning = false;
+		}
 	}
 }

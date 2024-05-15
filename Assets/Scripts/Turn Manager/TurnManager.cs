@@ -101,7 +101,7 @@ public class TurnManager : MonoBehaviour
         }
         TickCooldownCounter(CombatEncounterManager.Instance.GetEnemyUnitList());
         ResetEnemyActionPoints();
-        EnemyAIManager.Instance.StartEnemyTurn();
+        EnemyAI.EnemyAIManager.Instance.StartEnemyTurn();
         yield return null;
     }
 

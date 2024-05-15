@@ -119,7 +119,7 @@ public class CombatStats : MonoBehaviour
         int hitRoll = UnityEngine.Random.Range(0, 100);
         int requiredRoll = GetRequiredHitRoll(attack);
 
-        Debug.Log(gameObject + " : required Roll: " + requiredRoll + " actual Roll: " + hitRoll);
+        Debug.Log(gameObject + " : required Roll: <color=#ffa8a8>" + requiredRoll + "</color> actual Roll: <color=#ffa8a8>" + hitRoll + "</color>");
 
         //if hit was successful
         if (hitRoll >= requiredRoll)

@@ -566,7 +566,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1a64cf0a23f83924f9debcb452685f6f, type: 2}
+  - {fileID: 2100000, guid: 0574116a7188c654ab34fcd54a2d0ecc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2459,7 +2459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8648671761024964313
 Transform:
   m_ObjectHideFlags: 0
@@ -3408,12 +3408,15 @@ GameObject:
   m_Component:
   - component: {fileID: 5351647011430790160}
   - component: {fileID: 8679068521831179026}
-  - component: {fileID: 1757850075675236761}
+  - component: {fileID: 1870695296858083973}
   - component: {fileID: 5130262036932632293}
   - component: {fileID: 5473633794726158475}
+  - component: {fileID: 3123011358780468344}
   - component: {fileID: 2027115959078703921}
   - component: {fileID: 779126505998938287}
-  - component: {fileID: 5541444634144943143}
+  - component: {fileID: 4784428111713603344}
+  - component: {fileID: 8329283391939405534}
+  - component: {fileID: 3883243712857074227}
   m_Layer: 3
   m_Name: Character_Goblin_Shaman
   m_TagString: Untagged
@@ -3467,7 +3470,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: bf83c3733d22da840aaaa488798a0dc8, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -3475,7 +3478,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1757850075675236761
+--- !u!114 &1870695296858083973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3484,10 +3487,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6506755498932075654}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82495ea3497c8b44fb3035d20afc5dba, type: 3}
+  m_Script: {fileID: 11500000, guid: c24f09dd13d4c53469bea82299d981f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionList: []
   isPlayer: 0
 --- !u!114 &5130262036932632293
 MonoBehaviour:
@@ -3533,6 +3535,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusEffectsBehaviours: []
+--- !u!114 &3123011358780468344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6506755498932075654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8927f73b228449409ad82156e706cd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionList: []
 --- !u!114 &2027115959078703921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3545,7 +3560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _actionDefinition: {fileID: 0}
+  _actionDefinition: {fileID: 11400000, guid: 217ce0b71df68cb4885991529a8ac328, type: 2}
   _cooldown: 0
 --- !u!136 &779126505998938287
 CapsuleCollider:
@@ -3570,7 +3585,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &5541444634144943143
+--- !u!114 &4784428111713603344
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3579,7 +3594,61 @@ MonoBehaviour:
   m_GameObject: {fileID: 6506755498932075654}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2445aad77f730334c9cc1e5491f774c2, type: 3}
+  m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionDefinition: {fileID: 11400000, guid: 29b8e42fd37433843a604c23b44d64b6, type: 2}
+  _cooldown: 0
+--- !u!114 &8329283391939405534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6506755498932075654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7b55c7ecdb49a4a89fa5e6f9022861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWhenEnabled: 0
+  asynchronousLoad: 0
+  pauseWhenDisabled: 0
+  restartWhenComplete: 0
+  logTaskChanges: 0
+  group: 0
+  resetValuesOnRestart: 0
+  externalBehavior: {fileID: 11400000, guid: 4da4a45fab150b44e8a5766560a5388c, type: 2}
+  mBehaviorSource:
+    behaviorName: Behavior
+    behaviorDescription: 
+    mTaskData:
+      types: []
+      parentIndex: 
+      startIndex: 
+      variableStartIndex: 
+      JSONSerialization: '{"Variables":[{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true},{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]}]}'
+      fieldSerializationData:
+        typeName: []
+        fieldNameHash: 
+        startIndex: 
+        dataPosition: 
+        unityObjects: []
+        byteData: 
+        byteDataArray: 
+      Version: 1.7.9
+  gizmoViewMode: 2
+  showBehaviorDesignerGizmo: 1
+--- !u!114 &3883243712857074227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6506755498932075654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb7e8cfcaf1d4f4bbda33e7087ccd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 8407860110234352673}
