@@ -19,7 +19,7 @@ MonoBehaviour:
   m_cooldown: 3
   m_animationTrigger: CastSpell_3
   m_sprite: {fileID: 0}
-  m_targetingMode: 0
+  m_targetingMode: 3
   m_numberOfTargets: 0
   m_visualEffectOnHit: {fileID: 0}
   minAmount: 20

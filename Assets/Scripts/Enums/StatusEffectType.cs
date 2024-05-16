@@ -2,7 +2,7 @@ public enum StatusEffectType
 {
     Bleeding,
     Burning,
-    Poisened,
+    Poisoned,
     Slowed,
     Stunned,
     IncreasedDamage,

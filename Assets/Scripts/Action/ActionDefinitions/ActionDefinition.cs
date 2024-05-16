@@ -58,6 +58,10 @@ public abstract class ActionDefinition : ScriptableObject
         if (vfx != null)
         {
             VisualEffect vfxInstance = Instantiate<VisualEffect>(vfx, transformArg);
+            if (vfxInstance != null)
+            {
+                Destroy(vfxInstance.gameObject, 5.0f);
+            }
             return vfxInstance;
         }
         return null;

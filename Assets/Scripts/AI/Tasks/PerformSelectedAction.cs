@@ -16,7 +16,6 @@ namespace EnemyAI
 		{
 			isRunning = false;
 			hasStarted = false;
-			Debug.Log("the following action has been selected for execution: <color=#ffe05e>" + selectedAction.Value.actionDefinition + "</color>");
 		}
 
 		public override TaskStatus OnUpdate()
@@ -35,7 +34,7 @@ namespace EnemyAI
 				{
 					return TaskStatus.Failure;
 				}
-
+				Debug.Log("the following action has been selected for execution: <color=#ffe05e>" + selectedAction.Value.actionDefinition + "</color>");
 				selectedAction.Value.StartAction(selectedTargets.Value, OnActionCompleted);
 			}
 

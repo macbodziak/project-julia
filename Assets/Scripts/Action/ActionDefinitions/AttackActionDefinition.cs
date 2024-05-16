@@ -29,10 +29,6 @@ public class AttackActionDefinition : ActionDefinition, ICanAttack
             {
                 // PlayVisualEffect(VisualEffectOnHitPrefab, target.transform.position + new Vector3(0f, 1.2f, 0f));
                 VisualEffect vfx = PlayVisualEffect(VisualEffectOnHitPrefab, target.transform);
-                if (vfx != null)
-                {
-                    Destroy(vfx.gameObject, 2.5f);
-                }
             }
         }
     }

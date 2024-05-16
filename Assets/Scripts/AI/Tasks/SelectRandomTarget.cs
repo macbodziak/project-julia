@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace EnemyAI
 {
-	[TaskCategory("My Tasks")]
+	[TaskCategory("My Tasks/Target Selection")]
 	[TaskDescription("Selects Random Target(s) based on the Targeting Mode of the \"Selected Action\" (Shared Variable) and sets the value of \"Selected Targets\"")]
 	public class SelectRandomTarget : Action
 	{

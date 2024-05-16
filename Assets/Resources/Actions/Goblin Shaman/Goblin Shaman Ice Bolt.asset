@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: Ice Bolt
   m_actionPointCost: 1
+  m_powerPointCost: 0
   m_duration: 1.9
+  m_cooldown: 0
   m_animationTrigger: CastSpell_1
   m_sprite: {fileID: 0}
   m_targetingMode: 0

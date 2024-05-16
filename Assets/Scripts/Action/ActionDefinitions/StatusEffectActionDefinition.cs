@@ -16,10 +16,6 @@ public class StatusEffectActionDefinition : ActionDefinition
         foreach (Unit target in targets)
         {
             VisualEffect vfx = PlayVisualEffect(VisualEffectOnHitPrefab, target.transform);
-            if (vfx != null)
-            {
-                Destroy(vfx.gameObject, 2.5f);
-            }
 
             //remove status effects if this action definition has status effects
             RemoveStatusEffects(target, StatusEffectsRemoved);

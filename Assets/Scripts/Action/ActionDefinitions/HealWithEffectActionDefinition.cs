@@ -23,10 +23,6 @@ public class HealWithEffectActionDefinition : ActionDefinition
 
             // PlayVisualEffect(VisualEffectOnHitPrefab, target.transform.position + new Vector3(0f, 1.2f, 0f));
             VisualEffect vfx = PlayVisualEffect(VisualEffectOnHitPrefab, target.transform);
-            if (vfx != null)
-            {
-                Destroy(vfx.gameObject, 2.5f);
-            }
 
             //remove status effects if this action definition has status effects
             RemoveStatusEffects(target, StatusEffectsRemoved);

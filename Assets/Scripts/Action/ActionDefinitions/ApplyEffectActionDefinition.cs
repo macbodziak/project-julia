@@ -17,10 +17,6 @@ public class ApplyEffectActionDefinition : ActionDefinition
             ApplyStatusEffects(target, StatusEffectsApplied);
             //TO DO - if hit
             VisualEffect vfx = PlayVisualEffect(VisualEffectOnHitPrefab, target.transform);
-            if (vfx != null)
-            {
-                Destroy(vfx.gameObject, 2.5f);
-            }
 
         }
     }

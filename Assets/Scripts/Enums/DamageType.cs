@@ -4,5 +4,5 @@ public enum DamageType
     Fire,
     Ice,
     Electric,
-    Poision
+    Poison
 };

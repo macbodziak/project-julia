@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace EnemyAI
 {
-	[TaskCategory("My Tasks")]
+	[TaskCategory("My Tasks/Action Selection")]
 	[TaskDescription("Chooses a Random action that the unit can perform. Returns Failure if no actions are available,"
 	+ " for example not enough action points or still on cooldown. Sets the value of \"Selected Action\"")]
 	public class ChooseRandomAction : Action

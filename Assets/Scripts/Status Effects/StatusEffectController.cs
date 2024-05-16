@@ -21,10 +21,13 @@ public class StatusEffectController : MonoBehaviour
     public static event EventHandler<StatusEffect> AnyUnitSavedFromStatusEffectEvent;
     public static event EventHandler<StatusEffect> AnyUnitReceivedStatusEffectEvent;
     public static event EventHandler<StatusEffect> AnyUnitRemovedStatusEffectEvent;
+
+
     private void Awake()
     {
         statusEffectsBehaviours = new();
     }
+
 
     // <summary>
     // This method gets called in the Turn Manager before the units turn 
@@ -33,6 +36,7 @@ public class StatusEffectController : MonoBehaviour
     {
         StartCoroutine(ApplyActiveStatusEffectsCoroutine());
     }
+
 
     private IEnumerator ApplyActiveStatusEffectsCoroutine()
     {
@@ -61,6 +65,7 @@ public class StatusEffectController : MonoBehaviour
         yield return null;
     }
 
+
     public void ApplyPassiveStatusEffects()
     {
         //cycle backwards, becasue we might need to remove elements while iterating over list
@@ -82,10 +87,12 @@ public class StatusEffectController : MonoBehaviour
         }
     }
 
+
     public List<StatusEffectBehaviour> GetStatusEffects()
     {
         return statusEffectsBehaviours;
     }
+
 
     private StatusEffectBehaviour GetStatusEffectBehaviour(StatusEffect statusEffectPreset)
     {
@@ -98,6 +105,7 @@ public class StatusEffectController : MonoBehaviour
         }
         return null;
     }
+
 
     private void ReceiveStatusEffect(StatusEffect statusEffectPreset)
     {
@@ -118,6 +126,7 @@ public class StatusEffectController : MonoBehaviour
             AnyUnitReceivedStatusEffectEvent?.Invoke(this, statusEffectPreset);
         }
     }
+
 
     public void RemoveStatusEffect(StatusEffect statusEffectPreset)
     {
@@ -155,6 +164,21 @@ public class StatusEffectController : MonoBehaviour
             }
         }
     }
+
+
+    public bool HasStatusEffect(StatusEffectType type)
+    {
+        foreach (StatusEffectBehaviour item in statusEffectsBehaviours)
+        {
+            if (item.statusEffectType == type)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     public void Clear()
     {
         foreach (StatusEffectBehaviour statusEffect in statusEffectsBehaviours)
@@ -166,6 +190,7 @@ public class StatusEffectController : MonoBehaviour
         StopAllCoroutines();
         isProcessing = false;
     }
+
 
     public int Count()
     {
