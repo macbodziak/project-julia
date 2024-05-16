@@ -3413,10 +3413,11 @@ GameObject:
   - component: {fileID: 5473633794726158475}
   - component: {fileID: 3123011358780468344}
   - component: {fileID: 2027115959078703921}
+  - component: {fileID: 7685154757138240754}
   - component: {fileID: 779126505998938287}
-  - component: {fileID: 4784428111713603344}
   - component: {fileID: 8329283391939405534}
   - component: {fileID: 3883243712857074227}
+  - component: {fileID: 3882240572999455926}
   m_Layer: 3
   m_Name: Character_Goblin_Shaman
   m_TagString: Untagged
@@ -3547,7 +3548,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8927f73b228449409ad82156e706cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionList: []
 --- !u!114 &2027115959078703921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3561,6 +3561,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: 217ce0b71df68cb4885991529a8ac328, type: 2}
+  _cooldown: 0
+--- !u!114 &7685154757138240754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6506755498932075654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionDefinition: {fileID: 11400000, guid: 4a61746c70c9a914d8441a1456ee7ba8, type: 2}
   _cooldown: 0
 --- !u!136 &779126505998938287
 CapsuleCollider:
@@ -3585,20 +3599,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &4784428111713603344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6506755498932075654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _actionDefinition: {fileID: 11400000, guid: 29b8e42fd37433843a604c23b44d64b6, type: 2}
-  _cooldown: 0
 --- !u!114 &8329283391939405534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3653,6 +3653,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 8407860110234352673}
   isVisible: 0
+--- !u!114 &3882240572999455926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6506755498932075654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionDefinition: {fileID: 11400000, guid: fe88daf3a6752484289b47e5fe6317c5, type: 2}
+  _cooldown: 0
 --- !u!1 &6507311800014327011
 GameObject:
   m_ObjectHideFlags: 0

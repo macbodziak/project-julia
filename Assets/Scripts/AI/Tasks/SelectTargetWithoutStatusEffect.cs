@@ -11,11 +11,6 @@ public class SelectTargetWithoutStatusEffect : Action
 	[SerializeField] SharedUnitList selectedTargets;
 	[SerializeField] StatusEffectType type;
 
-	public override void OnStart()
-	{
-
-	}
-
 
 	public override TaskStatus OnUpdate()
 	{

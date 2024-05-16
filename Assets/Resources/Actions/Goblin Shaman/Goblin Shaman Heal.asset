@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17baa2da7543a554a91ea037c10a2466, type: 3}
-  m_Name: Goblin Shaman Heal Self
+  m_Name: Goblin Shaman Heal
   m_EditorClassIdentifier: 
-  m_name: Heal Self
+  m_name: Heal
   m_actionPointCost: 1
   m_powerPointCost: 0
   m_duration: 2
   m_cooldown: 3
   m_animationTrigger: CastSpell_3
   m_sprite: {fileID: 0}
-  m_targetingMode: 3
+  m_targetingMode: 4
   m_numberOfTargets: 0
   m_visualEffectOnHit: {fileID: 0}
   minAmount: 20

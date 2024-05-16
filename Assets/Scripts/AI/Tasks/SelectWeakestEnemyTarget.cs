@@ -15,11 +15,6 @@ namespace EnemyAI
         [SerializeField] SharedUnitList selectedTargets;
 
 
-        public override void OnAwake()
-        {
-        }
-
-
         public override TaskStatus OnUpdate()
         {
             List<Unit> units = CombatEncounterManager.Instance.GetPlayerUnitList();
