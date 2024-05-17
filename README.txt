@@ -59,10 +59,16 @@ The UnitSetupHelper class extends the Unity EditorWindow to create a custom edit
 It provides a user interface with various controls and executes setup operations when a button is clicked.
 Unit Setup Helper can be found here: Window>Project Julia> Unit Setup Helper
 
-The Unit Setup Helper  configures the selected GameObject by:
+The Unit Setup Helper configures the selected GameObject by:
     Setting its layer to "Units."
     Adding required components such as Unit, CombatStats, ActionController, StatusEffectController, Animator, and CapsuleCollider.
-    Adding multiple ActionBehaviour components if specified.
+    Adding specified number of empty ActionBehaviour components.
     Configuring the isPlayer property of the Unit component based on the toggle state.
     Adding a BehaviorTree component for non-player units.
     Adding a SelectedVisual component and its associated prefab as a child.
+	
+To add a new unit, place a character prefab from synty assets folder, select it, and run the Unit Setup Helper. 
+Next, add the unit to the Combat Encounter Manager. The Unit Setup Helper can automate this as well.
+You can also do it manually, see steps above.
+Add Animator asset to Animator component;
+For Enemies, add exisiting or deisgn new Behavior Asset;
