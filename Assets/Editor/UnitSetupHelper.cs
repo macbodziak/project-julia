@@ -39,10 +39,6 @@ public class UnitSetupHelper : EditorWindow
         // Each editor window contains a root VisualElement object
         VisualElement root = rootVisualElement;
 
-        // VisualElements objects can contain other VisualElement following a tree hierarchy.
-        VisualElement label = new Label("Unit Setup Helper");
-        root.Add(label);
-
         TwoPaneSplitView paneSplitView = new TwoPaneSplitView(0, 350, TwoPaneSplitViewOrientation.Horizontal);
         infoLabel = new Label();
         VisualElement leftPane = uxmlTree.Instantiate();

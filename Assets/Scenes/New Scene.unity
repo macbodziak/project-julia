@@ -275,6 +275,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 599391196, guid: 82b0625ffdf2bb0409104cef0c65e076, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 599391196, guid: 82b0625ffdf2bb0409104cef0c65e076, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 599391196, guid: 82b0625ffdf2bb0409104cef0c65e076, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 166749551}
+    - target: {fileID: 599391196, guid: 82b0625ffdf2bb0409104cef0c65e076, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayButtonClickedSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 599391196, guid: 82b0625ffdf2bb0409104cef0c65e076, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UISoundPlayer, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 599391196, guid: 82b0625ffdf2bb0409104cef0c65e076, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 599391196, guid: 82b0625ffdf2bb0409104cef0c65e076, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3283594947867021223, guid: 82b0625ffdf2bb0409104cef0c65e076, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -362,13 +390,128 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8273909769920235643, guid: 82b0625ffdf2bb0409104cef0c65e076, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 166749552}
   m_SourcePrefab: {fileID: 100100000, guid: 82b0625ffdf2bb0409104cef0c65e076, type: 3}
 --- !u!4 &157219121 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 401018, guid: eab88f6a71881d8468474cc3e3610734, type: 3}
   m_PrefabInstance: {fileID: 735797951}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &166749545 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8273909769920235643, guid: 82b0625ffdf2bb0409104cef0c65e076, type: 3}
+  m_PrefabInstance: {fileID: 119011047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &166749551 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5193593889862047614, guid: 82b0625ffdf2bb0409104cef0c65e076, type: 3}
+  m_PrefabInstance: {fileID: 119011047}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166749545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481b3db4747b4214c98b4f668179ad55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!82 &166749552
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166749545}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &298728471 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 428220, guid: 2c52fc029ee6e764aaddc5e8930caf9d, type: 3}
@@ -5205,28 +5348,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3692882631394820891, guid: 3433db10e8f7d594a9586700b7fdc112, type: 3}
       propertyPath: maxActionPoints
-      value: 2
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 3877462120352649346, guid: 3433db10e8f7d594a9586700b7fdc112, type: 3}
       propertyPath: externalBehavior
       value: 
-      objectReference: {fileID: 11400000, guid: 6d72843a6841b484a97d3120ce5585b6, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 3877462120352649346, guid: 3433db10e8f7d594a9586700b7fdc112, type: 3}
       propertyPath: mBehaviorSource.mTaskData.JSONSerialization
       value: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(600.5,10)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.UntilFailure","NodeData":{"Offset":"(2,161)"},"ID":1,"Name":"Until
-        Failure","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0,130)"},"ID":2,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.UnknownTask","NodeData":{"Offset":"(-320,193.829758)","Comment":"Unknown
-        Task. Right click and Replace to locate new task."},"ID":3,"Name":"Unknown
-        Has Action Points","Instant":true,"StringJSONSerialization":"{\"Type\":\"HasActionPoints\",\"NodeData\":{\"Offset\":\"(-320,193.829758)\"},\"ID\":3,\"Name\":\"Has
-        Action Points\",\"Instant\":true}","List`1fieldNameHash":[],"List`1startIndex":[],"List`1dataPosition":[],"List`1unityObjects":[],"List`1byteData":[]},{"Type":"BehaviorDesigner.Runtime.Tasks.UnknownTask","NodeData":{"Offset":"(1.989502,185.319077)","Comment":"Unknown
-        Task. Right click and Replace to locate new task."},"ID":4,"Name":"Unknown
-        Choose Random Action","Instant":true,"StringJSONSerialization":"{\"Type\":\"ChooseRandomAction\",\"NodeData\":{\"Offset\":\"(1.989502,185.319077)\"},\"ID\":4,\"Name\":\"Choose
-        Random Action\",\"Instant\":true,\"SharedActionBehaviourSelectedAction\":{\"Type\":\"SharedActionBehaviour\",\"Name\":\"SelectedAction\",\"IsShared\":true,\"ActionBehaviourmValue\":0}}","List`1fieldNameHash":[],"List`1startIndex":[],"List`1dataPosition":[],"List`1unityObjects":[],"List`1byteData":[]},{"Type":"BehaviorDesigner.Runtime.Tasks.UnknownTask","NodeData":{"Offset":"(257,221)","Comment":"Unknown
-        Task. Right click and Replace to locate new task."},"ID":5,"Name":"Unknown
-        Select Random Target","Instant":true,"StringJSONSerialization":"{\"Type\":\"SelectRandomTarget\",\"NodeData\":{\"Offset\":\"(257,221)\"},\"ID\":5,\"Name\":\"Select
-        Random Target\",\"Instant\":true,\"SharedActionBehaviourselectedAction\":{\"Type\":\"SharedActionBehaviour\",\"Name\":\"SelectedAction\",\"IsShared\":true,\"ActionBehaviourmValue\":1},\"SharedUnitListselectedTargets\":{\"Type\":\"SharedUnitList\",\"Name\":\"TargetList\",\"IsShared\":true,\"List`1mValue\":[]}}","List`1fieldNameHash":[],"List`1startIndex":[],"List`1dataPosition":[],"List`1unityObjects":[],"List`1byteData":[]},{"Type":"BehaviorDesigner.Runtime.Tasks.UnknownTask","NodeData":{"Offset":"(491,206)","Comment":"Unknown
-        Task. Right click and Replace to locate new task."},"ID":6,"Name":"Unknown
-        Perform Selected Action","Instant":true,"StringJSONSerialization":"{\"Type\":\"PerformSelectedAction\",\"NodeData\":{\"Offset\":\"(491,206)\"},\"ID\":6,\"Name\":\"Perform
-        Selected Action\",\"Instant\":true,\"SharedActionBehaviourselectedAction\":{\"Type\":\"SharedActionBehaviour\",\"Name\":\"SelectedAction\",\"IsShared\":true,\"ActionBehaviourmValue\":2},\"SharedUnitListselectedTargets\":{\"Type\":\"SharedUnitList\",\"Name\":\"TargetList\",\"IsShared\":true,\"List`1mValue\":[]}}","List`1fieldNameHash":[],"List`1startIndex":[],"List`1dataPosition":[],"List`1unityObjects":[],"List`1byteData":[]}]}]},"Variables":[{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true},{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]}]}'
+        Failure","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(3.6239624E-05,118.888893)"},"ID":2,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"EnemyAI.HasActionPoints","NodeData":{"Offset":"(-497.833282,151.111053)"},"ID":3,"Name":"Has
+        Action Points","Instant":true},{"Type":"BehaviorDesigner.Runtime.Tasks.RandomSelector","NodeData":{"Offset":"(400,370)"},"ID":4,"Name":"Random
+        Selector","Instant":true,"Int32seed":0,"BooleanuseSeed":false,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-290,110)"},"ID":5,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"EnemyAI.SelectWeakestEnemyTarget","NodeData":{"Offset":"(-150,220)"},"ID":6,"Name":"Select
+        Weakest Enemy Target","Instant":true,"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]}},{"Type":"EnemyAI.ChooseActionByName","NodeData":{"Offset":"(112.017365,220.004639)"},"ID":7,"Name":"Choose
+        Action By Name","Instant":true,"StringactionName":"Skeleton Basic Melee Attack","SharedActionBehaviourSelectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(220,130)"},"ID":8,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"EnemyAI.ChooseActionByName","NodeData":{"Offset":"(-120,200)"},"ID":9,"Name":"Choose
+        Action By Name","Instant":true,"StringactionName":"Bleeding Strike","SharedActionBehaviourSelectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}},{"Type":"SelectTargetWithoutStatusEffect","NodeData":{"Offset":"(110.38916,200.761734)"},"ID":10,"Name":"Select
+        Target Without Status Effect","Instant":true,"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]},"StatusEffectTypetype":"Bleeding"}]}]},{"Type":"EnemyAI.PerformSelectedAction","NodeData":{"Offset":"(858.767334,234.254608)"},"ID":11,"Name":"Perform
+        Selected Action","Instant":true,"SharedActionBehaviourselectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true},"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]}}]}]},"Variables":[{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true},{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]}]}'
       objectReference: {fileID: 0}
     - target: {fileID: 3877462120352649346, guid: 3433db10e8f7d594a9586700b7fdc112, type: 3}
       propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.size

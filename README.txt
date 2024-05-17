@@ -72,3 +72,12 @@ Next, add the unit to the Combat Encounter Manager. The Unit Setup Helper can au
 You can also do it manually, see steps above.
 Add Animator asset to Animator component;
 For Enemies, add exisiting or deisgn new Behavior Asset;
+
+
+--- Working with Behavior Tree
+selected targets
+selected action
+  -- order of the two above
+selector
+sequence
+random selector

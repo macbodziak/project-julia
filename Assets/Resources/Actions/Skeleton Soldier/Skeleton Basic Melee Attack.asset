@@ -24,6 +24,6 @@ MonoBehaviour:
   m_visualEffectOnHit: {fileID: 0}
   minDamage: 10
   maxDamage: 25
-  hitChance: 80
+  hitChance: 70
   critChance: 7
   damageType: 0

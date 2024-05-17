@@ -25,11 +25,18 @@ namespace EnemyAI
             }
 
             Unit potentialTarget = units[0];
-            foreach (Unit unit in units)
+            for (int i = 1; i < units.Count; i++)
             {
-                if (unit.combatStats.CurrentHealthPoints < potentialTarget.combatStats.CurrentHealthPoints)
+                if (units[i].combatStats.CurrentHealthPoints < potentialTarget.combatStats.CurrentHealthPoints)
                 {
-                    potentialTarget = unit;
+                    potentialTarget = units[i];
+                }
+                else if (units[i].combatStats.CurrentHealthPoints == potentialTarget.combatStats.CurrentHealthPoints)
+                {
+                    if (Random.value < 0.5f)
+                    {
+                        potentialTarget = units[i];
+                    }
                 }
             }
 
