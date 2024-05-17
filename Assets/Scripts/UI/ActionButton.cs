@@ -29,6 +29,7 @@ public class ActionButton : MonoBehaviour
     private void Start()
     {
         button = GetComponent<Button>();
+        button.onClick.AddListener(UISoundPlayer.Instance.PlayButtonClickedSound);
         ActionManager.Instance.SelectedActionChangedEvent += handleSelectedActionChanged;
     }
 
