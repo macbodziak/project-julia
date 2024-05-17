@@ -1,39 +1,42 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
+using UnityEditor.UIElements;
 
 [CustomPropertyDrawer(typeof(ActionDefinition))]
 public class ActionDefinitionPropertyDrawer : PropertyDrawer
 {
-    const int POSITION_OFFSET = 35;
-    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    public override VisualElement CreatePropertyGUI(SerializedProperty property)
     {
-        EditorGUI.BeginProperty(position, label, property);
-        EditorGUILayout.PropertyField(property);
-        SerializedObject so = null;
+        VisualElement propertyRoot = new VisualElement();
 
-        if (property.objectReferenceValue != null)
+        if (property.objectReferenceValue == null)
         {
-            so = new SerializedObject(property.objectReferenceValue);
+            propertyRoot.Add(new Label("ScriptableObject reference is null."));
+            return propertyRoot;
         }
-        if (so != null)
+
+        propertyRoot.Add(new PropertyField(property));
+
+        // Get the serialized object from the property
+        SerializedObject serializedObject = new SerializedObject(property.objectReferenceValue);
+
+        Foldout foldout = new Foldout();
+        foldout.text = "Action Definition details:";
+
+        // Iterate through the properties of the serialized object
+        SerializedProperty iterator = serializedObject.GetIterator();
+        iterator.NextVisible(true); // Skip generic field
+
+        while (iterator.NextVisible(false))
         {
-            // position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
-
-            property.isExpanded = EditorGUILayout.Foldout(property.isExpanded, new GUIContent(so.FindProperty("m_name").stringValue));
-            if (property.isExpanded)
-            {
-                EditorGUI.indentLevel++;
-                GUI.enabled = false;
-
-                EditorGUILayout.TextField("Name", so.FindProperty("m_name").stringValue);
-                EditorGUILayout.IntField("ACtion Point Cost: ", so.FindProperty("m_actionPointCost").intValue);
-                EditorGUILayout.IntField("Power Point Cost: ", so.FindProperty("m_powerPointCost").intValue);
-                EditorGUILayout.IntField("Cooldown: ", so.FindProperty("m_cooldown").intValue);
-                EditorGUILayout.Space();
-                GUI.enabled = true;
-                EditorGUI.indentLevel--;
-            }
+            // Create a property field for each property and add it to the root
+            var field = new PropertyField(iterator);
+            field.Bind(serializedObject);
+            foldout.Add(field);
         }
-        EditorGUI.EndProperty();
+
+        propertyRoot.Add(foldout);
+        return propertyRoot;
     }
 }
