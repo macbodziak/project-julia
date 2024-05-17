@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-[RequireComponent(typeof(CombatStats), typeof(StatusEffectController), typeof(ActionController))]
 public class Unit : MonoBehaviour
 {
     SelectedVisual selectedVisual;

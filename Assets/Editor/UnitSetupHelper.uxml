@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:Toggle label="Is Player?" name="IsPlayerToggle" tooltip="will set the isPlayer variable in Unit component and create a Behaviour Tree for Enemy Units" style="flex-direction: row; width: auto;" />
+    <ui:IntegerField label="How many Action Behaviours" value="1" readonly="false" name="NumberOfActions" style="justify-content: flex-end; align-items: stretch; width: auto; max-width: none;" />
+    <ui:Button text="Setup Unit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="SetupUnitButton" enable-rich-text="false" style="opacity: 1; display: flex; visibility: visible; width: auto; height: auto; max-width: none; min-width: 100px;" />
+</ui:UXML>
