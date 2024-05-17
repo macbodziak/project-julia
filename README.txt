@@ -55,4 +55,14 @@ StatusEffectType
 	
 --- Creating new Enemies
 
-make sure layer is set to unit!!!!
+The UnitSetupHelper class extends the Unity EditorWindow to create a custom editor window that assists in setting up GameObjects as "units" with specific components and properties. 
+It provides a user interface with various controls and executes setup operations when a button is clicked.
+Unit Setup Helper can be found here: Window>Project Julia> Unit Setup Helper
+
+The Unit Setup Helper  configures the selected GameObject by:
+    Setting its layer to "Units."
+    Adding required components such as Unit, CombatStats, ActionController, StatusEffectController, Animator, and CapsuleCollider.
+    Adding multiple ActionBehaviour components if specified.
+    Configuring the isPlayer property of the Unit component based on the toggle state.
+    Adding a BehaviorTree component for non-player units.
+    Adding a SelectedVisual component and its associated prefab as a child.

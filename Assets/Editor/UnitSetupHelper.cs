@@ -1,8 +1,23 @@
+using System;
 using BehaviorDesigner.Runtime.Tasks.Unity.UnityGameObject;
+using BehaviorDesigner.Runtime.Tasks.Unity.UnityLayerMask;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+
+// <summary>
+//The UnitSetupHelper class extends the Unity EditorWindow to create a custom editor window that assists 
+// in setting up GameObjects as "units" with specific components and properties. 
+// It provides a user interface with various controls and executes setup operations when a button is clicked.
+// The CreateUnit method configures the selected GameObject by:
+//     Setting its layer to "Units."
+//     Adding required components such as Unit, CombatStats, ActionController, StatusEffectController, Animator, and CapsuleCollider.
+//     Adding multiple ActionBehaviour components if specified.
+//     Configuring the isPlayer property of the Unit component based on the toggle state.
+//     Adding a BehaviorTree component for non-player units.
+//     Adding a SelectedVisual component and its associated prefab as a child.
+// </summary>
 public class UnitSetupHelper : EditorWindow
 {
     Label infoLabel;
@@ -38,9 +53,30 @@ public class UnitSetupHelper : EditorWindow
 
         isPlayerToggle = root.Query<Toggle>("IsPlayerToggle");
         numberOfActionBehaviours = root.Query<IntegerField>("NumberOfActions");
-        Button button = root.Query<Button>("SetupUnitButton");
-        button.clicked += OnUnitCreationClicked;
+        Button setupUnitButton = root.Query<Button>("SetupUnitButton");
+        setupUnitButton.clicked += OnUnitCreationClicked;
 
+        Button combatEncounterEnemyButton = root.Query<Button>("AddToCombatEncounterEnemy");
+        combatEncounterEnemyButton.clicked += OnRegisterEnemyClicked;
+
+        Button combatEncounterPlayerButton = root.Query<Button>("AddToCombatEncounterPlayer");
+        combatEncounterPlayerButton.clicked += OnRegisterPlayerClicked;
+    }
+
+
+    private void OnRegisterPlayerClicked()
+    {
+        AddToCombatEncounter(Selection.activeGameObject, true);
+        infoLabel.text = infoLabelText;
+        infoLabel.MarkDirtyRepaint();
+    }
+
+
+    private void OnRegisterEnemyClicked()
+    {
+        AddToCombatEncounter(Selection.activeGameObject, false);
+        infoLabel.text = infoLabelText;
+        infoLabel.MarkDirtyRepaint();
     }
 
 
@@ -59,9 +95,10 @@ public class UnitSetupHelper : EditorWindow
         infoLabel.MarkDirtyRepaint();
     }
 
+
     private void CreateUnit(GameObject gameObject)
     {
-        gameObject.layer = LayerMask.GetMask("Units");
+        SetLayer(gameObject);
         AddComponent<Unit>(gameObject);
         AddComponent<CombatStats>(gameObject);
         AddComponent<ActionController>(gameObject);
@@ -98,10 +135,6 @@ public class UnitSetupHelper : EditorWindow
             so.ApplyModifiedProperties();
         }
 
-        gameObject.layer = LayerMask.GetMask("Units");
-        // gameObject.layer = (1 << 3);
-
-        infoLabelText += "Setting layer mask to \"Units\"";
 
         AddSelectedVisualObject(gameObject);
 
@@ -111,6 +144,7 @@ public class UnitSetupHelper : EditorWindow
             infoLabelText += "\nAdd animation controller\nconfigure Behavior Tree if enemy";
         }
     }
+
 
     private T AddComponent<T>(GameObject gameObject) where T : UnityEngine.Component
     {
@@ -124,9 +158,16 @@ public class UnitSetupHelper : EditorWindow
         return component;
     }
 
+
     private void AddSelectedVisualObject(GameObject gameObject)
     {
-        SelectedVisual visualCompopnent = AddComponent<SelectedVisual>(gameObject) as SelectedVisual;
+        SelectedVisual visualCompopnent = gameObject.GetComponent<SelectedVisual>();
+        if (visualCompopnent != null)
+        {
+            infoLabelText += "<color=#ff5e5e>Selected Visual component already attached</color>";
+            return;
+        }
+        visualCompopnent = AddComponent<SelectedVisual>(gameObject) as SelectedVisual;
 
         GameObject svPrefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Units/SelectedVisual.prefab", typeof(GameObject)) as GameObject;
         if (svPrefab == null)
@@ -135,7 +176,7 @@ public class UnitSetupHelper : EditorWindow
         }
         else
         {
-            infoLabelText += "Adding Selected Visual Object as Child";
+            infoLabelText += "Adding Selected Visual Object as Child\n";
             GameObject go = Instantiate<GameObject>(svPrefab, gameObject.transform);
 
             SerializedObject so = new SerializedObject(visualCompopnent);
@@ -143,5 +184,74 @@ public class UnitSetupHelper : EditorWindow
             isPlayerProperty.objectReferenceValue = go;
             so.ApplyModifiedProperties();
         }
+    }
+
+
+    private void SetLayer(GameObject gameObject)
+    {
+
+        SerializedObject so = new SerializedObject(gameObject);
+        SerializedProperty layerProp = so.FindProperty("m_Layer");
+        layerProp.intValue = LayerMask.NameToLayer("Units"); ;
+        so.ApplyModifiedProperties();
+        EditorUtility.SetDirty(gameObject);
+        infoLabelText += "Setting layer mask to \"Units\"";
+    }
+
+
+    //<summary>
+    //Call this method with a Unit GameObject and a boolean indicating if it's a player unit to register it with the combat encounter.
+    ///<summary>
+    private void AddToCombatEncounter(GameObject gameObject, bool isPlayer)
+    {
+        infoLabelText = "";
+        if (gameObject == null)
+        {
+            infoLabelText += "<color=#ff5e5e>No Game Object selected</color>";
+            return;
+
+        }
+
+        Unit unit = gameObject.GetComponent<Unit>();
+        if (unit == null)
+        {
+            infoLabelText += "<color=#ff5e5e>No Unit selected</color>";
+            return;
+            // infoLabelText += "<color=#ff5e5e>U</color>";
+        }
+
+        SerializedObject combatEncounterManager = new SerializedObject(FindObjectOfType<CombatEncounterManager>());
+        if (combatEncounterManager == null)
+        {
+            infoLabelText += "<color=#ff5e5e>Unable to get Combat Encounter Manager</color>";
+            return;
+        }
+
+        SerializedProperty sProp;
+        if (isPlayer)
+        {
+            sProp = combatEncounterManager.FindProperty("playerUnits");
+        }
+        else
+        {
+            sProp = combatEncounterManager.FindProperty("enemyUnits");
+        }
+
+
+        int arraySize = sProp.arraySize;
+
+        for (int i = 0; i < arraySize; i++)
+        {
+            if (sProp.GetArrayElementAtIndex(i).objectReferenceValue == unit)
+            {
+                infoLabelText += "<color=#ff5e5e>Already registered with Combat Encounter Manager</color>";
+                return;
+            }
+        }
+        //
+        sProp.InsertArrayElementAtIndex(sProp.arraySize);
+        SerializedProperty newElement = sProp.GetArrayElementAtIndex(sProp.arraySize - 1);
+        newElement.objectReferenceValue = unit;
+        combatEncounterManager.ApplyModifiedProperties();
     }
 }

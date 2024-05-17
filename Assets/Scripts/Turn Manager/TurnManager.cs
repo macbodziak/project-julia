@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+
+// <summary>
+// The TurnManager class is responsible for managing the turn-based logic in a game.
+// It handles the switching between player and enemy turns, processes status effects, 
+// manages action points, and triggers events at the end of each turn.
+// </summary>
 public class TurnManager : MonoBehaviour
 {
     private int m_turnNumber;
