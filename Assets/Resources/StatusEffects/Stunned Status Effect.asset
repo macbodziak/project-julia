@@ -15,4 +15,4 @@ MonoBehaviour:
   m_name: Stunned
   m_duration: 1
   m_sprite: {fileID: 21300000, guid: f0a33ea45e732974f9730275ff3f1c24, type: 3}
-  m_visualEffect: {fileID: 0}
+  m_visualEffect: {fileID: 1886665790968416815, guid: 1bd8192ab230dae4986b8dabddbdf77e, type: 3}

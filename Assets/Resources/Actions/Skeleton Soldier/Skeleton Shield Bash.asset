@@ -22,8 +22,8 @@ MonoBehaviour:
   m_targetingMode: 0
   m_numberOfTargets: 0
   m_visualEffectOnHit: {fileID: 0}
-  minDamage: 2
-  maxDamage: 8
+  minDamage: 5
+  maxDamage: 12
   hitChance: 90
   critChance: 0
   damageType: 0

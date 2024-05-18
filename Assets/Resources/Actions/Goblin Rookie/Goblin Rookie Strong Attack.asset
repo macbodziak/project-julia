@@ -9,23 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dbc633df8e0cbb49abcca58d65f288a, type: 3}
-  m_Name: Skeleton Bleeding Melee Attack
+  m_Script: {fileID: 11500000, guid: 99beffae8ec0b2d4da07cb4d5db75957, type: 3}
+  m_Name: Goblin Rookie Strong Attack
   m_EditorClassIdentifier: 
-  m_name: Bleeding Strike
+  m_name: Strong Strike
   m_actionPointCost: 1
   m_powerPointCost: 0
   m_duration: 2
   m_cooldown: 2
-  m_animationTrigger: Attack_2
+  m_animationTrigger: Attack_3
   m_sprite: {fileID: 0}
   m_targetingMode: 0
   m_numberOfTargets: 0
   m_visualEffectOnHit: {fileID: 3681913643477291456, guid: 4de67dc3d04de554b86fc8091e1e6106, type: 3}
-  minDamage: 10
-  maxDamage: 15
-  hitChance: 75
+  minDamage: 12
+  maxDamage: 20
+  hitChance: 70
   critChance: 15
   damageType: 0
-  _statusEffects:
-  - {fileID: 11400000, guid: c3ba83925cfc0c841be4769dc9a639f5, type: 2}

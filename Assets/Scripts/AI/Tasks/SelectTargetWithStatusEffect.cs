@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace EnemyAI
 {
 	[TaskCategory("My Tasks/Target Selection")]
-	[TaskDescription("Selects random Target without given Status Effect\nSelects only one Target")]
+	[TaskDescription("Selects random Target with given Status Effect\nSelects only one Target")]
 	public class SelectTargetWithStatusEffect : Action
 	{
 		[SerializeField] SharedUnitList selectedTargets;

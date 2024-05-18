@@ -10,13 +10,14 @@ public class ActionDefinitionPropertyDrawer : PropertyDrawer
     {
         VisualElement propertyRoot = new VisualElement();
 
+        propertyRoot.Add(new PropertyField(property));
+
         if (property.objectReferenceValue == null)
         {
             propertyRoot.Add(new Label("ScriptableObject reference is null."));
             return propertyRoot;
         }
 
-        propertyRoot.Add(new PropertyField(property));
 
         // Get the serialized object from the property
         SerializedObject serializedObject = new SerializedObject(property.objectReferenceValue);
