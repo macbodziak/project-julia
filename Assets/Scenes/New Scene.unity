@@ -3248,6 +3248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b146fdb0b2557f4b82180e547573c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  earlyStatusEffectsBehaviours: []
   statusEffectsBehaviours: []
 --- !u!114 &1657760078
 MonoBehaviour:
@@ -5101,6 +5102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b146fdb0b2557f4b82180e547573c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  earlyStatusEffectsBehaviours: []
   statusEffectsBehaviours: []
 --- !u!114 &1921367357
 MonoBehaviour:
@@ -5829,7 +5831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2661642253522781648, guid: 9ef9312c5c95f004d80bcbd744dc29b3, type: 3}
       propertyPath: maxHealthPoints
-      value: 200
+      value: 6666
       objectReference: {fileID: 0}
     - target: {fileID: 2661642253522781648, guid: 9ef9312c5c95f004d80bcbd744dc29b3, type: 3}
       propertyPath: DamageMultiplier
@@ -5844,8 +5846,16 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2661642253522781648, guid: 9ef9312c5c95f004d80bcbd744dc29b3, type: 3}
+      propertyPath: statusEffectSaveValues.content.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661642253522781648, guid: 9ef9312c5c95f004d80bcbd744dc29b3, type: 3}
       propertyPath: statusEffectSaveValues.content.Array.data[2]
-      value: 33
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661642253522781648, guid: 9ef9312c5c95f004d80bcbd744dc29b3, type: 3}
+      propertyPath: statusEffectSaveValues.content.Array.data[4]
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2661642253522781648, guid: 9ef9312c5c95f004d80bcbd744dc29b3, type: 3}
       propertyPath: damageResistanceModifiers.content.Array.data[0]

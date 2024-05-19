@@ -13,6 +13,8 @@ public abstract class StatusEffect : ScriptableObject
     [SerializeField] private Sprite m_sprite;
     [Tooltip("will this status effect be executed each turn?")]
     [SerializeField] private VisualEffect m_visualEffect;
+    [Tooltip("does this status effect need to executed before regular status effects?")]
+    [SerializeField] private bool executeEarly = false;
 
     private Unit m_unit;
     public string Name { get => m_name; protected set => m_name = value; }
@@ -22,6 +24,7 @@ public abstract class StatusEffect : ScriptableObject
     public Unit unit { get => m_unit; set => m_unit = value; }
     public abstract StatusEffectType Type { get; }
     public VisualEffect VisualEffectPrefab { get => m_visualEffect; private set => m_visualEffect = value; }
+    public bool ExecuteEarly { get => executeEarly; protected set => executeEarly = value; }
 
     public virtual void OnStart(Unit effectedUnit)
     {

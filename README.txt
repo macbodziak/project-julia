@@ -93,8 +93,6 @@ random selector
 Status Effects:
 
 Rage?
-Off Balance? 			penelty to Dodge
-
 
 Inspired				bonus to hit chance
 Blinded					penalty do Hit Chance
@@ -117,5 +115,8 @@ Hasty					bonus to AP
 High Morale				
 Low Morale	
 
+Stunned					no AP and no AP regeneration
 
 Marked					
+
+Demonic Wrath			add bonus to damage and crit but deal damage (or at least have a chance)
