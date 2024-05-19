@@ -55,13 +55,11 @@ public class TurnManager : MonoBehaviour
     {
         if (IsPlayerTurn)
         {
-            ProcessPassiveStatusEffects(CombatEncounterManager.Instance.GetPlayerUnitList());
             IsPlayerTurn = false;
             StartCoroutine(StartEnemyTurn());
         }
         else
         {
-            ProcessPassiveStatusEffects(CombatEncounterManager.Instance.GetEnemyUnitList());
             IsPlayerTurn = true;
             StartCoroutine(StartPlayerTurn());
             TurnNumber++;
@@ -93,7 +91,7 @@ public class TurnManager : MonoBehaviour
         for (int i = units.Count - 1; i >= 0; i--)
         {
             StatusEffectController statusEffectController = units[i].GetComponent<StatusEffectController>();
-            statusEffectController.ApplyPassiveStatusEffects();
+            statusEffectController.ProccessPassiveStatusEffects();
         }
     }
 
@@ -105,6 +103,9 @@ public class TurnManager : MonoBehaviour
         {
             yield return new WaitForSeconds(0.12f);
         }
+        ProcessPassiveStatusEffects(CombatEncounterManager.Instance.GetEnemyUnitList());
+
+
         TickCooldownCounter(CombatEncounterManager.Instance.GetEnemyUnitList());
         ResetEnemyActionPoints();
         EnemyAI.EnemyAIManager.Instance.StartEnemyTurn();
@@ -118,6 +119,8 @@ public class TurnManager : MonoBehaviour
         {
             yield return new WaitForSeconds(0.12f);
         }
+        ProcessPassiveStatusEffects(CombatEncounterManager.Instance.GetPlayerUnitList());
+
         if (CombatEncounterManager.Instance.IsEncounterOver == false)
         {
             TickCooldownCounter(CombatEncounterManager.Instance.GetPlayerUnitList());

@@ -2601,6 +2601,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerUnits:
   - {fileID: 58182220}
+  - {fileID: 1657760075}
+  - {fileID: 1921367354}
   enemyUnits:
   - {fileID: 1886620733}
   - {fileID: 1070026038}
@@ -3273,7 +3275,7 @@ MonoBehaviour:
     content: 0000000000000000000000000000000000000000
     enumType: 0
   statusEffectSaveValues:
-    content: 320000003200000019000000320000003200000000000000000000000000000000000000000000000000000000000000
+    content: 32000000320000001900000032000000320000000000000000000000000000000000000000000000000000000000000000000000
     enumType: 0
   DamageMultiplier: 1
   DodgeModifier: 0
@@ -5127,7 +5129,7 @@ MonoBehaviour:
     content: 0000000000000000000000000000000000000000
     enumType: 0
   statusEffectSaveValues:
-    content: 320000003200000019000000320000003200000000000000000000000000000000000000000000000000000000000000
+    content: 32000000320000001900000032000000320000000000000000000000000000000000000000000000000000000000000000000000
     enumType: 0
   DamageMultiplier: 1
   DodgeModifier: 0
@@ -5368,7 +5370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3692882631394820891, guid: 3433db10e8f7d594a9586700b7fdc112, type: 3}
       propertyPath: statusEffectSaveValues.content.Array.size
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3692882631394820891, guid: 3433db10e8f7d594a9586700b7fdc112, type: 3}
       propertyPath: damageResistanceModifiers.content.Array.size

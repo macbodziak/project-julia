@@ -93,13 +93,13 @@ public class StatusEffectController : MonoBehaviour
     }
 
 
-    public void ApplyPassiveStatusEffects()
+    public void ProccessPassiveStatusEffects()
     {
-        ApplyPassiveStatusEffectsFromList(earlyStatusEffectsBehaviours);
-        ApplyPassiveStatusEffectsFromList(statusEffectsBehaviours);
+        ProccessPassiveStatusEffectsFromList(earlyStatusEffectsBehaviours);
+        ProccessPassiveStatusEffectsFromList(statusEffectsBehaviours);
     }
 
-    private void ApplyPassiveStatusEffectsFromList(List<StatusEffectBehaviour> statusEffectList)
+    private void ProccessPassiveStatusEffectsFromList(List<StatusEffectBehaviour> statusEffectList)
     {
         //cycle backwards, becasue we might need to remove elements while iterating over list
         for (int i = statusEffectList.Count - 1; i >= 0; i--)

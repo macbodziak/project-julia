@@ -20,12 +20,12 @@ public class CombatStats : MonoBehaviour
     [Space(12)]
     [Header("Damage Resistance:")]
     [Space(6)]
-    [SerializeField] EnumMappedArray<int, DamageType> damageResistanceValues;
+    [SerializeField] EnumMappedArray<int, DamageType> damageResistanceValues = new();
 
     [Space(12)]
     [Header("Status Effect Savinng Throws:")]
     [Space(6)]
-    [SerializeField] EnumMappedArray<int, StatusEffectType> statusEffectSaveValues;
+    [SerializeField] EnumMappedArray<int, StatusEffectType> statusEffectSaveValues = new();
     [Space(12)]
     [Header("Modifiers:")]
     [Space(6)]
@@ -35,7 +35,7 @@ public class CombatStats : MonoBehaviour
     [SerializeField] public int HitChanceModifier = 0;
     [SerializeField] public int CritChanceModifier = 0;
 
-    [SerializeField] public EnumMappedArray<int, DamageType> damageResistanceModifiers;
+    [SerializeField] public EnumMappedArray<int, DamageType> damageResistanceModifiers = new();
     // <summary>
     // Modifier flags are like boolean, but since several status effects might have the same effect
     // we use a counter instead of bool so one effect does not canceld out another one too early
