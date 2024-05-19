@@ -18,9 +18,19 @@ public class StatusEffectBehaviourPropertyDrawer : PropertyDrawer
         StatusEffectBehaviour seb = property.objectReferenceValue as StatusEffectBehaviour;
         SerializedProperty StatusEffectProp = obj.FindProperty("_statusEffect");
         SerializedProperty remainingDurationProp = obj.FindProperty("remainingDuration");
-
-        Label label = new Label(seb.Name + "  Cooldown: <color=#ff5555>" + remainingDurationProp.intValue + "</color>");
-        foldout.Add(label);
+        var container = new VisualElement();
+        Label nameLabel = new Label("<color=#ff5555>" + seb.Name + "</color>   ");
+        container.Add(nameLabel);
+        IntegerField cooldownField = new IntegerField();
+        cooldownField.label = "cooldown:";
+        cooldownField.style.color = new StyleColor(new UnityEngine.Color(1f, 022f, 0.2f));
+        cooldownField.SetEnabled(false);
+        cooldownField.BindProperty(remainingDurationProp);
+        container.Add(cooldownField);
+        container.style.flexDirection = FlexDirection.Row;
+        container.style.alignItems = Align.Center;
+        foldout.Add(container);
+        // foldout.Add(cooldownField);
         root.Add(foldout);
         return root;
     }
