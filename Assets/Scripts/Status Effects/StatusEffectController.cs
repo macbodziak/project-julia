@@ -93,7 +93,7 @@ public class StatusEffectController : MonoBehaviour
     }
 
 
-    public void ProccessPassiveStatusEffects()
+    public void ApplyPassiveStatusEffects()
     {
         ProccessPassiveStatusEffectsFromList(earlyStatusEffectsBehaviours);
         ProccessPassiveStatusEffectsFromList(statusEffectsBehaviours);

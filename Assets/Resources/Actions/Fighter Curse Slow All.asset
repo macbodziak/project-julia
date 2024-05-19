@@ -20,7 +20,7 @@ MonoBehaviour:
   m_animationTrigger: CastSpell_3
   m_sprite: {fileID: 21300000, guid: e93aa82fdf0b4f54f930a93426812358, type: 3}
   m_targetingMode: 1
-  m_numberOfTargets: 0
+  m_numberOfTargets: 2
   m_visualEffectOnHit: {fileID: 3133616235717616955, guid: c8958502846b7134990cedc6a9353c89, type: 3}
   _statusEffectsApplied:
   - statusEffect: {fileID: 11400000, guid: d65fa9f04e8589d4090e5c0e8371eee7, type: 2}

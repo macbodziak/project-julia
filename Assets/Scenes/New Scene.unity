@@ -5705,7 +5705,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5003566718875218640, guid: 91ff8a7a63402584bb0f2316446698db, type: 3}
       propertyPath: statusEffectSaveValues.content.Array.size
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5003566718875218640, guid: 91ff8a7a63402584bb0f2316446698db, type: 3}
       propertyPath: damageResistanceModifiers.content.Array.size

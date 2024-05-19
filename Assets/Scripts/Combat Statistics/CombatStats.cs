@@ -16,6 +16,7 @@ public class CombatStats : MonoBehaviour
     [SerializeField] private int dodge;
 
     const int CRIT_MULTIPLIER = 2;
+    const int MAX_ACTION_POINTS = 5;
 
     [Space(12)]
     [Header("Damage Resistance:")]
@@ -182,7 +183,7 @@ public class CombatStats : MonoBehaviour
     {
         _actionPointsModifier = value;
         currentActionPoints += value;
-        currentActionPoints = Mathf.Clamp(currentActionPoints, -5, 5);
+        currentActionPoints = Mathf.Clamp(currentActionPoints, 0, MAX_ACTION_POINTS);
     }
 
     public void TakeDamage(int damage, DamageType damageType, bool isCritical, bool playAnimation = true)

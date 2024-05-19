@@ -1878,13 +1878,16 @@ MonoBehaviour:
     content: 0000000000000000000000000000000000000000
     enumType: 0
   statusEffectSaveValues:
-    content: 00000000000000000000000000000000000000000000000000000000
+    content: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     enumType: 0
   DamageMultiplier: 1
   DodgeModifier: 0
   _actionPointsModifier: 0
   HitChanceModifier: 0
   CritChanceModifier: 0
+  damageResistanceModifiers:
+    content: 0000000000000000000000000000000000000000
+    enumType: 0
   NoActionPointsRefresh: 0
 --- !u!114 &6706204439835151562
 MonoBehaviour:
@@ -1910,6 +1913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b146fdb0b2557f4b82180e547573c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  earlyStatusEffectsBehaviours: []
   statusEffectsBehaviours: []
 --- !u!114 &7813931978197863203
 MonoBehaviour:

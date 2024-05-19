@@ -41,8 +41,9 @@ public class AttackActionDefinition : ActionDefinition, ICanAttack
         }
         else
         {
-            int _minDamage = (int)(MinDamage * combatStatsModifier.DamageMultiplier);
-            int _maxDamage = (int)(MaxDamage * combatStatsModifier.DamageMultiplier);
+            float damageModifier = Mathf.Clamp(combatStatsModifier.DamageMultiplier, 0f, 5f);
+            int _minDamage = (int)(MinDamage * damageModifier);
+            int _maxDamage = (int)(MaxDamage * damageModifier);
             int _hitChance = HitChance + combatStatsModifier.HitChanceModifier;
             int _critChance = CritChance + combatStatsModifier.CritChanceModifier;
             return new AttackInfo(_minDamage, _maxDamage, _hitChance, _critChance, DamageType);
