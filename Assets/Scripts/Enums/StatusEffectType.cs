@@ -6,5 +6,9 @@ public enum StatusEffectType
     Slowed,
     Stunned,
     IncreasedDamage,
-    Rage
+    Rage,
+    Unsteady,   //Penalty to Dodge
+    Agile,
+    Blinded
+
 }

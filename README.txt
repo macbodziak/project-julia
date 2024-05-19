@@ -81,3 +81,41 @@ selected action
 selector
 sequence
 random selector
+
+
+
+
+
+
+
+
+
+Status Effects:
+
+Rage?
+Off Balance? 			penelty to Dodge
+
+
+Inspired				bonus to hit chance
+Blinded					penalty do Hit Chance
+
+Agile					bonus to Dodge
+Crippled				penelty do Dodge
+Entangled				penalty do Dodge
+Unsteady				penalty to Dodge
+
+Cursed					Penalty to Crit Chance
+Blessed					Bonus to Crit Chance
+Disiseased
+Weak					penelty do Damage
+Strong					bonus to Damage
+
+Fortified				bonus to Physical Damage Resistance
+Death Mark				penalty to Damage Resistance
+
+Hasty					bonus to AP
+High Morale				
+Low Morale	
+
+
+Marked					
