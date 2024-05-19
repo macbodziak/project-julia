@@ -152,7 +152,7 @@ public class StatusEffectController : MonoBehaviour
     }
 
 
-    private void ReceiveStatusEffect(StatusEffect statusEffectPreset)
+    private void ReceiveStatusEffect(StatusEffect statusEffectPreset, int duration)
     {
         StatusEffectBehaviour statusEffectBehaviour;
 
@@ -160,13 +160,16 @@ public class StatusEffectController : MonoBehaviour
         statusEffectBehaviour = GetStatusEffectBehaviour(statusEffectPreset);
         if (statusEffectBehaviour != null)
         {
-            statusEffectBehaviour.ResetDuration();
+            if (statusEffectBehaviour.RemainingDuration < duration)
+            {
+                statusEffectBehaviour.ResetDuration(duration);
+            }
         }
         else
         {
             //add new status effect
             statusEffectBehaviour = gameObject.AddComponent<StatusEffectBehaviour>();
-            statusEffectBehaviour.Initialize(statusEffectPreset);
+            statusEffectBehaviour.Initialize(statusEffectPreset, duration);
             //check if it should be execute earlier than the regular effects
             if (statusEffectPreset.ExecuteEarly)
             {
@@ -200,13 +203,13 @@ public class StatusEffectController : MonoBehaviour
     }
 
 
-    public bool TryReceivingStatusEffect(StatusEffect statusEffectPreset)
+    public bool TryReceivingStatusEffect(StatusEffectDurationInfo statusEffectInfo)
     {
         CombatStats combatStats = GetComponent<CombatStats>();
-        int requiredSavingThrow = 100 - combatStats.GetStatusEffectSaveValue(statusEffectPreset.Type);
+        int requiredSavingThrow = 100 - combatStats.GetStatusEffectSaveValue(statusEffectInfo.statusEffect.Type);
         if (requiredSavingThrow <= 0)
         {
-            AnyUnitImmuneToStatusEffectEvent?.Invoke(this, statusEffectPreset);
+            AnyUnitImmuneToStatusEffectEvent?.Invoke(this, statusEffectInfo.statusEffect);
             return false;
         }
         else
@@ -214,12 +217,12 @@ public class StatusEffectController : MonoBehaviour
             int savingThrow = UnityEngine.Random.Range(0, 100);
             if (savingThrow > requiredSavingThrow)
             {
-                AnyUnitSavedFromStatusEffectEvent?.Invoke(this, statusEffectPreset);
+                AnyUnitSavedFromStatusEffectEvent?.Invoke(this, statusEffectInfo.statusEffect);
                 return true;
             }
             else
             {
-                ReceiveStatusEffect(statusEffectPreset);
+                ReceiveStatusEffect(statusEffectInfo.statusEffect, statusEffectInfo.duration);
                 return false;
             }
         }

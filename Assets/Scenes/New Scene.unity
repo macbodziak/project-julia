@@ -5148,7 +5148,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5130262036932632293, guid: c99917a4820bbc44dab80fa18cb9598e, type: 3}
       propertyPath: statusEffectSaveValues.content.Array.size
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5130262036932632293, guid: c99917a4820bbc44dab80fa18cb9598e, type: 3}
       propertyPath: damageResistanceModifiers.content.Array.size
@@ -5855,7 +5855,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2661642253522781648, guid: 9ef9312c5c95f004d80bcbd744dc29b3, type: 3}
       propertyPath: statusEffectSaveValues.content.Array.data[4]
-      value: 15
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2661642253522781648, guid: 9ef9312c5c95f004d80bcbd744dc29b3, type: 3}
       propertyPath: damageResistanceModifiers.content.Array.data[0]

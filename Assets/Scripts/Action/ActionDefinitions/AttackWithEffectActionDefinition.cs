@@ -10,14 +10,14 @@ public class AttackWithEffectActionDefinition : ActionDefinition, ICanAttack
     [SerializeField] private int hitChance;
     [SerializeField] private int critChance;
     [SerializeField] private DamageType damageType;
-    [SerializeField] private List<StatusEffect> _statusEffects;
+    [SerializeField] private List<StatusEffectDurationInfo> _statusEffects;
 
     public int MinDamage { get => minDamage; protected set => minDamage = value; }
     public int MaxDamage { get => maxDamage; protected set => maxDamage = value; }
     public int HitChance { get => hitChance; protected set => hitChance = value; }
     public int CritChance { get => critChance; protected set => critChance = value; }
     public DamageType DamageType { get => damageType; protected set => damageType = value; }
-    public List<StatusEffect> StatusEffectsApplied { get => _statusEffects; protected set => _statusEffects = value; }
+    public List<StatusEffectDurationInfo> StatusEffectsApplied { get => _statusEffects; protected set => _statusEffects = value; }
 
     public override void ExecuteLogic(Unit actingUnit, List<Unit> targets)
     {

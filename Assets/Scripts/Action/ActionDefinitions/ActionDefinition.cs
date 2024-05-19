@@ -31,7 +31,7 @@ public abstract class ActionDefinition : ScriptableObject
 
     public abstract void ExecuteLogic(Unit actingUnit, List<Unit> targets);
 
-    protected void ApplyStatusEffects(Unit target, List<StatusEffect> StatusEffectsApplied)
+    protected void ApplyStatusEffects(Unit target, List<StatusEffectDurationInfo> StatusEffectsApplied)
     {
         if (StatusEffectsApplied.Count > 0)
         {

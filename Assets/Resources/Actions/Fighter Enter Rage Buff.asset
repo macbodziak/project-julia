@@ -23,5 +23,6 @@ MonoBehaviour:
   m_numberOfTargets: 0
   m_visualEffectOnHit: {fileID: 4958161698656317703, guid: 1a43d0f839aecc144be02337c76f568f, type: 3}
   _statusEffectsApplied:
-  - {fileID: 11400000, guid: 5220440a09d64a440a8212407b80e191, type: 2}
+  - statusEffect: {fileID: 11400000, guid: 5220440a09d64a440a8212407b80e191, type: 2}
+    duration: 3
   _statusEffectsRemoved: []

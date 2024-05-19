@@ -18,8 +18,6 @@ public class StatusEffectBehaviour : MonoBehaviour
     [SerializeField] private int remainingDuration;
     private Unit unit;
 
-    public int Duration { get { return _statusEffect.Duration; } }
-
     public int RemainingDuration { get => remainingDuration; protected set => remainingDuration = value; }
 
     public string Name { get { return _statusEffect.Name; } }
@@ -30,9 +28,10 @@ public class StatusEffectBehaviour : MonoBehaviour
 
     public StatusEffectType statusEffectType { get { return _statusEffect.Type; } }
 
-    public void Initialize(StatusEffect preset)
+    public void Initialize(StatusEffect preset, int duration)
     {
         _statusEffect = StatusEffect.Instantiate(preset);
+        remainingDuration = duration;
     }
 
     public virtual void ApplyEffect()
@@ -43,7 +42,6 @@ public class StatusEffectBehaviour : MonoBehaviour
     protected virtual void Start()
     {
         unit = GetComponent<Unit>();
-        remainingDuration = Duration;
         _statusEffect.OnStart(unit);
     }
 
@@ -54,9 +52,9 @@ public class StatusEffectBehaviour : MonoBehaviour
         _statusEffect.OnEnd();
         Destroy(_statusEffect);
     }
-    public void ResetDuration()
+    public void ResetDuration(int duration)
     {
-        remainingDuration = Duration;
+        remainingDuration = duration;
     }
 
     public void Decrement()

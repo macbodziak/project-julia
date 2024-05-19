@@ -5,9 +5,9 @@ using UnityEngine.VFX;
 [CreateAssetMenu(fileName = "Apply Effect Action Definition", menuName = "Scriptable Objects/Actions/Apply Effect Action Definition", order = 200)]
 public class ApplyEffectActionDefinition : ActionDefinition
 {
-    [SerializeField] private List<StatusEffect> _statusEffectsApplied;
+    [SerializeField] private List<StatusEffectDurationInfo> _statusEffectsApplied;
 
-    public List<StatusEffect> StatusEffectsApplied { get => _statusEffectsApplied; protected set => _statusEffectsApplied = value; }
+    public List<StatusEffectDurationInfo> StatusEffectsApplied { get => _statusEffectsApplied; protected set => _statusEffectsApplied = value; }
 
     public override void ExecuteLogic(Unit actingUnit, List<Unit> targets)
     {

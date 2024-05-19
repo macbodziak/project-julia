@@ -7,12 +7,12 @@ public class HealWithEffectActionDefinition : ActionDefinition
 {
     [SerializeField] private int minAmount;
     [SerializeField] private int maxAmount;
-    [SerializeField] private List<StatusEffect> _statusEffectsApplied;
+    [SerializeField] private List<StatusEffectDurationInfo> _statusEffectsApplied;
     [SerializeField] private List<StatusEffect> _statusEffectsRemoved;
 
     public int MinAmount { get => minAmount; protected set => minAmount = value; }
     public int MaxAmount { get => maxAmount; protected set => maxAmount = value; }
-    public List<StatusEffect> StatusEffectsApplied { get => _statusEffectsApplied; protected set => _statusEffectsApplied = value; }
+    public List<StatusEffectDurationInfo> StatusEffectsApplied { get => _statusEffectsApplied; protected set => _statusEffectsApplied = value; }
     public List<StatusEffect> StatusEffectsRemoved { get => _statusEffectsRemoved; protected set => _statusEffectsRemoved = value; }
 
     public override void ExecuteLogic(Unit actingUnit, List<Unit> targets)
