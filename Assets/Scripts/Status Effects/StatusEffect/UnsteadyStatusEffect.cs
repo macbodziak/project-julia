@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Unsteady Status Effect", menuName = "Scriptable Objects/Status Effects/Unsteady Status Effect Preset", order = 3)]
 public class UnsteadyStatusEffect : StatusEffect
 {
     [SerializeField] private int dodgeModifier = -10;

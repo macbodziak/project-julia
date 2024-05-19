@@ -10,6 +10,7 @@ public class EnumMappedArray<TValue, TEnum> where TEnum : Enum
     public TValue this[int i]
     {
         get { return content[i]; }
+        set { content[i] = value; }
     }
 
     public int Length

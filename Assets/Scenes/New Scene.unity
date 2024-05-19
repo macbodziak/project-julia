@@ -194,7 +194,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5772654331408216954, guid: 9ef9312c5c95f004d80bcbd744dc29b3, type: 3}
   m_PrefabInstance: {fileID: 5922135058467124445}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 555205093}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c24f09dd13d4c53469bea82299d981f9, type: 3}
@@ -723,6 +723,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &555205093 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2098552703280263544, guid: 9ef9312c5c95f004d80bcbd744dc29b3, type: 3}
+  m_PrefabInstance: {fileID: 5922135058467124445}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &555205104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555205093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionDefinition: {fileID: 11400000, guid: b1022916691318b45bb10379f0d51e64, type: 2}
+  _cooldown: 0
+--- !u!114 &555205105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555205093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionDefinition: {fileID: 11400000, guid: c41908e9f6166ac4f9ab24d8e28b8702, type: 2}
+  _cooldown: 0
 --- !u!1 &609215568
 GameObject:
   m_ObjectHideFlags: 0
@@ -2567,8 +2600,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerUnits:
-  - {fileID: 1657760075}
-  - {fileID: 1921367354}
   - {fileID: 58182220}
   enemyUnits:
   - {fileID: 1886620733}
@@ -3241,13 +3272,16 @@ MonoBehaviour:
     content: 0000000000000000000000000000000000000000
     enumType: 0
   statusEffectSaveValues:
-    content: 32000000320000001900000032000000320000000000000000000000
+    content: 320000003200000019000000320000003200000000000000000000000000000000000000000000000000000000000000
     enumType: 0
   DamageMultiplier: 1
   DodgeModifier: 0
   _actionPointsModifier: 0
   HitChanceModifier: 0
   CritChanceModifier: 0
+  damageResistanceModifiers:
+    content: 0000000000000000000000000000000000000000
+    enumType: 0
   NoActionPointsRefresh: 0
 --- !u!114 &1657760079
 MonoBehaviour:
@@ -5091,13 +5125,16 @@ MonoBehaviour:
     content: 0000000000000000000000000000000000000000
     enumType: 0
   statusEffectSaveValues:
-    content: 32000000320000001900000032000000320000000000000000000000
+    content: 320000003200000019000000320000003200000000000000000000000000000000000000000000000000000000000000
     enumType: 0
   DamageMultiplier: 1
   DodgeModifier: 0
   _actionPointsModifier: 0
   HitChanceModifier: 0
   CritChanceModifier: 0
+  damageResistanceModifiers:
+    content: 0000000000000000000000000000000000000000
+    enumType: 0
   NoActionPointsRefresh: 0
 --- !u!1001 &1939840172
 PrefabInstance:
@@ -5107,6 +5144,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5130262036932632293, guid: c99917a4820bbc44dab80fa18cb9598e, type: 3}
+      propertyPath: statusEffectSaveValues.content.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5130262036932632293, guid: c99917a4820bbc44dab80fa18cb9598e, type: 3}
+      propertyPath: damageResistanceModifiers.content.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5351647011430790160, guid: c99917a4820bbc44dab80fa18cb9598e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.44
@@ -5318,6 +5363,14 @@ PrefabInstance:
     - target: {fileID: 2609003918164214248, guid: 3433db10e8f7d594a9586700b7fdc112, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3692882631394820891, guid: 3433db10e8f7d594a9586700b7fdc112, type: 3}
+      propertyPath: statusEffectSaveValues.content.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3692882631394820891, guid: 3433db10e8f7d594a9586700b7fdc112, type: 3}
+      propertyPath: damageResistanceModifiers.content.Array.size
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5646,6 +5699,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character_Goblin_Male
       objectReference: {fileID: 0}
+    - target: {fileID: 5003566718875218640, guid: 91ff8a7a63402584bb0f2316446698db, type: 3}
+      propertyPath: statusEffectSaveValues.content.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003566718875218640, guid: 91ff8a7a63402584bb0f2316446698db, type: 3}
+      propertyPath: damageResistanceModifiers.content.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5371229528146956119, guid: 91ff8a7a63402584bb0f2316446698db, type: 3}
       propertyPath: _actionDefinition
       value: 
@@ -5771,8 +5832,24 @@ PrefabInstance:
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2661642253522781648, guid: 9ef9312c5c95f004d80bcbd744dc29b3, type: 3}
+      propertyPath: DamageMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661642253522781648, guid: 9ef9312c5c95f004d80bcbd744dc29b3, type: 3}
+      propertyPath: statusEffectSaveValues.content.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661642253522781648, guid: 9ef9312c5c95f004d80bcbd744dc29b3, type: 3}
+      propertyPath: damageResistanceModifiers.content.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661642253522781648, guid: 9ef9312c5c95f004d80bcbd744dc29b3, type: 3}
       propertyPath: statusEffectSaveValues.content.Array.data[2]
       value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661642253522781648, guid: 9ef9312c5c95f004d80bcbd744dc29b3, type: 3}
+      propertyPath: damageResistanceModifiers.content.Array.data[0]
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5772654331408216954, guid: 9ef9312c5c95f004d80bcbd744dc29b3, type: 3}
       propertyPath: isPlayer
@@ -5785,7 +5862,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2098552703280263544, guid: 9ef9312c5c95f004d80bcbd744dc29b3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 555205104}
+    - targetCorrespondingSourceObject: {fileID: 2098552703280263544, guid: 9ef9312c5c95f004d80bcbd744dc29b3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 555205105}
   m_SourcePrefab: {fileID: 100100000, guid: 9ef9312c5c95f004d80bcbd744dc29b3, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

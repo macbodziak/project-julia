@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Blinded Status Effect", menuName = "Scriptable Objects/Status Effects/Blinded Status Effect Preset", order = 3)]
 public class BlindedStatusEffect : StatusEffect
 {
     [SerializeField] private int hitChanceModifier = 10;

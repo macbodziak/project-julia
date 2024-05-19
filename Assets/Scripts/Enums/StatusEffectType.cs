@@ -5,10 +5,13 @@ public enum StatusEffectType
     Poisoned,
     Slowed,
     Stunned,
-    IncreasedDamage,
+    Strong,
     Rage,
     Unsteady,   //Penalty to Dodge
     Agile,
-    Blinded
+    Blinded,
+    Inspired,
+    Fortified,
+    Regenerating
 
 }

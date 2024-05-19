@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Agile Status Effect", menuName = "Scriptable Objects/Status Effects/Agile Status Effect Preset", order = 3)]
+
 public class AgileStatusEffect : StatusEffect
 {
     [SerializeField] private int dodgeModifier = 10;

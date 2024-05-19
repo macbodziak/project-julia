@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80faee4d92c185e41b04e74e42819761, type: 3}
+  m_Name: Fighter Regenerate
+  m_EditorClassIdentifier: 
+  m_name: Regenerate
+  m_actionPointCost: 1
+  m_powerPointCost: 1
+  m_duration: 1.9
+  m_cooldown: 3
+  m_animationTrigger: CastSpell_4
+  m_sprite: {fileID: 21300000, guid: 615c193b073d98b4a883fa4d152abbb6, type: 3}
+  m_targetingMode: 4
+  m_numberOfTargets: 0
+  m_visualEffectOnHit: {fileID: 4122570023729453123, guid: 8c75c42f8d9f5c844b06d8e273e5fcad, type: 3}
+  _statusEffectsApplied:
+  - {fileID: 11400000, guid: 5355315ee91b4994396bb9b6dc6d8ae2, type: 2}

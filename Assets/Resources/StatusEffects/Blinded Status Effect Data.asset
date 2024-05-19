@@ -9,13 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f83f7b91476fd94eb87bef6ca217ca2, type: 3}
-  m_Name: Bleeding Status Effect Data
+  m_Script: {fileID: 11500000, guid: 4bdaf0c4b05034c4a8a12e5150db4070, type: 3}
+  m_Name: Blinded Status Effect Data
   m_EditorClassIdentifier: 
-  m_name: Bleeding
-  m_duration: 2
-  m_sprite: {fileID: 21300000, guid: 8d11e4fd03b978b4c80296e3f88f1625, type: 3}
+  m_name: Blinded
+  m_duration: 1
+  m_sprite: {fileID: 21300000, guid: 52d9febaa56f92a45a0e2668f82d3f64, type: 3}
   m_visualEffect: {fileID: 0}
-  minDamageAmount: 3
-  maxDamageAmount: 6
-  _damageType: 0
+  hitChanceModifier: -20

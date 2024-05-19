@@ -3,11 +3,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Poisoned Status Effect", menuName = "Scriptable Objects/Status Effects/Poisoned Status Effect Preset", order = 10)]
 public class PoisonedStatusEffect : StatusEffect
 {
-    [SerializeField] private int damageAmount = 1;
+    [SerializeField] private int minDamageAmount = 1;
+    [SerializeField] private int maxDamageAmount = 2;
     [SerializeField] private DamageType _damageType = DamageType.Poison;
     // [SerializeField] private ParticleSystem m_particleSystem;
 
-    public int DamageAmount { get => damageAmount; private set => damageAmount = value; }
+    public int MinDamageAmount { get => minDamageAmount; private set => minDamageAmount = value; }
+    public int MaxDamageAmount { get => maxDamageAmount; private set => maxDamageAmount = value; }
     public DamageType damageType { get => _damageType; private set => _damageType = value; }
     public override bool IsActive { get { return true; } }
     public override StatusEffectType Type { get { return StatusEffectType.Poisoned; } }
@@ -24,6 +26,7 @@ public class PoisonedStatusEffect : StatusEffect
 
     public override void ApplyEffect()
     {
+        int damageAmount = UnityEngine.Random.Range(minDamageAmount, maxDamageAmount);
         unit.combatStats.TakeDamage(damageAmount, damageType, false, false);
     }
 }

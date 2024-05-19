@@ -8,12 +8,14 @@ public class CombatStats : MonoBehaviour
     [Header("Basic Stats:")]
     [Space(6)]
     [SerializeField] private int maxHealthPoints;
-    [SerializeField][ReadOnly] private int currentHealthPoints;
+    [SerializeField] private int currentHealthPoints;
     [SerializeField] private int maxActionPoints;
     [SerializeField][ReadOnly] private int currentActionPoints;
     [SerializeField] private int maxPowerPoints;
     [SerializeField][ReadOnly] private int currentPowerPoints;
     [SerializeField] private int dodge;
+
+    const int CRIT_MULTIPLIER = 2;
 
     [Space(12)]
     [Header("Damage Resistance:")]
@@ -32,6 +34,8 @@ public class CombatStats : MonoBehaviour
     [SerializeField] private int _actionPointsModifier = 0;
     [SerializeField] public int HitChanceModifier = 0;
     [SerializeField] public int CritChanceModifier = 0;
+
+    [SerializeField] public EnumMappedArray<int, DamageType> damageResistanceModifiers;
     // <summary>
     // Modifier flags are like boolean, but since several status effects might have the same effect
     // we use a counter instead of bool so one effect does not canceld out another one too early
@@ -70,7 +74,9 @@ public class CombatStats : MonoBehaviour
 
     public int ApplyResistance(int damageAmount, DamageType damageType)
     {
-        float modifier = (100f - damageResistanceValues[(int)damageType]) / 100f;
+        float totalResitance = GetTotalDamageResistance(damageType);
+        totalResitance = Mathf.Clamp(totalResitance, -100, 100);
+        float modifier = (100f - totalResitance) / 100f;
         return (int)(damageAmount * modifier);
     }
 
@@ -81,9 +87,9 @@ public class CombatStats : MonoBehaviour
         return requiredRoll;
     }
 
-    public int GetDamageResistance(DamageType type)
+    public int GetTotalDamageResistance(DamageType damageType)
     {
-        return damageResistanceValues[(int)type];
+        return damageResistanceValues[(int)damageType] + damageResistanceModifiers[(int)damageType];
     }
 
     public int GetStatusEffectSaveValue(StatusEffectType type)
@@ -125,6 +131,8 @@ public class CombatStats : MonoBehaviour
         if (hitRoll >= requiredRoll)
         {
             int damageReceived = UnityEngine.Random.Range(attack.MinDamage, attack.MaxDamage);
+            Debug.Log(gameObject + " : Damage Roll: <color=#ffa8a8>" + damageReceived + "</color>");
+
             //check if is critical
             int critRoll = UnityEngine.Random.Range(0, 100);
             int requiredCritRoll = 100 - attack.CritChance;
@@ -132,7 +140,7 @@ public class CombatStats : MonoBehaviour
             if (critRoll >= requiredCritRoll)
             {
                 isCritical = true;
-                damageReceived *= 2;
+                damageReceived *= CRIT_MULTIPLIER;
             }
             TakeDamage(damageReceived, attack.Type, isCritical, true);
             return true;
