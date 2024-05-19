@@ -10,10 +10,12 @@ using UnityEngine;
 // the data and logic of a status effect are provided by the StatusEffect ScriptableObject 
 // that needs to be passed in the Initialize method at the beginning of the lifecycle of this component
 // </summary>
+
+[Serializable]
 public class StatusEffectBehaviour : MonoBehaviour
 {
     [SerializeField] private StatusEffect _statusEffect;
-    [SerializeField][ReadOnly] private int remainingDuration;
+    [SerializeField] private int remainingDuration;
     private Unit unit;
 
     public int Duration { get { return _statusEffect.Duration; } }
