@@ -12,6 +12,7 @@ public enum StatusEffectType
     Blinded,
     Inspired,
     Fortified,
-    Regenerating
+    Regenerating,
+    DemonicWrath
 
 }

@@ -132,7 +132,6 @@ public class CombatStats : MonoBehaviour
         if (hitRoll >= requiredRoll)
         {
             int damageReceived = UnityEngine.Random.Range(attack.MinDamage, attack.MaxDamage);
-            Debug.Log(gameObject + " : Damage Roll: <color=#ffa8a8>" + damageReceived + "</color>");
 
             //check if is critical
             int critRoll = UnityEngine.Random.Range(0, 100);
