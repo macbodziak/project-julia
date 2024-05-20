@@ -3,6 +3,7 @@ using BehaviorDesigner.Runtime.Tasks.Unity.UnityGameObject;
 using BehaviorDesigner.Runtime.Tasks.Unity.UnityLayerMask;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UIElements;
 
 
@@ -112,6 +113,12 @@ public class UnitSetupHelper : EditorWindow
         }
 
         AddComponent<CapsuleCollider>(gameObject);
+        AddComponent<SoundController>(gameObject);
+
+        AudioSource audioSource = AddComponent<AudioSource>(gameObject);
+        audioSource.playOnAwake = false;
+        AudioMixer mixer = AssetDatabase.LoadAssetAtPath("Assets/Audio/AudioMixer.mixer", typeof(AudioMixer)) as AudioMixer;
+        audioSource.outputAudioMixerGroup = mixer.FindMatchingGroups("SFX")[0];
 
 
         //set isPlayer flag of Unit componenet and create Behavior Tree for Enemies
@@ -121,7 +128,8 @@ public class UnitSetupHelper : EditorWindow
             SerializedProperty isPlayerProperty = so.FindProperty("isPlayer");
             isPlayerProperty.boolValue = false;
             so.ApplyModifiedProperties();
-            AddComponent<BehaviorDesigner.Runtime.BehaviorTree>(gameObject);
+            BehaviorDesigner.Runtime.BehaviorTree BT = AddComponent<BehaviorDesigner.Runtime.BehaviorTree>(gameObject);
+            BT.StartWhenEnabled = false;
         }
         else
         {

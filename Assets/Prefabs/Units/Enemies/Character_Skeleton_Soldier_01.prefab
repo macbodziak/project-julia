@@ -934,6 +934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: 7e22e597810cdcb4e96cab15d354053d, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!114 &7336994949534536357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -948,6 +949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: eb3d6f3c1a7da0544aeff960f4e3b274, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!114 &5553988726225538882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -962,6 +964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: 96daeb6713f3f8545ba3ab54dec4ca59, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!136 &4133186466961459594
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1044,7 +1047,7 @@ AudioSource:
   m_GameObject: {fileID: 1117094404287530423}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3278065013364681970, guid: 221c7f18f0f74aa44ae495df2eb15c8e, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

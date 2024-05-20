@@ -1934,6 +1934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: dede2b339f667ec4e93afe2f70629a6f, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!114 &1288015907792406303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1948,6 +1949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: 18ced49b1e92e60408213b48f06cdf00, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!136 &3481441894554320975
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2053,6 +2055,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: fabbe29414b0a934fa4c01476ded7201, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!114 &64415651101105197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2067,6 +2070,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: d25cd1fda667f9e4eb013c6be0ea92fe, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!114 &6003922080109395175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2081,6 +2085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: f2b1fcb2b0bd26e4aa36a7a0ed10e8b5, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!82 &5851224940207301649
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2090,7 +2095,7 @@ AudioSource:
   m_GameObject: {fileID: 6526291412881331010}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3278065013364681970, guid: 221c7f18f0f74aa44ae495df2eb15c8e, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
