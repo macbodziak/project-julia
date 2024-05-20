@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Goblin Warrior Basic Attack
   m_EditorClassIdentifier: 
   m_name: Halbard Slash
-  m_actionPointCost: 2
+  m_actionPointCost: 1
   m_powerPointCost: 0
   m_duration: 1.9
   m_cooldown: 0
