@@ -96,6 +96,9 @@ public class UnitActionViewer : EditorWindow
 
         SerializedProperty cooldownProperty = so.FindProperty("_cooldown");
 
+        var isActiveLabel = element.Q<Toggle>(name: "isActiveLabel");
+        isActiveLabel.BindProperty(so.FindProperty("_isInProgress"));
+
         var nameLabel = element.Q<Label>(name: "nameLabel");
         nameLabel.BindProperty(actionDefinitionObject.FindProperty("m_name"));
 
@@ -120,8 +123,8 @@ public class UnitActionViewer : EditorWindow
         VisualElement header = new VisualElement();
         Label label;
 
-        label = new Label("Action Name");
-        label.style.width = 180;
+        label = new Label("      Action Name");
+        label.style.width = 195;
         header.Add(label);
 
         label = new Label("AP:");
@@ -159,6 +162,11 @@ public class ActionInfoVisualElement : VisualElement
     {
         var root = new VisualElement();
 
+        var isActiveLabel = new Toggle();
+        isActiveLabel.name = "isActiveLabel";
+        isActiveLabel.style.width = 15;
+        isActiveLabel.SetEnabled(false);
+
         var nameLabel = new Label("nameLabel");
         nameLabel.name = "nameLabel";
         nameLabel.text = "nameLabel";
@@ -184,6 +192,7 @@ public class ActionInfoVisualElement : VisualElement
         objectRefField.name = "objectRefField";
         objectRefField.style.width = 240;
 
+        root.Add(isActiveLabel);
         root.Add(nameLabel);
         root.Add(actionPointCostLabel);
         root.Add(powerPointCostLabel);

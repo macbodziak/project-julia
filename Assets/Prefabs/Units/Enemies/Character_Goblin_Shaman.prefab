@@ -3413,12 +3413,10 @@ GameObject:
   - component: {fileID: 5473633794726158475}
   - component: {fileID: 3123011358780468344}
   - component: {fileID: 2027115959078703921}
-  - component: {fileID: 3150233258110853151}
   - component: {fileID: 7685154757138240754}
   - component: {fileID: 779126505998938287}
   - component: {fileID: 8329283391939405534}
   - component: {fileID: 3883243712857074227}
-  - component: {fileID: 3882240572999455926}
   - component: {fileID: 1483082050289177260}
   - component: {fileID: 6556373725276594901}
   - component: {fileID: 1309424261062932220}
@@ -3570,20 +3568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: 217ce0b71df68cb4885991529a8ac328, type: 2}
   _cooldown: 0
---- !u!114 &3150233258110853151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6506755498932075654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _actionDefinition: {fileID: 11400000, guid: 4a61746c70c9a914d8441a1456ee7ba8, type: 2}
-  _cooldown: 0
+  _isInProgress: 0
 --- !u!114 &7685154757138240754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3598,6 +3583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: 4a61746c70c9a914d8441a1456ee7ba8, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!136 &779126505998938287
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3675,20 +3661,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 8407860110234352673}
   isVisible: 0
---- !u!114 &3882240572999455926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6506755498932075654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _actionDefinition: {fileID: 11400000, guid: fe88daf3a6752484289b47e5fe6317c5, type: 2}
-  _cooldown: 0
 --- !u!114 &1483082050289177260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3703,6 +3675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: fe88daf3a6752484289b47e5fe6317c5, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!82 &6556373725276594901
 AudioSource:
   m_ObjectHideFlags: 0

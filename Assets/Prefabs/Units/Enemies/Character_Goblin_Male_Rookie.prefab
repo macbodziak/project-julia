@@ -1277,13 +1277,16 @@ MonoBehaviour:
     content: 0000000000000000000000000000000000000000
     enumType: 0
   statusEffectSaveValues:
-    content: 0a0000000a0000000a0000000a0000000a0000000000000000000000
+    content: 0a0000000a0000000a0000000a0000000a000000000000000000000000000000000000000000000000000000000000000000000000000000
     enumType: 0
   DamageMultiplier: 1
   DodgeModifier: 0
   _actionPointsModifier: 0
   HitChanceModifier: 0
   CritChanceModifier: 0
+  damageResistanceModifiers:
+    content: 0000000000000000000000000000000000000000
+    enumType: 0
   NoActionPointsRefresh: 0
 --- !u!114 &141103370922678197
 MonoBehaviour:
@@ -1309,6 +1312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b146fdb0b2557f4b82180e547573c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  earlyStatusEffectsBehaviours: []
   statusEffectsBehaviours: []
 --- !u!114 &5371229528146956119
 MonoBehaviour:
@@ -1322,8 +1326,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _actionDefinition: {fileID: 0}
+  _actionDefinition: {fileID: 11400000, guid: 6876a0dd4b8e77b428e7384ec7fd02f4, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!114 &8192639255222139928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1336,8 +1341,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _actionDefinition: {fileID: 0}
+  _actionDefinition: {fileID: 11400000, guid: 0ca978e59c086f942953b770bac48f79, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!114 &2124186409975146438
 MonoBehaviour:
   m_ObjectHideFlags: 0

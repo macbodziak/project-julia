@@ -742,6 +742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: b1022916691318b45bb10379f0d51e64, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!114 &555205105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -756,6 +757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: c41908e9f6166ac4f9ab24d8e28b8702, type: 2}
   _cooldown: 0
+  _isInProgress: 1
 --- !u!114 &555205116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -770,6 +772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: 35093b4fabb732143b7f9e41eda0c86a, type: 2}
   _cooldown: 0
+  _isInProgress: 1
 --- !u!82 &555205117
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3493,6 +3496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: af545b22d7e8557488216a116d264da4, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!114 &1657760047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3507,6 +3511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: f89675e839e6d894cb23eff5655d1c49, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!114 &1657760054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3521,6 +3526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: 1c2b2a9c6ed0610428f77ca6a9b0cbdf, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!114 &1657760061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3535,6 +3541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: 6426397b9c59f0e47bf32966b8e20615, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!114 &1657760068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3549,6 +3556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: 0a1d7d686d9a8a44b988d6af11936836, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!114 &1657760075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5458,6 +5466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: af545b22d7e8557488216a116d264da4, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!114 &1921367338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5472,6 +5481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: 1b4e0b9d901644e4ab1992798baafc69, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!114 &1921367339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5486,6 +5496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: 0a1d7d686d9a8a44b988d6af11936836, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!114 &1921367346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5500,6 +5511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: e53a8c36aa5a15e40973d97fc11d133b, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!114 &1921367353
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ public class ActionBehaviour : MonoBehaviour
     private Action OnActionCompletedCallback;
     //member fields
     private Unit _unit;
-    private bool _isInProgress;
+    [SerializeField][ReadOnly] private bool _isInProgress;
     private bool _ready;
     private Animator _animator;
     private List<Unit> _targets;

@@ -8,7 +8,6 @@ public class EncounterOverText : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textGUI;
     [SerializeField] private string victoryText = "Victory";
     [SerializeField] private string defeatText = "Defeat";
-    [SerializeField] private float showTime = 2.0f;
     [SerializeField] private float speed = 2.0f;
     public bool IsTransitioning { get; private set; }
 
