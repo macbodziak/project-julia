@@ -109,6 +109,7 @@ public class ActionBehaviour : MonoBehaviour
         _targets.AddRange(targetList);
         _animator.SetTrigger(actionDefinition.AnimationTrigger);
         StartCoroutine(PerformAction());
+        GetComponent<SoundController>().PlayClip(_actionDefinition.SoundEffect);
         OnActionStarted();
     }
 

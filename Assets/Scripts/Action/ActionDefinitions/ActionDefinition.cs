@@ -20,6 +20,7 @@ public abstract class ActionDefinition : ScriptableObject
     [RangeInt(1, 5)]
     private int m_numberOfTargets;
     [SerializeField] private VisualEffect m_visualEffectOnHit;
+    [SerializeField] private AudioClip m_soundEffect;
 
     public string Name { get => m_name; protected set => m_name = value; }
     public int ActionPointCost { get => m_actionPointCost; protected set => m_actionPointCost = value; }
@@ -31,6 +32,7 @@ public abstract class ActionDefinition : ScriptableObject
     public VisualEffect VisualEffectOnHitPrefab { get => m_visualEffectOnHit; protected set => m_visualEffectOnHit = value; }
     public int Cooldown { get => m_cooldown; protected set => m_cooldown = value; }
     public int PowerPointCost { get => m_powerPointCost; protected set => m_powerPointCost = value; }
+    public AudioClip SoundEffect { get => m_soundEffect; protected set => m_soundEffect = value; }
 
     public abstract void ExecuteLogic(Unit actingUnit, List<Unit> targets);
 

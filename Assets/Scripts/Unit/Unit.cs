@@ -7,13 +7,13 @@ public class Unit : MonoBehaviour
 {
     SelectedVisual selectedVisual;
     [SerializeField] bool isPlayer;
-
     public static event EventHandler OnMouseEnterAnyUnit;
     public static event EventHandler OnMouseExitAnyUnit;
 
     private CombatStats _combatStats;
     private StatusEffectController _statusEffectController;
     private ActionController _actionController;
+    private AudioSource _audioSource;
 
     public CombatStats combatStats
     {
@@ -45,6 +45,7 @@ public class Unit : MonoBehaviour
         get { return _combatStats.CurrentPowerPoints; }
     }
 
+    public AudioSource audioSource { get => _audioSource; }
 
     private void Start()
     {

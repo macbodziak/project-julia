@@ -22,6 +22,7 @@ MonoBehaviour:
   m_targetingMode: 0
   m_numberOfTargets: 0
   m_visualEffectOnHit: {fileID: 8914890246648157491, guid: 5a920714c56d2ed44a358ba7b7a51295, type: 3}
+  m_soundEffect: {fileID: 8300000, guid: 9ae32f8e1a94c486c9929faca77ff03b, type: 3}
   minDamage: 25
   maxDamage: 35
   hitChance: 80

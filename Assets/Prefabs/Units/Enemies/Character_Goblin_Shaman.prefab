@@ -3420,6 +3420,8 @@ GameObject:
   - component: {fileID: 3883243712857074227}
   - component: {fileID: 3882240572999455926}
   - component: {fileID: 1483082050289177260}
+  - component: {fileID: 6556373725276594901}
+  - component: {fileID: 1309424261062932220}
   m_Layer: 3
   m_Name: Character_Goblin_Shaman
   m_TagString: Untagged
@@ -3470,7 +3472,7 @@ Animator:
   m_GameObject: {fileID: 6506755498932075654}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b69174d668ba02d44b14a084b217670a, type: 3}
-  m_Controller: {fileID: 9100000, guid: bf83c3733d22da840aaaa488798a0dc8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 06db5119f06434c459caa907938ae1a2, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3517,13 +3519,16 @@ MonoBehaviour:
     content: 0000000000000000000000000000000014000000
     enumType: 0
   statusEffectSaveValues:
-    content: 0a0000000a0000001900000019000000000000000000000000000000
+    content: 0a0000000a000000190000001900000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     enumType: 0
   DamageMultiplier: 1
   DodgeModifier: 0
   _actionPointsModifier: 0
   HitChanceModifier: 0
   CritChanceModifier: 0
+  damageResistanceModifiers:
+    content: 0000000000000000000000000000000000000000
+    enumType: 0
   NoActionPointsRefresh: 0
 --- !u!114 &5473633794726158475
 MonoBehaviour:
@@ -3537,6 +3542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b146fdb0b2557f4b82180e547573c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  earlyStatusEffectsBehaviours: []
   statusEffectsBehaviours: []
 --- !u!114 &3123011358780468344
 MonoBehaviour:
@@ -3697,6 +3703,122 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: fe88daf3a6752484289b47e5fe6317c5, type: 2}
   _cooldown: 0
+--- !u!82 &6556373725276594901
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6506755498932075654}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 0
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1309424261062932220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6506755498932075654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96e4d8e44fe476845a4d507be2de3b49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onHitSounds:
+  - {fileID: 8300000, guid: c74911b70a06b4ff382be0be025d7455, type: 3}
+  - {fileID: 8300000, guid: 05d8a2a02bfa4422e96e236f7ceb4781, type: 3}
+  - {fileID: 8300000, guid: 9670def1623724ffcb07858587cdf951, type: 3}
+  onDeathSound: {fileID: 8300000, guid: c87c5413110aa704fae28647b967fbb8, type: 3}
+  onRelieveSound: {fileID: 8300000, guid: 46235701749d4084a81505c80e3aed26, type: 3}
+  onDodgeSound: {fileID: 8300000, guid: 465cfb3ce315e440abafb91c8dd5a60c, type: 3}
+  SoundEnabled: 1
 --- !u!1 &6507311800014327011
 GameObject:
   m_ObjectHideFlags: 0

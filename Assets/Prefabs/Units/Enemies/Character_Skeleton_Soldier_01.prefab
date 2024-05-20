@@ -770,6 +770,8 @@ GameObject:
   - component: {fileID: 5553988726225538882}
   - component: {fileID: 4133186466961459594}
   - component: {fileID: 3877462120352649346}
+  - component: {fileID: 2951523603881126843}
+  - component: {fileID: 7561515947563982041}
   m_Layer: 3
   m_Name: Character_Skeleton_Soldier_01
   m_TagString: Untagged
@@ -881,13 +883,16 @@ MonoBehaviour:
     content: 0000000000000000000000000000000064000000
     enumType: 0
   statusEffectSaveValues:
-    content: 64000000190000006400000019000000190000000000000000000000
+    content: 6400000019000000640000001900000019000000000000000000000000000000000000000000000000000000000000000000000000000000
     enumType: 0
   DamageMultiplier: 1
   DodgeModifier: 0
   _actionPointsModifier: 0
   HitChanceModifier: 0
   CritChanceModifier: 0
+  damageResistanceModifiers:
+    content: 0000000000000000000000000000000000000000
+    enumType: 0
   NoActionPointsRefresh: 0
 --- !u!114 &4257269674305626172
 MonoBehaviour:
@@ -901,6 +906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b146fdb0b2557f4b82180e547573c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  earlyStatusEffectsBehaviours: []
   statusEffectsBehaviours: []
 --- !u!114 &8526355461935007978
 MonoBehaviour:
@@ -1029,6 +1035,122 @@ MonoBehaviour:
       Version: 1.7.9
   gizmoViewMode: 2
   showBehaviorDesignerGizmo: 1
+--- !u!82 &2951523603881126843
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117094404287530423}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 0
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &7561515947563982041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117094404287530423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96e4d8e44fe476845a4d507be2de3b49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onHitSounds:
+  - {fileID: 8300000, guid: c74911b70a06b4ff382be0be025d7455, type: 3}
+  - {fileID: 8300000, guid: 05d8a2a02bfa4422e96e236f7ceb4781, type: 3}
+  - {fileID: 8300000, guid: 9670def1623724ffcb07858587cdf951, type: 3}
+  onDeathSound: {fileID: 8300000, guid: c87c5413110aa704fae28647b967fbb8, type: 3}
+  onRelieveSound: {fileID: 8300000, guid: 46235701749d4084a81505c80e3aed26, type: 3}
+  onDodgeSound: {fileID: 8300000, guid: 554a7724cb5a7469db32510576e41e70, type: 3}
+  SoundEnabled: 1
 --- !u!1 &1229442828204208321
 GameObject:
   m_ObjectHideFlags: 0

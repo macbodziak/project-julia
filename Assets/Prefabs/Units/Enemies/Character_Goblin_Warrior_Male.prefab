@@ -1799,6 +1799,8 @@ GameObject:
   - component: {fileID: 3953176293657036632}
   - component: {fileID: 64415651101105197}
   - component: {fileID: 6003922080109395175}
+  - component: {fileID: 5851224940207301649}
+  - component: {fileID: 1155009632946555576}
   m_Layer: 3
   m_Name: Character_Goblin_Warrior_Male
   m_TagString: Untagged
@@ -1881,7 +1883,7 @@ MonoBehaviour:
     content: 0000000000000000000000000000000000000000
     enumType: 0
   statusEffectSaveValues:
-    content: 0a0000000a0000000a0000000a0000000a0000000a000000000000000a000000000000000a000000000000000000000000000000
+    content: 0a0000000a0000000a0000000a0000000a0000000a000000000000000a000000000000000a00000000000000000000000000000000000000
     enumType: 0
   DamageMultiplier: 1
   DodgeModifier: 0
@@ -2002,15 +2004,15 @@ MonoBehaviour:
         Action Points","Instant":true},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(19.999939,230)"},"ID":4,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-350,199.999939)"},"ID":5,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"EnemyAI.SelectSelfIfNoStatusEffect","NodeData":{"Offset":"(-199.948563,201.113159)"},"ID":6,"Name":"Select
         Self If No Status Effect","Instant":true,"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]},"StatusEffectTypetype":"Inspired"},{"Type":"EnemyAI.ChooseActionByName","NodeData":{"Offset":"(78.0953,201.9047)","WatchedFields":["actionName"]},"ID":7,"Name":"Choose
         Action By Name","Instant":true,"StringactionName":"Eager for Battle","SharedActionBehaviourSelectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.RandomSelector","NodeData":{"Offset":"(101.836975,210.63678)"},"ID":8,"Name":"Random
-        Selector","Instant":true,"Int32seed":0,"BooleanuseSeed":false,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-325.238342,448.571869)"},"ID":9,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"SelectTargetWithoutStatusEffect","NodeData":{"Offset":"(-110.000061,179.999939)"},"ID":10,"Name":"Select
-        Target Without Status Effect","Instant":true,"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]},"StatusEffectTypetype":"Bleeding"},{"Type":"EnemyAI.ChooseActionByName","NodeData":{"Offset":"(129.999939,179.999939)","WatchedFields":["actionName"]},"ID":11,"Name":"Choose
+        Selector","Instant":true,"Int32seed":0,"BooleanuseSeed":false,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-364.712036,409.098175)"},"ID":9,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"SelectTargetWithoutStatusEffect","NodeData":{"Offset":"(-110.000061,153.684143)"},"ID":10,"Name":"Select
+        Target Without Status Effect","Instant":true,"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]},"StatusEffectTypetype":"Bleeding"},{"Type":"EnemyAI.ChooseActionByName","NodeData":{"Offset":"(129.999939,153.684143)","WatchedFields":["actionName"]},"ID":11,"Name":"Choose
         Action By Name","Instant":true,"StringactionName":"Halbard Piercing Thrust","SharedActionBehaviourSelectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(168.0954,567.142944)"},"ID":12,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"SelectTargetWithoutStatusEffect","NodeData":{"Offset":"(-110.000031,180)"},"ID":13,"Name":"Select
         Target Without Status Effect","Instant":true,"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]},"StatusEffectTypetype":"Unsteady"},{"Type":"EnemyAI.ChooseActionByName","NodeData":{"Offset":"(130,180)","WatchedFields":["actionName"]},"ID":14,"Name":"Choose
-        Action By Name","Instant":true,"StringactionName":"Halbard Undercut","SharedActionBehaviourSelectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}}]},{"Type":"EnemyAI.ChooseActionByName","NodeData":{"Offset":"(381.428833,474.285522)","WatchedFields":["actionName"]},"ID":15,"Name":"Choose
-        Action By Name","Instant":true,"StringactionName":"Halbard Swing","SharedActionBehaviourSelectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}},{"Type":"EnemyAI.SelectRandomTarget","NodeData":{"Offset":"(736.9558,475.63678)"},"ID":16,"Name":"Select
-        Random Target","Instant":true,"SharedActionBehaviourselectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true},"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(660.9526,199.999939)"},"ID":17,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"EnemyAI.ChooseActionByName","NodeData":{"Offset":"(-90,219.999939)","WatchedFields":["actionName"]},"ID":18,"Name":"Choose
-        Action By Name","Instant":true,"StringactionName":"Halbard Slash","SharedActionBehaviourSelectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}},{"Type":"EnemyAI.SelectRandomTarget","NodeData":{"Offset":"(180,220)"},"ID":19,"Name":"Select
-        Random Target","Instant":true,"SharedActionBehaviourselectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true},"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]}}]}]},{"Type":"EnemyAI.PerformSelectedAction","NodeData":{"Offset":"(490,210)"},"ID":20,"Name":"Perform
+        Action By Name","Instant":true,"StringactionName":"Halbard Undercut","SharedActionBehaviourSelectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(627.3678,422.105469)"},"ID":15,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"EnemyAI.ChooseActionByName","NodeData":{"Offset":"(-222.631592,144.21051)","WatchedFields":["actionName"]},"ID":16,"Name":"Choose
+        Action By Name","Instant":true,"StringactionName":"Halbard Swing","SharedActionBehaviourSelectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}},{"Type":"EnemyAI.SelectRandomTarget","NodeData":{"Offset":"(203.1579,144.21051)"},"ID":17,"Name":"Select
+        Random Target","Instant":true,"SharedActionBehaviourselectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true},"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]}}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(660.9526,199.999939)"},"ID":18,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"EnemyAI.ChooseActionByName","NodeData":{"Offset":"(-90,219.999939)","WatchedFields":["actionName"]},"ID":19,"Name":"Choose
+        Action By Name","Instant":true,"StringactionName":"Halbard Slash","SharedActionBehaviourSelectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}},{"Type":"EnemyAI.SelectRandomTarget","NodeData":{"Offset":"(270.9332,220)"},"ID":20,"Name":"Select
+        Random Target","Instant":true,"SharedActionBehaviourselectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true},"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]}}]}]},{"Type":"EnemyAI.PerformSelectedAction","NodeData":{"Offset":"(490,210)","IsBreakpoint":true},"ID":21,"Name":"Perform
         Selected Action","Instant":true,"SharedActionBehaviourselectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true},"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]}}]}]},"Variables":[{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]},{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}]}'
       fieldSerializationData:
         typeName: []
@@ -2079,6 +2081,122 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: f2b1fcb2b0bd26e4aa36a7a0ed10e8b5, type: 2}
   _cooldown: 0
+--- !u!82 &5851224940207301649
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6526291412881331010}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 0
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1155009632946555576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6526291412881331010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96e4d8e44fe476845a4d507be2de3b49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onHitSounds:
+  - {fileID: 8300000, guid: c74911b70a06b4ff382be0be025d7455, type: 3}
+  - {fileID: 8300000, guid: 05d8a2a02bfa4422e96e236f7ceb4781, type: 3}
+  - {fileID: 8300000, guid: 9670def1623724ffcb07858587cdf951, type: 3}
+  onDeathSound: {fileID: 8300000, guid: c87c5413110aa704fae28647b967fbb8, type: 3}
+  onRelieveSound: {fileID: 8300000, guid: 46235701749d4084a81505c80e3aed26, type: 3}
+  onDodgeSound: {fileID: 8300000, guid: 465cfb3ce315e440abafb91c8dd5a60c, type: 3}
+  SoundEnabled: 1
 --- !u!1 &6686297480835590443
 GameObject:
   m_ObjectHideFlags: 0

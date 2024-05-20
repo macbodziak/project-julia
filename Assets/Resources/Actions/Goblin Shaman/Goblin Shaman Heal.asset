@@ -22,6 +22,7 @@ MonoBehaviour:
   m_targetingMode: 4
   m_numberOfTargets: 0
   m_visualEffectOnHit: {fileID: 0}
+  m_soundEffect: {fileID: 8300000, guid: 3c25c1d68a54b45f18cfc29b31c236de, type: 3}
   minAmount: 20
   maxAmount: 35
   _statusEffectsApplied: []

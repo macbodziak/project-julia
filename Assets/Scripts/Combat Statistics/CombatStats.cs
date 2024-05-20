@@ -46,6 +46,8 @@ public class CombatStats : MonoBehaviour
     [Space(6)]
     [SerializeField] public int NoActionPointsRefresh = 0;
 
+    private SoundController unitSounds;
+
     public int CurrentActionPoints { get => currentActionPoints; set => currentActionPoints = value; }
     public int CurrentHealthPoints { get => currentHealthPoints; private set => currentHealthPoints = value; }
     public int Dodge { get => dodge; private set => dodge = value; }
@@ -66,12 +68,21 @@ public class CombatStats : MonoBehaviour
     public static event EventHandler<DamageTakenEventArgs> OnAnyUnitTookDamage;
     public static event EventHandler<HealingReceivedEventArgs> OnAnyUnitReceivedHealing;
 
+
     void Awake()
     {
         CurrentHealthPoints = MaxHealthPoints;
         CurrentActionPoints = MaxActionPoints;
         CurrentPowerPoints = MaxPowerPoints;
     }
+
+
+    private void Start()
+    {
+        unitSounds = GetComponent<SoundController>();
+        Debug.Assert(unitSounds);
+    }
+
 
     public int ApplyResistance(int damageAmount, DamageType damageType)
     {
@@ -81,6 +92,7 @@ public class CombatStats : MonoBehaviour
         return (int)(damageAmount * modifier);
     }
 
+
     public int GetRequiredHitRoll(AttackInfo attack)
     {
         int requiredRoll = 100 - attack.HitChance + dodge + DodgeModifier;
@@ -88,18 +100,22 @@ public class CombatStats : MonoBehaviour
         return requiredRoll;
     }
 
+
     public int GetTotalDamageResistance(DamageType damageType)
     {
         return damageResistanceValues[(int)damageType] + damageResistanceModifiers[(int)damageType];
     }
+
 
     public int GetStatusEffectSaveValue(StatusEffectType type)
     {
         return statusEffectSaveValues[(int)type];
     }
 
+
     private void OnDeath()
     {
+        unitSounds.PlayOnDeathSound();
         Animator anim = GetComponent<Animator>();
         //after death we do not care about restricting root motion anymore and it improves death animation
         anim.applyRootMotion = true;
@@ -113,11 +129,14 @@ public class CombatStats : MonoBehaviour
         GetComponent<StatusEffectController>().Clear();
     }
 
+
     private void OnDodge()
     {
+        unitSounds.PlayOnDodgeSound();
         Animator anim = GetComponent<Animator>();
         anim.SetTrigger("Dodge");
     }
+
 
     public bool ReceiveAttack(AttackInfo attack)
     {
@@ -152,6 +171,7 @@ public class CombatStats : MonoBehaviour
         }
     }
 
+
     public void ReceiveHealing(HealingInfo healing)
     {
         int amount = UnityEngine.Random.Range(healing.MinAmount, healing.MaxAmount);
@@ -165,6 +185,7 @@ public class CombatStats : MonoBehaviour
         OnAnyUnitReceivedHealing?.Invoke(this, new HealingReceivedEventArgs(amount));
     }
 
+
     public void ResetActionPoints()
     {
         if (NoActionPointsRefresh <= 0)
@@ -173,10 +194,12 @@ public class CombatStats : MonoBehaviour
         }
     }
 
+
     public void ResetPowerPoints()
     {
         currentPowerPoints = maxPowerPoints;
     }
+
 
     private void SetActionPointModifier(int value)
     {
@@ -184,6 +207,7 @@ public class CombatStats : MonoBehaviour
         currentActionPoints += value;
         currentActionPoints = Mathf.Clamp(currentActionPoints, 0, MAX_ACTION_POINTS);
     }
+
 
     public void TakeDamage(int damage, DamageType damageType, bool isCritical, bool playAnimation = true)
     {
@@ -199,12 +223,14 @@ public class CombatStats : MonoBehaviour
         {
             if (playAnimation == true)
             {
+                unitSounds.PlayOnHitSound();
                 PlayDamageTakenAnimation();
             }
         }
 
         OnAnyUnitTookDamage?.Invoke(this, new DamageTakenEventArgs(damage, damageType, isCritical, CurrentHealthPoints <= 0));
     }
+
 
     private void PlayDamageTakenAnimation()
     {

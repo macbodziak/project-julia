@@ -22,5 +22,6 @@ MonoBehaviour:
   m_targetingMode: 3
   m_numberOfTargets: 0
   m_visualEffectOnHit: {fileID: 3133616235717616955, guid: c8958502846b7134990cedc6a9353c89, type: 3}
+  m_soundEffect: {fileID: 8300000, guid: 61e73f3e692c640eb9f9c7ee724ac862, type: 3}
   _statusEffectsRemoved:
   - {fileID: 11400000, guid: d65fa9f04e8589d4090e5c0e8371eee7, type: 2}
