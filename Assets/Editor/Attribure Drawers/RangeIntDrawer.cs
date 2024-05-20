@@ -33,6 +33,7 @@ public class RangeIntPropertyDrawer : PropertyDrawer
             property.serializedObject.ApplyModifiedProperties();
         });
 
+        integerField.AddToClassList("unity-base-field__aligned");
         // Add the field to the container
         container.Add(integerField);
 

@@ -8,14 +8,17 @@ using UnityEngine.VFX;
 public abstract class ActionDefinition : ScriptableObject
 {
     [SerializeField] private string m_name = "no name";
-    [SerializeField] private int m_actionPointCost = 1;
-    [SerializeField] private int m_powerPointCost = 0;
-    [SerializeField] private float m_duration = 5f;
-    [SerializeField] private int m_cooldown = 0;
+    [SerializeField][RangeInt(0, 5)] private int m_actionPointCost = 1;
+    [SerializeField][RangeInt(0, 5)] private int m_powerPointCost = 0;
+    [SerializeField][NonNegative] private float m_duration = 1.9f;
+    [SerializeField][RangeInt(0, 10)] private int m_cooldown = 0;
     [SerializeField] private string m_animationTrigger;
     [SerializeField] private Sprite m_sprite;
     [SerializeField] private TargetingMode m_targetingMode;
-    [Tooltip("Only used for Multiple Targets, not for Single or All")][SerializeField] private int m_numberOfTargets;
+    [Tooltip("Only used for Multiple Targets, not for Single or All")]
+    [SerializeField]
+    [RangeInt(1, 5)]
+    private int m_numberOfTargets;
     [SerializeField] private VisualEffect m_visualEffectOnHit;
 
     public string Name { get => m_name; protected set => m_name = value; }

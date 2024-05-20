@@ -1796,6 +1796,9 @@ GameObject:
   - component: {fileID: 3481441894554320975}
   - component: {fileID: 5313779006049177549}
   - component: {fileID: 188771645391834731}
+  - component: {fileID: 3953176293657036632}
+  - component: {fileID: 64415651101105197}
+  - component: {fileID: 6003922080109395175}
   m_Layer: 3
   m_Name: Character_Goblin_Warrior_Male
   m_TagString: Untagged
@@ -1867,18 +1870,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d3d0630cdc73444282d06a5a38e16be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 0
+  maxHealthPoints: 160
   currentHealthPoints: 0
-  maxActionPoints: 0
+  maxActionPoints: 2
   currentActionPoints: 0
   maxPowerPoints: 0
   currentPowerPoints: 0
-  dodge: 0
+  dodge: 10
   damageResistanceValues:
     content: 0000000000000000000000000000000000000000
     enumType: 0
   statusEffectSaveValues:
-    content: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    content: 0a0000000a0000000a0000000a0000000a0000000a000000000000000a000000000000000a000000000000000000000000000000
     enumType: 0
   DamageMultiplier: 1
   DodgeModifier: 0
@@ -1927,7 +1930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _actionDefinition: {fileID: 0}
+  _actionDefinition: {fileID: 11400000, guid: dede2b339f667ec4e93afe2f70629a6f, type: 2}
   _cooldown: 0
 --- !u!114 &1288015907792406303
 MonoBehaviour:
@@ -1941,7 +1944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _actionDefinition: {fileID: 0}
+  _actionDefinition: {fileID: 11400000, guid: 18ced49b1e92e60408213b48f06cdf00, type: 2}
   _cooldown: 0
 --- !u!136 &3481441894554320975
 CapsuleCollider:
@@ -1994,7 +1997,17 @@ MonoBehaviour:
       parentIndex: 
       startIndex: 
       variableStartIndex: 
-      JSONSerialization: 
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(697.432251,-116.743958)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.UntilFailure","NodeData":{"Offset":"(3.749895,159.375)"},"ID":1,"Name":"Until
+        Failure","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-6.10351563E-05,130)"},"ID":2,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"EnemyAI.HasActionPoints","NodeData":{"Offset":"(-470,200)"},"ID":3,"Name":"Has
+        Action Points","Instant":true},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(19.999939,230)"},"ID":4,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-350,199.999939)"},"ID":5,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(-270,179.999939)"},"ID":6,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"EnemyAI.SelectAllyHealthBelowThreshold","NodeData":{"Offset":"(-160,170)"},"ID":7,"Name":"Select
+        Ally Health Below Threshold","Instant":true,"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]},"Singlethreshold":0.66},{"Type":"EnemyAI.SelectAllyWithStatusEffect","NodeData":{"Offset":"(130,170)"},"ID":8,"Name":"Select
+        Ally With Status Effect","Instant":true,"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]},"StatusEffectTypetype":"Burning"}]},{"Type":"EnemyAI.ChooseActionByName","NodeData":{"Offset":"(90.00006,189.999939)"},"ID":9,"Name":"Choose
+        Action By Name","Instant":true,"StringactionName":"Heal","SharedActionBehaviourSelectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(119.999939,229.999939)"},"ID":10,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"SelectTargetWithoutStatusEffect","NodeData":{"Offset":"(-110.000061,179.999939)"},"ID":11,"Name":"Select
+        Target Without Status Effect","Instant":true,"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]},"StatusEffectTypetype":"Poisoned"},{"Type":"EnemyAI.ChooseActionByName","NodeData":{"Offset":"(129.999939,179.999939)"},"ID":12,"Name":"Choose
+        Action By Name","Instant":true,"StringactionName":"Poison Swarm","SharedActionBehaviourSelectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(530,199.999939)"},"ID":13,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"EnemyAI.ChooseActionByName","NodeData":{"Offset":"(-90,219.999939)"},"ID":14,"Name":"Choose
+        Action By Name","Instant":true,"StringactionName":"Ice Bolt","SharedActionBehaviourSelectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}},{"Type":"EnemyAI.SelectWeakestEnemyTarget","NodeData":{"Offset":"(180,219.999939)"},"ID":15,"Name":"Select
+        Weakest Enemy Target","Instant":true,"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]}}]}]},{"Type":"EnemyAI.PerformSelectedAction","NodeData":{"Offset":"(490,210)"},"ID":16,"Name":"Perform
+        Selected Action","Instant":true,"SharedActionBehaviourselectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true},"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]}}]}]},"Variables":[{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]},{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}]}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
@@ -2003,7 +2016,7 @@ MonoBehaviour:
         unityObjects: []
         byteData: 
         byteDataArray: 
-      Version: 
+      Version: 1.7.9
   gizmoViewMode: 2
   showBehaviorDesignerGizmo: 1
 --- !u!114 &188771645391834731
@@ -2020,6 +2033,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 6999152828538417364}
   isVisible: 0
+--- !u!114 &3953176293657036632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6526291412881331010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionDefinition: {fileID: 11400000, guid: fabbe29414b0a934fa4c01476ded7201, type: 2}
+  _cooldown: 0
+--- !u!114 &64415651101105197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6526291412881331010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionDefinition: {fileID: 11400000, guid: d25cd1fda667f9e4eb013c6be0ea92fe, type: 2}
+  _cooldown: 0
+--- !u!114 &6003922080109395175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6526291412881331010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionDefinition: {fileID: 11400000, guid: f2b1fcb2b0bd26e4aa36a7a0ed10e8b5, type: 2}
+  _cooldown: 0
 --- !u!1 &6686297480835590443
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,7 +30,7 @@ public class NonNegativePropertyDrawer : PropertyDrawer
                 property.intValue = integerField.value;
                 property.serializedObject.ApplyModifiedProperties();
             });
-
+            integerField.AddToClassList("unity-base-field__aligned");
             container.Add(integerField);
         }
         else if (property.propertyType == SerializedPropertyType.Float)
@@ -51,7 +51,7 @@ public class NonNegativePropertyDrawer : PropertyDrawer
                 property.floatValue = floatField.value;
                 property.serializedObject.ApplyModifiedProperties();
             });
-
+            floatField.AddToClassList("unity-base-field__aligned");
             container.Add(floatField);
         }
         else
