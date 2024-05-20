@@ -782,7 +782,7 @@ AudioSource:
   m_GameObject: {fileID: 555205093}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3278065013364681970, guid: 221c7f18f0f74aa44ae495df2eb15c8e, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -2413,6 +2413,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5851224940207301649, guid: a5e38c66520e76a4ebfebdc0f1827e5f, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -3278065013364681970, guid: 221c7f18f0f74aa44ae495df2eb15c8e, type: 2}
     - target: {fileID: 6526291412881331010, guid: a5e38c66520e76a4ebfebdc0f1827e5f, type: 3}
       propertyPath: m_Name
       value: Character_Goblin_Warrior_Male
@@ -2814,6 +2818,7 @@ MonoBehaviour:
   - {fileID: 917896664}
   - {fileID: 1530398782}
   - {fileID: 659683548}
+  - {fileID: 1082075877}
 --- !u!114 &893299311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3048,7 +3053,7 @@ AudioSource:
   m_GameObject: {fileID: 1082075856}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3278065013364681970, guid: 221c7f18f0f74aa44ae495df2eb15c8e, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -3135,6 +3140,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1082075877 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2419307281672267624, guid: 91ff8a7a63402584bb0f2316446698db, type: 3}
+  m_PrefabInstance: {fileID: 886705791793071464}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082075856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c24f09dd13d4c53469bea82299d981f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1109213251 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 471048, guid: 617f333324332de47a8b5f07cc0870cc, type: 3}
@@ -3673,7 +3689,7 @@ AudioSource:
   m_GameObject: {fileID: 393573697}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3278065013364681970, guid: 221c7f18f0f74aa44ae495df2eb15c8e, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -5628,7 +5644,7 @@ AudioSource:
   m_GameObject: {fileID: 1772358175}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3278065013364681970, guid: 221c7f18f0f74aa44ae495df2eb15c8e, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -5767,6 +5783,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character_Goblin_Shaman
       objectReference: {fileID: 0}
+    - target: {fileID: 6556373725276594901, guid: c99917a4820bbc44dab80fa18cb9598e, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -3278065013364681970, guid: 221c7f18f0f74aa44ae495df2eb15c8e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5931,6 +5951,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2951523603881126843, guid: 3433db10e8f7d594a9586700b7fdc112, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -3278065013364681970, guid: 221c7f18f0f74aa44ae495df2eb15c8e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6260,7 +6284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4274694743844880924, guid: 91ff8a7a63402584bb0f2316446698db, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5003566718875218640, guid: 91ff8a7a63402584bb0f2316446698db, type: 3}
       propertyPath: statusEffectSaveValues.content.Array.size
@@ -6276,7 +6300,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 6876a0dd4b8e77b428e7384ec7fd02f4, type: 2}
     - target: {fileID: 6852402281380864479, guid: 91ff8a7a63402584bb0f2316446698db, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.61
+      value: -2.01
       objectReference: {fileID: 0}
     - target: {fileID: 6852402281380864479, guid: 91ff8a7a63402584bb0f2316446698db, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6284,7 +6308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6852402281380864479, guid: 91ff8a7a63402584bb0f2316446698db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8
+      value: 6.89
       objectReference: {fileID: 0}
     - target: {fileID: 6852402281380864479, guid: 91ff8a7a63402584bb0f2316446698db, type: 3}
       propertyPath: m_LocalRotation.w
