@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currentTurnPlayerText;
     [SerializeField] private EncounterOverScreen encounterOverScreen;
     [SerializeField] private GameObject HUD;
-    [SerializeField] private UnitInfoPanel unitInfoPanel;
+    [SerializeField] private UnitInspector unitInspector;
 
 
     bool isInputBlocked;
@@ -54,6 +54,10 @@ public class UIManager : MonoBehaviour
         CombatEncounterManager.Instance.EncounterOverEvent += HandleEncounterOver;
         Unit.OnMouseEnterAnyUnit += HandleMouseEnterAnyUnit;
         Unit.OnMouseExitAnyUnit += HandleMouseExitAnyUnit;
+        CombatStats.OnAnyUnitTookDamage += HandleHealthBarUpdate;
+        CombatStats.OnAnyUnitReceivedHealing += HandleHealthBarUpdate;
+        StatusEffectController.AnyUnitReceivedStatusEffectEvent += HanldeStatusEffectInfoPanelUpdate;
+        StatusEffectController.AnyUnitRemovedStatusEffectEvent += HanldeStatusEffectInfoPanelUpdate;
     }
 
 
@@ -175,23 +179,33 @@ public class UIManager : MonoBehaviour
 
     private void HandleMouseEnterAnyUnit(object sender, EventArgs eventArgs)
     {
-        if (InputManager.Instance.CurrentState != InputState.Blocked)
-        {
-            Unit unit = sender as Unit;
-            unitInfoPanel.Setup(
-                unit.Name,
-                unit.statusEffectController.GetStatusEffects(),
-                unit.combatStats.CurrentHealthPoints,
-                unit.combatStats.MaxHealthPoints,
-                true);
-            unitInfoPanel.Show();
-        }
+        Unit unit = sender as Unit;
+        unitInspector.Setup(
+            unit.Name,
+            unit.statusEffectController.GetStatusEffects(),
+            unit.combatStats.CurrentHealthPoints,
+            unit.combatStats.MaxHealthPoints,
+            true);
+        unitInspector.Show();
     }
 
 
     private void HandleMouseExitAnyUnit(object sender, EventArgs eventArgs)
     {
-        unitInfoPanel.Hide();
+        unitInspector.Hide();
     }
 
+
+    private void HandleHealthBarUpdate(object sender, EventArgs eventArgs)
+    {
+        CombatStats cs = sender as CombatStats;
+        unitInspector.UpdateStats(cs.CurrentHealthPoints, cs.MaxHealthPoints);
+    }
+
+
+    private void HanldeStatusEffectInfoPanelUpdate(object sender, StatusEffect se)
+    {
+        StatusEffectController ctrl = sender as StatusEffectController;
+        unitInspector.UpdateStatusEffects(ctrl.GetStatusEffects());
+    }
 }

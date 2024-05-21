@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UnitInfoPanel : MonoBehaviour
+public class UnitInspector : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI unitNameTextMesh;
     [SerializeField] private GameObject statusEffectPanel;
