@@ -5,8 +5,9 @@ using System;
 
 public class Unit : MonoBehaviour
 {
-    SelectedVisual selectedVisual;
-    [SerializeField] bool isPlayer;
+    private SelectedVisual selectedVisual;
+    [SerializeField] private bool isPlayer;
+    [SerializeField] private string _name;
     public static event EventHandler OnMouseEnterAnyUnit;
     public static event EventHandler OnMouseExitAnyUnit;
 
@@ -46,6 +47,8 @@ public class Unit : MonoBehaviour
     }
 
     public AudioSource audioSource { get => _audioSource; }
+
+    public string Name { get => _name; }
 
     private void Start()
     {

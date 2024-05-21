@@ -1256,6 +1256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
+  _name: Goblin Rookie
 --- !u!114 &5003566718875218640
 MonoBehaviour:
   m_ObjectHideFlags: 0

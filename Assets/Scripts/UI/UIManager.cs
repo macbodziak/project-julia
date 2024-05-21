@@ -14,9 +14,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button endTurnButton;
     [SerializeField] private TextMeshProUGUI endTurnText;
     [SerializeField] private TextMeshProUGUI currentTurnPlayerText;
-
     [SerializeField] private EncounterOverScreen encounterOverScreen;
     [SerializeField] private GameObject HUD;
+    [SerializeField] private UnitInfoPanel unitInfoPanel;
 
 
     bool isInputBlocked;
@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour
     static UIManager _instance;
 
     public static UIManager Instance { get { return _instance; } }
+
 
     private void Awake()
     {
@@ -36,6 +37,8 @@ public class UIManager : MonoBehaviour
             _instance = this;
         }
     }
+
+
     private void Start()
     {
         isInputBlocked = false;
@@ -49,7 +52,10 @@ public class UIManager : MonoBehaviour
         InputManager.Instance.InputStateChangedEvent += HandleInputStateChanged;
         TurnManager.Instance.TurnEndedEvent += HandleTurnEnded;
         CombatEncounterManager.Instance.EncounterOverEvent += HandleEncounterOver;
+        Unit.OnMouseEnterAnyUnit += HandleMouseEnterAnyUnit;
+        Unit.OnMouseExitAnyUnit += HandleMouseExitAnyUnit;
     }
+
 
     private void HandleSelectedUnitChanged(object Sender, EventArgs eventArgs)
     {
@@ -61,7 +67,6 @@ public class UIManager : MonoBehaviour
             abilityLayoutController.CreateAndShowAbilityList(actionList);
         }
     }
-
 
 
     private void HandleInputStateChanged(object Sender, EventArgs eventArgs)
@@ -81,17 +86,20 @@ public class UIManager : MonoBehaviour
         }
     }
 
+
     private void OnBlockedInputStateEnter()
     {
         abilityLayoutController.SetInteractable(false);
         endTurnButton.interactable = false;
     }
 
+
     private void OnBlockedInputStateExit()
     {
         abilityLayoutController.SetInteractable(true);
         endTurnButton.interactable = true;
     }
+
 
     private void HandleTurnEnded(object Sender, EventArgs eventArgs)
     {
@@ -111,11 +119,13 @@ public class UIManager : MonoBehaviour
         }
     }
 
+
     private void HandleActionCompleted(object Sender, EventArgs eventArgs)
     {
         //TO DO - remove, this is handles by exit blocked state anyway
         // abilityLayoutController.RefreshAbilityList();
     }
+
 
     private void OnDestroy()
     {
@@ -139,13 +149,19 @@ public class UIManager : MonoBehaviour
         {
             CombatEncounterManager.Instance.EncounterOverEvent -= HandleEncounterOver;
         }
+
+        //static events so no null check needed
+        Unit.OnMouseEnterAnyUnit -= HandleMouseEnterAnyUnit;
+        Unit.OnMouseExitAnyUnit -= HandleMouseExitAnyUnit;
     }
+
 
     private void HandleEncounterOver(object sender, EncounterOverEventArgs eventArgs)
     {
         IEnumerator coroutine = OnEncounterOverDelayed(eventArgs.PlayerWon, 2.1f);
         StartCoroutine(coroutine);
     }
+
 
     private IEnumerator OnEncounterOverDelayed(bool playerWon, float delay)
     {
@@ -154,6 +170,28 @@ public class UIManager : MonoBehaviour
         HUD.SetActive(false);
         encounterOverScreen.Show(playerWon);
         yield return null;
+    }
+
+
+    private void HandleMouseEnterAnyUnit(object sender, EventArgs eventArgs)
+    {
+        if (InputManager.Instance.CurrentState != InputState.Blocked)
+        {
+            Unit unit = sender as Unit;
+            unitInfoPanel.Setup(
+                unit.Name,
+                unit.statusEffectController.GetStatusEffects(),
+                unit.combatStats.CurrentHealthPoints,
+                unit.combatStats.MaxHealthPoints,
+                true);
+            unitInfoPanel.Show();
+        }
+    }
+
+
+    private void HandleMouseExitAnyUnit(object sender, EventArgs eventArgs)
+    {
+        unitInfoPanel.Hide();
     }
 
 }

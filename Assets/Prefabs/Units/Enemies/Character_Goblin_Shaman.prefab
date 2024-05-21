@@ -3494,6 +3494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
+  _name: Goblin Shaman
 --- !u!114 &5130262036932632293
 MonoBehaviour:
   m_ObjectHideFlags: 0

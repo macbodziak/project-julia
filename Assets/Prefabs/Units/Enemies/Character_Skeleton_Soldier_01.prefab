@@ -846,6 +846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
+  _name: Undead Soldier
 --- !u!114 &1283687829037358754
 MonoBehaviour:
   m_ObjectHideFlags: 0
