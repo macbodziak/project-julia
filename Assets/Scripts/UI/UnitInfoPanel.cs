@@ -10,40 +10,34 @@ public class UnitInspector : MonoBehaviour
     [SerializeField] private TextMeshProUGUI unitNameTextMesh;
     [SerializeField] private GameObject statusEffectPanel;
     [SerializeField] private PercentageBar healthBar;
-    [SerializeField] private string unitName;
-    [SerializeField] private List<StatusEffectBehaviour> statusEffects;
-    [SerializeField] private int currentHP;
-    [SerializeField] private int maxHP;
+    private Unit _unit;
 
+    public Unit unit { get => _unit; }
 
-    public void Setup(string unitNameArg, List<StatusEffectBehaviour> statusEffectsArg, int currentHPArg, int maxHPArg, bool showTextArg = false)
+    public void Setup(Unit unit, bool showTextArg = false)
     {
-        unitName = unitNameArg;
-        unitNameTextMesh.text = unitName;
+        _unit = unit;
+        unitNameTextMesh.text = unit.Name; ;
 
         healthBar.ShowText = showTextArg;
-        UpdateStats(currentHPArg, maxHPArg);
+        UpdateStats(unit.combatStats);
 
-        UpdateStatusEffects(statusEffectsArg);
+        UpdateStatusEffects(unit.statusEffectController);
     }
 
 
-    public void UpdateStats(int currentHPArg, int maxHPArg)
+    public void UpdateStats(CombatStats combatStats)
     {
-        currentHP = currentHPArg;
-        maxHP = maxHPArg;
-
-        healthBar.SetProgress(currentHP, maxHP);
-        healthBar.Text = currentHPArg + "  /  " + maxHPArg;
+        healthBar.SetProgress(combatStats.CurrentHealthPoints, combatStats.MaxHealthPoints);
+        healthBar.Text = combatStats.CurrentHealthPoints + "  /  " + combatStats.MaxHealthPoints;
     }
 
 
-    public void UpdateStatusEffects(List<StatusEffectBehaviour> statusEffects)
+    public void UpdateStatusEffects(StatusEffectController sec)
     {
-        this.statusEffects = statusEffects;
         ClearStatusEffects();
 
-        foreach (StatusEffectBehaviour status in statusEffects)
+        foreach (StatusEffectBehaviour status in sec.GetStatusEffects())
         {
             CreateStatusEffectIcon(status);
         }
@@ -71,17 +65,6 @@ public class UnitInspector : MonoBehaviour
         image.sprite = status.Icon;
         newIcon.transform.SetParent(statusEffectPanel.transform);
     }
-
-    // private void HandleMouseOverUnit(object sender, EventArgs e)
-    // {
-    //     Unit unit = sender as Unit;
-    //     gameObject.SetActive(true);
-    //     Setup(
-    //         unit.Name,
-    //         unit.statusEffectController.GetStatusEffects(),
-    //         unit.combatStats.CurrentHealthPoints,
-    //         unit.combatStats.MaxHealthPoints);
-    // }
 
 
     public void Show()

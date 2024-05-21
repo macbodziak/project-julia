@@ -180,12 +180,7 @@ public class UIManager : MonoBehaviour
     private void HandleMouseEnterAnyUnit(object sender, EventArgs eventArgs)
     {
         Unit unit = sender as Unit;
-        unitInspector.Setup(
-            unit.Name,
-            unit.statusEffectController.GetStatusEffects(),
-            unit.combatStats.CurrentHealthPoints,
-            unit.combatStats.MaxHealthPoints,
-            true);
+        unitInspector.Setup(unit, true);
         unitInspector.Show();
     }
 
@@ -199,13 +194,21 @@ public class UIManager : MonoBehaviour
     private void HandleHealthBarUpdate(object sender, EventArgs eventArgs)
     {
         CombatStats cs = sender as CombatStats;
-        unitInspector.UpdateStats(cs.CurrentHealthPoints, cs.MaxHealthPoints);
+        Unit senderUnit = cs.GetComponent<Unit>();
+        if (senderUnit == unitInspector.unit)
+        {
+            unitInspector.UpdateStats(cs);
+        }
     }
 
 
     private void HanldeStatusEffectInfoPanelUpdate(object sender, StatusEffect se)
     {
         StatusEffectController ctrl = sender as StatusEffectController;
-        unitInspector.UpdateStatusEffects(ctrl.GetStatusEffects());
+        Unit senderUnit = ctrl.GetComponent<Unit>();
+        if (senderUnit == unitInspector.unit)
+        {
+            unitInspector.UpdateStatusEffects(ctrl);
+        }
     }
 }
