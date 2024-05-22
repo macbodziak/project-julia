@@ -14,6 +14,7 @@ public class UnitInspector : MonoBehaviour
 
     public Unit unit { get => _unit; }
 
+
     public void Setup(Unit unit, bool showTextArg = false)
     {
         _unit = unit;

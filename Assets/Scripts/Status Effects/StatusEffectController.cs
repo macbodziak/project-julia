@@ -21,7 +21,9 @@ public class StatusEffectController : MonoBehaviour
     public static event EventHandler<StatusEffect> AnyUnitImmuneToStatusEffectEvent;
     public static event EventHandler<StatusEffect> AnyUnitSavedFromStatusEffectEvent;
     public static event EventHandler<StatusEffect> AnyUnitReceivedStatusEffectEvent;
-    public static event EventHandler<StatusEffect> AnyUnitRemovedStatusEffectEvent;
+    public static event EventHandler<StatusEffect> AnyUnitRemovingStatusEffectEvent;
+    //this is a general event thta something has changed (and displays need to be refreshed for example)
+    public static event EventHandler AnyUnitStatusEffectsChangedEvent;
 
 
     private void Awake()
@@ -60,9 +62,10 @@ public class StatusEffectController : MonoBehaviour
                 //remove status effect from list if expired
                 if (earlyStatusEffectsBehaviours[i].RemainingDuration <= 0)
                 {
-                    AnyUnitRemovedStatusEffectEvent?.Invoke(this, earlyStatusEffectsBehaviours[i].statusEffect);
+                    AnyUnitRemovingStatusEffectEvent?.Invoke(this, earlyStatusEffectsBehaviours[i].statusEffect);
                     Destroy(earlyStatusEffectsBehaviours[i]);
                     earlyStatusEffectsBehaviours.RemoveAt(i);
+                    AnyUnitStatusEffectsChangedEvent?.Invoke(this, EventArgs.Empty);
                 }
             }
         }
@@ -82,9 +85,10 @@ public class StatusEffectController : MonoBehaviour
                 //remove status effect from list if expired
                 if (statusEffectsBehaviours[i].RemainingDuration <= 0)
                 {
-                    AnyUnitRemovedStatusEffectEvent?.Invoke(this, statusEffectsBehaviours[i].statusEffect);
+                    AnyUnitRemovingStatusEffectEvent?.Invoke(this, statusEffectsBehaviours[i].statusEffect);
                     Destroy(statusEffectsBehaviours[i]);
                     statusEffectsBehaviours.RemoveAt(i);
+                    AnyUnitStatusEffectsChangedEvent?.Invoke(this, EventArgs.Empty);
                 }
             }
         }
@@ -112,9 +116,10 @@ public class StatusEffectController : MonoBehaviour
                 //remove status effect from list if expired
                 if (statusEffectList[i].RemainingDuration <= 0)
                 {
-                    AnyUnitRemovedStatusEffectEvent?.Invoke(this, statusEffectList[i].statusEffect);
+                    AnyUnitRemovingStatusEffectEvent?.Invoke(this, statusEffectList[i].statusEffect);
                     Destroy(statusEffectList[i]);
                     statusEffectList.RemoveAt(i);
+                    AnyUnitStatusEffectsChangedEvent?.Invoke(this, EventArgs.Empty);
                 }
             }
         }
@@ -180,6 +185,7 @@ public class StatusEffectController : MonoBehaviour
                 statusEffectsBehaviours.Add(statusEffectBehaviour);
             }
             AnyUnitReceivedStatusEffectEvent?.Invoke(this, statusEffectPreset);
+            AnyUnitStatusEffectsChangedEvent?.Invoke(this, EventArgs.Empty);
         }
     }
 
@@ -189,7 +195,7 @@ public class StatusEffectController : MonoBehaviour
         StatusEffectBehaviour statusEffectBehaviour = GetStatusEffectBehaviour(statusEffectPreset);
         if (statusEffectBehaviour != null)
         {
-            AnyUnitRemovedStatusEffectEvent?.Invoke(this, statusEffectPreset);
+            AnyUnitRemovingStatusEffectEvent?.Invoke(this, statusEffectPreset);
             Destroy(statusEffectBehaviour);
             if (statusEffectPreset.ExecuteEarly)
             {
@@ -199,6 +205,7 @@ public class StatusEffectController : MonoBehaviour
             {
                 statusEffectsBehaviours.Remove(statusEffectBehaviour);
             }
+            AnyUnitStatusEffectsChangedEvent?.Invoke(this, EventArgs.Empty);
         }
     }
 
@@ -264,7 +271,6 @@ public class StatusEffectController : MonoBehaviour
 
     public int Count()
     {
-
         return earlyStatusEffectsBehaviours.Count + statusEffectsBehaviours.Count;
     }
 }

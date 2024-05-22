@@ -21,12 +21,12 @@ public class PopUpTextDisplayController : MonoBehaviour
         Unit.OnMouseEnterAnyUnit += HandleMouseEnterAnyUnit;
         Unit.OnMouseExitAnyUnit += HandleMouseExitAnyUnit;
 
-        CombatStats.OnAnyUnitTookDamage += HandleAnyUnitTookDamage;
-        CombatStats.OnAnyUnitReceivedHealing += HanldeAnyUnitReceivedHealing;
+        CombatStats.AnyUnitTookDamageEvent += HandleAnyUnitTookDamage;
+        CombatStats.AnyUnitReceivedHealingEvent += HanldeAnyUnitReceivedHealing;
 
         StatusEffectController.AnyUnitImmuneToStatusEffectEvent += HandleAnyUnitImmuneToStatusEffect;
         StatusEffectController.AnyUnitReceivedStatusEffectEvent += HandleAnyUnitReceivedStatusEffect;
-        StatusEffectController.AnyUnitRemovedStatusEffectEvent += HandlAnyUnitRemovedStatusEffect;
+        StatusEffectController.AnyUnitRemovingStatusEffectEvent += HandlAnyUnitRemovedStatusEffect;
         StatusEffectController.AnyUnitSavedFromStatusEffectEvent += HandleAnyUnitSavedFromStatusEffect;
     }
 

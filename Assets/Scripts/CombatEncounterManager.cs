@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
+
 
 public class CombatEncounterManager : MonoBehaviour
 {
@@ -12,6 +12,7 @@ public class CombatEncounterManager : MonoBehaviour
     private static CombatEncounterManager _instance;
     public static CombatEncounterManager Instance { get { return _instance; } }
     public event EventHandler<EncounterOverEventArgs> EncounterOverEvent;
+    public event EventHandler<EventArgs> EncounterSetupCompleteEvent;
 
     public bool IsEncounterOver { get; private set; }
 
@@ -35,7 +36,7 @@ public class CombatEncounterManager : MonoBehaviour
 
     private void Start()
     {
-        CombatStats.OnAnyUnitTookDamage += HandleAnyUnitTookDamage;
+        CombatStats.AnyUnitTookDamageEvent += HandleAnyUnitTookDamage;
 
         //DEBUG - for testing only
         StartCoroutine(DebugStatusEffects());
@@ -47,12 +48,8 @@ public class CombatEncounterManager : MonoBehaviour
     private IEnumerator DebugStatusEffects()
     {
         yield return null;
-        // playerUnits[1].TryReceivingStatusEffect(StatusEffectType.Bleeding);
-        // playerUnits[1].TryReceivingStatusEffect(StatusEffectType.Burning);
-        // playerUnits[0].TryReceivingStatusEffect(StatusEffectType.Bleeding);
-        // // playerUnits[0].ReceiveStatusEffect<SlowStatusEffect>();
-        // enemyUnits[0].TryReceivingStatusEffect(StatusEffectType.Burning);
-        // enemyUnits[0].TryReceivingStatusEffect(StatusEffectType.Bleeding);
+
+        EncounterSetupCompleteEvent?.Invoke(this, EventArgs.Empty);
 
         yield return null;
     }

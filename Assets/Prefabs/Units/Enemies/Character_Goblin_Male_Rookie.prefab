@@ -1255,6 +1255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24f09dd13d4c53469bea82299d981f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  portrait: {fileID: 21300000, guid: 9430a2501958cad41b171914a6baa05e, type: 3}
   isPlayer: 0
   _name: Goblin Rookie
 --- !u!114 &5003566718875218640

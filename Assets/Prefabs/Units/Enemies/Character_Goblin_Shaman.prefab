@@ -3493,6 +3493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24f09dd13d4c53469bea82299d981f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  portrait: {fileID: 21300000, guid: eacb8bf405f6e74438a97967a9fd5050, type: 3}
   isPlayer: 0
   _name: Goblin Shaman
 --- !u!114 &5130262036932632293

@@ -6,6 +6,7 @@ using System;
 public class Unit : MonoBehaviour
 {
     private SelectedVisual selectedVisual;
+    [SerializeField] private Sprite portrait;
     [SerializeField] private bool isPlayer;
     [SerializeField] private string _name;
     public static event EventHandler OnMouseEnterAnyUnit;
@@ -24,6 +25,14 @@ public class Unit : MonoBehaviour
     public StatusEffectController statusEffectController
     {
         get { return _statusEffectController; }
+    }
+
+    public Sprite Portrait
+    {
+        get
+        {
+            return portrait;
+        }
     }
 
     public bool IsPlayer

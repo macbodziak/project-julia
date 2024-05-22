@@ -65,8 +65,10 @@ public class CombatStats : MonoBehaviour
     }
 
 
-    public static event EventHandler<DamageTakenEventArgs> OnAnyUnitTookDamage;
-    public static event EventHandler<HealingReceivedEventArgs> OnAnyUnitReceivedHealing;
+    public static event EventHandler<DamageTakenEventArgs> AnyUnitTookDamageEvent;
+    public static event EventHandler<HealingReceivedEventArgs> AnyUnitReceivedHealingEvent;
+    public static event EventHandler AnyUnitValueChangedEvent;
+    // public event EventHandler ValueChangedEvent;
 
 
     void Awake()
@@ -182,7 +184,7 @@ public class CombatStats : MonoBehaviour
         }
         CurrentHealthPoints += amount;
 
-        OnAnyUnitReceivedHealing?.Invoke(this, new HealingReceivedEventArgs(amount));
+        AnyUnitReceivedHealingEvent?.Invoke(this, new HealingReceivedEventArgs(amount));
     }
 
 
@@ -228,7 +230,7 @@ public class CombatStats : MonoBehaviour
             }
         }
 
-        OnAnyUnitTookDamage?.Invoke(this, new DamageTakenEventArgs(damage, damageType, isCritical, CurrentHealthPoints <= 0));
+        AnyUnitTookDamageEvent?.Invoke(this, new DamageTakenEventArgs(damage, damageType, isCritical, CurrentHealthPoints <= 0));
     }
 
 

@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private EncounterOverScreen encounterOverScreen;
     [SerializeField] private GameObject HUD;
     [SerializeField] private UnitInspector unitInspector;
+    [SerializeField] private UnitOverviewPanel unitOverviewPanel;
 
 
     bool isInputBlocked;
@@ -52,12 +53,37 @@ public class UIManager : MonoBehaviour
         InputManager.Instance.InputStateChangedEvent += HandleInputStateChanged;
         TurnManager.Instance.TurnEndedEvent += HandleTurnEnded;
         CombatEncounterManager.Instance.EncounterOverEvent += HandleEncounterOver;
+        CombatEncounterManager.Instance.EncounterSetupCompleteEvent += HandleEncounterSetupComplete;
         Unit.OnMouseEnterAnyUnit += HandleMouseEnterAnyUnit;
         Unit.OnMouseExitAnyUnit += HandleMouseExitAnyUnit;
-        CombatStats.OnAnyUnitTookDamage += HandleHealthBarUpdate;
-        CombatStats.OnAnyUnitReceivedHealing += HandleHealthBarUpdate;
-        StatusEffectController.AnyUnitReceivedStatusEffectEvent += HanldeStatusEffectInfoPanelUpdate;
-        StatusEffectController.AnyUnitRemovedStatusEffectEvent += HanldeStatusEffectInfoPanelUpdate;
+        CombatStats.AnyUnitTookDamageEvent += HandleHealthBarUpdate;
+        CombatStats.AnyUnitReceivedHealingEvent += HandleHealthBarUpdate;
+        StatusEffectController.AnyUnitStatusEffectsChangedEvent += HanldeStatusEffectInfoPanelUpdate;
+        PortraitBehavior.AnyPortraitMouseEnterEvent += HandleAnyPortraitMouseEnter;
+        PortraitBehavior.AnyPortraitMouseExitEvent += HandleAnyPortraitMouseExit;
+    }
+
+
+    private void HandleAnyPortraitMouseExit(object sender, EventArgs e)
+    {
+        unitInspector.Hide();
+    }
+
+
+    private void HandleAnyPortraitMouseEnter(object sender, EventArgs e)
+    {
+        PortraitBehavior portrait = sender as PortraitBehavior;
+        ShowUnitInspector(portrait.unit);
+    }
+
+
+    private void HandleEncounterSetupComplete(object sender, EventArgs e)
+    {
+        unitOverviewPanel.Setup(
+            CombatEncounterManager.Instance.GetPlayerUnitList(),
+            CombatEncounterManager.Instance.GetEnemyUnitList()
+            );
+
     }
 
 
@@ -152,6 +178,7 @@ public class UIManager : MonoBehaviour
         if (CombatEncounterManager.Instance != null)
         {
             CombatEncounterManager.Instance.EncounterOverEvent -= HandleEncounterOver;
+            CombatEncounterManager.Instance.EncounterSetupCompleteEvent -= HandleEncounterSetupComplete;
         }
 
         //static events so no null check needed
@@ -180,8 +207,7 @@ public class UIManager : MonoBehaviour
     private void HandleMouseEnterAnyUnit(object sender, EventArgs eventArgs)
     {
         Unit unit = sender as Unit;
-        unitInspector.Setup(unit, true);
-        unitInspector.Show();
+        ShowUnitInspector(unit);
     }
 
 
@@ -202,7 +228,7 @@ public class UIManager : MonoBehaviour
     }
 
 
-    private void HanldeStatusEffectInfoPanelUpdate(object sender, StatusEffect se)
+    private void HanldeStatusEffectInfoPanelUpdate(object sender, EventArgs eventArgs)
     {
         StatusEffectController ctrl = sender as StatusEffectController;
         Unit senderUnit = ctrl.GetComponent<Unit>();
@@ -210,5 +236,12 @@ public class UIManager : MonoBehaviour
         {
             unitInspector.UpdateStatusEffects(ctrl);
         }
+    }
+
+
+    private void ShowUnitInspector(Unit unit)
+    {
+        unitInspector.Setup(unit, true);
+        unitInspector.Show();
     }
 }
