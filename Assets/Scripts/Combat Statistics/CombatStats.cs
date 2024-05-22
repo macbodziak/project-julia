@@ -48,13 +48,71 @@ public class CombatStats : MonoBehaviour
 
     private SoundController unitSounds;
 
-    public int CurrentActionPoints { get => currentActionPoints; set => currentActionPoints = value; }
-    public int CurrentHealthPoints { get => currentHealthPoints; private set => currentHealthPoints = value; }
-    public int Dodge { get => dodge; private set => dodge = value; }
-    public int MaxActionPoints { get => maxActionPoints; private set => maxActionPoints = value; }
-    public int MaxHealthPoints { get => maxHealthPoints; private set => maxHealthPoints = value; }
-    public int MaxPowerPoints { get => maxPowerPoints; private set => maxPowerPoints = value; }
-    public int CurrentPowerPoints { get => currentPowerPoints; set => currentPowerPoints = value; }
+    public int CurrentActionPoints
+    {
+        get => currentActionPoints;
+        set
+        {
+            currentActionPoints = value;
+            AnyUnitActionPointsChangedEvent?.Invoke(this, EventArgs.Empty);
+        }
+    }
+
+    public int CurrentHealthPoints
+    {
+        get => currentHealthPoints;
+        private set
+        {
+            currentHealthPoints = value;
+        }
+    }
+
+    public int Dodge
+    {
+        get => dodge;
+        private set
+        {
+            dodge = value;
+        }
+    }
+
+    public int MaxActionPoints
+    {
+        get => maxActionPoints;
+        private set
+        {
+            maxActionPoints = value;
+            AnyUnitActionPointsChangedEvent?.Invoke(this, EventArgs.Empty);
+        }
+    }
+
+    public int MaxHealthPoints
+    {
+        get => maxHealthPoints;
+        private set
+        {
+            maxHealthPoints = value;
+        }
+    }
+
+    public int MaxPowerPoints
+    {
+        get => maxPowerPoints;
+        private set
+        {
+            maxPowerPoints = value;
+        }
+    }
+
+    public int CurrentPowerPoints
+    {
+        get => currentPowerPoints;
+        set
+        {
+            currentPowerPoints = value;
+        }
+    }
+
     public int ActionPointsModifier
     {
         get => _actionPointsModifier;
@@ -67,8 +125,7 @@ public class CombatStats : MonoBehaviour
 
     public static event EventHandler<DamageTakenEventArgs> AnyUnitTookDamageEvent;
     public static event EventHandler<HealingReceivedEventArgs> AnyUnitReceivedHealingEvent;
-    public static event EventHandler AnyUnitValueChangedEvent;
-    // public event EventHandler ValueChangedEvent;
+    public static event EventHandler AnyUnitActionPointsChangedEvent;
 
 
     void Awake()

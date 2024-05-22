@@ -32,11 +32,11 @@ public class AbilityLayoutController : MonoBehaviour
             newActionButton.button.onClick.AddListener(() => { ActionManager.Instance.SelectedAction = action; });
             if (isActionAvailable(action))
             {
-                newActionButton.button.interactable = false;
+                newActionButton.SetInteractable(true);
             }
             else
             {
-                newActionButton.button.interactable = true;
+                newActionButton.SetInteractable(false);
             }
             newActionButton.UpdateCooldownText();
             buttonList.Add(newActionButton);
@@ -49,11 +49,11 @@ public class AbilityLayoutController : MonoBehaviour
         {
             if (isActionAvailable(actionButton.action))
             {
-                actionButton.button.interactable = false;
+                actionButton.SetInteractable(true);
             }
             else
             {
-                actionButton.button.interactable = true;
+                actionButton.SetInteractable(false);
             }
             actionButton.UpdateCooldownText();
         }
@@ -65,7 +65,7 @@ public class AbilityLayoutController : MonoBehaviour
         {
             foreach (ActionButton actionButton in buttonList)
             {
-                actionButton.button.interactable = false;
+                actionButton.SetInteractable(false);
             }
         }
         else
@@ -76,8 +76,8 @@ public class AbilityLayoutController : MonoBehaviour
 
     private bool isActionAvailable(ActionBehaviour action)
     {
-        return ActionManager.Instance.SelectedUnit.ActionPoints < action.ActionPointCost
-        || ActionManager.Instance.SelectedUnit.PowerPoints < action.PowerPointCost
-        || !action.Ready;
+        return ActionManager.Instance.SelectedUnit.ActionPoints >= action.ActionPointCost
+        && ActionManager.Instance.SelectedUnit.PowerPoints >= action.PowerPointCost
+        && action.Ready;
     }
 }

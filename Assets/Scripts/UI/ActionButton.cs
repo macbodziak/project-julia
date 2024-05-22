@@ -9,7 +9,8 @@ public class ActionButton : MonoBehaviour
 {
     private ActionBehaviour m_action;
     public Button button;
-    [SerializeField] Image _selectedImage;
+    [SerializeField] private Image _selectedImage;
+    [SerializeField] private Image _actionIcon;
     [SerializeField] private TextMeshProUGUI _APCostTextMesh;
     [SerializeField] private TextMeshProUGUI _cooldownTextMesh;
     [SerializeField] private TextMeshProUGUI _PPCostTextMesh;
@@ -69,7 +70,7 @@ public class ActionButton : MonoBehaviour
             {
                 button = GetComponent<Button>();
             }
-            button.GetComponent<Image>().sprite = inIcon;
+            _actionIcon.sprite = inIcon;
         }
     }
 
@@ -94,4 +95,21 @@ public class ActionButton : MonoBehaviour
         _PPCostTextMesh.text = "" + m_action.PowerPointCost;
         SetIcon(m_action.Icon);
     }
+
+
+    public void SetInteractable(bool isInteractable)
+    {
+        if (isInteractable == true)
+        {
+            button.interactable = true;
+            _actionIcon.color = new Color(1f, 1f, 1f);
+
+        }
+        else
+        {
+            button.interactable = false;
+            _actionIcon.color = new Color(0.5f, 0.5f, 0.5f);
+        }
+    }
+
 }

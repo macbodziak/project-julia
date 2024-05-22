@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject HUD;
     [SerializeField] private UnitInspector unitInspector;
     [SerializeField] private UnitOverviewPanel unitOverviewPanel;
+    [SerializeField] private SelectedUnitInspectorPanel selectedUnitPanel;
 
 
     bool isInputBlocked;
@@ -58,6 +59,7 @@ public class UIManager : MonoBehaviour
         Unit.OnMouseExitAnyUnit += HandleMouseExitAnyUnit;
         CombatStats.AnyUnitTookDamageEvent += HandleHealthBarUpdate;
         CombatStats.AnyUnitReceivedHealingEvent += HandleHealthBarUpdate;
+        CombatStats.AnyUnitActionPointsChangedEvent += HandleAnyUnitActionPointsChanged;
         StatusEffectController.AnyUnitStatusEffectsChangedEvent += HanldeStatusEffectInfoPanelUpdate;
         PortraitBehavior.AnyPortraitMouseEnterEvent += HandleAnyPortraitMouseEnter;
         PortraitBehavior.AnyPortraitMouseExitEvent += HandleAnyPortraitMouseExit;
@@ -95,6 +97,16 @@ public class UIManager : MonoBehaviour
         {
             List<ActionBehaviour> actionList = selectedUnit.GetActionList();
             abilityLayoutController.CreateAndShowAbilityList(actionList);
+
+
+            Debug.Log("show Unit Inspector Panel");
+            selectedUnitPanel.Show();
+            selectedUnitPanel.Setup(selectedUnit);
+
+        }
+        else
+        {
+            selectedUnitPanel.Hide();
         }
     }
 
@@ -135,10 +147,8 @@ public class UIManager : MonoBehaviour
     {
         if (TurnManager.Instance.IsPlayerTurn == false)
         {
-            // endTurnButton.interactable = false;
             abilityLayoutController.ClearList();
             currentTurnPlayerText.text = "Enemy Turn";
-
         }
         else
         {
@@ -225,6 +235,11 @@ public class UIManager : MonoBehaviour
         {
             unitInspector.UpdateStats(cs);
         }
+
+        if (senderUnit == selectedUnitPanel.unit)
+        {
+            selectedUnitPanel.UpdateHealthBar(senderUnit);
+        }
     }
 
 
@@ -235,6 +250,18 @@ public class UIManager : MonoBehaviour
         if (senderUnit == unitInspector.unit)
         {
             unitInspector.UpdateStatusEffects(ctrl);
+        }
+    }
+
+
+    private void HandleAnyUnitActionPointsChanged(object sender, EventArgs e)
+    {
+        CombatStats cs = sender as CombatStats;
+        Unit senderUnit = cs.GetComponent<Unit>();
+
+        if (senderUnit == selectedUnitPanel.unit)
+        {
+            selectedUnitPanel.UpdateActionPoints(senderUnit);
         }
     }
 
