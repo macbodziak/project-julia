@@ -2633,7 +2633,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -6664,6 +6664,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 722214769456507283, guid: 91ff8a7a63402584bb0f2316446698db, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 722214769456507283, guid: 91ff8a7a63402584bb0f2316446698db, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 2058bf9a0a66e0b409f593475061a0a8, type: 3}
     - target: {fileID: 2124186409975146438, guid: 91ff8a7a63402584bb0f2316446698db, type: 3}
       propertyPath: startWhenEnabled
       value: 0
@@ -6678,7 +6686,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5003566718875218640, guid: 91ff8a7a63402584bb0f2316446698db, type: 3}
       propertyPath: maxHealthPoints
-      value: 50
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5003566718875218640, guid: 91ff8a7a63402584bb0f2316446698db, type: 3}
       propertyPath: statusEffectSaveValues.content.Array.size

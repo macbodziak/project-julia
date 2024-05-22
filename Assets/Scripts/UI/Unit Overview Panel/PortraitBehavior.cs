@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class PortraitBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private Image healthImage;
     private Unit _unit;
 
 
@@ -21,7 +20,9 @@ public class PortraitBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void SetFillFactor(float fillFactor)
     {
-        healthImage.fillAmount = fillFactor;
+        // healthImage.fillAmount = fillFactor;
+        Image image = GetComponent<Image>();
+        image.material.SetFloat("_FillAmount", fillFactor);
     }
 
 
@@ -39,17 +40,23 @@ public class PortraitBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void Setup(Unit unit)
     {
-        healthImage.fillAmount = 0f;
-
+        Image image = GetComponent<Image>();
         _unit = unit;
         if (unit.Portrait != null)
         {
-            GetComponent<Image>().sprite = unit.Portrait;
+            image.sprite = unit.Portrait;
         }
         else
         {
-            GetComponent<Image>().sprite = Resources.Load<Sprite>("Default_portait");
+            image.sprite = Resources.Load<Sprite>("Default_portait");
         }
+
+        image.material = new Material(image.material);
+        image.material.SetTexture("_BaseMap", image.sprite.texture);
+
+        // (int)UnityEngine.Rendering.RenderQueue.Transparent
+        image.material.renderQueue = 3000;
+
         CombatStats.AnyUnitTookDamageEvent += HandleAnyUnitHealthChanged;
         CombatStats.AnyUnitReceivedHealingEvent += HandleAnyUnitHealthChanged;
     }
@@ -68,10 +75,10 @@ public class PortraitBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExi
         DamageTakenEventArgs e = eventArgs as DamageTakenEventArgs;
         if (e != null)
         {
-            Debug.Log("damage taken..");
             if (e.IsKillingBlow)
             {
-                Destroy(this.gameObject, 0.5f);
+                StartCoroutine(OnDeath(2f));
+                Destroy(this.gameObject, 2f);
             }
         }
     }
@@ -83,4 +90,19 @@ public class PortraitBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExi
         CombatStats.AnyUnitReceivedHealingEvent -= HandleAnyUnitHealthChanged;
     }
 
+
+    private IEnumerator OnDeath(float duration)
+    {
+        Image image = GetComponent<Image>();
+        float startTime = Time.time;
+        float delta = 0f;
+        while (Time.time - startTime < duration)
+        {
+            image.material.SetFloat("_DissolveAmount", delta / duration);
+            delta = Time.time - startTime;
+            yield return null;
+        }
+
+        yield return null;
+    }
 }
