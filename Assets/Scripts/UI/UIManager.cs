@@ -91,23 +91,7 @@ public class UIManager : MonoBehaviour
 
     private void HandleSelectedUnitChanged(object Sender, EventArgs eventArgs)
     {
-        abilityLayoutController.ClearList();
-        Unit selectedUnit = ActionManager.Instance.SelectedUnit;
-        if (selectedUnit != null)
-        {
-            List<ActionBehaviour> actionList = selectedUnit.GetActionList();
-            abilityLayoutController.CreateAndShowAbilityList(actionList);
-
-
-            Debug.Log("show Unit Inspector Panel");
-            selectedUnitPanel.Show();
-            selectedUnitPanel.Setup(selectedUnit);
-
-        }
-        else
-        {
-            selectedUnitPanel.Hide();
-        }
+        UpdateAbilityList();
     }
 
 
@@ -147,7 +131,7 @@ public class UIManager : MonoBehaviour
     {
         if (TurnManager.Instance.IsPlayerTurn == false)
         {
-            abilityLayoutController.ClearList();
+            // abilityLayoutController.ClearList();
             currentTurnPlayerText.text = "Enemy Turn";
         }
         else
@@ -156,6 +140,7 @@ public class UIManager : MonoBehaviour
             // from Blacked and the OnBlockedInputStateExit() method will be called
             endTurnText.text = "Turn " + TurnManager.Instance.TurnNumber;
             currentTurnPlayerText.text = "Players Turn";
+            UpdateAbilityList();
         }
     }
 
@@ -270,5 +255,25 @@ public class UIManager : MonoBehaviour
     {
         unitInspector.Setup(unit, true);
         unitInspector.Show();
+    }
+
+
+    private void UpdateAbilityList()
+    {
+        abilityLayoutController.ClearList();
+        Unit selectedUnit = ActionManager.Instance.SelectedUnit;
+        if (selectedUnit != null)
+        {
+            List<ActionBehaviour> actionList = selectedUnit.GetActionList();
+            abilityLayoutController.CreateAndShowAbilityList(actionList);
+
+            selectedUnitPanel.Show();
+            selectedUnitPanel.Setup(selectedUnit);
+
+        }
+        else
+        {
+            selectedUnitPanel.Hide();
+        }
     }
 }

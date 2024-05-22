@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SelectUnitAndActionState : BaseInputState
 {
+    private Unit lastSelectedUnit;
+
     public override void HandleInput()
     {
         if (Input.GetMouseButtonDown(0))
@@ -32,6 +35,13 @@ public class SelectUnitAndActionState : BaseInputState
     public override void OnEnter()
     {
         ActionManager.Instance.SelectedAction = null;
+        // ActionManager.Instance.SelectedUnit = lastSelectedUnit;
         ActionManager.Instance.ClearTargetList();
+    }
+
+
+    public override void OnExit()
+    {
+        // lastSelectedUnit = ActionManager.Instance.SelectedUnit;
     }
 }

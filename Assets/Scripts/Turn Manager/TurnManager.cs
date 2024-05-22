@@ -161,14 +161,14 @@ public class TurnManager : MonoBehaviour
 
     private void ResetUnitSelection()
     {
-        ActionManager.Instance.SelectedUnit = null;
+        // ActionManager.Instance.SelectedUnit = null;
         ActionManager.Instance.SelectedAction = null;
         InputManager.Instance.SetState(InputState.SelectUnitAndAction);
     }
 
     private void DisableInputAndUnitSelection()
     {
-        ActionManager.Instance.SelectedUnit = null;
+        // ActionManager.Instance.SelectedUnit = null;
         ActionManager.Instance.SelectedAction = null;
         InputManager.Instance.SetState(InputState.Blocked);
     }

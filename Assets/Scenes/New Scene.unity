@@ -2979,6 +2979,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerUnits:
+  - {fileID: 1921367354}
+  - {fileID: 1657760075}
   - {fileID: 58182220}
   enemyUnits:
   - {fileID: 917896664}
@@ -4048,7 +4050,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1569557805
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7801,11 +7803,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1703112817867213168, guid: 88688d851824552438e21f902e18e461, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 608
       objectReference: {fileID: 0}
     - target: {fileID: 1703112817867213168, guid: 88688d851824552438e21f902e18e461, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 148
       objectReference: {fileID: 0}
     - target: {fileID: 1703112817867213168, guid: 88688d851824552438e21f902e18e461, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7881,7 +7883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3168374242694578073, guid: 88688d851824552438e21f902e18e461, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3950192117857762278, guid: 88688d851824552438e21f902e18e461, type: 3}
       propertyPath: m_AnchorMax.y

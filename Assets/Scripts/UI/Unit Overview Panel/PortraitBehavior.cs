@@ -20,7 +20,6 @@ public class PortraitBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void SetFillFactor(float fillFactor)
     {
-        // healthImage.fillAmount = fillFactor;
         Image image = GetComponent<Image>();
         image.material.SetFloat("_FillAmount", fillFactor);
     }
@@ -54,7 +53,6 @@ public class PortraitBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExi
         image.material = new Material(image.material);
         image.material.SetTexture("_BaseMap", image.sprite.texture);
 
-        // (int)UnityEngine.Rendering.RenderQueue.Transparent
         image.material.renderQueue = 3000;
 
         CombatStats.AnyUnitTookDamageEvent += HandleAnyUnitHealthChanged;
