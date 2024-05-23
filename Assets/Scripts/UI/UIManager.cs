@@ -53,8 +53,8 @@ public class UIManager : MonoBehaviour
         ActionManager.Instance.ActionCompletedEvent += HandleActionCompleted;
         InputManager.Instance.InputStateChangedEvent += HandleInputStateChanged;
         TurnManager.Instance.TurnEndedEvent += HandleTurnEnded;
-        CombatEncounterManager.Instance.EncounterOverEvent += HandleEncounterOver;
-        CombatEncounterManager.Instance.EncounterSetupCompleteEvent += HandleEncounterSetupComplete;
+        GameManagement.EncounterManager.Instance.EncounterOverEvent += HandleEncounterOver;
+        GameManagement.EncounterManager.Instance.EncounterSetupCompleteEvent += HandleEncounterSetupComplete;
         Unit.OnMouseEnterAnyUnit += HandleMouseEnterAnyUnit;
         Unit.OnMouseExitAnyUnit += HandleMouseExitAnyUnit;
         CombatStats.AnyUnitTookDamageEvent += HandleHealthBarUpdate;
@@ -82,8 +82,8 @@ public class UIManager : MonoBehaviour
     private void HandleEncounterSetupComplete(object sender, EventArgs e)
     {
         unitOverviewPanel.Setup(
-            CombatEncounterManager.Instance.GetPlayerUnitList(),
-            CombatEncounterManager.Instance.GetEnemyUnitList()
+            GameManagement.EncounterManager.Instance.GetPlayerUnitList(),
+            GameManagement.EncounterManager.Instance.GetEnemyUnitList()
             );
 
     }
@@ -170,10 +170,10 @@ public class UIManager : MonoBehaviour
             TurnManager.Instance.TurnEndedEvent -= HandleTurnEnded;
         }
 
-        if (CombatEncounterManager.Instance != null)
+        if (GameManagement.EncounterManager.Instance != null)
         {
-            CombatEncounterManager.Instance.EncounterOverEvent -= HandleEncounterOver;
-            CombatEncounterManager.Instance.EncounterSetupCompleteEvent -= HandleEncounterSetupComplete;
+            GameManagement.EncounterManager.Instance.EncounterOverEvent -= HandleEncounterOver;
+            GameManagement.EncounterManager.Instance.EncounterSetupCompleteEvent -= HandleEncounterSetupComplete;
         }
 
         //static events so no null check needed

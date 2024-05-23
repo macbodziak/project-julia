@@ -14,7 +14,7 @@ public class SelectTargetWithoutStatusEffect : Action
 
 	public override TaskStatus OnUpdate()
 	{
-		List<Unit> units = CombatEncounterManager.Instance.GetPlayerUnitList();
+		List<Unit> units = GameManagement.EncounterManager.Instance.GetPlayerUnitList();
 
 		if (units.Count == 0)
 		{

@@ -17,7 +17,7 @@ public class SelectAllEnemyTargetsState : BaseInputState
                 {
                     if (isHovereingOverAnyUnit == false)
                     {
-                        foreach (Unit enemyUnit in CombatEncounterManager.Instance.GetEnemyUnitList())
+                        foreach (Unit enemyUnit in GameManagement.EncounterManager.Instance.GetEnemyUnitList())
                         {
                             enemyUnit.SetSelectionVisual(true);
                         }
@@ -26,7 +26,7 @@ public class SelectAllEnemyTargetsState : BaseInputState
 
                     if (Input.GetMouseButtonDown(0))
                     {
-                        ActionManager.Instance.SetTargetList(CombatEncounterManager.Instance.GetEnemyUnitList());
+                        ActionManager.Instance.SetTargetList(GameManagement.EncounterManager.Instance.GetEnemyUnitList());
                         ActionManager.Instance.StartSelectedAction();
                     }
                 }
@@ -36,7 +36,7 @@ public class SelectAllEnemyTargetsState : BaseInputState
         {
             if (isHovereingOverAnyUnit == true)
             {
-                foreach (Unit enemyUnit in CombatEncounterManager.Instance.GetEnemyUnitList())
+                foreach (Unit enemyUnit in GameManagement.EncounterManager.Instance.GetEnemyUnitList())
                 {
                     enemyUnit.SetSelectionVisual(false);
                 }
@@ -47,7 +47,7 @@ public class SelectAllEnemyTargetsState : BaseInputState
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            foreach (Unit enemyUnit in CombatEncounterManager.Instance.GetEnemyUnitList())
+            foreach (Unit enemyUnit in GameManagement.EncounterManager.Instance.GetEnemyUnitList())
             {
                 enemyUnit.SetSelectionVisual(false);
             }
@@ -59,7 +59,7 @@ public class SelectAllEnemyTargetsState : BaseInputState
     {
         if (isHovereingOverAnyUnit == true)
         {
-            foreach (Unit enemyUnit in CombatEncounterManager.Instance.GetEnemyUnitList())
+            foreach (Unit enemyUnit in GameManagement.EncounterManager.Instance.GetEnemyUnitList())
             {
                 enemyUnit.SetSelectionVisual(false);
             }

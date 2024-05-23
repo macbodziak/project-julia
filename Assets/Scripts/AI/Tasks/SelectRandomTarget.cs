@@ -67,14 +67,14 @@ namespace EnemyAI
 
 		private List<Unit> GetAllAllyTargets()
 		{
-			return CombatEncounterManager.Instance.GetEnemyUnitList();
+			return GameManagement.EncounterManager.Instance.GetEnemyUnitList();
 		}
 
 
 		private List<Unit> GetSingleAllyTarget()
 		{
 			List<Unit> selectedUnits = new();
-			List<Unit> enemyUnits = CombatEncounterManager.Instance.GetEnemyUnitList();
+			List<Unit> enemyUnits = GameManagement.EncounterManager.Instance.GetEnemyUnitList();
 			int count = enemyUnits.Count;
 
 			//check if there are still enemy characters alive, or the previous action in this turn has killed all
@@ -99,7 +99,7 @@ namespace EnemyAI
 		private List<Unit> GetRandomSingleEnemyTarget()
 		{
 			List<Unit> selectedUnits = new();
-			List<Unit> playerUnits = CombatEncounterManager.Instance.GetPlayerUnitList();
+			List<Unit> playerUnits = GameManagement.EncounterManager.Instance.GetPlayerUnitList();
 			int count = playerUnits.Count;
 
 			//check if there are still player characters, or the previous action in this turn has killed all
@@ -118,7 +118,7 @@ namespace EnemyAI
 
 		private List<Unit> GetMultipleEnemyTargets(int numberOfTargets)
 		{
-			List<Unit> playerUnits = CombatEncounterManager.Instance.GetPlayerUnitList();
+			List<Unit> playerUnits = GameManagement.EncounterManager.Instance.GetPlayerUnitList();
 
 			//check if there are still player characters, or the previous action in this turn has killed all
 			if (playerUnits.Count == 0)
@@ -146,9 +146,9 @@ namespace EnemyAI
 
 		private List<Unit> GetAllEnemyTargets()
 		{
-			if (CombatEncounterManager.Instance.GetPlayerUnitList().Count > 0)
+			if (GameManagement.EncounterManager.Instance.GetPlayerUnitList().Count > 0)
 			{
-				return CombatEncounterManager.Instance.GetPlayerUnitList();
+				return GameManagement.EncounterManager.Instance.GetPlayerUnitList();
 			}
 			//the if statement above failes if there are no more player units alive
 			taskFailed = true;

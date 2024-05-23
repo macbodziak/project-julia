@@ -17,7 +17,7 @@ namespace EnemyAI
 
         public override TaskStatus OnUpdate()
         {
-            List<Unit> units = CombatEncounterManager.Instance.GetEnemyUnitList();
+            List<Unit> units = GameManagement.EncounterManager.Instance.GetEnemyUnitList();
 
             if (units.Count == 0)
             {

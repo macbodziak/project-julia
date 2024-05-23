@@ -55,13 +55,13 @@ public class TurnManager : MonoBehaviour
     {
         if (IsPlayerTurn)
         {
-            ProcessPassiveStatusEffects(CombatEncounterManager.Instance.GetPlayerUnitList());
+            ProcessPassiveStatusEffects(GameManagement.EncounterManager.Instance.GetPlayerUnitList());
             IsPlayerTurn = false;
             StartCoroutine(StartEnemyTurn());
         }
         else
         {
-            ProcessPassiveStatusEffects(CombatEncounterManager.Instance.GetEnemyUnitList());
+            ProcessPassiveStatusEffects(GameManagement.EncounterManager.Instance.GetEnemyUnitList());
             IsPlayerTurn = true;
             StartCoroutine(StartPlayerTurn());
             TurnNumber++;
@@ -100,12 +100,12 @@ public class TurnManager : MonoBehaviour
     private IEnumerator StartEnemyTurn()
     {
         DisableInputAndUnitSelection();
-        List<StatusEffectController> statusControllers = ProcessActiveStatusEffects(CombatEncounterManager.Instance.GetEnemyUnitList());
+        List<StatusEffectController> statusControllers = ProcessActiveStatusEffects(GameManagement.EncounterManager.Instance.GetEnemyUnitList());
         while (HasStatusEffectProcessingCompleted(statusControllers) == false)
         {
             yield return new WaitForSeconds(0.12f);
         }
-        TickCooldownCounter(CombatEncounterManager.Instance.GetEnemyUnitList());
+        TickCooldownCounter(GameManagement.EncounterManager.Instance.GetEnemyUnitList());
         ResetEnemyActionPoints();
         EnemyAI.EnemyAIManager.Instance.StartEnemyTurn();
         yield return null;
@@ -113,14 +113,14 @@ public class TurnManager : MonoBehaviour
 
     private IEnumerator StartPlayerTurn()
     {
-        List<StatusEffectController> statusControllers = ProcessActiveStatusEffects(CombatEncounterManager.Instance.GetPlayerUnitList());
+        List<StatusEffectController> statusControllers = ProcessActiveStatusEffects(GameManagement.EncounterManager.Instance.GetPlayerUnitList());
         while (HasStatusEffectProcessingCompleted(statusControllers) == false)
         {
             yield return new WaitForSeconds(0.12f);
         }
-        if (CombatEncounterManager.Instance.IsEncounterOver == false)
+        if (GameManagement.EncounterManager.Instance.IsEncounterOver == false)
         {
-            TickCooldownCounter(CombatEncounterManager.Instance.GetPlayerUnitList());
+            TickCooldownCounter(GameManagement.EncounterManager.Instance.GetPlayerUnitList());
             ResetPlayerActionPoints();
             ResetUnitSelection();
         }
@@ -143,7 +143,7 @@ public class TurnManager : MonoBehaviour
 
     private void ResetPlayerActionPoints()
     {
-        List<Unit> playerUnits = CombatEncounterManager.Instance.GetPlayerUnitList();
+        List<Unit> playerUnits = GameManagement.EncounterManager.Instance.GetPlayerUnitList();
         foreach (Unit unit in playerUnits)
         {
             unit.combatStats.ResetActionPoints();
@@ -152,7 +152,7 @@ public class TurnManager : MonoBehaviour
 
     private void ResetEnemyActionPoints()
     {
-        List<Unit> enemyUnits = CombatEncounterManager.Instance.GetEnemyUnitList();
+        List<Unit> enemyUnits = GameManagement.EncounterManager.Instance.GetEnemyUnitList();
         foreach (Unit unit in enemyUnits)
         {
             unit.combatStats.ResetActionPoints();

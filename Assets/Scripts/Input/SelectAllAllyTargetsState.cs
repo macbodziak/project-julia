@@ -17,7 +17,7 @@ public class SelectAllAllyTargetsState : BaseInputState
                 {
                     if (isHovereingOverAnyUnit == false)
                     {
-                        foreach (Unit playerUnit in CombatEncounterManager.Instance.GetPlayerUnitList())
+                        foreach (Unit playerUnit in GameManagement.EncounterManager.Instance.GetPlayerUnitList())
                         {
                             playerUnit.SetSelectionVisual(true);
                         }
@@ -26,7 +26,7 @@ public class SelectAllAllyTargetsState : BaseInputState
 
                     if (Input.GetMouseButtonDown(0))
                     {
-                        ActionManager.Instance.SetTargetList(CombatEncounterManager.Instance.GetPlayerUnitList());
+                        ActionManager.Instance.SetTargetList(GameManagement.EncounterManager.Instance.GetPlayerUnitList());
                         ActionManager.Instance.StartSelectedAction();
                     }
                 }
@@ -36,7 +36,7 @@ public class SelectAllAllyTargetsState : BaseInputState
         {
             if (isHovereingOverAnyUnit == true)
             {
-                foreach (Unit playerUnit in CombatEncounterManager.Instance.GetPlayerUnitList())
+                foreach (Unit playerUnit in GameManagement.EncounterManager.Instance.GetPlayerUnitList())
                 {
                     if (playerUnit != ActionManager.Instance.SelectedUnit)
                     {
@@ -50,7 +50,7 @@ public class SelectAllAllyTargetsState : BaseInputState
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            foreach (Unit playerUnit in CombatEncounterManager.Instance.GetPlayerUnitList())
+            foreach (Unit playerUnit in GameManagement.EncounterManager.Instance.GetPlayerUnitList())
             {
                 if (playerUnit != ActionManager.Instance.SelectedUnit)
                 {
@@ -65,7 +65,7 @@ public class SelectAllAllyTargetsState : BaseInputState
     {
         if (isHovereingOverAnyUnit == true)
         {
-            foreach (Unit playerUnit in CombatEncounterManager.Instance.GetPlayerUnitList())
+            foreach (Unit playerUnit in GameManagement.EncounterManager.Instance.GetPlayerUnitList())
             {
                 if (playerUnit != ActionManager.Instance.SelectedUnit)
                 {

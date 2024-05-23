@@ -224,7 +224,7 @@ public class UnitSetupHelper : EditorWindow
             // infoLabelText += "<color=#ff5e5e>U</color>";
         }
 
-        SerializedObject combatEncounterManager = new SerializedObject(FindObjectOfType<CombatEncounterManager>());
+        SerializedObject combatEncounterManager = new SerializedObject(FindObjectOfType<GameManagement.EncounterManager>());
         if (combatEncounterManager == null)
         {
             infoLabelText += "<color=#ff5e5e>Unable to get Combat Encounter Manager</color>";

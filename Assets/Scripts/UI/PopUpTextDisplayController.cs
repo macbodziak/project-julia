@@ -18,8 +18,8 @@ public class PopUpTextDisplayController : MonoBehaviour
     {
         textDrawer = GetComponent<TextToCanvasDrawer>();
 
-        Unit.OnMouseEnterAnyUnit += HandleMouseEnterAnyUnit;
-        Unit.OnMouseExitAnyUnit += HandleMouseExitAnyUnit;
+        // Unit.OnMouseEnterAnyUnit += HandleMouseEnterAnyUnit;
+        // Unit.OnMouseExitAnyUnit += HandleMouseExitAnyUnit;
 
         CombatStats.AnyUnitTookDamageEvent += HandleAnyUnitTookDamage;
         CombatStats.AnyUnitReceivedHealingEvent += HanldeAnyUnitReceivedHealing;

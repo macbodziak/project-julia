@@ -41,15 +41,15 @@ namespace EnemyAI
 
         private void Start()
         {
-            CombatEncounterManager.Instance.EncounterOverEvent += HandleEncounterOver;
+            GameManagement.EncounterManager.Instance.EncounterOverEvent += HandleEncounterOver;
         }
 
 
         private void OnDestroy()
         {
-            if (CombatEncounterManager.Instance != null)
+            if (GameManagement.EncounterManager.Instance != null)
             {
-                CombatEncounterManager.Instance.EncounterOverEvent -= HandleEncounterOver;
+                GameManagement.EncounterManager.Instance.EncounterOverEvent -= HandleEncounterOver;
             }
         }
 
@@ -64,7 +64,7 @@ namespace EnemyAI
         {
             yield return new WaitForSeconds(0.2f);
             enemies.Clear();
-            enemies.AddRange(CombatEncounterManager.Instance.GetEnemyUnitList());
+            enemies.AddRange(GameManagement.EncounterManager.Instance.GetEnemyUnitList());
 
             foreach (Unit enemy in enemies)
             {

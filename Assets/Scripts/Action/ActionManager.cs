@@ -154,7 +154,7 @@ public class ActionManager : MonoBehaviour
     // that the action has finished
     private void InternalOnActionCompleted()
     {
-        if (CombatEncounterManager.Instance.IsEncounterOver == false)
+        if (GameManagement.EncounterManager.Instance.IsEncounterOver == false)
         {
             InputManager.Instance.SetState(InputState.SelectUnitAndAction);
         }
