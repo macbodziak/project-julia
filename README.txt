@@ -66,12 +66,26 @@ The Unit Setup Helper configures the selected GameObject by:
     Configuring the isPlayer property of the Unit component based on the toggle state.
     Adding a BehaviorTree component for non-player units.
     Adding a SelectedVisual component and its associated prefab as a child.
+	Adding Sound Source and Sound Controller
 	
 To add a new unit, place a character prefab from synty assets folder, select it, and run the Unit Setup Helper. 
 Next, add the unit to the Combat Encounter Manager. The Unit Setup Helper can automate this as well.
 You can also do it manually, see steps above.
 Add Animator asset to Animator component;
 For Enemies, add exisiting or deisgn new Behavior Asset;
+Set The Collider size porperly
+
+
+-- Game and Encounter Management:
+Static class GameManager is responsible for setting up encounters in the game. 
+	It loads the player units from prefabs, retrieves enemy units and scene information from an encounter config, and then initiates the loading of the encounter scene. Because it is static, it persists between scenes.
+EncounterConfig is an abstract ScriptableObject which purpose is to provide data about the scene index and enemies for an encounter. 
+	By overriding the Get methods we can provide this data, either as preset data or a random mechanism.
+	Scenes need to have all required Scripts attached, thats why its best to use the Dungeon scene template as reference
+EncounterManager is responsible for managing encounters during gameplay. 
+	It populates the playerUnits and enemyUnits lists by instantiating prefabs retrieved from the GameManager class and positioning them at designated spawn points at the beginning of the frame.
+	It removes dead units from the respective list and checks for encounter end if all units of either side are dead (triggers OnEncounterOver).
+	OnEncounterOver: Blocks player input, sets the encounter over flag, and triggers the EncounterOverEvent with a win/lose condition.
 
 
 --- Working with Behavior Tree

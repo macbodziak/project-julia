@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace GameManagement
@@ -20,6 +21,8 @@ namespace GameManagement
 
         public bool IsEncounterOver { get; private set; }
 
+
+
         private void Awake()
         {
             if (_instance != null && _instance != this)
@@ -33,45 +36,82 @@ namespace GameManagement
             }
         }
 
+
+
         private void InitializeOnAwake()
         {
+            playerUnits = new();
+            enemyUnits = new();
             IsEncounterOver = false;
         }
+
+
+        //<summary>
+        // This method fetches the units from the static class Game Manager at the start of the scene initialization
+        //</summary>
+        private void SetupUnits()
+        {
+            Unit newUnit;
+
+            for (int i = 0; i < GameManagement.GameManager.PlayerUnits.Count; i++)
+            {
+                newUnit = Instantiate<Unit>(GameManagement.GameManager.PlayerUnits[i]);
+                playerUnits.Add(newUnit);
+                newUnit.transform.SetPositionAndRotation(playerSpawnPoints[i].position, playerSpawnPoints[i].rotation);
+            }
+
+            for (int i = 0; i < GameManagement.GameManager.EnemyUnits.Count; i++)
+            {
+                newUnit = Instantiate<Unit>(GameManagement.GameManager.EnemyUnits[i]);
+                enemyUnits.Add(newUnit);
+                newUnit.transform.SetPositionAndRotation(enemySpawnPoints[i].position, enemySpawnPoints[i].rotation);
+            }
+        }
+
+
 
         private void Start()
         {
             CombatStats.AnyUnitTookDamageEvent += HandleAnyUnitTookDamage;
+            SetupUnits();
 
-            //DEBUG - for testing only
-            StartCoroutine(DebugStatusEffects());
-
-            //end of testing code
+            StartCoroutine(LateStart());
         }
 
-        //DEBUG - for testing only
-        private IEnumerator DebugStatusEffects()
+
+
+        //<summary>
+        // This method gets invoked after all other GamObject have called their Start methods, to ensure that 
+        // all listeners had a chance to subscribe to the EncounterSetupCompleteEvent event
+        //</summary>
+        private IEnumerator LateStart()
         {
             yield return null;
-
             EncounterSetupCompleteEvent?.Invoke(this, EventArgs.Empty);
             yield return null;
         }
-        //end of testing code
+
+
 
         public int GetEnemyCount()
         {
             return enemyUnits.Count;
         }
 
+
+
         public List<Unit> GetEnemyUnitList()
         {
             return enemyUnits;
         }
 
+
+
         public List<Unit> GetPlayerUnitList()
         {
             return playerUnits;
         }
+
 
 
         private void HandleAnyUnitTookDamage(object sender, DamageTakenEventArgs eventArgs)
@@ -92,6 +132,8 @@ namespace GameManagement
             }
         }
 
+
+
         private void RegisterEnemyDeath(Unit unit)
         {
             enemyUnits.Remove(unit);
@@ -101,6 +143,8 @@ namespace GameManagement
             }
         }
 
+
+
         private void RegisterPlayerCharacterDeath(Unit unit)
         {
             playerUnits.Remove(unit);
@@ -109,6 +153,8 @@ namespace GameManagement
                 OnEncounterOver(false);
             }
         }
+
+
 
         private void OnEncounterOver(bool playerWon)
         {
@@ -124,5 +170,6 @@ namespace GameManagement
                 EncounterOverEvent?.Invoke(this, new EncounterOverEventArgs(false));
             }
         }
+
     }
 }

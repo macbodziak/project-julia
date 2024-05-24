@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Development Scene.unity
     guid: 9fec5201d630e56499097932b32f3d46
   - enabled: 1
+    path: Assets/Scenes/Forest Scene 01.unity
+    guid: fe79ce207294fd0448c702848350be41
+  - enabled: 1
     path: Assets/Scenes/Dungeon Scene 01.unity
     guid: 7e8dd6a62e534a9489765660234e1618
   - enabled: 1
