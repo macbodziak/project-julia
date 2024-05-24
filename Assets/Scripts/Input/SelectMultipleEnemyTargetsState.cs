@@ -83,6 +83,8 @@ public class SelectMultipleEnemyTargetsState : BaseInputState
                 selectedTargets.Clear();
             }
         }
+
+        ProcessKeyboardActionSelection();
     }
 
     public override void OnEnter()

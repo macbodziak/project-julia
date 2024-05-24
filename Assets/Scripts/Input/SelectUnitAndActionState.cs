@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SelectUnitAndActionState : BaseInputState
 {
-    private Unit lastSelectedUnit;
+    private List<ActionBehaviour> selectedUnitsActions;
 
     public override void HandleInput()
     {
@@ -21,6 +21,7 @@ public class SelectUnitAndActionState : BaseInputState
                     if (clickedUnit.IsPlayer)
                     {
                         ActionManager.Instance.SelectedUnit = clickedUnit;
+                        selectedUnitsActions = clickedUnit.GetActionList();
                     }
                 }
             }
@@ -28,7 +29,13 @@ public class SelectUnitAndActionState : BaseInputState
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            selectedUnitsActions = null;
             ActionManager.Instance.SelectedUnit = null;
+        }
+
+        if (ActionManager.Instance.SelectedUnit != null)
+        {
+            ProcessKeyboardActionSelection();
         }
     }
 

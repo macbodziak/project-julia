@@ -25,6 +25,8 @@ public class SelectSelfTargetState : BaseInputState
         {
             InputManager.Instance.SetState(InputState.SelectUnitAndAction);
         }
+
+        ProcessKeyboardActionSelection();
     }
 }
 

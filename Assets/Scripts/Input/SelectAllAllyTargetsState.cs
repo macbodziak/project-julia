@@ -59,6 +59,8 @@ public class SelectAllAllyTargetsState : BaseInputState
             }
             InputManager.Instance.SetState(InputState.SelectUnitAndAction);
         }
+
+        ProcessKeyboardActionSelection();
     }
 
     public override void OnExit()

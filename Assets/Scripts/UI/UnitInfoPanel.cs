@@ -33,8 +33,19 @@ public class UnitInspector : MonoBehaviour
 
     public void UpdateStats(CombatStats combatStats)
     {
-        healthBar.SetProgress(combatStats.CurrentHealthPoints, combatStats.MaxHealthPoints);
-        healthBar.Text = combatStats.CurrentHealthPoints + "  /  " + combatStats.MaxHealthPoints;
+        try
+        {
+            healthBar.SetProgress(combatStats.CurrentHealthPoints, combatStats.MaxHealthPoints);
+            healthBar.Text = combatStats.CurrentHealthPoints + "  /  " + combatStats.MaxHealthPoints;
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError("An error occurred: " + ex.Message);
+            if (combatStats == null)
+            {
+                Debug.LogWarning("CombatStats is null");
+            }
+        }
     }
 
 

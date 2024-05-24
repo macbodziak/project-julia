@@ -50,6 +50,9 @@ public class SelectSingleEnemyTargetState : BaseInputState
         {
             InputManager.Instance.SetState(InputState.SelectUnitAndAction);
         }
+
+        ProcessKeyboardActionSelection();
+
     }
 
     public override void OnExit()

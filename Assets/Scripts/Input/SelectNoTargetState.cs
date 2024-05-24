@@ -19,6 +19,8 @@ public class SelectNoTargetState : BaseInputState
         {
             InputManager.Instance.SetState(InputState.SelectUnitAndAction);
         }
+
+        ProcessKeyboardActionSelection();
     }
 }
 
