@@ -273,4 +273,15 @@ public class StatusEffectController : MonoBehaviour
     {
         return earlyStatusEffectsBehaviours.Count + statusEffectsBehaviours.Count;
     }
+
+
+
+    public static void ClearAllListeners()
+    {
+        AnyUnitImmuneToStatusEffectEvent = null;
+        AnyUnitSavedFromStatusEffectEvent = null;
+        AnyUnitReceivedStatusEffectEvent = null;
+        AnyUnitRemovingStatusEffectEvent = null;
+        AnyUnitStatusEffectsChangedEvent = null;
+    }
 }

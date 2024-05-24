@@ -11,6 +11,7 @@ namespace GameManagement
         private static List<Unit> playerUnits;
         private static List<Unit> enemyUnits;
         private static int sceneIndex;
+        private static int encounterIndex;
         private static EncounterConfig encounterConfig;
 
 
@@ -28,10 +29,11 @@ namespace GameManagement
 
 
 
-        public static void LoadEncounter()
+        public static void LoadEncounter(int index)
         {
             LoadEncounterConfig();
             LoadPlayerUnits();
+            ClearAllStaticEvents();
             SceneManager.LoadSceneAsync(sceneIndex, LoadSceneMode.Single);
         }
 
@@ -62,9 +64,49 @@ namespace GameManagement
                 return;
             }
             sceneIndex = encounterConfig.GetSceneIndex();
-            enemyUnits = encounterConfig.GetEnemyUnits();
+            enemyUnits.AddRange(encounterConfig.GetEnemyUnits());
         }
 
 
+
+        public static void NewGame()
+        {
+            playerUnits.Clear();
+            enemyUnits.Clear();
+            encounterIndex = 0;
+            LoadEncounter(encounterIndex);
+        }
+
+
+
+        public static void ExitGame()
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            // If running in a standalone build
+            Application.Quit();
+#endif
+        }
+
+
+
+        public static void LoadMainMenu()
+        {
+            playerUnits.Clear();
+            enemyUnits.Clear();
+            ClearAllStaticEvents();
+            SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
+        }
+
+
+
+        private static void ClearAllStaticEvents()
+        {
+            Unit.ClearAllListeners();
+            CombatStats.ClearAllListeners();
+            StatusEffectController.ClearAllListeners();
+            PortraitBehavior.ClearAllListeners();
+        }
     }
 }

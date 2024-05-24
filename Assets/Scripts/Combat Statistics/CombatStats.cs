@@ -296,4 +296,14 @@ public class CombatStats : MonoBehaviour
         Animator anim = GetComponent<Animator>();
         anim.SetTrigger("HitReaction");
     }
+
+
+    public static void ClearAllListeners()
+    {
+
+        AnyUnitTookDamageEvent = null;
+        AnyUnitReceivedHealingEvent = null;
+        AnyUnitActionPointsChangedEvent = null;
+    }
+
 }

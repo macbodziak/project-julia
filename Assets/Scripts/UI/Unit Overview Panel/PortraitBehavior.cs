@@ -103,4 +103,11 @@ public class PortraitBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
         yield return null;
     }
+
+
+    public static void ClearAllListeners()
+    {
+        AnyPortraitMouseEnterEvent = null;
+        AnyPortraitMouseExitEvent = null;
+    }
 }

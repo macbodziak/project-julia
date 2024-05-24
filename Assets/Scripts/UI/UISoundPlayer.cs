@@ -5,6 +5,8 @@ using UnityEngine;
 public class UISoundPlayer : MonoBehaviour
 {
     [SerializeField] private AudioClip buttonClicked;
+    [SerializeField] private AudioClip wonSound;
+    [SerializeField] private AudioClip lostSound;
     private AudioSource audioSource;
     static private UISoundPlayer _instance;
 
@@ -20,6 +22,9 @@ public class UISoundPlayer : MonoBehaviour
         else
         {
             _instance = this;
+            Debug.Assert(buttonClicked);
+            Debug.Assert(wonSound);
+            Debug.Assert(lostSound);
         }
     }
 
@@ -29,15 +34,35 @@ public class UISoundPlayer : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+
+
     public void PlayAudioClip(AudioClip clip)
     {
         audioSource.clip = clip;
         audioSource.Play();
     }
 
+
+
     public void PlayButtonClickedSound()
     {
         audioSource.clip = buttonClicked;
+        audioSource.Play();
+    }
+
+
+
+    public void PlayWonSound()
+    {
+        audioSource.clip = wonSound;
+        audioSource.Play();
+    }
+
+
+
+    public void PlayLostSound()
+    {
+        audioSource.clip = lostSound;
         audioSource.Play();
     }
 }

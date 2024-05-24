@@ -24,7 +24,7 @@ namespace MainMenu
         public void NewGame()
         {
             loadingText.enabled = true;
-            GameManagement.GameManager.LoadEncounter();
+            GameManagement.GameManager.NewGame();
         }
     }
 }

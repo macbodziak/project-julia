@@ -17,6 +17,10 @@ public class UnitInspector : MonoBehaviour
 
     public void Setup(Unit unit, bool showTextArg = false)
     {
+        if (unit == null)
+        {
+            return;
+        }
         _unit = unit;
         unitNameTextMesh.text = unit.Name; ;
 

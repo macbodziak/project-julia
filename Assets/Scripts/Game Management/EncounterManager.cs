@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using BehaviorDesigner.Runtime.Tasks.Unity.UnityParticleSystem;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -160,6 +161,8 @@ namespace GameManagement
         {
             InputManager.Instance.SetState(InputState.Blocked);
             IsEncounterOver = true;
+
+            // Clear all static events
 
             if (playerWon)
             {

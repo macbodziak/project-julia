@@ -194,7 +194,16 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
         InputManager.Instance.SetState(InputState.EncounterOverScreen);
         HUD.SetActive(false);
-        encounterOverScreen.Show(playerWon);
+        if (playerWon)
+        {
+            GetComponent<UISoundPlayer>().PlayWonSound();
+            encounterOverScreen.Show(playerWon);
+        }
+        else
+        {
+            GetComponent<UISoundPlayer>().PlayLostSound();
+            encounterOverScreen.Show(playerWon);
+        }
         yield return null;
     }
 

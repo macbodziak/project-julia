@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Unity.VisualScripting;
 
 public class Unit : MonoBehaviour
 {
@@ -59,6 +60,12 @@ public class Unit : MonoBehaviour
 
     public string Name { get => _name; }
 
+
+    private void Awake()
+    {
+
+    }
+
     private void Start()
     {
         selectedVisual = GetComponent<SelectedVisual>();
@@ -95,5 +102,21 @@ public class Unit : MonoBehaviour
     private void OnMouseExit()
     {
         OnMouseExitAnyUnit?.Invoke(this, EventArgs.Empty);
+    }
+
+
+    public static void ClearAllListeners()
+    {
+        OnMouseEnterAnyUnit = null;
+        OnMouseExitAnyUnit = null;
+        // ClearEventListeners(OnMouseExitAnyUnit.GetInvocationList());
+    }
+
+    private static void ClearEventListeners(Delegate[] subscribers)
+    {
+        foreach (Delegate subscriber in subscribers)
+        {
+            OnMouseEnterAnyUnit -= (EventHandler)subscriber;
+        }
     }
 }
