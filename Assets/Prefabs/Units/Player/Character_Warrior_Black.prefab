@@ -677,13 +677,16 @@ MonoBehaviour:
     content: 0000000000000000000000000000000000000000
     enumType: 0
   statusEffectSaveValues:
-    content: 21000000210000002100000021000000210000000000000000000000
+    content: 2100000021000000210000002100000021000000000000000000000000000000000000000000000000000000000000000000000000000000
     enumType: 0
   DamageMultiplier: 1
   DodgeModifier: 0
   _actionPointsModifier: 0
   HitChanceModifier: 0
   CritChanceModifier: 0
+  damageResistanceModifiers:
+    content: 0000000000000000000000000000000000000000
+    enumType: 0
   NoActionPointsRefresh: 0
 --- !u!114 &1627642804987878907
 MonoBehaviour:
@@ -697,6 +700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b146fdb0b2557f4b82180e547573c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  earlyStatusEffectsBehaviours: []
   statusEffectsBehaviours: []
 --- !u!114 &5241461923983978203
 MonoBehaviour:
@@ -710,7 +714,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8927f73b228449409ad82156e706cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionList: []
 --- !u!114 &5772654331408216954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -723,7 +726,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24f09dd13d4c53469bea82299d981f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  portrait: {fileID: 0}
   isPlayer: 1
+  _name: 
 --- !u!114 &5545364188834478697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -775,6 +780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: af545b22d7e8557488216a116d264da4, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!114 &8848871930082116318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -789,6 +795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: 1c2b2a9c6ed0610428f77ca6a9b0cbdf, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!114 &8767699524653041017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -803,6 +810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: 1b4e0b9d901644e4ab1992798baafc69, type: 2}
   _cooldown: 0
+  _isInProgress: 0
 --- !u!1 &2126648528423450288
 GameObject:
   m_ObjectHideFlags: 0

@@ -162,8 +162,6 @@ namespace GameManagement
             InputManager.Instance.SetState(InputState.Blocked);
             IsEncounterOver = true;
 
-            // Clear all static events
-
             if (playerWon)
             {
                 EncounterOverEvent?.Invoke(this, new EncounterOverEventArgs(true));

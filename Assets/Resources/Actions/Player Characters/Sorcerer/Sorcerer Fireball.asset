@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dbc633df8e0cbb49abcca58d65f288a, type: 3}
+  m_Name: Sorcerer Fireball
+  m_EditorClassIdentifier: 
+  m_name: Fireball
+  m_actionPointCost: 2
+  m_powerPointCost: 0
+  m_duration: 1.9
+  m_cooldown: 3
+  m_animationTrigger: CastSpell_3
+  m_sprite: {fileID: 21300000, guid: 563ea2855034e9a4285d7068d054c799, type: 3}
+  m_targetingMode: 2
+  m_numberOfTargets: 0
+  m_visualEffectOnHit: {fileID: 9021046772682919827, guid: f0542e5382603194f882df8c65dd1e88, type: 3}
+  m_soundEffect: {fileID: 8300000, guid: 7743889c22ea9472a895ecd63b2bb221, type: 3}
+  minDamage: 20
+  maxDamage: 35
+  hitChance: 70
+  critChance: 7
+  damageType: 1
+  _statusEffects:
+  - statusEffect: {fileID: 11400000, guid: cff717007bbe058428604c2b6d6dfb7d, type: 2}
+    duration: 2

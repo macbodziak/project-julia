@@ -43,13 +43,13 @@ namespace GameManagement
         {
             playerUnits.Clear();
 
-            Unit unit = Resources.Load("Player Hero 1", typeof(Unit)) as Unit;
+            Unit unit = Resources.Load("Prototypes/Player Hero 1", typeof(Unit)) as Unit;
             playerUnits.Add(unit);
 
-            unit = Resources.Load("Player Hero 2", typeof(Unit)) as Unit;
+            unit = Resources.Load("Prototypes/Player Hero 2", typeof(Unit)) as Unit;
             playerUnits.Add(unit);
 
-            unit = Resources.Load("Player Hero 3", typeof(Unit)) as Unit;
+            unit = Resources.Load("Sorcerer", typeof(Unit)) as Unit;
             playerUnits.Add(unit);
         }
 
@@ -57,7 +57,7 @@ namespace GameManagement
 
         private static void LoadEncounterConfig()
         {
-            encounterConfig = Resources.Load("Encounters/Debug Preset Encounter Config", typeof(EncounterConfig)) as EncounterConfig;
+            encounterConfig = Resources.Load("Encounters/Debug Preset Encounter Config 2", typeof(EncounterConfig)) as EncounterConfig;
             if (encounterConfig == null)
             {
                 Debug.Log("<color=brown>Unable to Load Encounter Config</color>");

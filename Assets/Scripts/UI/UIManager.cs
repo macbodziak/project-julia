@@ -211,7 +211,10 @@ public class UIManager : MonoBehaviour
     private void HandleMouseEnterAnyUnit(object sender, EventArgs eventArgs)
     {
         Unit unit = sender as Unit;
-        ShowUnitInspector(unit);
+        if (unit != null)
+        {
+            ShowUnitInspector(unit);
+        }
     }
 
 

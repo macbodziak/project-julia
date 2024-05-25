@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using UnityEditor.SearchService;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace MainMenu
 {
@@ -25,6 +21,13 @@ namespace MainMenu
         {
             loadingText.enabled = true;
             GameManagement.GameManager.NewGame();
+        }
+
+
+
+        public void ExitGame()
+        {
+            GameManagement.GameManager.ExitGame();
         }
     }
 }

@@ -15,8 +15,16 @@ public class EncounterOverScreen : MonoBehaviour
     public void Show(bool playerWon)
     {
         gameObject.SetActive(true);
-        textMesh.text = "Victory";
-        nextButton.onClick.AddListener(GameManagement.GameManager.LoadMainMenu);
+        if (playerWon)
+        {
+            textMesh.text = "Victory";
+            nextButton.onClick.AddListener(GameManagement.GameManager.LoadMainMenu);
+        }
+        else
+        {
+            textMesh.text = "Defeat";
+            nextButton.onClick.AddListener(GameManagement.GameManager.LoadMainMenu);
+        }
         quitButton.onClick.AddListener(GameManagement.GameManager.ExitGame);
     }
 }
