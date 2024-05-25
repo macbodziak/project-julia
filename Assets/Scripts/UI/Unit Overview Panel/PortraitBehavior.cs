@@ -94,9 +94,10 @@ public class PortraitBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExi
         Image image = GetComponent<Image>();
         float startTime = Time.time;
         float delta = 0f;
+        int id = Shader.PropertyToID("_DissolveAmount");
         while (Time.time - startTime < duration)
         {
-            image.material.SetFloat("_DissolveAmount", delta / duration);
+            image.material.SetFloat(id, delta / duration);
             delta = Time.time - startTime;
             yield return null;
         }

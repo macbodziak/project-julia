@@ -2528,6 +2528,7 @@ GameObject:
   - component: {fileID: 8667384769309952725}
   - component: {fileID: 1505312135185956043}
   - component: {fileID: 7549957651327985364}
+  - component: {fileID: 7703739983195055922}
   m_Layer: 3
   m_Name: Player Hero 1
   m_TagString: Untagged
@@ -2895,6 +2896,21 @@ MonoBehaviour:
   onRelieveSound: {fileID: 8300000, guid: 351e9a139e5e7de47ac44bcc8aa063ef, type: 3}
   onDodgeSound: {fileID: 8300000, guid: 5d424353c733f4bff9fe000cd7a6b37f, type: 3}
   SoundEnabled: 1
+--- !u!114 &7703739983195055922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4307124979510492443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionDefinition: {fileID: 11400000, guid: 4b5bf6d1189a3264ea7ce71788c26473, type: 2}
+  _cooldown: 0
+  _isInProgress: 0
 --- !u!1 &4349374235228100629
 GameObject:
   m_ObjectHideFlags: 0
