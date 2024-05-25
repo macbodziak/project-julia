@@ -5802,6 +5802,7 @@ GameObject:
   - component: {fileID: 1297582386262417804}
   - component: {fileID: 7419336710939224218}
   - component: {fileID: 8760125547046309050}
+  - component: {fileID: 9142037673264620380}
   m_Layer: 3
   m_Name: Demon
   m_TagString: Untagged
@@ -5837,10 +5838,10 @@ Animator:
   m_GameObject: {fileID: 5798359312501187311}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a50cd06a0668d1a418d586a2944e3ed5, type: 3}
-  m_Controller: {fileID: 9100000, guid: cdd72641bc3e8194dbf754085e906b3d, type: 2}
+  m_Controller: {fileID: 9100000, guid: f6abe0ebcc4b6c3459f0dba8ccf1122f, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -5886,7 +5887,7 @@ MonoBehaviour:
     content: 0000000032000000000000000000000000000000
     enumType: 0
   statusEffectSaveValues:
-    content: 190000003c00000019000000190000002100000000000000000000000a000000000000000a00000000000000000000000000000000000000
+    content: 190000003c00000019000000190000002100000000000000000000000a000000000000000a000000000000000000000000000000000000000000000000000000000000000000000000000000
     enumType: 0
   DamageMultiplier: 1
   DodgeModifier: 0
@@ -6136,14 +6137,16 @@ MonoBehaviour:
       variableStartIndex: 
       JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(600.5,-10)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.UntilFailure","NodeData":{"Offset":"(0,190)"},"ID":1,"Name":"Until
         Failure","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0,130)"},"ID":2,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"EnemyAI.HasActionPoints","NodeData":{"Offset":"(-470,200)"},"ID":3,"Name":"Has
-        Action Points","Instant":true},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(-1.73912811,240.869568)"},"ID":4,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.RandomSelector","NodeData":{"Offset":"(-220.935669,206.347717)"},"ID":5,"Name":"Random
-        Selector","Instant":true,"Int32seed":0,"BooleanuseSeed":false,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-308.695679,195.652222)"},"ID":6,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"EnemyAI.ChooseActionByName","NodeData":{"Offset":"(-120,160)"},"ID":7,"Name":"Choose
-        Action By Name","Instant":true,"StringactionName":"Mighty Pound","SharedActionBehaviourSelectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}},{"Type":"SelectTargetWithoutStatusEffect","NodeData":{"Offset":"(118.303162,158.303955)"},"ID":8,"Name":"Select
-        Target Without Status Effect","Instant":true,"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]},"StatusEffectTypetype":"Unsteady"}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(213.04364,195.6524)"},"ID":9,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"EnemyAI.ChooseActionByName","NodeData":{"Offset":"(-120,160)"},"ID":10,"Name":"Choose
-        Action By Name","Instant":true,"StringactionName":"Lash Out","SharedActionBehaviourSelectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}},{"Type":"EnemyAI.SelectRandomTarget","NodeData":{"Offset":"(90,160)"},"ID":11,"Name":"Select
-        Random Target","Instant":true,"SharedActionBehaviourselectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true},"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]}}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(571.455444,196.565125)"},"ID":12,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"EnemyAI.ChooseActionByName","NodeData":{"Offset":"(-119.848877,157.8695)"},"ID":13,"Name":"Choose
-        Action By Name","Instant":true,"StringactionName":"Smash","SharedActionBehaviourSelectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}},{"Type":"EnemyAI.SelectRandomTarget","NodeData":{"Offset":"(87.21631,160.043518)"},"ID":14,"Name":"Select
-        Random Target","Instant":true,"SharedActionBehaviourselectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true},"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]}}]}]},{"Type":"EnemyAI.PerformSelectedAction","NodeData":{"Offset":"(490,210)"},"ID":15,"Name":"Perform
+        Action Points","Instant":true},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(-1.73912811,240.869568)"},"ID":4,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-1017.82574,225.434875)"},"ID":5,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"EnemyAI.ChooseActionByName","NodeData":{"Offset":"(-123.043152,158.4784)"},"ID":6,"Name":"Choose
+        Action By Name","Instant":true,"StringactionName":"Demon Mark","SharedActionBehaviourSelectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}},{"Type":"SelectTargetWithoutStatusEffect","NodeData":{"Offset":"(116.956848,158.4784)"},"ID":7,"Name":"Select
+        Target Without Status Effect","Instant":true,"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]},"StatusEffectTypetype":"FireVulnerability"}]},{"Type":"BehaviorDesigner.Runtime.Tasks.RandomSelector","NodeData":{"Offset":"(-220.935669,206.347717)"},"ID":8,"Name":"Random
+        Selector","Instant":true,"Int32seed":0,"BooleanuseSeed":false,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-308.695679,195.652222)"},"ID":9,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"EnemyAI.ChooseActionByName","NodeData":{"Offset":"(-120,160)"},"ID":10,"Name":"Choose
+        Action By Name","Instant":true,"StringactionName":"Mighty Pound","SharedActionBehaviourSelectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}},{"Type":"SelectTargetWithoutStatusEffect","NodeData":{"Offset":"(118.303162,158.303955)"},"ID":11,"Name":"Select
+        Target Without Status Effect","Instant":true,"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]},"StatusEffectTypetype":"Unsteady"}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(343.478455,206.521973)"},"ID":12,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"EnemyAI.ChooseActionByName","NodeData":{"Offset":"(-120,160)"},"ID":13,"Name":"Choose
+        Action By Name","Instant":true,"StringactionName":"Lash Out","SharedActionBehaviourSelectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}},{"Type":"EnemyAI.SelectRandomTarget","NodeData":{"Offset":"(90,160)"},"ID":14,"Name":"Select
+        Random Target","Instant":true,"SharedActionBehaviourselectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true},"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]}}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(571.455444,196.565125)"},"ID":15,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"EnemyAI.ChooseActionByName","NodeData":{"Offset":"(-119.848877,157.8695)"},"ID":16,"Name":"Choose
+        Action By Name","Instant":true,"StringactionName":"Smash","SharedActionBehaviourSelectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}},{"Type":"EnemyAI.SelectRandomTarget","NodeData":{"Offset":"(87.21631,160.043518)"},"ID":17,"Name":"Select
+        Random Target","Instant":true,"SharedActionBehaviourselectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true},"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]}}]}]},{"Type":"EnemyAI.PerformSelectedAction","NodeData":{"Offset":"(490,210)"},"ID":18,"Name":"Perform
         Selected Action","Instant":true,"SharedActionBehaviourselectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true},"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]}}]}]},"Variables":[{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]},{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}]}'
       fieldSerializationData:
         typeName: []
@@ -6170,6 +6173,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 8205678895617405017}
   isVisible: 0
+--- !u!114 &9142037673264620380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5798359312501187311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionDefinition: {fileID: 11400000, guid: ff4ffdc3a9ead9a47b66a0d2e43d2792, type: 2}
+  _cooldown: 0
+  _isInProgress: 0
 --- !u!1 &6066056197356575972
 GameObject:
   m_ObjectHideFlags: 0
