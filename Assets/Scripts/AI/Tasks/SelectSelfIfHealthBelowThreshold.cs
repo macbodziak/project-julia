@@ -11,7 +11,7 @@ namespace EnemyAI
     [TaskDescription("If HP percantage of the unit is below provided threshold set this unit as the Selected Target and return Success.\nThreshold should be between 0 and 1")]
     [TaskIcon("Assets/Sprites/Behaviour Designer Icons/Health_Percentage.png")]
     [TaskName("Set as Target if HP < %")]
-    public class SetTargetIfHealthBelowThreshold : Action
+    public class SelectSelfIfHealthBelowThreshold : Action
     {
         [SerializeField] SharedUnitList selectedTargets;
         [SerializeField] float threshold;

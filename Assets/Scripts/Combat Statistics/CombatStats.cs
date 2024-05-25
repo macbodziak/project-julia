@@ -76,6 +76,14 @@ public class CombatStats : MonoBehaviour
         }
     }
 
+    public int TotalDodge
+    {
+        get
+        {
+            return Dodge + DodgeModifier;
+        }
+    }
+
     public int MaxActionPoints
     {
         get => maxActionPoints;
