@@ -16,6 +16,7 @@ MonoBehaviour:
   m_sprite: {fileID: 21300000, guid: 8fa1c358df7ef0940bdafc9389f09502, type: 3}
   m_visualEffect: {fileID: 0}
   executeEarly: 0
+  m_savingThrowType: 1
   minDamageAmount: 3
   maxDamageAmount: 6
   _damageType: 0

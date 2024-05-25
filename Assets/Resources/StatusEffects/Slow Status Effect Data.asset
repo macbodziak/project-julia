@@ -16,4 +16,5 @@ MonoBehaviour:
   m_sprite: {fileID: 21300000, guid: 46d3e9011d16e274888b42138b4472b8, type: 3}
   m_visualEffect: {fileID: 0}
   executeEarly: 0
+  m_savingThrowType: 2
   actionPointModifier: -1

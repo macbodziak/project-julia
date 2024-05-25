@@ -213,26 +213,29 @@ public class StatusEffectController : MonoBehaviour
     public bool TryReceivingStatusEffect(StatusEffectDurationInfo statusEffectInfo)
     {
         CombatStats combatStats = GetComponent<CombatStats>();
-        int requiredSavingThrow = 100 - combatStats.GetStatusEffectSaveValue(statusEffectInfo.statusEffect.Type);
-        if (requiredSavingThrow <= 0)
+        if (combatStats.GetStatusEffectImmunity(statusEffectInfo.statusEffect.Type))
         {
+            Debug.Log("<color=#5555ff>Immune to </color>" + statusEffectInfo.statusEffect.Name);
             AnyUnitImmuneToStatusEffectEvent?.Invoke(this, statusEffectInfo.statusEffect);
             return false;
         }
-        else
+
+        SavingThrowType savingThrowType = statusEffectInfo.statusEffect.savingThrowType;
+        if (savingThrowType != SavingThrowType.None)
         {
+            int requiredSavingThrow = 100 - combatStats.GetSavingThrowValue(savingThrowType);
             int savingThrow = UnityEngine.Random.Range(0, 100);
+            Debug.Log("<color=#5555ff>Making Saving Throw </color>" + savingThrow + " > " + requiredSavingThrow + " ?");
             if (savingThrow > requiredSavingThrow)
             {
                 AnyUnitSavedFromStatusEffectEvent?.Invoke(this, statusEffectInfo.statusEffect);
                 return true;
             }
-            else
-            {
-                ReceiveStatusEffect(statusEffectInfo.statusEffect, statusEffectInfo.duration);
-                return false;
-            }
         }
+
+        ReceiveStatusEffect(statusEffectInfo.statusEffect, statusEffectInfo.duration);
+        return false;
+
     }
 
 

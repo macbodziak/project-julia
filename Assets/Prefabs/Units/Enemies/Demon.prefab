@@ -5797,12 +5797,12 @@ GameObject:
   - component: {fileID: 5329514740631293831}
   - component: {fileID: 508147140693910504}
   - component: {fileID: 3374745541224568346}
+  - component: {fileID: 9142037673264620380}
   - component: {fileID: 7318110242987910788}
   - component: {fileID: 3940646631210322738}
   - component: {fileID: 1297582386262417804}
   - component: {fileID: 7419336710939224218}
   - component: {fileID: 8760125547046309050}
-  - component: {fileID: 9142037673264620380}
   m_Layer: 3
   m_Name: Demon
   m_TagString: Untagged
@@ -5886,8 +5886,11 @@ MonoBehaviour:
   damageResistanceValues:
     content: 0000000032000000000000000000000000000000
     enumType: 0
-  statusEffectSaveValues:
-    content: 190000003c00000019000000190000002100000000000000000000000a000000000000000a000000000000000000000000000000000000000000000000000000000000000000000000000000
+  statusEffectImmunities:
+    content: 00010000000000000000000000000000000000000000000000000000000000000000000000000000
+    enumType: 0
+  savingThrowValues:
+    content: 28000000190000002100000021000000
     enumType: 0
   DamageMultiplier: 1
   DodgeModifier: 0
@@ -5967,6 +5970,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: 809b9162dbde9f044aa8b21dd1b05195, type: 2}
+  _cooldown: 0
+  _isInProgress: 0
+--- !u!114 &9142037673264620380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5798359312501187311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionDefinition: {fileID: 11400000, guid: ff4ffdc3a9ead9a47b66a0d2e43d2792, type: 2}
   _cooldown: 0
   _isInProgress: 0
 --- !u!136 &7318110242987910788
@@ -6173,21 +6191,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 8205678895617405017}
   isVisible: 0
---- !u!114 &9142037673264620380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5798359312501187311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _actionDefinition: {fileID: 11400000, guid: ff4ffdc3a9ead9a47b66a0d2e43d2792, type: 2}
-  _cooldown: 0
-  _isInProgress: 0
 --- !u!1 &6066056197356575972
 GameObject:
   m_ObjectHideFlags: 0

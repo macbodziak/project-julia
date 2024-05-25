@@ -26,7 +26,8 @@ public class CombatStats : MonoBehaviour
     [Space(12)]
     [Header("Status Effect Savinng Throws:")]
     [Space(6)]
-    [SerializeField] EnumMappedArray<int, StatusEffectType> statusEffectSaveValues = new();
+    [SerializeField] EnumMappedArray<bool, StatusEffectType> statusEffectImmunities = new();
+    [SerializeField] EnumMappedArray<int, SavingThrowType> savingThrowValues = new();
     [Space(12)]
     [Header("Modifiers:")]
     [Space(6)]
@@ -174,9 +175,15 @@ public class CombatStats : MonoBehaviour
     }
 
 
-    public int GetStatusEffectSaveValue(StatusEffectType type)
+    public bool GetStatusEffectImmunity(StatusEffectType type)
     {
-        return statusEffectSaveValues[(int)type];
+        return statusEffectImmunities[(int)type];
+    }
+
+
+    public int GetSavingThrowValue(SavingThrowType type)
+    {
+        return savingThrowValues[(int)type];
     }
 
 
