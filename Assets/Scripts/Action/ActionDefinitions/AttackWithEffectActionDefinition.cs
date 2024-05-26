@@ -51,4 +51,5 @@ public class AttackWithEffectActionDefinition : ActionDefinition, ICanAttack
             return new AttackInfo(_minDamage, _maxDamage, _hitChance, _critChance, DamageType);
         }
     }
+
 }

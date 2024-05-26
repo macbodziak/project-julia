@@ -49,4 +49,9 @@ public class AttackActionDefinition : ActionDefinition, ICanAttack
             return new AttackInfo(_minDamage, _maxDamage, _hitChance, _critChance, DamageType);
         }
     }
+
+    public DamageType GetDamageType()
+    {
+        return DamageType;
+    }
 }

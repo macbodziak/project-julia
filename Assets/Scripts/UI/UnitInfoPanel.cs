@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class UnitInspector : MonoBehaviour
@@ -43,11 +44,13 @@ public class UnitInspector : MonoBehaviour
 
     public void UpdateStatusEffects(StatusEffectController sec)
     {
-        ClearStatusEffects();
-
-        foreach (StatusEffectBehaviour status in sec.GetStatusEffects())
+        if (sec != null)
         {
-            CreateStatusEffectIcon(status);
+            ClearStatusEffects();
+            foreach (StatusEffectBehaviour status in sec.GetStatusEffects())
+            {
+                CreateStatusEffectIcon(status);
+            }
         }
     }
 
@@ -65,6 +68,11 @@ public class UnitInspector : MonoBehaviour
 
     private void CreateStatusEffectIcon(StatusEffectBehaviour status)
     {
+        if (status == null)
+        {
+            return;
+        }
+
         GameObject newIcon = new GameObject();
         RectTransform rect = newIcon.AddComponent<RectTransform>();
         rect.sizeDelta = new Vector2(32, 32);
