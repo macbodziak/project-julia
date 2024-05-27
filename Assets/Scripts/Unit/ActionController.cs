@@ -5,6 +5,7 @@ using UnityEngine;
 public class ActionController : MonoBehaviour
 {
     private List<ActionBehaviour> actionList;
+    [SerializeField][ReadOnly] private ActionBehaviour activeAction;
     private Unit unit;
 
     private void Start()
@@ -68,5 +69,42 @@ public class ActionController : MonoBehaviour
             return false;
         }
         return true;
+    }
+
+
+    public bool RegisterActiveAction(ActionBehaviour action)
+    {
+        Debug.Log("registering Action " + action.actionDefinition.Name);
+        if (activeAction == null)
+        {
+            activeAction = action;
+            return true;
+        }
+        return false;
+    }
+
+
+    public void UnregisterActiveAction()
+    {
+        Debug.Log("unregistering Action " + activeAction.actionDefinition.Name);
+        activeAction = null;
+    }
+
+
+    private void OnActionAnimationFinished()
+    {
+        Debug.Log("<color=cyan> OnActionAnimatinFinished</color>");
+        if (activeAction != null)
+        {
+            activeAction.OnActionCompleted();
+            UnregisterActiveAction();
+        }
+    }
+
+
+
+    private void OnActionExecutionTriggered()
+    {
+        activeAction?.ExecuteLogic();
     }
 }

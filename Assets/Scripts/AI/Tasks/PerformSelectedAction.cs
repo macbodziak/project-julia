@@ -12,6 +12,7 @@ namespace EnemyAI
 		bool hasStarted = false;
 		[SerializeField] SharedActionBehaviour selectedAction;
 		[SerializeField] SharedUnitList selectedTargets;
+
 		public override void OnStart()
 		{
 			isRunning = false;

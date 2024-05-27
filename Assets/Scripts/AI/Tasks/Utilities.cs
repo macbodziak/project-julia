@@ -28,7 +28,7 @@ namespace EnemyAI
         //This formula adjusts the health points by factoring in damage resistance and dodge chance to simulate how much damage needs to be dealt to kill target.
         //HP_left / (1 -  damage resistance [%]) * (1 + dodge [%])
         //HP_threshold - above that HP makes no difference, example if set to 50, if a unit has 60 HP and another has 70, 
-        //they will be treated the same and only Dodge and Resistance will be factored in
+        //  they will be treated the same and only Dodge and Resistance will be factored in
         //The lower the score the easier it should be to kill the target and thus should be biased to be selected
         //</summary>
         public static float Score(Unit target, SharedActionBehaviour selectedAction, int HP_threshold = 50)
