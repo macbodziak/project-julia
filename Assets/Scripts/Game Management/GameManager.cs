@@ -57,7 +57,7 @@ namespace GameManagement
 
         private static void LoadEncounterConfig()
         {
-            encounterConfig = Resources.Load("Encounters/Debug Preset Encounter Config 2", typeof(EncounterConfig)) as EncounterConfig;
+            encounterConfig = Resources.Load("Encounters/Debug Preset Encounter Config", typeof(EncounterConfig)) as EncounterConfig;
             if (encounterConfig == null)
             {
                 Debug.Log("<color=brown>Unable to Load Encounter Config</color>");

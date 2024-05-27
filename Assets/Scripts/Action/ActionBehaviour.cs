@@ -25,6 +25,8 @@ public class ActionBehaviour : MonoBehaviour
     private bool _ready;
     private Animator _animator;
     private List<Unit> _targets;
+    private ActionController _actionController;
+
 
     public int ActionPointCost
     {
@@ -62,6 +64,7 @@ public class ActionBehaviour : MonoBehaviour
 
     public bool Ready { get => _ready; private set => _ready = value; }
 
+
     private void SetCooldown(int arg)
     {
         _cooldown = arg;
@@ -76,6 +79,7 @@ public class ActionBehaviour : MonoBehaviour
         }
     }
 
+
     protected virtual void Awake()
     {
         isInProgress = false;
@@ -83,58 +87,70 @@ public class ActionBehaviour : MonoBehaviour
         _targets = new List<Unit>();
     }
 
+
     protected virtual void Start()
     {
         _unit = GetComponent<Unit>();
         _animator = GetComponent<Animator>();
+        _actionController = GetComponent<ActionController>();
     }
+
+
     protected virtual void OnActionStarted()
     {
         isInProgress = true;
     }
+
 
     public void DecrementCooldown()
     {
         Cooldown--;
     }
 
+
     // Summary
     // This method initiates the action, starts animation, receives all needed paramaters
-    // the actual logic execution starts later and should be trigger bu the animation
+    // the actual logic execution starts later and should be trigger by the animation
     // via an animation event
     public void StartAction(List<Unit> targetList, Action onActionComplete)
     {
         this.OnActionCompletedCallback = onActionComplete;
         _targets.Clear();
         _targets.AddRange(targetList);
-        _animator.SetTrigger(actionDefinition.AnimationTrigger);
-        StartCoroutine(PerformAction());
-        GetComponent<SoundController>().PlayClip(_actionDefinition.SoundEffect);
-        OnActionStarted();
-    }
 
-    protected virtual void OnActionCompleted()
-    {
-        isInProgress = false;
-        OnActionCompletedCallback();
-    }
-
-    protected IEnumerator PerformAction()
-    {
         _unit.combatStats.CurrentActionPoints -= actionDefinition.ActionPointCost;
         _unit.combatStats.CurrentPowerPoints -= actionDefinition.PowerPointCost;
         Cooldown = actionDefinition.Cooldown;
 
-        yield return new WaitForSeconds(actionDefinition.Duration * 0.3f);
-        actionDefinition.ExecuteLogic(_unit, _targets);
-        //TO DO play audio
-        yield return new WaitForSeconds(actionDefinition.Duration * 0.7f);
-        OnActionCompleted();
-        yield return null;
+        _animator.SetTrigger(actionDefinition.AnimationTrigger);
+
+        _actionController.RegisterActiveAction(this);
+
+        GetComponent<SoundController>().PlayClip(_actionDefinition.SoundEffect);
+        OnActionStarted();
     }
+
+    // Summary
+    // This method is invoked by the ActionController after recieving an animation event 
+    // signaling that the animation has stopped playing
+    public virtual void OnActionCompleted()
+    {
+        isInProgress = false;
+        Debug.Log(gameObject.name + " finished executing action: " + _actionDefinition.Name);
+        OnActionCompletedCallback();
+    }
+
 
     public float GetDuration()
     {
         return actionDefinition.Duration;
     }
+
+
+    public void ExecuteLogic()
+    {
+        Debug.Log(gameObject.name + " is executing action: " + _actionDefinition.Name);
+        _actionDefinition.ExecuteLogic(_unit, _targets);
+    }
+
 }

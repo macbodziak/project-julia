@@ -17,7 +17,7 @@ MonoBehaviour:
   m_powerPointCost: 0
   m_duration: 2.1
   m_cooldown: 3
-  m_animationTrigger: AttackCombo
+  m_animationTrigger: Attack_3
   m_sprite: {fileID: 0}
   m_targetingMode: 2
   m_numberOfTargets: 0
