@@ -18,6 +18,11 @@ public class BurningStatusEffect : StatusEffect
     public override void OnEnd()
     {
         visualEffectInstance.Stop();
+        Animator animator = visualEffectInstance.gameObject.GetComponent<Animator>();
+        if (animator != null)
+        {
+            animator.SetTrigger("FadeOut");
+        }
         Destroy(visualEffectInstance.gameObject, 1f);
     }
 

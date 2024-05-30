@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu_scene.unity
     guid: 99b7c780a08584440abb40075903a99b
   - enabled: 1
+    path: Assets/Scenes/Dungeon Scene template 1.unity
+    guid: f8bc42381d6fe2e42b5ab73567ae49a9
+  - enabled: 1
     path: Assets/Scenes/Dungeon Scene template.unity
     guid: ffa7d2ca17082c144958c2ca1a6ef401
   - enabled: 1

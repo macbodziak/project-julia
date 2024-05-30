@@ -31,7 +31,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4c867f6b72b714dbb5fd1780afe208, type: 3}
-  m_Name: Fire_03_vfx
+  m_Name: Fire_small_vfx
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 0}
@@ -56,7 +56,7 @@ VisualEffectResource:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fire_03_vfx
+  m_Name: Fire_small_vfx
   m_Graph: {fileID: 114350483966674976}
   m_Infos:
     m_RendererSettings:
@@ -729,7 +729,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"frames":[{"time":0.0,"value":0.24885600805282594,"inTangent":1.2097043991088868,"outTangent":1.2097043991088868,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.96112060546875,"value":0.991058349609375,"inTangent":0.7722260355949402,"outTangent":0.7722260355949402,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+      m_SerializableObject: '{"frames":[{"time":0.0,"value":-0.000014841556549072266,"inTangent":1.6750781536102296,"outTangent":1.6750781536102296,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":1.0,"value":0.5499992370605469,"inTangent":0.550014078617096,"outTangent":0.550014078617096,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
     m_Space: 2147483647
   m_Property:
     name: Size
@@ -2014,7 +2014,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1
+      m_SerializableObject: 0.5
     m_Space: 2147483647
   m_Property:
     name: Lifetime
@@ -2214,7 +2214,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":-0.5,"y":1.0,"z":-0.5}}'
+      m_SerializableObject: '{"vector":{"x":-0.25,"y":0.5,"z":-0.25}}'
     m_Space: 0
   m_Property:
     name: A
@@ -2384,7 +2384,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":0.5,"y":2.0,"z":0.5}}'
+      m_SerializableObject: '{"vector":{"x":0.25,"y":1.0,"z":0.25}}'
     m_Space: 0
   m_Property:
     name: B
