@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99beffae8ec0b2d4da07cb4d5db75957, type: 3}
+  m_Name: Warrior Power Strike
+  m_EditorClassIdentifier: 
+  m_name: Powerful Assault
+  m_actionPointCost: 2
+  m_powerPointCost: 0
+  m_duration: 1.9
+  m_cooldown: 2
+  m_animationTrigger: Attack_4
+  m_sprite: {fileID: 21300000, guid: b7508c7d9deb4ea45b1907663dcd11ea, type: 3}
+  m_targetingMode: 0
+  m_numberOfTargets: 0
+  m_visualEffectOnHit: {fileID: 3681913643477291456, guid: 4de67dc3d04de554b86fc8091e1e6106, type: 3}
+  m_soundEffect: {fileID: 8300000, guid: 26d63a2a8d3e44de798ed9dd437ae031, type: 3}
+  minDamage: 30
+  maxDamage: 50
+  hitChance: 85
+  critChance: 10
+  damageType: 0

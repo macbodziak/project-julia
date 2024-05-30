@@ -45,7 +45,7 @@ public class CombatStats : MonoBehaviour
     [Space(6)]
     [Header("Modifier Flags:")]
     [Space(6)]
-    [SerializeField] public int NoActionPointsRefresh = 0;
+    [SerializeField][ReadOnly] private int noActionPointsRefresh = 0;
 
     private SoundController unitSounds;
 
@@ -131,6 +131,20 @@ public class CombatStats : MonoBehaviour
         }
     }
 
+    public int NoActionPointsRefresh
+    {
+        get { return noActionPointsRefresh; }
+        set
+        {
+            noActionPointsRefresh = value;
+
+            Animator animator = GetComponent<Animator>();
+            if (animator != null)
+            {
+                animator.SetBool("Stunned", noActionPointsRefresh > 0);
+            }
+        }
+    }
 
     public static event EventHandler<DamageTakenEventArgs> AnyUnitTookDamageEvent;
     public static event EventHandler<HealingReceivedEventArgs> AnyUnitReceivedHealingEvent;
@@ -193,7 +207,7 @@ public class CombatStats : MonoBehaviour
         Animator anim = GetComponent<Animator>();
         //after death we do not care about restricting root motion anymore and it improves death animation
         anim.applyRootMotion = true;
-        //TO DO trigger some VFX and SFX on death
+        //TO DO trigger some VFX 
         anim.SetTrigger("Die");
 
         //disable collider so the unit cannot be clicked anymore
