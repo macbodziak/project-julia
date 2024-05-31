@@ -17,7 +17,7 @@ MonoBehaviour:
   m_powerPointCost: 0
   m_duration: 0
   m_cooldown: 3
-  m_animationTrigger: CastSpell_1
+  m_animationTrigger: CastSpell_7
   m_sprite: {fileID: 21300000, guid: 842f99da38312b84b9f5258065ea394b, type: 3}
   m_targetingMode: 4
   m_numberOfTargets: 0
