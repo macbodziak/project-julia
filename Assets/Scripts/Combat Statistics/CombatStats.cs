@@ -14,7 +14,7 @@ public class CombatStats : MonoBehaviour
     [SerializeField] private int maxPowerPoints;
     [SerializeField][ReadOnly] private int currentPowerPoints;
     [SerializeField] private int dodge;
-
+    private Animator animator;
     const int CRIT_MULTIPLIER = 2;
     const int MAX_ACTION_POINTS = 5;
 
@@ -46,6 +46,7 @@ public class CombatStats : MonoBehaviour
     [Header("Modifier Flags:")]
     [Space(6)]
     [SerializeField][ReadOnly] private int noActionPointsRefresh = 0;
+    [SerializeField][ReadOnly] private int noAnimationReaction = 0;
 
     private SoundController unitSounds;
 
@@ -138,7 +139,6 @@ public class CombatStats : MonoBehaviour
         {
             noActionPointsRefresh = value;
 
-            Animator animator = GetComponent<Animator>();
             if (animator != null)
             {
                 animator.SetBool("Stunned", noActionPointsRefresh > 0);
@@ -162,6 +162,7 @@ public class CombatStats : MonoBehaviour
     private void Start()
     {
         unitSounds = GetComponent<SoundController>();
+        animator = GetComponent<Animator>();
         Debug.Assert(unitSounds);
     }
 
@@ -204,11 +205,10 @@ public class CombatStats : MonoBehaviour
     private void OnDeath()
     {
         unitSounds.PlayOnDeathSound();
-        Animator anim = GetComponent<Animator>();
         //after death we do not care about restricting root motion anymore and it improves death animation
-        anim.applyRootMotion = true;
+        animator.applyRootMotion = true;
         //TO DO trigger some VFX 
-        anim.SetTrigger("Die");
+        animator.SetTrigger("Die");
 
         //disable collider so the unit cannot be clicked anymore
         Collider collider = GetComponent<Collider>();
@@ -221,8 +221,16 @@ public class CombatStats : MonoBehaviour
     private void OnDodge()
     {
         unitSounds.PlayOnDodgeSound();
-        Animator anim = GetComponent<Animator>();
-        anim.SetTrigger("Dodge");
+        if (AnimationReaction())
+        {
+            animator.SetTrigger("Dodge");
+        }
+    }
+
+
+    private bool AnimationReaction()
+    {
+        return !animator.GetBool("Stunned");
     }
 
 
@@ -322,8 +330,10 @@ public class CombatStats : MonoBehaviour
 
     private void PlayDamageTakenAnimation()
     {
-        Animator anim = GetComponent<Animator>();
-        anim.SetTrigger("HitReaction");
+        if (AnimationReaction())
+        {
+            animator.SetTrigger("HitReaction");
+        }
     }
 
 
