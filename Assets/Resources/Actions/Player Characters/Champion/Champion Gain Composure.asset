@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80faee4d92c185e41b04e74e42819761, type: 3}
+  m_Name: Champion Gain Composure
+  m_EditorClassIdentifier: 
+  m_name: Gain Composure
+  m_actionPointCost: 1
+  m_powerPointCost: 0
+  m_duration: 0
+  m_cooldown: 4
+  m_animationTrigger: CastSpell_8
+  m_sprite: {fileID: 21300000, guid: c1e580da84838944db84bbe44e74440e, type: 3}
+  m_targetingMode: 3
+  m_numberOfTargets: 0
+  m_visualEffectOnHit: {fileID: 0}
+  m_soundEffect: {fileID: 8300000, guid: a0350d38d25a0410d98ee7fdac79ee92, type: 3}
+  _statusEffectsApplied:
+  - statusEffect: {fileID: 11400000, guid: a7e14480e8c28e34c975650d7fe395e9, type: 2}
+    duration: 3

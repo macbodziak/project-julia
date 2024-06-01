@@ -38,6 +38,8 @@ public class CombatStats : MonoBehaviour
     [SerializeField] public int CritChanceModifier = 0;
 
     [SerializeField] public EnumMappedArray<int, DamageType> damageResistanceModifiers = new();
+    [SerializeField] public EnumMappedArray<int, SavingThrowType> savingThrowsModifiers = new();
+
     // <summary>
     // Modifier flags are like boolean, but since several status effects might have the same effect
     // we use a counter instead of bool so one effect does not canceld out another one too early
@@ -196,9 +198,9 @@ public class CombatStats : MonoBehaviour
     }
 
 
-    public int GetSavingThrowValue(SavingThrowType type)
+    public int GetTotalSavingThrowValue(SavingThrowType type)
     {
-        return savingThrowValues[(int)type];
+        return savingThrowValues[(int)type] + savingThrowsModifiers[(int)type];
     }
 
 

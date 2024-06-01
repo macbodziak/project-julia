@@ -1394,8 +1394,11 @@ GameObject:
   - component: {fileID: 2790620104921286729}
   - component: {fileID: 4108367092935683813}
   - component: {fileID: 7578054738849677838}
+  - component: {fileID: -5689208450105208297}
+  - component: {fileID: 7016100374439307894}
+  - component: {fileID: 4223112957762981503}
   m_Layer: 3
-  m_Name: Warrior
+  m_Name: Champion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1491,7 +1494,11 @@ MonoBehaviour:
   damageResistanceModifiers:
     content: 0000000000000000000000000000000000000000
     enumType: 0
+  savingThrowsModifiers:
+    content: 00000000000000000000000000000000
+    enumType: 0
   noActionPointsRefresh: 0
+  noAnimationReaction: 0
 --- !u!114 &386910070917325299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1747,6 +1754,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 4895440522673149129}
   isVisible: 0
+--- !u!114 &-5689208450105208297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6055624799925313128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionDefinition: {fileID: 11400000, guid: 5cb0d3d1c13f98f46ac1431d5b984117, type: 2}
+  _cooldown: 0
+  _isInProgress: 0
+--- !u!114 &7016100374439307894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6055624799925313128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionDefinition: {fileID: 11400000, guid: 7150b4b77397bb544aaef4786d7b648b, type: 2}
+  _cooldown: 0
+  _isInProgress: 0
+--- !u!114 &4223112957762981503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6055624799925313128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionDefinition: {fileID: 11400000, guid: 06e78aebe005dcb4cbded72392420077, type: 2}
+  _cooldown: 0
+  _isInProgress: 0
 --- !u!1 &6087488549161505006
 GameObject:
   m_ObjectHideFlags: 0

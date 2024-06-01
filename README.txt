@@ -99,6 +99,7 @@ random selector
 
 
 
+Animations:
 
 
 
@@ -118,7 +119,7 @@ Unsteady				penalty to Dodge
 
 Cursed					Penalty to Crit Chance
 Blessed					Bonus to Crit Chance
-Disiseased
+
 Weak					penelty do Damage
 Strong					bonus to Damage
 

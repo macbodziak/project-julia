@@ -1294,7 +1294,11 @@ MonoBehaviour:
   damageResistanceModifiers:
     content: 0000000000000000000000000000000000000000
     enumType: 0
-  NoActionPointsRefresh: 0
+  savingThrowsModifiers:
+    content: 00000000000000000000000000000000
+    enumType: 0
+  noActionPointsRefresh: 0
+  noAnimationReaction: 0
 --- !u!114 &141103370922678197
 MonoBehaviour:
   m_ObjectHideFlags: 0

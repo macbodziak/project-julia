@@ -109,7 +109,6 @@ public class Unit : MonoBehaviour
     {
         OnMouseEnterAnyUnit = null;
         OnMouseExitAnyUnit = null;
-        // ClearEventListeners(OnMouseExitAnyUnit.GetInvocationList());
     }
 
     private static void ClearEventListeners(Delegate[] subscribers)
