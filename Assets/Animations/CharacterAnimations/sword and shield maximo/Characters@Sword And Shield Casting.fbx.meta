@@ -39,7 +39,7 @@ ModelImporter:
       firstFrame: 0
       lastFrame: 89
       wrapMode: 0
-      orientationOffsetY: 0
+      orientationOffsetY: -20
       level: 0
       cycleOffset: 0
       loop: 0
@@ -57,7 +57,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.21319765
+      - time: 0.66131794
         functionName: OnActionExecutionTriggered
         data: 
         objectReferenceParameter: {instanceID: 0}

@@ -1397,6 +1397,8 @@ GameObject:
   - component: {fileID: -5689208450105208297}
   - component: {fileID: 7016100374439307894}
   - component: {fileID: 4223112957762981503}
+  - component: {fileID: 604203152291353157}
+  - component: {fileID: 7884758430513218786}
   m_Layer: 3
   m_Name: Champion
   m_TagString: Untagged
@@ -1455,9 +1457,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24f09dd13d4c53469bea82299d981f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 6630980c4e5b82b4594acf33d4f6c631, type: 3}
   isPlayer: 1
-  _name: 
+  _name: Champion
 --- !u!114 &7040494953603809863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1474,7 +1476,7 @@ MonoBehaviour:
   currentHealthPoints: 0
   maxActionPoints: 2
   currentActionPoints: 0
-  maxPowerPoints: 0
+  maxPowerPoints: 10
   currentPowerPoints: 0
   dodge: 20
   damageResistanceValues:
@@ -1797,6 +1799,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _actionDefinition: {fileID: 11400000, guid: 06e78aebe005dcb4cbded72392420077, type: 2}
+  _cooldown: 0
+  _isInProgress: 0
+--- !u!114 &604203152291353157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6055624799925313128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionDefinition: {fileID: 11400000, guid: 9ba10399abd4e094c8dce06634cf95c6, type: 2}
+  _cooldown: 0
+  _isInProgress: 0
+--- !u!114 &7884758430513218786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6055624799925313128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionDefinition: {fileID: 11400000, guid: 113d5d3018b380949befafa385cba9e5, type: 2}
   _cooldown: 0
   _isInProgress: 0
 --- !u!1 &6087488549161505006

@@ -22,7 +22,7 @@ public enum StatusEffectType
     DemonsMark,
 
     Composure,
-    Undetermined_19,
+    DivineProtection,
     Undetermined_18,
     Undetermined_17,
     Undetermined_16,
