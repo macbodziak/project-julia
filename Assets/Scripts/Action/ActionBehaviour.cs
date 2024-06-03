@@ -130,29 +130,14 @@ public class ActionBehaviour : MonoBehaviour
         OnActionStarted();
     }
 
-
+    // Summary
+    // This method is invoked by the ActionController after recieving an animation event 
+    // signaling that the animation has stopped playing
     public virtual void OnActionCompleted()
     {
         isInProgress = false;
         Debug.Log(gameObject.name + " finished executing action: " + _actionDefinition.Name);
         OnActionCompletedCallback();
-    }
-
-
-    // protected IEnumerator PerformAction()
-    // {
-    //     yield return new WaitForSeconds(actionDefinition.Duration * 0.3f);
-    //     actionDefinition.ExecuteLogic(_unit, _targets);
-    //     //TO DO play audio
-    //     yield return new WaitForSeconds(actionDefinition.Duration * 0.7f);
-    //     OnActionCompleted();
-    //     yield return null;
-    // }
-
-
-    public float GetDuration()
-    {
-        return actionDefinition.Duration;
     }
 
 

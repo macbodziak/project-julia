@@ -223,7 +223,7 @@ public class StatusEffectController : MonoBehaviour
         SavingThrowType savingThrowType = statusEffectInfo.statusEffect.savingThrowType;
         if (savingThrowType != SavingThrowType.None)
         {
-            int requiredSavingThrow = 100 - combatStats.GetSavingThrowValue(savingThrowType);
+            int requiredSavingThrow = 100 - combatStats.GetTotalSavingThrowValue(savingThrowType);
             int savingThrow = UnityEngine.Random.Range(0, 100);
             Debug.Log("<color=#5555ff>Making Saving Throw </color>" + savingThrow + " > " + requiredSavingThrow + " ?");
             if (savingThrow > requiredSavingThrow)

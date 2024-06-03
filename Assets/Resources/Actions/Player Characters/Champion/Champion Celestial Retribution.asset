@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dbc633df8e0cbb49abcca58d65f288a, type: 3}
+  m_Name: Champion Celestial Retribution
+  m_EditorClassIdentifier: 
+  m_name: Celestial Retribution
+  m_actionPointCost: 2
+  m_powerPointCost: 3
+  m_cooldown: 4
+  m_animationTrigger: CastSpell_8
+  m_sprite: {fileID: 21300000, guid: 17ea8a353ce56954599727dff0c4c178, type: 3}
+  m_targetingMode: 0
+  m_numberOfTargets: 0
+  m_visualEffectOnHit: {fileID: 4265526462707560475, guid: 0793e2b74b3d95f41bda0b84cbd4874d, type: 3}
+  m_soundEffect: {fileID: 8300000, guid: 4ea2c9fb7278e47b1b9e7538b00d9f10, type: 3}
+  minDamage: 30
+  maxDamage: 80
+  hitChance: 90
+  critChance: 10
+  damageType: 3
+  _statusEffects:
+  - statusEffect: {fileID: 11400000, guid: 74a0d76ae6ebe154d9fd126518e2ef5a, type: 2}
+    duration: 2

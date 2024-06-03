@@ -10,7 +10,6 @@ public abstract class ActionDefinition : ScriptableObject
     [SerializeField] private string m_name = "no name";
     [SerializeField][RangeInt(0, 5)] private int m_actionPointCost = 1;
     [SerializeField][RangeInt(0, 5)] private int m_powerPointCost = 0;
-    [SerializeField][NonNegative] private float m_duration = 1.9f;
     [SerializeField][RangeInt(0, 10)] private int m_cooldown = 0;
     [SerializeField] private string m_animationTrigger;
     [SerializeField] private Sprite m_sprite;
@@ -24,7 +23,6 @@ public abstract class ActionDefinition : ScriptableObject
 
     public string Name { get => m_name; protected set => m_name = value; }
     public int ActionPointCost { get => m_actionPointCost; protected set => m_actionPointCost = value; }
-    public float Duration { get => m_duration; protected set => m_duration = value; }
     public string AnimationTrigger { get => m_animationTrigger; protected set => m_animationTrigger = value; }
     public Sprite Icon { get => m_sprite; protected set => m_sprite = value; }
     public TargetingMode TargetingMode { get { return m_targetingMode; } }

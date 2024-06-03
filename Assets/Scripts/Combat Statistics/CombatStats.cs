@@ -14,7 +14,7 @@ public class CombatStats : MonoBehaviour
     [SerializeField] private int maxPowerPoints;
     [SerializeField][ReadOnly] private int currentPowerPoints;
     [SerializeField] private int dodge;
-
+    private Animator animator;
     const int CRIT_MULTIPLIER = 2;
     const int MAX_ACTION_POINTS = 5;
 
@@ -38,6 +38,8 @@ public class CombatStats : MonoBehaviour
     [SerializeField] public int CritChanceModifier = 0;
 
     [SerializeField] public EnumMappedArray<int, DamageType> damageResistanceModifiers = new();
+    [SerializeField] public EnumMappedArray<int, SavingThrowType> savingThrowsModifiers = new();
+
     // <summary>
     // Modifier flags are like boolean, but since several status effects might have the same effect
     // we use a counter instead of bool so one effect does not canceld out another one too early
@@ -45,7 +47,8 @@ public class CombatStats : MonoBehaviour
     [Space(6)]
     [Header("Modifier Flags:")]
     [Space(6)]
-    [SerializeField] public int NoActionPointsRefresh = 0;
+    [SerializeField][ReadOnly] private int noActionPointsRefresh = 0;
+    [SerializeField][ReadOnly] private int noAnimationReaction = 0;
 
     private SoundController unitSounds;
 
@@ -131,6 +134,19 @@ public class CombatStats : MonoBehaviour
         }
     }
 
+    public int NoActionPointsRefresh
+    {
+        get { return noActionPointsRefresh; }
+        set
+        {
+            noActionPointsRefresh = value;
+
+            if (animator != null)
+            {
+                animator.SetBool("Stunned", noActionPointsRefresh > 0);
+            }
+        }
+    }
 
     public static event EventHandler<DamageTakenEventArgs> AnyUnitTookDamageEvent;
     public static event EventHandler<HealingReceivedEventArgs> AnyUnitReceivedHealingEvent;
@@ -148,6 +164,7 @@ public class CombatStats : MonoBehaviour
     private void Start()
     {
         unitSounds = GetComponent<SoundController>();
+        animator = GetComponent<Animator>();
         Debug.Assert(unitSounds);
     }
 
@@ -181,20 +198,19 @@ public class CombatStats : MonoBehaviour
     }
 
 
-    public int GetSavingThrowValue(SavingThrowType type)
+    public int GetTotalSavingThrowValue(SavingThrowType type)
     {
-        return savingThrowValues[(int)type];
+        return savingThrowValues[(int)type] + savingThrowsModifiers[(int)type];
     }
 
 
     private void OnDeath()
     {
         unitSounds.PlayOnDeathSound();
-        Animator anim = GetComponent<Animator>();
         //after death we do not care about restricting root motion anymore and it improves death animation
-        anim.applyRootMotion = true;
-        //TO DO trigger some VFX and SFX on death
-        anim.SetTrigger("Die");
+        animator.applyRootMotion = true;
+        //TO DO trigger some VFX 
+        animator.SetTrigger("Die");
 
         //disable collider so the unit cannot be clicked anymore
         Collider collider = GetComponent<Collider>();
@@ -207,8 +223,16 @@ public class CombatStats : MonoBehaviour
     private void OnDodge()
     {
         unitSounds.PlayOnDodgeSound();
-        Animator anim = GetComponent<Animator>();
-        anim.SetTrigger("Dodge");
+        if (AnimationReaction())
+        {
+            animator.SetTrigger("Dodge");
+        }
+    }
+
+
+    private bool AnimationReaction()
+    {
+        return !animator.GetBool("Stunned");
     }
 
 
@@ -308,8 +332,10 @@ public class CombatStats : MonoBehaviour
 
     private void PlayDamageTakenAnimation()
     {
-        Animator anim = GetComponent<Animator>();
-        anim.SetTrigger("HitReaction");
+        if (AnimationReaction())
+        {
+            animator.SetTrigger("HitReaction");
+        }
     }
 
 

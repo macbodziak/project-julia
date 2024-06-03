@@ -12,10 +12,12 @@ public class StunnedStatusEffect : StatusEffect
         base.OnStart(effectedUnit);
         unit.combatStats.CurrentActionPoints = 0;
         unit.combatStats.NoActionPointsRefresh++;
+        unit.combatStats.DodgeModifier -= 10;
     }
 
     public override void OnEnd()
     {
         unit.combatStats.NoActionPointsRefresh--;
+        unit.combatStats.DodgeModifier += 10;
     }
 }

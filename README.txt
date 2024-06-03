@@ -99,6 +99,20 @@ random selector
 
 
 
+Animations:
+
+when getting animations from mixamo.com, first upload the modle to mixamo, to make sure that the animations will be correctly retargeted.
+Animations should be set to humanoid (Rig -> Animation Type)
+Animations used for actions shouls have the following animation events:
+-OnActionExecutionTriggered
+-OnActionAnimationFinished
+
+All Animator Controllers used for units should have at least the following triggers:
+-Dodge 
+-Die
+-HitReaction
+and the following bool flag:
+-Stunned
 
 
 
@@ -118,7 +132,7 @@ Unsteady				penalty to Dodge
 
 Cursed					Penalty to Crit Chance
 Blessed					Bonus to Crit Chance
-Disiseased
+
 Weak					penelty do Damage
 Strong					bonus to Damage
 

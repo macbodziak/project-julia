@@ -17,5 +17,5 @@ MonoBehaviour:
   m_visualEffect: {fileID: 0}
   executeEarly: 0
   m_savingThrowType: 3
-  physicalDamageResistance: -15
-  fireDamageResistance: -15
+  physicalDamageResistance: -25
+  fireDamageResistance: -25

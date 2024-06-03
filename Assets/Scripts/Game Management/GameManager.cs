@@ -46,7 +46,7 @@ namespace GameManagement
             Unit unit = Resources.Load("Prototypes/Player Hero 1", typeof(Unit)) as Unit;
             playerUnits.Add(unit);
 
-            unit = Resources.Load("Prototypes/Player Hero 2", typeof(Unit)) as Unit;
+            unit = Resources.Load("Champion", typeof(Unit)) as Unit;
             playerUnits.Add(unit);
 
             unit = Resources.Load("Sorcerer", typeof(Unit)) as Unit;

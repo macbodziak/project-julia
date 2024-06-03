@@ -15,7 +15,6 @@ MonoBehaviour:
   m_name: Healing Hand
   m_actionPointCost: 1
   m_powerPointCost: 1
-  m_duration: 2
   m_cooldown: 2
   m_animationTrigger: CastSpell_1
   m_sprite: {fileID: 21300000, guid: 59eb291424d150d438cc5ebdc7ed4860, type: 3}
@@ -23,5 +22,5 @@ MonoBehaviour:
   m_numberOfTargets: 0
   m_visualEffectOnHit: {fileID: 4122570023729453123, guid: 8c75c42f8d9f5c844b06d8e273e5fcad, type: 3}
   m_soundEffect: {fileID: 8300000, guid: 1682be7bc3123409d91a7dcea2cd1f29, type: 3}
-  minAmount: 15
-  maxAmount: 45
+  minAmount: 30
+  maxAmount: 70

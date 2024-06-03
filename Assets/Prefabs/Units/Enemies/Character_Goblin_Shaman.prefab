@@ -3532,7 +3532,11 @@ MonoBehaviour:
   damageResistanceModifiers:
     content: 0000000000000000000000000000000000000000
     enumType: 0
-  NoActionPointsRefresh: 0
+  savingThrowsModifiers:
+    content: 00000000000000000000000000000000
+    enumType: 0
+  noActionPointsRefresh: 0
+  noAnimationReaction: 0
 --- !u!114 &5473633794726158475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3559,6 +3563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8927f73b228449409ad82156e706cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeAction: {fileID: 0}
 --- !u!114 &2027115959078703921
 MonoBehaviour:
   m_ObjectHideFlags: 0

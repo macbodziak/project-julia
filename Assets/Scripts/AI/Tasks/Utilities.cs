@@ -53,5 +53,31 @@ namespace EnemyAI
             float score = HP_left / (1f - damage_resistance) * (1 + dodge);
             return score;
         }
+
+
+        public static Unit SelectTargetByScore(List<Unit> targetList, List<int> scores)
+        {
+            if (targetList.Count == 0)
+            {
+                return null;
+            }
+            int selectedIndex = 0;
+            for (int i = 1; i < targetList.Count; i++)
+            {
+                if (scores[i] > scores[selectedIndex])
+                {
+                    selectedIndex = i;
+                }
+                else if (scores[i] == scores[selectedIndex])
+                {
+                    if (UnityEngine.Random.value > 0.5f)
+                    {
+                        selectedIndex = i;
+                    }
+                }
+            }
+
+            return targetList[selectedIndex];
+        }
     }
 }

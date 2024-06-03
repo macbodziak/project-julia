@@ -16,16 +16,19 @@ public class ActionButton : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _PPCostTextMesh;
     private Sprite m_icon;
 
+
     public Sprite icon
     {
         get { return m_icon; }
     }
+
 
     public ActionBehaviour action
     {
         get { return m_action; }
         set { SetAction(value); }
     }
+
 
     private void Start()
     {
@@ -34,10 +37,12 @@ public class ActionButton : MonoBehaviour
         ActionManager.Instance.SelectedActionChangedEvent += handleSelectedActionChanged;
     }
 
+
     public void SetSelectedVisual(bool isSelected)
     {
         _selectedImage.enabled = isSelected;
     }
+
 
     public void handleSelectedActionChanged(object sender, EventArgs e)
     {
@@ -57,6 +62,7 @@ public class ActionButton : MonoBehaviour
         }
     }
 
+
     private void OnDestroy()
     {
         ActionManager.Instance.SelectedActionChangedEvent -= handleSelectedActionChanged;
@@ -66,13 +72,14 @@ public class ActionButton : MonoBehaviour
     {
         if (inIcon != null)
         {
-            if (button == null)
-            {
-                button = GetComponent<Button>();
-            }
             _actionIcon.sprite = inIcon;
         }
+        else
+        {
+            _actionIcon.sprite = Resources.Load<Sprite>("default_warning_icon");
+        }
     }
+
 
     public void UpdateCooldownText()
     {
@@ -88,12 +95,17 @@ public class ActionButton : MonoBehaviour
         }
     }
 
+
     private void SetAction(ActionBehaviour _action)
     {
         m_action = _action;
         _APCostTextMesh.text = "" + m_action.ActionPointCost;
         _PPCostTextMesh.text = "" + m_action.PowerPointCost;
         SetIcon(m_action.Icon);
+        if (button == null)
+        {
+            button = GetComponent<Button>();
+        }
     }
 
 

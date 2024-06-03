@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72815ae56494bc24497d438b1af658b6, type: 3}
+  m_Name: Champion Divine Protection
+  m_EditorClassIdentifier: 
+  m_name: Divine Protection
+  m_actionPointCost: 2
+  m_powerPointCost: 3
+  m_duration: 0
+  m_cooldown: 4
+  m_animationTrigger: CastSpell_5
+  m_sprite: {fileID: 21300000, guid: 121be67ee3351284bb3da54ff80ccfbc, type: 3}
+  m_targetingMode: 5
+  m_numberOfTargets: 0
+  m_visualEffectOnHit: {fileID: 6705206044945814017, guid: 7cc88310690e43643841e991863bfb32, type: 3}
+  m_soundEffect: {fileID: 8300000, guid: ba6ac12548c83476abd9738f9b8c7ad7, type: 3}
+  _statusEffectsApplied:
+  - statusEffect: {fileID: 11400000, guid: 819caf0fbe56fea46aa345eebbc4174c, type: 2}
+    duration: 2
+  _statusEffectsRemoved: []

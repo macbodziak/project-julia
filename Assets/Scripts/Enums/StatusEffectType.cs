@@ -21,8 +21,8 @@ public enum StatusEffectType
     ElectricVulnerability,
     DemonsMark,
 
-    Undetermined_20,
-    Undetermined_19,
+    Composure,
+    DivineProtection,
     Undetermined_18,
     Undetermined_17,
     Undetermined_16,
