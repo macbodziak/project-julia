@@ -1836,7 +1836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _actionDefinition: {fileID: 11400000, guid: f0cd3973a46edbb46b1ee614872991ef, type: 2}
+  _actionDefinition: {fileID: 11400000, guid: 5c4bd838e347098468f98eaeb199d173, type: 2}
   _cooldown: 0
   _isInProgress: 0
 --- !u!114 &2979350117826586335
@@ -2035,7 +2035,18 @@ MonoBehaviour:
       parentIndex: 
       startIndex: 
       variableStartIndex: 
-      JSONSerialization: 
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(587.987244,80.1376)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.UntilFailure","NodeData":{"Offset":"(-23.5651131,198.966217)"},"ID":1,"Name":"Until
+        Failure","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-2.38861084,169.554321)"},"ID":2,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"EnemyAI.HasActionPoints","NodeData":{"Offset":"(-610.6238,258.3778)"},"ID":3,"Name":"Has
+        Action Points","Instant":true},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(-135.722,443.4758)"},"ID":4,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-1121.94226,184.7543)"},"ID":5,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"EnemyAI.TurnNumberEqualOrGreater","NodeData":{"Offset":"(-293.609039,263.643372)"},"ID":6,"Name":"Turn
+        Number Equal Or Greater","Instant":true,"Int32turnThreshold":2},{"Type":"EnemyAI.ChooseActionByName","NodeData":{"Offset":"(-54.4441528,292.2229)"},"ID":7,"Name":"Choose
+        Action By Name","Instant":true,"StringactionName":"Blizzard","SharedActionBehaviourSelectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}},{"Type":"EnemyAI.SelectRandomTarget","NodeData":{"Offset":"(225.555511,282.2229)"},"ID":8,"Name":"Select
+        Random Target","Instant":true,"SharedActionBehaviourselectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true},"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.RandomSelector","NodeData":{"Offset":"(-287.094482,271.906982)"},"ID":9,"Name":"Random
+        Selector","Instant":true,"Int32seed":0,"BooleanuseSeed":false,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(261.728943,260.730469)"},"ID":10,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"EnemyAI.ChooseActionByName","NodeData":{"Offset":"(-153.565125,207.789185)"},"ID":11,"Name":"Choose
+        Action By Name","Instant":true,"StringactionName":"Fist Of Frost","SharedActionBehaviourSelectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}},{"Type":"EnemyAI.SelectOptimalTarget","NodeData":{"Offset":"(143.054565,210.784546)"},"ID":12,"Name":"Select
+        Optimal Target","Instant":true,"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]},"SharedActionBehaviourselectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(1058.78735,246.024658)"},"ID":13,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"EnemyAI.ChooseActionByName","NodeData":{"Offset":"(-156.506592,203.083374)"},"ID":14,"Name":"Choose
+        Action By Name","Instant":true,"StringactionName":"Fist Of Frost","SharedActionBehaviourSelectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true}},{"Type":"EnemyAI.SelectRandomTarget","NodeData":{"Offset":"(115.257813,203.083374)"},"ID":15,"Name":"Select
+        Random Target","Instant":true,"SharedActionBehaviourselectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true},"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]}}]}]},{"Type":"EnemyAI.PerformSelectedAction","NodeData":{"Offset":"(631.72876,271.3189)"},"ID":16,"Name":"Perform
+        Selected Action","Instant":true,"SharedActionBehaviourselectedAction":{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true},"SharedUnitListselectedTargets":{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]}},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(968.199,258.3778)"},"ID":17,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0.2},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}}]}]},"Variables":[{"Type":"EnemyAI.SharedActionBehaviour","Name":"SelectedAction","IsShared":true},{"Type":"EnemyAI.SharedUnitList","Name":"SelectedTargets","IsShared":true,"List`1mValue":[]}]}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
@@ -2044,7 +2055,7 @@ MonoBehaviour:
         unityObjects: []
         byteData: 
         byteDataArray: 
-      Version: 
+      Version: 1.7.9
   gizmoViewMode: 2
   showBehaviorDesignerGizmo: 1
 --- !u!114 &4859672481276320369

@@ -6,6 +6,7 @@ public class BurningStatusEffect : StatusEffect
 {
     [SerializeField] private int minDamageAmount = 1;
     [SerializeField] private int maxDamageAmount = 2;
+    [SerializeField] private int iceDamageResistanceModifier = 50;
     [SerializeField] private DamageType m_damageType = DamageType.Fire;
     private VisualEffect visualEffectInstance;
 
@@ -17,6 +18,8 @@ public class BurningStatusEffect : StatusEffect
 
     public override void OnEnd()
     {
+        unit.combatStats.damageResistanceModifiers[(int)DamageType.Ice] -= iceDamageResistanceModifier;
+
         visualEffectInstance.Stop();
         Animator animator = visualEffectInstance.gameObject.GetComponent<Animator>();
         if (animator != null)
@@ -29,6 +32,10 @@ public class BurningStatusEffect : StatusEffect
     public override void OnStart(Unit effectedUnit)
     {
         base.OnStart(effectedUnit);
+
+        unit.combatStats.damageResistanceModifiers[(int)DamageType.Ice] += iceDamageResistanceModifier;
+
+
         if (VisualEffectPrefab != null)
         {
             StartVisualEffect();

@@ -141,12 +141,6 @@ public class ActionBehaviour : MonoBehaviour
     }
 
 
-    public float GetDuration()
-    {
-        return actionDefinition.Duration;
-    }
-
-
     public void ExecuteLogic()
     {
         Debug.Log(gameObject.name + " is executing action: " + _actionDefinition.Name);

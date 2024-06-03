@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dbc633df8e0cbb49abcca58d65f288a, type: 3}
+  m_Name: Ice Golem Blizzard
+  m_EditorClassIdentifier: 
+  m_name: Blizzard
+  m_actionPointCost: 2
+  m_powerPointCost: 0
+  m_cooldown: 3
+  m_animationTrigger: Roar
+  m_sprite: {fileID: 0}
+  m_targetingMode: 2
+  m_numberOfTargets: 0
+  m_visualEffectOnHit: {fileID: 2693960641412866135, guid: ed35c702875dc854db993bb554d57652, type: 3}
+  m_soundEffect: {fileID: 8300000, guid: 97817a60a94f74d928219194d6292af4, type: 3}
+  minDamage: 12
+  maxDamage: 30
+  hitChance: 75
+  critChance: 7
+  damageType: 2
+  _statusEffects:
+  - statusEffect: {fileID: 11400000, guid: 74a0d76ae6ebe154d9fd126518e2ef5a, type: 2}
+    duration: 1

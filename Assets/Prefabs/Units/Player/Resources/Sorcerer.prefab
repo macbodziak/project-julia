@@ -241,11 +241,12 @@ GameObject:
   - component: {fileID: 7652571127870018335}
   - component: {fileID: 6677021218980007777}
   - component: {fileID: 7667893667041308752}
+  - component: {fileID: 2867227824421184643}
   - component: {fileID: 7427833510030478141}
   - component: {fileID: 4392232342945586101}
   - component: {fileID: 4336199236595021664}
   - component: {fileID: 6501733285068881528}
-  - component: {fileID: 2867227824421184643}
+  - component: {fileID: -1803707053487249021}
   m_Layer: 3
   m_Name: Sorcerer
   m_TagString: Untagged
@@ -405,6 +406,21 @@ MonoBehaviour:
   _actionDefinition: {fileID: 11400000, guid: 7eafd1105febb2c4a830bbc57b4a67b7, type: 2}
   _cooldown: 0
   _isInProgress: 0
+--- !u!114 &2867227824421184643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152229594643594077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionDefinition: {fileID: 11400000, guid: ca7155d4280f1224597a1fe61fd97e5e, type: 2}
+  _cooldown: 0
+  _isInProgress: 0
 --- !u!136 &7427833510030478141
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -558,7 +574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 2405058234534981196}
   isVisible: 0
---- !u!114 &2867227824421184643
+--- !u!114 &-1803707053487249021
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -570,7 +586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _actionDefinition: {fileID: 11400000, guid: ca7155d4280f1224597a1fe61fd97e5e, type: 2}
+  _actionDefinition: {fileID: 11400000, guid: 1b4e0b9d901644e4ab1992798baafc69, type: 2}
   _cooldown: 0
   _isInProgress: 0
 --- !u!1 &1443203326989704211

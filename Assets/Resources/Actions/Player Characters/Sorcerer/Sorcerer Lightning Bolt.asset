@@ -15,13 +15,12 @@ MonoBehaviour:
   m_name: Lightning Bolt
   m_actionPointCost: 1
   m_powerPointCost: 0
-  m_duration: 1.9
   m_cooldown: 0
   m_animationTrigger: CastSpell_1
   m_sprite: {fileID: 21300000, guid: 812282b7ea2a02b4e9f7c90245081336, type: 3}
   m_targetingMode: 0
   m_numberOfTargets: 0
-  m_visualEffectOnHit: {fileID: 3133616235717616955, guid: c8958502846b7134990cedc6a9353c89, type: 3}
+  m_visualEffectOnHit: {fileID: 4265526462707560475, guid: 0793e2b74b3d95f41bda0b84cbd4874d, type: 3}
   m_soundEffect: {fileID: 8300000, guid: ceede7a829d41470a86526620500b878, type: 3}
   minDamage: 12
   maxDamage: 22

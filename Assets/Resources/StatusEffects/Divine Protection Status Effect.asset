@@ -17,7 +17,7 @@ MonoBehaviour:
   m_visualEffect: {fileID: 0}
   executeEarly: 1
   m_savingThrowType: 0
-  minHealingAmount: 6
-  maxHealingAmount: 10
+  minHealingAmount: 15
+  maxHealingAmount: 25
   allSavingThrowModifier: 20
   allDamageResitanceModifier: 20
