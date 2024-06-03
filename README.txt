@@ -89,14 +89,12 @@ EncounterManager is responsible for managing encounters during gameplay.
 
 
 --- Working with Behavior Tree
-selected targets
-selected action
-  -- order of the two above
-selector
-sequence
-random selector
-
-
+In the behavior tree, the main idea is that there are the following shared variables:
+-selectedAction
+-selectedTargets
+AI task should set these, best to begin with action, and then select Targets based on the selected action
+if both action and target selection are successful, at the of a cycle the behavior tree executes a task that perform selected action with selected targets
+There are general target selection tasks, but for better control, best to write custom tasks per unit, with custom scoring system that takes into account several status effects, hp, dodge, damage resitance etc. (see Demon as an example)
 
 
 Animations:

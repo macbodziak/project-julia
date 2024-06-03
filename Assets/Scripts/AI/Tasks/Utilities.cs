@@ -54,7 +54,11 @@ namespace EnemyAI
             return score;
         }
 
-
+        //<summary>
+        //as input, this method takes a list of units and a corresponding list of score values
+        //it checks which score value is the highets and returns the respective unit (based on the list index)
+        //scoring should be done before calling this method
+        //</summary>
         public static Unit SelectTargetByScore(List<Unit> targetList, List<int> scores)
         {
             if (targetList.Count == 0)
