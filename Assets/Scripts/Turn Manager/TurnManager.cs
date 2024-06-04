@@ -55,13 +55,13 @@ public class TurnManager : MonoBehaviour
     {
         if (IsPlayerTurn)
         {
-            ProcessPassiveStatusEffects(GameManagement.EncounterManager.Instance.GetPlayerUnitList());
+            CountDownStatusEffects(GameManagement.EncounterManager.Instance.GetPlayerUnitList());
             IsPlayerTurn = false;
             StartCoroutine(StartEnemyTurn());
         }
         else
         {
-            ProcessPassiveStatusEffects(GameManagement.EncounterManager.Instance.GetEnemyUnitList());
+            CountDownStatusEffects(GameManagement.EncounterManager.Instance.GetEnemyUnitList());
             IsPlayerTurn = true;
             StartCoroutine(StartPlayerTurn());
             TurnNumber++;
@@ -87,13 +87,13 @@ public class TurnManager : MonoBehaviour
         return statusEffectControllers;
     }
 
-    private void ProcessPassiveStatusEffects(List<Unit> units)
+    private void CountDownStatusEffects(List<Unit> units)
     {
         //iterating from the end becuase units might get removed while iterating if they die
         for (int i = units.Count - 1; i >= 0; i--)
         {
             StatusEffectController statusEffectController = units[i].GetComponent<StatusEffectController>();
-            statusEffectController.ApplyPassiveStatusEffects();
+            statusEffectController.CountDownStatusEffects();
         }
     }
 

@@ -44,7 +44,6 @@ public class StatusEffectController : MonoBehaviour
 
     private IEnumerator ApplyActiveStatusEffectsCoroutine()
     {
-        //TO DO - refactor
         IsProcessing = true;
 
         //first go through early list
@@ -57,16 +56,16 @@ public class StatusEffectController : MonoBehaviour
                 earlyStatusEffectsBehaviours[i].ApplyEffect();
                 yield return new WaitForSeconds(TIME_BETWEEN_STATUS_EFFECTS);
 
-                earlyStatusEffectsBehaviours[i].Decrement();
+                // earlyStatusEffectsBehaviours[i].Decrement();
 
-                //remove status effect from list if expired
-                if (earlyStatusEffectsBehaviours[i].RemainingDuration <= 0)
-                {
-                    AnyUnitRemovingStatusEffectEvent?.Invoke(this, earlyStatusEffectsBehaviours[i].statusEffect);
-                    Destroy(earlyStatusEffectsBehaviours[i]);
-                    earlyStatusEffectsBehaviours.RemoveAt(i);
-                    AnyUnitStatusEffectsChangedEvent?.Invoke(this, EventArgs.Empty);
-                }
+                // //remove status effect from list if expired
+                // if (earlyStatusEffectsBehaviours[i].RemainingDuration <= 0)
+                // {
+                //     AnyUnitRemovingStatusEffectEvent?.Invoke(this, earlyStatusEffectsBehaviours[i].statusEffect);
+                //     Destroy(earlyStatusEffectsBehaviours[i]);
+                //     earlyStatusEffectsBehaviours.RemoveAt(i);
+                //     AnyUnitStatusEffectsChangedEvent?.Invoke(this, EventArgs.Empty);
+                // }
             }
         }
 
@@ -97,30 +96,26 @@ public class StatusEffectController : MonoBehaviour
     }
 
 
-    public void ApplyPassiveStatusEffects()
+    public void CountDownStatusEffects()
     {
-        ProccessPassiveStatusEffectsFromList(earlyStatusEffectsBehaviours);
-        ProccessPassiveStatusEffectsFromList(statusEffectsBehaviours);
+        CountDownStatusEffectsFromList(earlyStatusEffectsBehaviours);
+        CountDownStatusEffectsFromList(statusEffectsBehaviours);
     }
 
-    private void ProccessPassiveStatusEffectsFromList(List<StatusEffectBehaviour> statusEffectList)
+    private void CountDownStatusEffectsFromList(List<StatusEffectBehaviour> statusEffectList)
     {
         //cycle backwards, becasue we might need to remove elements while iterating over list
         for (int i = statusEffectList.Count - 1; i >= 0; i--)
         {
-            //if the status effect needs to be apllied each turn
-            if (statusEffectList[i].IsActive() == false)
-            {
-                statusEffectList[i].Decrement();
+            statusEffectList[i].Decrement();
 
-                //remove status effect from list if expired
-                if (statusEffectList[i].RemainingDuration <= 0)
-                {
-                    AnyUnitRemovingStatusEffectEvent?.Invoke(this, statusEffectList[i].statusEffect);
-                    Destroy(statusEffectList[i]);
-                    statusEffectList.RemoveAt(i);
-                    AnyUnitStatusEffectsChangedEvent?.Invoke(this, EventArgs.Empty);
-                }
+            //remove status effect from list if expired
+            if (statusEffectList[i].RemainingDuration <= 0)
+            {
+                AnyUnitRemovingStatusEffectEvent?.Invoke(this, statusEffectList[i].statusEffect);
+                Destroy(statusEffectList[i]);
+                statusEffectList.RemoveAt(i);
+                AnyUnitStatusEffectsChangedEvent?.Invoke(this, EventArgs.Empty);
             }
         }
     }
