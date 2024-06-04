@@ -157,7 +157,7 @@ public class StatusEffectController : MonoBehaviour
     }
 
 
-    private void ReceiveStatusEffect(StatusEffect statusEffectPreset, int duration)
+    public void ReceiveStatusEffect(StatusEffect statusEffectPreset, int duration)
     {
         StatusEffectBehaviour statusEffectBehaviour;
 
@@ -261,6 +261,10 @@ public class StatusEffectController : MonoBehaviour
 
     public void Clear()
     {
+        foreach (StatusEffectBehaviour statusEffect in earlyStatusEffectsBehaviours)
+        {
+            Destroy(statusEffect);
+        }
         foreach (StatusEffectBehaviour statusEffect in statusEffectsBehaviours)
         {
             Destroy(statusEffect);
