@@ -7,12 +7,12 @@ using UnityEngine.VFX;
 [CreateAssetMenu(fileName = "Base Action Data", menuName = "Scriptable Objects/Actions/Base Action Data Config", order = 300)]
 public abstract class ActionDefinition : ScriptableObject
 {
-    [SerializeField] private string m_name = "no name";
+    [SerializeField][RequiredField] private string m_name;
     [SerializeField][RangeInt(0, 5)] private int m_actionPointCost = 1;
     [SerializeField][RangeInt(0, 5)] private int m_powerPointCost = 0;
     [SerializeField][RangeInt(0, 10)] private int m_cooldown = 0;
-    [SerializeField] private string m_animationTrigger;
-    [SerializeField] private Sprite m_sprite;
+    [SerializeField][RequiredField] private string m_animationTrigger;
+    [SerializeField][RequiredField] private Sprite m_sprite;
     [SerializeField] private TargetingMode m_targetingMode;
     [Tooltip("Only used for Multiple Targets, not for Single or All")]
     [SerializeField]
