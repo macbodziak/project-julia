@@ -16,3 +16,5 @@ MonoBehaviour:
   _enemiesList:
   - {fileID: 4600294742161693515, guid: a5022e9aca6939a4286975cf163cfcb4, type: 3}
   - {fileID: 1870695296858083973, guid: c99917a4820bbc44dab80fa18cb9598e, type: 3}
+  - {fileID: 8358467249578206276, guid: a5e38c66520e76a4ebfebdc0f1827e5f, type: 3}
+  - {fileID: 6402526630220366030, guid: 3433db10e8f7d594a9586700b7fdc112, type: 3}

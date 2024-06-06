@@ -7,9 +7,9 @@ using Unity.VisualScripting;
 public class Unit : MonoBehaviour
 {
     private SelectedVisual selectedVisual;
-    [SerializeField] private Sprite portrait;
+    [SerializeField][RequiredField] private Sprite portrait;
     [SerializeField] private bool isPlayer;
-    [SerializeField] private string _name;
+    [SerializeField][RequiredField] private string _name;
     public static event EventHandler OnMouseEnterAnyUnit;
     public static event EventHandler OnMouseExitAnyUnit;
 

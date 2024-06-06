@@ -17,6 +17,7 @@ MonoBehaviour:
   m_visualEffect: {fileID: 3422903983924817727, guid: b38fad1a77b71684db7b0956b1d48a0e, type: 3}
   executeEarly: 0
   m_savingThrowType: 0
-  minDamageAmount: 3
-  maxDamageAmount: 6
+  minDamageAmount: 5
+  maxDamageAmount: 10
+  iceDamageResistanceModifier: 50
   m_damageType: 1

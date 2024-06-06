@@ -17,6 +17,6 @@ MonoBehaviour:
   m_visualEffect: {fileID: 0}
   executeEarly: 0
   m_savingThrowType: 1
-  minDamageAmount: 3
-  maxDamageAmount: 6
+  minDamageAmount: 5
+  maxDamageAmount: 10
   _damageType: 0

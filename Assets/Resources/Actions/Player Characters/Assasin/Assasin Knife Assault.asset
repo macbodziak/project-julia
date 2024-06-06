@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99beffae8ec0b2d4da07cb4d5db75957, type: 3}
+  m_Name: Assasin Knife Assault
+  m_EditorClassIdentifier: 
+  m_name: Knife Assault
+  m_actionPointCost: 1
+  m_powerPointCost: 0
+  m_cooldown: 0
+  m_animationTrigger: Dual_Attack_1
+  m_sprite: {fileID: 21300000, guid: 2c3e4b9b30639bc40852402f2b3f616e, type: 3}
+  m_targetingMode: 0
+  m_numberOfTargets: 0
+  m_visualEffectOnHit: {fileID: 1512422262861900188, guid: 5f5006983cda4aa44b4284c86e6f65dd, type: 3}
+  m_soundEffect: {fileID: 8300000, guid: eb94b007ada76450daaa3ef4c6edfd04, type: 3}
+  minDamage: 10
+  maxDamage: 15
+  hitChance: 85
+  critChance: 7
+  damageType: 0

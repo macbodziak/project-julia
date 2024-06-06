@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class SoundController : MonoBehaviour
 {
-    [SerializeField] private List<AudioClip> onHitSounds;
-    [SerializeField] private AudioClip onDeathSound;
-    [SerializeField] private AudioClip onRelieveSound;
-    [SerializeField] private AudioClip onDodgeSound;
+    [SerializeField][RequiredField] private List<AudioClip> onHitSounds;
+    [SerializeField][RequiredField] private AudioClip onDeathSound;
+    [SerializeField][RequiredField] private AudioClip onRelieveSound;
+    [SerializeField][RequiredField] private AudioClip onDodgeSound;
 
     public bool SoundEnabled = true;
     private AudioSource _audioSource;

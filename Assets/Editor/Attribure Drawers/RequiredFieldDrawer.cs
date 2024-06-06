@@ -61,6 +61,10 @@ public class RequiredFieldDrawer : PropertyDrawer
         {
             warningContianer.style.display = DisplayStyle.Flex;
         }
+        else if (property.isArray && property.propertyType == SerializedPropertyType.Generic && property.arraySize == 0)
+        {
+            warningContianer.style.display = DisplayStyle.Flex;
+        }
         else
         {
             warningContianer.style.display = DisplayStyle.None;

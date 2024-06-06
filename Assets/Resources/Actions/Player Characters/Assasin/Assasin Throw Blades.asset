@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99beffae8ec0b2d4da07cb4d5db75957, type: 3}
+  m_Name: Assasin Throw Blades
+  m_EditorClassIdentifier: 
+  m_name: Throw Blades
+  m_actionPointCost: 1
+  m_powerPointCost: 0
+  m_cooldown: 2
+  m_animationTrigger: Throw_2
+  m_sprite: {fileID: 21300000, guid: b376f0fcba0c62546aab58ef9b75448e, type: 3}
+  m_targetingMode: 1
+  m_numberOfTargets: 2
+  m_visualEffectOnHit: {fileID: 0}
+  m_soundEffect: {fileID: 8300000, guid: 2349991e7023d4b0fa79f9c021b7f620, type: 3}
+  minDamage: 8
+  maxDamage: 15
+  hitChance: 85
+  critChance: 7
+  damageType: 0
