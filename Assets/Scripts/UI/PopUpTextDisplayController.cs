@@ -22,6 +22,7 @@ public class PopUpTextDisplayController : MonoBehaviour
         // Unit.OnMouseExitAnyUnit += HandleMouseExitAnyUnit;
 
         CombatStats.AnyUnitTookDamageEvent += HandleAnyUnitTookDamage;
+        CombatStats.AnyUnitDodgedAttackEvent += HandleAnyUnitDodgedAttack;
         CombatStats.AnyUnitReceivedHealingEvent += HanldeAnyUnitReceivedHealing;
 
         StatusEffectController.AnyUnitImmuneToStatusEffectEvent += HandleAnyUnitImmuneToStatusEffect;
@@ -29,6 +30,7 @@ public class PopUpTextDisplayController : MonoBehaviour
         StatusEffectController.AnyUnitRemovingStatusEffectEvent += HandlAnyUnitRemovedStatusEffect;
         StatusEffectController.AnyUnitSavedFromStatusEffectEvent += HandleAnyUnitSavedFromStatusEffect;
     }
+
 
     private void HandleMouseEnterAnyUnit(object sender, EventArgs e)
     {
@@ -61,6 +63,22 @@ public class PopUpTextDisplayController : MonoBehaviour
         TextMeshProUGUI textMesh = textDrawer.DisplayRaisingTextAtGameObject(textToShow, combatStats.gameObject, new Vector2(0f, 50f), 90f, 1.2f);
         textMesh.color = damageColors[(int)args.Type];
     }
+
+
+    private void HandleAnyUnitDodgedAttack(object sender, EventArgs e)
+    {
+        DodgedEventArgs args = e as DodgedEventArgs;
+        if (args == null)
+        {
+            return;
+        }
+
+        CombatStats combatStats = (CombatStats)sender;
+        string textToShow = "Dogded";
+        TextMeshProUGUI textMesh = textDrawer.DisplayRaisingTextAtGameObject(textToShow, combatStats.gameObject, new Vector2(0f, 70f), 90f, 1.2f);
+        textMesh.color = damageColors[(int)args.Type];
+    }
+
 
     private void HanldeAnyUnitReceivedHealing(object sender, HealingReceivedEventArgs args)
     {

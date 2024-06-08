@@ -23,7 +23,7 @@ public class AttackActionDefinition : ActionDefinition, ICanAttack
         AttackInfo attack = GetAttackInfo(combatStats);
         foreach (Unit target in targets)
         {
-            bool hit = target.combatStats.ReceiveAttack(attack);
+            bool hit = target.combatStats.ReceiveAttack(attack, actingUnit);
 
             if (hit)
             {

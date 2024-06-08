@@ -149,6 +149,7 @@ public class CombatStats : MonoBehaviour
     }
 
     public static event EventHandler<DamageTakenEventArgs> AnyUnitTookDamageEvent;
+    public static event EventHandler<DodgedEventArgs> AnyUnitDodgedAttackEvent;
     public static event EventHandler<HealingReceivedEventArgs> AnyUnitReceivedHealingEvent;
     public static event EventHandler AnyUnitActionPointsChangedEvent;
 
@@ -236,7 +237,7 @@ public class CombatStats : MonoBehaviour
     }
 
 
-    public bool ReceiveAttack(AttackInfo attack)
+    public bool ReceiveAttack(AttackInfo attack, Unit attacker)
     {
         bool isCritical = false;
         //make hit roll 
@@ -265,6 +266,7 @@ public class CombatStats : MonoBehaviour
         else
         {
             OnDodge();
+            AnyUnitDodgedAttackEvent?.Invoke(this, new DodgedEventArgs(attacker, attack.Type));
             return false;
         }
     }
@@ -341,7 +343,7 @@ public class CombatStats : MonoBehaviour
 
     public static void ClearAllListeners()
     {
-
+        AnyUnitDodgedAttackEvent = null;
         AnyUnitTookDamageEvent = null;
         AnyUnitReceivedHealingEvent = null;
         AnyUnitActionPointsChangedEvent = null;
