@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private AbilityLayoutController abilityLayoutController;
     [SerializeField] private TextMeshProUGUI stateText;
+    [SerializeField] private TextMeshProUGUI actionNameText;
     [SerializeField] private Button endTurnButton;
     [SerializeField] private TextMeshProUGUI endTurnText;
     [SerializeField] private TextMeshProUGUI currentTurnPlayerText;
@@ -50,6 +51,7 @@ public class UIManager : MonoBehaviour
 
         //register with event publishers
         ActionManager.Instance.SelectedUnitChangedEvent += HandleSelectedUnitChanged;
+        ActionManager.Instance.SelectedActionChangedEvent += HandleSelectedActionChanged;
         ActionManager.Instance.ActionCompletedEvent += HandleActionCompleted;
         InputManager.Instance.InputStateChangedEvent += HandleInputStateChanged;
         TurnManager.Instance.TurnEndedEvent += HandleTurnEnded;
@@ -63,6 +65,39 @@ public class UIManager : MonoBehaviour
         StatusEffectController.AnyUnitStatusEffectsChangedEvent += HanldeStatusEffectInfoPanelUpdate;
         PortraitBehavior.AnyPortraitMouseEnterEvent += HandleAnyPortraitMouseEnter;
         PortraitBehavior.AnyPortraitMouseExitEvent += HandleAnyPortraitMouseExit;
+        ActionButton.MouseEnterAnyActionButtonEvent += HandleMouseEnterAnyActionButton;
+        ActionButton.MouseExitAnyActionButtonEvent += HandleMouseExitAnyActionButton;
+    }
+
+
+    private void HandleSelectedActionChanged(object sender, EventArgs e)
+    {
+        if (ActionManager.Instance.SelectedAction == null)
+        {
+            actionNameText.text = "";
+        }
+        else
+        {
+            actionNameText.text = ActionManager.Instance.SelectedAction.Name;
+        }
+    }
+
+
+    public void HandleMouseEnterAnyActionButton(object sender, EventArgs e)
+    {
+        ActionButton actionButton = sender as ActionButton;
+        if (actionButton == null)
+        {
+            return;
+        }
+        actionNameText.text = actionButton.action.Name;
+    }
+
+
+    public void HandleMouseExitAnyActionButton(object sender, EventArgs e)
+    {
+
+        HandleSelectedActionChanged(sender, e);
     }
 
 
@@ -157,6 +192,7 @@ public class UIManager : MonoBehaviour
         if (ActionManager.Instance != null)
         {
             ActionManager.Instance.SelectedUnitChangedEvent -= HandleSelectedUnitChanged;
+            ActionManager.Instance.SelectedActionChangedEvent -= HandleSelectedActionChanged;
             ActionManager.Instance.ActionCompletedEvent -= HandleActionCompleted;
         }
 
@@ -179,6 +215,14 @@ public class UIManager : MonoBehaviour
         //static events so no null check needed
         Unit.OnMouseEnterAnyUnit -= HandleMouseEnterAnyUnit;
         Unit.OnMouseExitAnyUnit -= HandleMouseExitAnyUnit;
+        CombatStats.AnyUnitTookDamageEvent -= HandleHealthBarUpdate;
+        CombatStats.AnyUnitReceivedHealingEvent -= HandleHealthBarUpdate;
+        CombatStats.AnyUnitActionPointsChangedEvent -= HandleAnyUnitActionPointsChanged;
+        StatusEffectController.AnyUnitStatusEffectsChangedEvent -= HanldeStatusEffectInfoPanelUpdate;
+        PortraitBehavior.AnyPortraitMouseEnterEvent -= HandleAnyPortraitMouseEnter;
+        PortraitBehavior.AnyPortraitMouseExitEvent -= HandleAnyPortraitMouseExit;
+        ActionButton.MouseEnterAnyActionButtonEvent -= HandleMouseEnterAnyActionButton;
+        ActionButton.MouseExitAnyActionButtonEvent -= HandleMouseExitAnyActionButton;
     }
 
 

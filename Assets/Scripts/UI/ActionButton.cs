@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
 using TMPro;
 
-public class ActionButton : MonoBehaviour
+public class ActionButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private ActionBehaviour m_action;
     public Button button;
@@ -16,6 +15,8 @@ public class ActionButton : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _PPCostTextMesh;
     private Sprite m_icon;
 
+    public static event EventHandler MouseEnterAnyActionButtonEvent;
+    public static event EventHandler MouseExitAnyActionButtonEvent;
 
     public Sprite icon
     {
@@ -34,7 +35,7 @@ public class ActionButton : MonoBehaviour
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(UISoundPlayer.Instance.PlayButtonClickedSound);
-        ActionManager.Instance.SelectedActionChangedEvent += handleSelectedActionChanged;
+        ActionManager.Instance.SelectedActionChangedEvent += HandleSelectedActionChanged;
     }
 
 
@@ -44,7 +45,7 @@ public class ActionButton : MonoBehaviour
     }
 
 
-    public void handleSelectedActionChanged(object sender, EventArgs e)
+    public void HandleSelectedActionChanged(object sender, EventArgs e)
     {
         if (ActionManager.Instance.SelectedAction == null)
         {
@@ -65,7 +66,7 @@ public class ActionButton : MonoBehaviour
 
     private void OnDestroy()
     {
-        ActionManager.Instance.SelectedActionChangedEvent -= handleSelectedActionChanged;
+        ActionManager.Instance.SelectedActionChangedEvent -= HandleSelectedActionChanged;
     }
 
     public void SetIcon(Sprite inIcon)
@@ -124,4 +125,22 @@ public class ActionButton : MonoBehaviour
         }
     }
 
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        MouseEnterAnyActionButtonEvent?.Invoke(this, EventArgs.Empty);
+    }
+
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        MouseExitAnyActionButtonEvent?.Invoke(this, EventArgs.Empty);
+    }
+
+
+    public static void ClearAllListeners()
+    {
+        MouseEnterAnyActionButtonEvent = null;
+        MouseExitAnyActionButtonEvent = null;
+    }
 }

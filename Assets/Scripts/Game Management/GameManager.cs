@@ -107,6 +107,7 @@ namespace GameManagement
             CombatStats.ClearAllListeners();
             StatusEffectController.ClearAllListeners();
             PortraitBehavior.ClearAllListeners();
+            ActionButton.ClearAllListeners();
         }
     }
 }
