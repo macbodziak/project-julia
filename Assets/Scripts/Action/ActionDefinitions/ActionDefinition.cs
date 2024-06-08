@@ -12,7 +12,7 @@ public abstract class ActionDefinition : ScriptableObject
     [SerializeField][RangeInt(0, 5)] private int m_powerPointCost = 0;
     [SerializeField][RangeInt(0, 10)] private int m_cooldown = 0;
     [SerializeField][RequiredField] private string m_animationTrigger;
-    [SerializeField][RequiredField] private Sprite m_sprite;
+    [SerializeField][RequiredField][PreviewTexture] private Sprite m_sprite;
     [SerializeField] private TargetingMode m_targetingMode;
     [Tooltip("Only used for Multiple Targets, not for Single or All")]
     [SerializeField]

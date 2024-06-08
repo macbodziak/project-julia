@@ -9,7 +9,7 @@ using UnityEngine.VFX;
 public abstract class StatusEffect : ScriptableObject
 {
     [SerializeField] private string m_name = "no name";
-    [SerializeField] private Sprite m_sprite;
+    [SerializeField][PreviewTexture] private Sprite m_sprite;
     [Tooltip("will this status effect be executed each turn?")]
     [SerializeField] private ParticleSystem m_vfxPrefab;
     [Tooltip("does this status effect need to executed before regular status effects?")]
