@@ -17,7 +17,7 @@ MonoBehaviour:
   m_powerPointCost: 2
   m_cooldown: 3
   m_animationTrigger: Throw_1
-  m_sprite: {fileID: 21300000, guid: 994302815f07a474c9c2c0cdb1991a25, type: 3}
+  m_sprite: {fileID: 21300000, guid: 0895d0bc03f1e7d41b74e92b1d16d470, type: 3}
   m_targetingMode: 0
   m_numberOfTargets: 0
   m_visualEffectOnHit: {fileID: 6295012390146721859, guid: 7c56c4c254706d14595740859fd328f4, type: 3}

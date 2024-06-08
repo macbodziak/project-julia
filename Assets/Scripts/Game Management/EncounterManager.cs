@@ -56,16 +56,14 @@ namespace GameManagement
 
             for (int i = 0; i < GameManagement.GameManager.PlayerUnits.Count; i++)
             {
-                newUnit = Instantiate<Unit>(GameManagement.GameManager.PlayerUnits[i]);
+                newUnit = Instantiate<Unit>(GameManagement.GameManager.PlayerUnits[i], playerSpawnPoints[i].position, playerSpawnPoints[i].rotation);
                 playerUnits.Add(newUnit);
-                newUnit.transform.SetPositionAndRotation(playerSpawnPoints[i].position, playerSpawnPoints[i].rotation);
             }
 
             for (int i = 0; i < GameManagement.GameManager.EnemyUnits.Count; i++)
             {
-                newUnit = Instantiate<Unit>(GameManagement.GameManager.EnemyUnits[i]);
+                newUnit = Instantiate<Unit>(GameManagement.GameManager.EnemyUnits[i], enemySpawnPoints[i].position, enemySpawnPoints[i].rotation);
                 enemyUnits.Add(newUnit);
-                newUnit.transform.SetPositionAndRotation(enemySpawnPoints[i].position, enemySpawnPoints[i].rotation);
             }
         }
 
