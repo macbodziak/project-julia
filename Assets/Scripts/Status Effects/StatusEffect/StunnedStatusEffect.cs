@@ -20,5 +20,9 @@ public class StunnedStatusEffect : StatusEffect
         base.OnEnd();
         unit.combatStats.NoActionPointsRefresh--;
         unit.combatStats.DodgeModifier += 10;
+        if (TurnManager.Instance.IsPlayerTurn == unit.IsPlayer)
+        {
+            unit.combatStats.CurrentActionPoints = unit.combatStats.MaxActionPoints;
+        }
     }
 }

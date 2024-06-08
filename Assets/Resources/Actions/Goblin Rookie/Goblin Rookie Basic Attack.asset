@@ -15,13 +15,12 @@ MonoBehaviour:
   m_name: Axe swing
   m_actionPointCost: 1
   m_powerPointCost: 0
-  m_duration: 2
   m_cooldown: 0
   m_animationTrigger: Attack
   m_sprite: {fileID: 0}
   m_targetingMode: 0
   m_numberOfTargets: 0
-  m_visualEffectOnHit: {fileID: 3681913643477291456, guid: 4de67dc3d04de554b86fc8091e1e6106, type: 3}
+  m_visualEffectOnHit: {fileID: 9027644276923738143, guid: a64651520b76cfe4f8b47580541a3a25, type: 3}
   m_soundEffect: {fileID: 8300000, guid: 4420bbb034bce4b3d85ac8c8dbd91b0f, type: 3}
   minDamage: 8
   maxDamage: 12

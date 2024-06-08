@@ -1134,7 +1134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _actionDefinition: {fileID: 0}
+  _actionDefinition: {fileID: 11400000, guid: 9b2e06492c577624bab0cd701f5cee22, type: 2}
   _cooldown: 0
   _isInProgress: 0
 --- !u!136 &1823892842039645781

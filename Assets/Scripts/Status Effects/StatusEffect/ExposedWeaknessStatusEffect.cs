@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Physical Vulnerability Status Effect", menuName = "Scriptable Objects/Status Effects/Physical Vulnerabilit Status Effect Preset", order = 3)]
-public class PhysicalVulnerabilityStatusEffect : StatusEffect
+[CreateAssetMenu(fileName = "Exposed Weakness Status Effect", menuName = "Scriptable Objects/Status Effects/Exposed WeaknessStatus Effect Preset", order = 3)]
+public class ExposedWeaknessStatusEffect : StatusEffect
 {
     [SerializeField] private int physicalDamageResistance = -10;
 
@@ -9,7 +9,7 @@ public class PhysicalVulnerabilityStatusEffect : StatusEffect
 
     public override bool IsActive { get { return false; } }
 
-    public override StatusEffectType Type { get { return StatusEffectType.PhysicalVulnerability; } }
+    public override StatusEffectType Type { get { return StatusEffectType.ExposedWeakness; } }
 
 
     public override void OnStart(Unit effectedUnit)

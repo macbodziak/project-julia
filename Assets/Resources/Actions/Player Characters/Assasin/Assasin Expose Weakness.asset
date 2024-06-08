@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80faee4d92c185e41b04e74e42819761, type: 3}
+  m_Name: Assasin Expose Weakness
+  m_EditorClassIdentifier: 
+  m_name: Expose Weakness
+  m_actionPointCost: 1
+  m_powerPointCost: 2
+  m_cooldown: 3
+  m_animationTrigger: CastSpell_2
+  m_sprite: {fileID: 21300000, guid: e784f82ee912e7740be4847029c0d219, type: 3}
+  m_targetingMode: 0
+  m_numberOfTargets: 0
+  m_visualEffectOnHit: {fileID: 3044437737597694127, guid: fc46e719ccdcfa04797a6fdc4964ddbb, type: 3}
+  m_soundEffect: {fileID: 8300000, guid: 3c25c1d68a54b45f18cfc29b31c236de, type: 3}
+  _statusEffectsApplied:
+  - statusEffect: {fileID: 11400000, guid: 4df995bc0b8be1743af7bdee2ea9e849, type: 2}
+    duration: 3

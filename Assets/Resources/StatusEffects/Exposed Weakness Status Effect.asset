@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f81a4a8e4debdbc4281aa5845b4a1baf, type: 3}
-  m_Name: Physical Vulnerability Status Effect
+  m_Name: Exposed Weakness Status Effect
   m_EditorClassIdentifier: 
-  m_name: Physical Vulnerability
+  m_name: Exposed Weakness
   m_sprite: {fileID: 21300000, guid: 7d490707d45f1464686bb6f1c5565e35, type: 3}
-  m_visualEffect: {fileID: 0}
+  m_vfxPrefab: {fileID: 0}
   executeEarly: 0
   m_savingThrowType: 1
   physicalDamageResistance: -33

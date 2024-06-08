@@ -13,7 +13,7 @@ public enum StatusEffectType
     Inspired,
     Fortified,
     Regenerating,
-    PhysicalVulnerability,
+    ExposedWeakness,
     DemonicWrath,
     FireVulnerability,
     IceVulnerability,

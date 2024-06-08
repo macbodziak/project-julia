@@ -15,13 +15,12 @@ MonoBehaviour:
   m_name: Strong Strike
   m_actionPointCost: 1
   m_powerPointCost: 0
-  m_duration: 2
   m_cooldown: 2
   m_animationTrigger: Attack_3
   m_sprite: {fileID: 0}
   m_targetingMode: 0
   m_numberOfTargets: 0
-  m_visualEffectOnHit: {fileID: 3681913643477291456, guid: 4de67dc3d04de554b86fc8091e1e6106, type: 3}
+  m_visualEffectOnHit: {fileID: 4831071794024026981, guid: 77234e5461814564c96f2dfd4cf2bb01, type: 3}
   m_soundEffect: {fileID: 8300000, guid: a3165955f5d1545b5888c60246b6112f, type: 3}
   minDamage: 12
   maxDamage: 20
