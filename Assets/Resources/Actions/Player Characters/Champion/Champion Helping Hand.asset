@@ -15,13 +15,12 @@ MonoBehaviour:
   m_name: Helping Hand
   m_actionPointCost: 1
   m_powerPointCost: 0
-  m_duration: 0
   m_cooldown: 2
   m_animationTrigger: CastSpell_7
   m_sprite: {fileID: 21300000, guid: e72209019c9c96d4daaf6cb2df926248, type: 3}
   m_targetingMode: 4
   m_numberOfTargets: 0
-  m_visualEffectOnHit: {fileID: 0}
+  m_visualEffectOnHit: {fileID: 8355974705503058070, guid: 780d9cd1e0204fb4b9bde5d538a55227, type: 3}
   m_soundEffect: {fileID: 8300000, guid: 46235701749d4084a81505c80e3aed26, type: 3}
   _statusEffectsRemoved:
   - {fileID: 11400000, guid: c3ba83925cfc0c841be4769dc9a639f5, type: 2}

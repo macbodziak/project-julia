@@ -16,7 +16,7 @@ public class ApplyEffectActionDefinition : ActionDefinition
             //apply status effects if this action definition has status effects
             ApplyStatusEffects(target, StatusEffectsApplied);
             //TO DO - if hit
-            VisualEffect vfx = PlayVisualEffect(VisualEffectOnHitPrefab, target.transform);
+            GameObject vfx = PlayVisualEffect(VisualEffectOnHitPrefab, target.transform);
 
         }
     }

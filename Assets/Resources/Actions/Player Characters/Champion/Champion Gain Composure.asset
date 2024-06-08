@@ -15,13 +15,12 @@ MonoBehaviour:
   m_name: Gain Composure
   m_actionPointCost: 1
   m_powerPointCost: 0
-  m_duration: 0
   m_cooldown: 4
   m_animationTrigger: CastSpell_8
   m_sprite: {fileID: 21300000, guid: c1e580da84838944db84bbe44e74440e, type: 3}
   m_targetingMode: 3
   m_numberOfTargets: 0
-  m_visualEffectOnHit: {fileID: 0}
+  m_visualEffectOnHit: {fileID: 5679454534585672626, guid: 99a29e7cb78dc6c42a4cab72682b3bd1, type: 3}
   m_soundEffect: {fileID: 8300000, guid: a0350d38d25a0410d98ee7fdac79ee92, type: 3}
   _statusEffectsApplied:
   - statusEffect: {fileID: 11400000, guid: a7e14480e8c28e34c975650d7fe395e9, type: 2}

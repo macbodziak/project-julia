@@ -15,13 +15,12 @@ MonoBehaviour:
   m_name: Skeleton Shield Bash
   m_actionPointCost: 2
   m_powerPointCost: 0
-  m_duration: 2
   m_cooldown: 2
   m_animationTrigger: ShieldAttack
   m_sprite: {fileID: 0}
   m_targetingMode: 0
   m_numberOfTargets: 0
-  m_visualEffectOnHit: {fileID: 0}
+  m_visualEffectOnHit: {fileID: 2478676229182450729, guid: 1ff34f12165c1724ea6747371e40e534, type: 3}
   m_soundEffect: {fileID: 8300000, guid: 51334e139e8784bfe8df9cb9519cf363, type: 3}
   minDamage: 5
   maxDamage: 12

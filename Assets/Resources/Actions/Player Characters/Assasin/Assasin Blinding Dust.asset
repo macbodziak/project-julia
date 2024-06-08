@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80faee4d92c185e41b04e74e42819761, type: 3}
   m_Name: Assasin Blinding Dust
   m_EditorClassIdentifier: 
-  m_name: 
+  m_name: Blinding Dust
   m_actionPointCost: 1
-  m_powerPointCost: 0
-  m_cooldown: 0
-  m_animationTrigger: 
-  m_sprite: {fileID: 0}
+  m_powerPointCost: 2
+  m_cooldown: 3
+  m_animationTrigger: Throw_1
+  m_sprite: {fileID: 21300000, guid: 994302815f07a474c9c2c0cdb1991a25, type: 3}
   m_targetingMode: 0
   m_numberOfTargets: 0
-  m_visualEffectOnHit: {fileID: 0}
-  m_soundEffect: {fileID: 0}
-  _statusEffectsApplied: []
+  m_visualEffectOnHit: {fileID: 6295012390146721859, guid: 7c56c4c254706d14595740859fd328f4, type: 3}
+  m_soundEffect: {fileID: 8300000, guid: c74911b70a06b4ff382be0be025d7455, type: 3}
+  _statusEffectsApplied:
+  - statusEffect: {fileID: 11400000, guid: 74a0d76ae6ebe154d9fd126518e2ef5a, type: 2}
+    duration: 3

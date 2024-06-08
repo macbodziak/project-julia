@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: Poisoned
   m_sprite: {fileID: 21300000, guid: 3a9b368dae970814b829afd34f349d01, type: 3}
-  m_visualEffect: {fileID: 0}
+  m_vfxPrefab: {fileID: 0}
   executeEarly: 0
   m_savingThrowType: 1
-  minDamageAmount: 3
-  maxDamageAmount: 6
+  minDamageAmount: 5
+  maxDamageAmount: 10
   _damageType: 4

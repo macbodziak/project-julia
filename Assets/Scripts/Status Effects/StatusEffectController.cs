@@ -55,17 +55,6 @@ public class StatusEffectController : MonoBehaviour
             {
                 earlyStatusEffectsBehaviours[i].ApplyEffect();
                 yield return new WaitForSeconds(TIME_BETWEEN_STATUS_EFFECTS);
-
-                // earlyStatusEffectsBehaviours[i].Decrement();
-
-                // //remove status effect from list if expired
-                // if (earlyStatusEffectsBehaviours[i].RemainingDuration <= 0)
-                // {
-                //     AnyUnitRemovingStatusEffectEvent?.Invoke(this, earlyStatusEffectsBehaviours[i].statusEffect);
-                //     Destroy(earlyStatusEffectsBehaviours[i]);
-                //     earlyStatusEffectsBehaviours.RemoveAt(i);
-                //     AnyUnitStatusEffectsChangedEvent?.Invoke(this, EventArgs.Empty);
-                // }
             }
         }
 
@@ -78,17 +67,6 @@ public class StatusEffectController : MonoBehaviour
             {
                 statusEffectsBehaviours[i].ApplyEffect();
                 yield return new WaitForSeconds(TIME_BETWEEN_STATUS_EFFECTS);
-
-                statusEffectsBehaviours[i].Decrement();
-
-                //remove status effect from list if expired
-                if (statusEffectsBehaviours[i].RemainingDuration <= 0)
-                {
-                    AnyUnitRemovingStatusEffectEvent?.Invoke(this, statusEffectsBehaviours[i].statusEffect);
-                    Destroy(statusEffectsBehaviours[i]);
-                    statusEffectsBehaviours.RemoveAt(i);
-                    AnyUnitStatusEffectsChangedEvent?.Invoke(this, EventArgs.Empty);
-                }
             }
         }
         IsProcessing = false;
@@ -224,12 +202,12 @@ public class StatusEffectController : MonoBehaviour
             if (savingThrow > requiredSavingThrow)
             {
                 AnyUnitSavedFromStatusEffectEvent?.Invoke(this, statusEffectInfo.statusEffect);
-                return true;
+                return false;
             }
         }
 
         ReceiveStatusEffect(statusEffectInfo.statusEffect, statusEffectInfo.duration);
-        return false;
+        return true;
 
     }
 

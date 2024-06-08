@@ -15,13 +15,12 @@ MonoBehaviour:
   m_name: Shield Bash
   m_actionPointCost: 1
   m_powerPointCost: 0
-  m_duration: 1.9
   m_cooldown: 2
   m_animationTrigger: ShieldAttack
   m_sprite: {fileID: 21300000, guid: 11b53fe78c9f6864fb2e317b165e9491, type: 3}
   m_targetingMode: 0
   m_numberOfTargets: 0
-  m_visualEffectOnHit: {fileID: 3133616235717616955, guid: c8958502846b7134990cedc6a9353c89, type: 3}
+  m_visualEffectOnHit: {fileID: 2478676229182450729, guid: 1ff34f12165c1724ea6747371e40e534, type: 3}
   m_soundEffect: {fileID: 8300000, guid: 554a7724cb5a7469db32510576e41e70, type: 3}
   minDamage: 5
   maxDamage: 10

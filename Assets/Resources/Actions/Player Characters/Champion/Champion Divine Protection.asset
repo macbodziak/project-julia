@@ -15,13 +15,12 @@ MonoBehaviour:
   m_name: Divine Protection
   m_actionPointCost: 2
   m_powerPointCost: 3
-  m_duration: 0
   m_cooldown: 4
   m_animationTrigger: CastSpell_5
   m_sprite: {fileID: 21300000, guid: 121be67ee3351284bb3da54ff80ccfbc, type: 3}
   m_targetingMode: 5
   m_numberOfTargets: 0
-  m_visualEffectOnHit: {fileID: 6705206044945814017, guid: 7cc88310690e43643841e991863bfb32, type: 3}
+  m_visualEffectOnHit: {fileID: 360068230067261919, guid: 8679efae9d505184eba0b435b4a411f4, type: 3}
   m_soundEffect: {fileID: 8300000, guid: ba6ac12548c83476abd9738f9b8c7ad7, type: 3}
   _statusEffectsApplied:
   - statusEffect: {fileID: 11400000, guid: 819caf0fbe56fea46aa345eebbc4174c, type: 2}

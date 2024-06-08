@@ -15,13 +15,12 @@ MonoBehaviour:
   m_name: Poison Swarm
   m_actionPointCost: 2
   m_powerPointCost: 0
-  m_duration: 2
   m_cooldown: 3
   m_animationTrigger: CastSpell_2
   m_sprite: {fileID: 21300000, guid: a969947de45fbf74c86fbecb1a0fcf58, type: 3}
   m_targetingMode: 0
   m_numberOfTargets: 0
-  m_visualEffectOnHit: {fileID: 8914890246648157491, guid: 5a920714c56d2ed44a358ba7b7a51295, type: 3}
+  m_visualEffectOnHit: {fileID: 3202121287904900546, guid: ea38ac42cd8c11042914de654425ffee, type: 3}
   m_soundEffect: {fileID: 8300000, guid: 9ae32f8e1a94c486c9929faca77ff03b, type: 3}
   minDamage: 25
   maxDamage: 35

@@ -8,7 +8,6 @@ public class BurningStatusEffect : StatusEffect
     [SerializeField] private int maxDamageAmount = 2;
     [SerializeField] private int iceDamageResistanceModifier = 50;
     [SerializeField] private DamageType m_damageType = DamageType.Fire;
-    private VisualEffect visualEffectInstance;
 
     public int MinDamageAmount { get => minDamageAmount; private set => minDamageAmount = value; }
     public int MaxDamageAmount { get => maxDamageAmount; private set => maxDamageAmount = value; }
@@ -18,15 +17,8 @@ public class BurningStatusEffect : StatusEffect
 
     public override void OnEnd()
     {
-        unit.combatStats.damageResistanceModifiers[(int)DamageType.Ice] -= iceDamageResistanceModifier;
-
-        visualEffectInstance.Stop();
-        Animator animator = visualEffectInstance.gameObject.GetComponent<Animator>();
-        if (animator != null)
-        {
-            animator.SetTrigger("FadeOut");
-        }
-        Destroy(visualEffectInstance.gameObject, 1f);
+        base.OnEnd();
+        unit.combatStats.damageResistanceModifiers[(int)DamageType.Ice] -= iceDamageResistanceModifier; ;
     }
 
     public override void OnStart(Unit effectedUnit)
@@ -34,12 +26,6 @@ public class BurningStatusEffect : StatusEffect
         base.OnStart(effectedUnit);
 
         unit.combatStats.damageResistanceModifiers[(int)DamageType.Ice] += iceDamageResistanceModifier;
-
-
-        if (VisualEffectPrefab != null)
-        {
-            StartVisualEffect();
-        }
     }
 
     public override void ApplyEffect()
@@ -48,14 +34,4 @@ public class BurningStatusEffect : StatusEffect
         unit.combatStats.TakeDamage(damageAmount, damageType, false, false);
     }
 
-    private void StartVisualEffect()
-    {
-        visualEffectInstance = Instantiate<VisualEffect>(VisualEffectPrefab);
-
-        if (visualEffectInstance != null)
-        {
-            visualEffectInstance.transform.parent = unit.gameObject.transform;
-            visualEffectInstance.transform.localPosition = new Vector3(0f, 0f, 0f);
-        }
-    }
 }

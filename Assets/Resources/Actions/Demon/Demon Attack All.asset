@@ -15,13 +15,12 @@ MonoBehaviour:
   m_name: Lash Out
   m_actionPointCost: 2
   m_powerPointCost: 0
-  m_duration: 2.1
   m_cooldown: 3
   m_animationTrigger: AttackCombo
   m_sprite: {fileID: 0}
   m_targetingMode: 2
   m_numberOfTargets: 0
-  m_visualEffectOnHit: {fileID: 3681913643477291456, guid: 4de67dc3d04de554b86fc8091e1e6106, type: 3}
+  m_visualEffectOnHit: {fileID: 2282091480112219257, guid: 5b0e1b7e3610c784380bf9aa162db57a, type: 3}
   m_soundEffect: {fileID: 8300000, guid: 97817a60a94f74d928219194d6292af4, type: 3}
   minDamage: 15
   maxDamage: 25

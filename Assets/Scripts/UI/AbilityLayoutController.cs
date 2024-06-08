@@ -27,6 +27,10 @@ public class AbilityLayoutController : MonoBehaviour
     {
         foreach (var action in actions)
         {
+            if (action.actionDefinition == null)
+            {
+                continue;
+            }
             ActionButton newActionButton = Instantiate(buttonPrefab, transform);
             newActionButton.action = action;
             newActionButton.button.onClick.AddListener(() => { ActionManager.Instance.SelectedAction = action; });

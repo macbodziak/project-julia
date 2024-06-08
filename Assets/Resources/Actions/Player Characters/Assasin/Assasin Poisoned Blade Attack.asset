@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dbc633df8e0cbb49abcca58d65f288a, type: 3}
   m_Name: Assasin Poisoned Blade Attack
   m_EditorClassIdentifier: 
-  m_name: Poisoned Blade Attack
+  m_name: Poisoned Blade
   m_actionPointCost: 1
   m_powerPointCost: 0
   m_cooldown: 2
-  m_animationTrigger: Attack_left_Hand
+  m_animationTrigger: Attack_Left_Hand
   m_sprite: {fileID: 21300000, guid: 1d3f623d800f8974ab19235b73bf5a35, type: 3}
   m_targetingMode: 0
   m_numberOfTargets: 0
-  m_visualEffectOnHit: {fileID: 0}
+  m_visualEffectOnHit: {fileID: 8206466462310326902, guid: a1f3c0fd440586d4e821a670528c7f38, type: 3}
   m_soundEffect: {fileID: 0}
   minDamage: 8
   maxDamage: 12

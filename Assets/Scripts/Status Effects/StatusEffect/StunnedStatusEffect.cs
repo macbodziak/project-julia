@@ -17,6 +17,7 @@ public class StunnedStatusEffect : StatusEffect
 
     public override void OnEnd()
     {
+        base.OnEnd();
         unit.combatStats.NoActionPointsRefresh--;
         unit.combatStats.DodgeModifier += 10;
     }

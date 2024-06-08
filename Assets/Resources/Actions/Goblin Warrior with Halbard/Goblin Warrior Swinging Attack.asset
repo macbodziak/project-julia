@@ -15,13 +15,12 @@ MonoBehaviour:
   m_name: Halbard Swing
   m_actionPointCost: 2
   m_powerPointCost: 0
-  m_duration: 1.9
   m_cooldown: 2
   m_animationTrigger: Attack_4
   m_sprite: {fileID: 0}
   m_targetingMode: 2
   m_numberOfTargets: 0
-  m_visualEffectOnHit: {fileID: 3681913643477291456, guid: 4de67dc3d04de554b86fc8091e1e6106, type: 3}
+  m_visualEffectOnHit: {fileID: 4831071794024026981, guid: 77234e5461814564c96f2dfd4cf2bb01, type: 3}
   m_soundEffect: {fileID: 8300000, guid: fbffcd324c1204c9a8ad2b2870199f52, type: 3}
   minDamage: 10
   maxDamage: 20

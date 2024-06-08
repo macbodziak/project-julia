@@ -18,7 +18,7 @@ public abstract class ActionDefinition : ScriptableObject
     [SerializeField]
     [RangeInt(1, 5)]
     private int m_numberOfTargets;
-    [SerializeField] private VisualEffect m_visualEffectOnHit;
+    [SerializeField] private GameObject m_visualEffectOnHit;
     [SerializeField] private AudioClip m_soundEffect;
 
     public string Name { get => m_name; protected set => m_name = value; }
@@ -27,7 +27,7 @@ public abstract class ActionDefinition : ScriptableObject
     public Sprite Icon { get => m_sprite; protected set => m_sprite = value; }
     public TargetingMode TargetingMode { get { return m_targetingMode; } }
     public int NumberOfTargets { get => m_numberOfTargets; protected set => m_numberOfTargets = value; }
-    public VisualEffect VisualEffectOnHitPrefab { get => m_visualEffectOnHit; protected set => m_visualEffectOnHit = value; }
+    public GameObject VisualEffectOnHitPrefab { get => m_visualEffectOnHit; protected set => m_visualEffectOnHit = value; }
     public int Cooldown { get => m_cooldown; protected set => m_cooldown = value; }
     public int PowerPointCost { get => m_powerPointCost; protected set => m_powerPointCost = value; }
     public AudioClip SoundEffect { get => m_soundEffect; protected set => m_soundEffect = value; }
@@ -56,14 +56,14 @@ public abstract class ActionDefinition : ScriptableObject
         }
     }
 
-    protected VisualEffect PlayVisualEffect(VisualEffect vfx, Transform transformArg)
+    protected GameObject PlayVisualEffect(GameObject vfx, Transform transformArg, float lifetime = 10f)
     {
         if (vfx != null)
         {
-            VisualEffect vfxInstance = Instantiate<VisualEffect>(vfx, transformArg);
-            if (vfxInstance != null)
+            GameObject vfxInstance = Instantiate<GameObject>(vfx, transformArg);
+            if (vfxInstance != null && lifetime > 0f)
             {
-                Destroy(vfxInstance.gameObject, 5.0f);
+                Destroy(vfxInstance.gameObject, lifetime);
             }
             return vfxInstance;
         }

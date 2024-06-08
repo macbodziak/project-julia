@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: Stunned
   m_sprite: {fileID: 21300000, guid: f0a33ea45e732974f9730275ff3f1c24, type: 3}
-  m_visualEffect: {fileID: 1886665790968416815, guid: 1bd8192ab230dae4986b8dabddbdf77e, type: 3}
+  m_vfxPrefab: {fileID: 7354825421134467297, guid: d2a3fc53c364f6f49842ac23fa888a80, type: 3}
   executeEarly: 0
   m_savingThrowType: 2

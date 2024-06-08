@@ -43,7 +43,7 @@ namespace GameManagement
         {
             playerUnits.Clear();
 
-            Unit unit = Resources.Load("Prototypes/Player Hero 1", typeof(Unit)) as Unit;
+            Unit unit = Resources.Load("Assasin", typeof(Unit)) as Unit;
             playerUnits.Add(unit);
 
             unit = Resources.Load("Champion", typeof(Unit)) as Unit;

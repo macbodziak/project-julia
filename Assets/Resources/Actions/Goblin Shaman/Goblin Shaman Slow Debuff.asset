@@ -15,13 +15,12 @@ MonoBehaviour:
   m_name: Slow
   m_actionPointCost: 2
   m_powerPointCost: 0
-  m_duration: 2
   m_cooldown: 0
   m_animationTrigger: CastSpell_2
   m_sprite: {fileID: 0}
   m_targetingMode: 0
   m_numberOfTargets: 0
-  m_visualEffectOnHit: {fileID: 0}
+  m_visualEffectOnHit: {fileID: 2309271626386889068, guid: 3a0365714f933184b808d2bd87bc5a6e, type: 3}
   m_soundEffect: {fileID: 8300000, guid: 61e73f3e692c640eb9f9c7ee724ac862, type: 3}
   _statusEffectsApplied:
   - statusEffect: {fileID: 11400000, guid: d65fa9f04e8589d4090e5c0e8371eee7, type: 2}

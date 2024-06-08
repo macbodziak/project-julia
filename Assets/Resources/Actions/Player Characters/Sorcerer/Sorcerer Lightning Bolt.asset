@@ -20,7 +20,7 @@ MonoBehaviour:
   m_sprite: {fileID: 21300000, guid: 812282b7ea2a02b4e9f7c90245081336, type: 3}
   m_targetingMode: 0
   m_numberOfTargets: 0
-  m_visualEffectOnHit: {fileID: 4265526462707560475, guid: 0793e2b74b3d95f41bda0b84cbd4874d, type: 3}
+  m_visualEffectOnHit: {fileID: 814698011065434801, guid: c997efe1af1f3b642a9e614b8fc43cae, type: 3}
   m_soundEffect: {fileID: 8300000, guid: ceede7a829d41470a86526620500b878, type: 3}
   minDamage: 12
   maxDamage: 22

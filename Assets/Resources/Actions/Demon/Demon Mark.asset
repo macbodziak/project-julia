@@ -15,14 +15,13 @@ MonoBehaviour:
   m_name: Demon Mark
   m_actionPointCost: 1
   m_powerPointCost: 0
-  m_duration: 1.9
   m_cooldown: 4
   m_animationTrigger: CastSpell_7
   m_sprite: {fileID: 0}
   m_targetingMode: 0
   m_numberOfTargets: 0
-  m_visualEffectOnHit: {fileID: 0}
-  m_soundEffect: {fileID: 0}
+  m_visualEffectOnHit: {fileID: 3553205749417205555, guid: 5d77e09ef0d2cdd48bb7fcc17ca8b925, type: 3}
+  m_soundEffect: {fileID: 8300000, guid: a0350d38d25a0410d98ee7fdac79ee92, type: 3}
   _statusEffectsApplied:
   - statusEffect: {fileID: 11400000, guid: 73735243c68abed42bf3be2bf295a558, type: 2}
     duration: 2

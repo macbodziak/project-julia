@@ -15,13 +15,12 @@ MonoBehaviour:
   m_name: Smash
   m_actionPointCost: 1
   m_powerPointCost: 0
-  m_duration: 1.9
   m_cooldown: 0
   m_animationTrigger: Attack
   m_sprite: {fileID: 0}
   m_targetingMode: 0
   m_numberOfTargets: 0
-  m_visualEffectOnHit: {fileID: 3681913643477291456, guid: 4de67dc3d04de554b86fc8091e1e6106, type: 3}
+  m_visualEffectOnHit: {fileID: 4196184592924578080, guid: a616887d45fb59e4b8c54b9aa7d9fb1e, type: 3}
   m_soundEffect: {fileID: 8300000, guid: 26d63a2a8d3e44de798ed9dd437ae031, type: 3}
   minDamage: 15
   maxDamage: 37

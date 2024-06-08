@@ -15,13 +15,12 @@ MonoBehaviour:
   m_name: Halbard Undercut
   m_actionPointCost: 1
   m_powerPointCost: 0
-  m_duration: 1.9
   m_cooldown: 2
   m_animationTrigger: Attack_3
   m_sprite: {fileID: 0}
   m_targetingMode: 0
   m_numberOfTargets: 0
-  m_visualEffectOnHit: {fileID: 0}
+  m_visualEffectOnHit: {fileID: 4831071794024026981, guid: 77234e5461814564c96f2dfd4cf2bb01, type: 3}
   m_soundEffect: {fileID: 8300000, guid: fbffcd324c1204c9a8ad2b2870199f52, type: 3}
   minDamage: 5
   maxDamage: 10

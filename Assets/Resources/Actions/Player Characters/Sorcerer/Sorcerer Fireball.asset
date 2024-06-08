@@ -15,13 +15,12 @@ MonoBehaviour:
   m_name: Fireball
   m_actionPointCost: 2
   m_powerPointCost: 0
-  m_duration: 1.9
   m_cooldown: 3
   m_animationTrigger: CastSpell_3
   m_sprite: {fileID: 21300000, guid: 563ea2855034e9a4285d7068d054c799, type: 3}
   m_targetingMode: 2
   m_numberOfTargets: 0
-  m_visualEffectOnHit: {fileID: 9021046772682919827, guid: f0542e5382603194f882df8c65dd1e88, type: 3}
+  m_visualEffectOnHit: {fileID: 4527445400210707289, guid: cfd053d6adbc4724caf0ba7bd9b662dc, type: 3}
   m_soundEffect: {fileID: 8300000, guid: 7743889c22ea9472a895ecd63b2bb221, type: 3}
   minDamage: 20
   maxDamage: 35

@@ -16,11 +16,11 @@ MonoBehaviour:
   m_actionPointCost: 1
   m_powerPointCost: 0
   m_cooldown: 0
-  m_animationTrigger: Dual_Attack_1
+  m_animationTrigger: DualAttack_1
   m_sprite: {fileID: 21300000, guid: 2c3e4b9b30639bc40852402f2b3f616e, type: 3}
   m_targetingMode: 0
   m_numberOfTargets: 0
-  m_visualEffectOnHit: {fileID: 1512422262861900188, guid: 5f5006983cda4aa44b4284c86e6f65dd, type: 3}
+  m_visualEffectOnHit: {fileID: 4831071794024026981, guid: 77234e5461814564c96f2dfd4cf2bb01, type: 3}
   m_soundEffect: {fileID: 8300000, guid: eb94b007ada76450daaa3ef4c6edfd04, type: 3}
   minDamage: 10
   maxDamage: 15

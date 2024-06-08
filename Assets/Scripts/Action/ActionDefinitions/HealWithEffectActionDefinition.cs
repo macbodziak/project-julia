@@ -22,7 +22,7 @@ public class HealWithEffectActionDefinition : ActionDefinition
             target.combatStats.ReceiveHealing(GetHealingInfo());
 
             // PlayVisualEffect(VisualEffectOnHitPrefab, target.transform.position + new Vector3(0f, 1.2f, 0f));
-            VisualEffect vfx = PlayVisualEffect(VisualEffectOnHitPrefab, target.transform);
+            GameObject vfx = PlayVisualEffect(VisualEffectOnHitPrefab, target.transform);
 
             //remove status effects if this action definition has status effects
             RemoveStatusEffects(target, StatusEffectsRemoved);

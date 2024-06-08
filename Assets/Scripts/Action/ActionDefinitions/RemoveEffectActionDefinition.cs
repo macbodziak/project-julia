@@ -16,7 +16,7 @@ public class RemoveEffectActionDefinition : ActionDefinition
             //remove status effects if this action definition has status effects
             RemoveStatusEffects(target, StatusEffectsRemoved);
 
-            VisualEffect vfx = PlayVisualEffect(VisualEffectOnHitPrefab, target.transform);
+            GameObject vfx = PlayVisualEffect(VisualEffectOnHitPrefab, target.transform);
         }
     }
 

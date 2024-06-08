@@ -15,13 +15,12 @@ MonoBehaviour:
   m_name: Ice Bolt
   m_actionPointCost: 1
   m_powerPointCost: 0
-  m_duration: 1.9
   m_cooldown: 0
   m_animationTrigger: CastSpell_1
   m_sprite: {fileID: 0}
   m_targetingMode: 0
   m_numberOfTargets: 0
-  m_visualEffectOnHit: {fileID: 3870619047674659968, guid: 25a31304a4ee0b348bcc872c6db6b9ab, type: 3}
+  m_visualEffectOnHit: {fileID: 7838692544401086258, guid: 4b090d046e6de7841a3ad83e41693a7a, type: 3}
   m_soundEffect: {fileID: 8300000, guid: ba6ac12548c83476abd9738f9b8c7ad7, type: 3}
   minDamage: 10
   maxDamage: 40
