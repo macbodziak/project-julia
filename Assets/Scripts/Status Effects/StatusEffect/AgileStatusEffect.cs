@@ -10,8 +10,6 @@ public class AgileStatusEffect : StatusEffect
 
     public int DodgeModifier { get => dodgeModifier; private set => dodgeModifier = value; }
 
-    public override bool IsActive { get { return false; } }
-
     public override StatusEffectType Type { get { return StatusEffectType.Agile; } }
 
 

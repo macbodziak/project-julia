@@ -33,10 +33,6 @@ public class StatusEffectBehaviour : MonoBehaviour
         remainingDuration = duration;
     }
 
-    public virtual void ApplyEffect()
-    {
-        _statusEffect.ApplyEffect();
-    }
 
     protected virtual void Start()
     {
@@ -44,7 +40,14 @@ public class StatusEffectBehaviour : MonoBehaviour
         _statusEffect.OnStart(unit);
     }
 
-    public bool IsActive() { return _statusEffect.IsActive; }
+    public bool IsAppliedEachTurn()
+    {
+        if (_statusEffect is IAppliedEachTurn)
+        {
+            return true;
+        }
+        return false;
+    }
 
     private void OnDestroy()
     {

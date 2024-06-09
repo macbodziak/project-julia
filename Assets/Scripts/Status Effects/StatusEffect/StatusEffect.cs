@@ -20,7 +20,6 @@ public abstract class StatusEffect : ScriptableObject
     private Unit m_unit;
     public string Name { get => m_name; protected set => m_name = value; }
     public Sprite Icon { get => m_sprite; protected set => m_sprite = value; }
-    public abstract bool IsActive { get; }
     public Unit unit { get => m_unit; set => m_unit = value; }
     public abstract StatusEffectType Type { get; }
     public ParticleSystem VisualEffectPrefab { get => m_vfxPrefab; private set => m_vfxPrefab = value; }
@@ -39,9 +38,6 @@ public abstract class StatusEffect : ScriptableObject
     {
         StopVFX();
     }
-
-
-    public virtual void ApplyEffect() {; }
 
 
     protected void StartVFX()

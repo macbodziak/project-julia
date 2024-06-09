@@ -51,9 +51,9 @@ public class StatusEffectController : MonoBehaviour
         for (int i = earlyStatusEffectsBehaviours.Count - 1; i >= 0; i--)
         {
             //if the status effect needs to be apllied each turn
-            if (earlyStatusEffectsBehaviours[i].IsActive() == true)
+            if (earlyStatusEffectsBehaviours[i].statusEffect is IAppliedEachTurn activeStatus)
             {
-                earlyStatusEffectsBehaviours[i].ApplyEffect();
+                activeStatus.ApplyEffect();
                 yield return new WaitForSeconds(TIME_BETWEEN_STATUS_EFFECTS);
             }
         }
@@ -63,9 +63,9 @@ public class StatusEffectController : MonoBehaviour
         for (int i = statusEffectsBehaviours.Count - 1; i >= 0; i--)
         {
             //if the status effect needs to be apllied each turn
-            if (statusEffectsBehaviours[i].IsActive() == true)
+            if (statusEffectsBehaviours[i].statusEffect is IAppliedEachTurn activeStatus)
             {
-                statusEffectsBehaviours[i].ApplyEffect();
+                activeStatus.ApplyEffect();
                 yield return new WaitForSeconds(TIME_BETWEEN_STATUS_EFFECTS);
             }
         }

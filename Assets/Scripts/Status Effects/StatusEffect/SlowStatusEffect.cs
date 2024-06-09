@@ -11,7 +11,6 @@ public class SlowStatusEffect : StatusEffect
     public int ActionPointModifier { get => actionPointModifier; private set => actionPointModifier = value; }
     public override StatusEffectType Type { get { return StatusEffectType.Slowed; } }
 
-    public override bool IsActive { get { return false; } }
 
     public override void OnEnd()
     {

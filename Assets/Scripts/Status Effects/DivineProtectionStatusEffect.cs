@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Divine Protection Status Effect", menuName = "Scriptable Objects/Status Effects/Divine Protection Status Effect Preset", order = 3)]
-public class DivineProtectionStatusEffect : StatusEffect
+public class DivineProtectionStatusEffect : StatusEffect, IAppliedEachTurn
 {
     [SerializeField] private int minHealingAmount = 1;
     [SerializeField] private int maxHealingAmount = 2;
@@ -10,7 +10,6 @@ public class DivineProtectionStatusEffect : StatusEffect
 
     public int MinHealingAmount { get => minHealingAmount; private set => minHealingAmount = value; }
     public int MaxHealingAmount { get => maxHealingAmount; private set => maxHealingAmount = value; }
-    public override bool IsActive { get { return true; } }
     public override StatusEffectType Type { get { return StatusEffectType.DivineProtection; } }
 
     public override void OnStart(Unit effectedUnit)
@@ -47,7 +46,7 @@ public class DivineProtectionStatusEffect : StatusEffect
         }
     }
 
-    public override void ApplyEffect()
+    public void ApplyEffect()
     {
         //provide healing each turn
         HealingInfo healing = new HealingInfo(minHealingAmount, maxHealingAmount);

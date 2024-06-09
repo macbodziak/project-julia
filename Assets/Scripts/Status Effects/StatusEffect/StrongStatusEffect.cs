@@ -6,7 +6,6 @@ public class StrongStatusEffect : StatusEffect
     [SerializeField] private float damageMultiplier = 1.1f;
 
     public float DamageMultiplier { get => damageMultiplier; private set => damageMultiplier = value; }
-    public override bool IsActive { get { return false; } }
     public override StatusEffectType Type { get { return StatusEffectType.Strong; } }
 
     public override void OnStart(Unit effectedUnit)

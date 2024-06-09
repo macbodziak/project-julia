@@ -8,8 +8,6 @@ public class BlindedStatusEffect : StatusEffect
     [SerializeField] private int hitChanceModifier = 10;
 
 
-    public override bool IsActive { get { return false; } }
-
     public override StatusEffectType Type { get { return StatusEffectType.Blinded; } }
 
 

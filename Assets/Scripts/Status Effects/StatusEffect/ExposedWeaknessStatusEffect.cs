@@ -7,7 +7,6 @@ public class ExposedWeaknessStatusEffect : StatusEffect
 
     public int PhysicalDamageResistance { get => physicalDamageResistance; private set => physicalDamageResistance = value; }
 
-    public override bool IsActive { get { return false; } }
 
     public override StatusEffectType Type { get { return StatusEffectType.ExposedWeakness; } }
 

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Demonic Wrath Status Effect", menuName = "Scriptable Objects/Status Effects/Demonic Wrath Status Effect Preset", order = 10)]
-public class DemonicWrathStatusEffect : StatusEffect
+public class DemonicWrathStatusEffect : StatusEffect, IAppliedEachTurn
 {
     [SerializeField] private float damageMultiplier = 1;
     [SerializeField] private int minDamageAmount = 1;
@@ -9,7 +9,6 @@ public class DemonicWrathStatusEffect : StatusEffect
     [SerializeField] private DamageType _damageType = DamageType.Fire;
     [SerializeField] private int critChanceModifier = 1;
 
-    public override bool IsActive { get { return true; } }
     public override StatusEffectType Type { get { return StatusEffectType.DemonicWrath; } }
 
     public float DamageMultiplier { get => damageMultiplier; set => damageMultiplier = value; }
@@ -31,7 +30,7 @@ public class DemonicWrathStatusEffect : StatusEffect
         unit.combatStats.CritChanceModifier += CritChanceModifier;
     }
 
-    public override void ApplyEffect()
+    public void ApplyEffect()
     {
         int finalDamage = UnityEngine.Random.Range(minDamageAmount, maxDamageAmount);
         unit.combatStats.TakeDamage(finalDamage, damageType, false, false);

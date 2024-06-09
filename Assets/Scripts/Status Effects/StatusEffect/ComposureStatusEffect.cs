@@ -3,7 +3,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Composure Status Effect", menuName = "Scriptable Objects/Status Effects/Composure Status Effect Preset", order = 10)]
 public class ComposureStatusEffect : StatusEffect
 {
-    public override bool IsActive { get { return false; } }
 
     public override StatusEffectType Type { get { return StatusEffectType.Composure; } }
 

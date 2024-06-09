@@ -7,7 +7,6 @@ public class InspiredStatusEffect : StatusEffect
 {
     [SerializeField] private int hitChanceModifier = 15;
 
-    public override bool IsActive { get { return false; } }
 
     public override StatusEffectType Type { get { return StatusEffectType.Inspired; } }
 

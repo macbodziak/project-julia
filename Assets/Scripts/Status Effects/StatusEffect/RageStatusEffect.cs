@@ -10,7 +10,6 @@ public class RageStatusEffect : StatusEffect
     public float DamageMultiplier { get => damageMultiplier; protected set => damageMultiplier = value; }
     public int HitChanceModifier { get => hitChanceModifier; protected set => hitChanceModifier = value; }
     public int CritChanceModifier { get => critChanceModifier; protected set => critChanceModifier = value; }
-    public override bool IsActive { get { return false; } }
     public override StatusEffectType Type { get { return StatusEffectType.Rage; } }
 
     public override void OnEnd()
