@@ -93,7 +93,6 @@ public class ActionController : MonoBehaviour
 
     private void OnActionAnimationFinished()
     {
-        Debug.Log("<color=cyan> OnActionAnimatinFinished</color>");
         if (activeAction != null)
         {
             activeAction.OnActionCompleted();

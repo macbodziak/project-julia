@@ -136,14 +136,12 @@ public class ActionBehaviour : MonoBehaviour
     public virtual void OnActionCompleted()
     {
         isInProgress = false;
-        Debug.Log(gameObject.name + " finished executing action: " + _actionDefinition.Name);
         OnActionCompletedCallback();
     }
 
 
     public void ExecuteLogic()
     {
-        Debug.Log(gameObject.name + " is executing action: " + _actionDefinition.Name);
         _actionDefinition.ExecuteLogic(_unit, _targets);
     }
 
