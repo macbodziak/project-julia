@@ -150,6 +150,7 @@ public class CombatStats : MonoBehaviour
     }
 
     public static event EventHandler<DamageTakenEventArgs> AnyUnitTookDamageEvent;
+    public event EventHandler<DamageTakenEventArgs> ThisUnitTookDamageEvent;
     public static event EventHandler<DodgedEventArgs> AnyUnitDodgedAttackEvent;
     public static event EventHandler<HealingReceivedEventArgs> AnyUnitReceivedHealingEvent;
     public static event EventHandler AnyUnitActionPointsChangedEvent;
@@ -329,6 +330,7 @@ public class CombatStats : MonoBehaviour
         }
 
         AnyUnitTookDamageEvent?.Invoke(this, new DamageTakenEventArgs(damage, damageType, isCritical, CurrentHealthPoints <= 0));
+        ThisUnitTookDamageEvent?.Invoke(this, new DamageTakenEventArgs(damage, damageType, isCritical, CurrentHealthPoints <= 0));
     }
 
 

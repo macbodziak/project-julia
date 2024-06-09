@@ -24,7 +24,7 @@ public enum StatusEffectType
     Composure,
     DivineProtection,
     Hasty,
-    Undetermined_17,
+    Concealed,
     Undetermined_16,
     Undetermined_15,
     Undetermined_14,
