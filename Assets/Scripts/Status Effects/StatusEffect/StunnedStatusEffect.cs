@@ -11,6 +11,8 @@ public class StunnedStatusEffect : StatusEffect
         unit.combatStats.CurrentActionPoints = 0;
         unit.combatStats.NoActionPointsRefresh++;
         unit.combatStats.DodgeModifier -= 10;
+
+        unit.statusEffectController.RemoveStatusEffect(StatusEffectType.Hasty);
     }
 
     public override void OnEnd()

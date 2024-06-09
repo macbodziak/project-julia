@@ -24,4 +24,4 @@ MonoBehaviour:
   m_soundEffect: {fileID: 8300000, guid: a2ae90e42daaf4723a539c25867d37fd, type: 3}
   _statusEffectsApplied:
   - statusEffect: {fileID: 11400000, guid: 74a0d76ae6ebe154d9fd126518e2ef5a, type: 2}
-    duration: 2
+    duration: 1

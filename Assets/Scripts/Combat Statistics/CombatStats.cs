@@ -58,6 +58,7 @@ public class CombatStats : MonoBehaviour
         set
         {
             currentActionPoints = value;
+            currentActionPoints = Mathf.Clamp(currentActionPoints, 0, MAX_ACTION_POINTS);
             AnyUnitActionPointsChangedEvent?.Invoke(this, EventArgs.Empty);
         }
     }
@@ -290,22 +291,21 @@ public class CombatStats : MonoBehaviour
     {
         if (NoActionPointsRefresh <= 0)
         {
-            currentActionPoints = maxActionPoints + ActionPointsModifier;
+            CurrentActionPoints = maxActionPoints + ActionPointsModifier;
         }
     }
 
 
     public void ResetPowerPoints()
     {
-        currentPowerPoints = maxPowerPoints;
+        CurrentPowerPoints = maxPowerPoints;
     }
 
 
     private void SetActionPointModifier(int value)
     {
         _actionPointsModifier = value;
-        currentActionPoints += value;
-        currentActionPoints = Mathf.Clamp(currentActionPoints, 0, MAX_ACTION_POINTS);
+        CurrentActionPoints += value;
     }
 
 

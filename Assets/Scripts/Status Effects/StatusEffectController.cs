@@ -130,6 +130,29 @@ public class StatusEffectController : MonoBehaviour
     }
 
 
+    private StatusEffectBehaviour GetStatusEffectBehaviour(StatusEffectType statusEffectType)
+    {
+        //first check the ealry list
+        foreach (StatusEffectBehaviour item in earlyStatusEffectsBehaviours)
+        {
+            if (item.statusEffectType == statusEffectType)
+            {
+                return item;
+            }
+        }
+
+        //if not found in early list, check regular list
+        foreach (StatusEffectBehaviour item in statusEffectsBehaviours)
+        {
+            if (item.statusEffectType == statusEffectType)
+            {
+                return item;
+            }
+        }
+        return null;
+    }
+
+
     public void ReceiveStatusEffect(StatusEffect statusEffectPreset, int duration)
     {
         StatusEffectBehaviour statusEffectBehaviour;
@@ -171,6 +194,26 @@ public class StatusEffectController : MonoBehaviour
             AnyUnitRemovingStatusEffectEvent?.Invoke(this, statusEffectPreset);
             Destroy(statusEffectBehaviour);
             if (statusEffectPreset.ExecuteEarly)
+            {
+                earlyStatusEffectsBehaviours.Remove(statusEffectBehaviour);
+            }
+            else
+            {
+                statusEffectsBehaviours.Remove(statusEffectBehaviour);
+            }
+            AnyUnitStatusEffectsChangedEvent?.Invoke(this, EventArgs.Empty);
+        }
+    }
+
+
+    public void RemoveStatusEffect(StatusEffectType statusEffectType)
+    {
+        StatusEffectBehaviour statusEffectBehaviour = GetStatusEffectBehaviour(statusEffectType);
+        if (statusEffectBehaviour != null)
+        {
+            AnyUnitRemovingStatusEffectEvent?.Invoke(this, statusEffectBehaviour.statusEffect);
+            Destroy(statusEffectBehaviour);
+            if (statusEffectBehaviour.statusEffect.ExecuteEarly)
             {
                 earlyStatusEffectsBehaviours.Remove(statusEffectBehaviour);
             }

@@ -918,6 +918,7 @@ GameObject:
   - component: {fileID: 383528695731028507}
   - component: {fileID: 8194348972564191397}
   - component: {fileID: 724880002813933189}
+  - component: {fileID: 5263896058455740771}
   m_Layer: 3
   m_Name: Assasin
   m_TagString: Untagged
@@ -1290,6 +1291,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 6815687345400878396}
   isVisible: 0
+--- !u!114 &5263896058455740771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657830689700888231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf74cbcdef6e9094ea989c10a65fabfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionDefinition: {fileID: 11400000, guid: 52cfa827f8185624aa66449c2ec698da, type: 2}
+  _cooldown: 0
+  _isInProgress: 0
 --- !u!1 &2713402728359855461
 GameObject:
   m_ObjectHideFlags: 0
