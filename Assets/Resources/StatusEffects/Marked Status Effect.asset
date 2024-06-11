@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81a4a8e4debdbc4281aa5845b4a1baf, type: 3}
-  m_Name: Exposed Weakness Status Effect
+  m_Script: {fileID: 11500000, guid: 9f5eb65aec55afe489371fdd84ee9e0c, type: 3}
+  m_Name: Marked Status Effect
   m_EditorClassIdentifier: 
-  m_name: Exposed Weakness
-  m_sprite: {fileID: 21300000, guid: 7d490707d45f1464686bb6f1c5565e35, type: 3}
+  m_name: Marked
+  m_sprite: {fileID: 21300000, guid: 3fc69b8239326f14d8e1e46fa54d13cb, type: 3}
   m_vfxPrefab: {fileID: 0}
   executeEarly: 0
   m_savingThrowType: 3
-  physicalDamageResistance: -33
+  dodgeModifier: -10

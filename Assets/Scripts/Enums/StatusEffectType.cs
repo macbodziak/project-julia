@@ -25,7 +25,7 @@ public enum StatusEffectType
     DivineProtection,
     Hasty,
     Concealed,
-    Undetermined_16,
+    Marked,
     Undetermined_15,
     Undetermined_14,
     Undetermined_13,

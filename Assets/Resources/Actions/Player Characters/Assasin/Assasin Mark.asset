@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80faee4d92c185e41b04e74e42819761, type: 3}
-  m_Name: Champion Encourage
+  m_Name: Assasin Mark
   m_EditorClassIdentifier: 
-  m_name: Encourage
+  m_name: Mark
   m_actionPointCost: 1
   m_powerPointCost: 0
   m_cooldown: 3
-  m_animationTrigger: CastSpell_7
-  m_sprite: {fileID: 21300000, guid: 842f99da38312b84b9f5258065ea394b, type: 3}
-  m_targetingMode: 4
+  m_animationTrigger: Mark
+  m_sprite: {fileID: 21300000, guid: 3fc69b8239326f14d8e1e46fa54d13cb, type: 3}
+  m_targetingMode: 0
   m_numberOfTargets: 0
-  m_visualEffectOnHit: {fileID: 6043653922791153466, guid: c93a60f989ea82549b02b3a68312d749, type: 3}
-  m_soundEffect: {fileID: 8300000, guid: 55f004c6b65f444898d8b95f07b6d48f, type: 3}
+  m_visualEffectOnHit: {fileID: 3044437737597694127, guid: fc46e719ccdcfa04797a6fdc4964ddbb, type: 3}
+  m_soundEffect: {fileID: 8300000, guid: ba6ac12548c83476abd9738f9b8c7ad7, type: 3}
   _statusEffectsApplied:
-  - statusEffect: {fileID: 11400000, guid: 2d63904fc2e7b5a4798491d6c7a78030, type: 2}
+  - statusEffect: {fileID: 11400000, guid: c206fcb4eaada79439b6e0ecb7abc628, type: 2}
     duration: 3

@@ -1,5 +1,5 @@
 public interface ICanAttack
 {
-    public AttackInfo GetAttackInfo(CombatStats combatStatsModifier = null);
+    public Attack GetAttackData(CombatStats combatStatsModifier = null);
     public DamageType DamageType { get; }
 }

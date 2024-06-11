@@ -23,7 +23,7 @@ MonoBehaviour:
   m_visualEffectOnHit: {fileID: 6458812895008157014, guid: 1191511fe3943f54b95464e04b2f75e9, type: 3}
   m_soundEffect: {fileID: 8300000, guid: eb94b007ada76450daaa3ef4c6edfd04, type: 3}
   minDamage: 10
-  maxDamage: 40
+  maxDamage: 50
   hitChance: 95
   critChance: 10
   damageType: 0

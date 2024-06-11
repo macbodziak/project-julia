@@ -181,7 +181,7 @@ public class CombatStats : MonoBehaviour
     }
 
 
-    public int GetRequiredHitRoll(AttackInfo attack)
+    public int GetRequiredHitRoll(Attack attack)
     {
         int requiredRoll = 100 - attack.HitChance + dodge + DodgeModifier;
         requiredRoll = Mathf.Clamp(requiredRoll, 5, 100);
@@ -239,7 +239,7 @@ public class CombatStats : MonoBehaviour
     }
 
 
-    public bool ReceiveAttack(AttackInfo attack, Unit attacker)
+    public bool ReceiveAttack(Attack attack, Unit attacker)
     {
         bool isCritical = false;
         //make hit roll 

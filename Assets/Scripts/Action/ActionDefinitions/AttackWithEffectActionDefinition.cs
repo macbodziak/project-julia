@@ -22,7 +22,7 @@ public class AttackWithEffectActionDefinition : ActionDefinition, ICanAttack
     public override void ExecuteLogic(Unit actingUnit, List<Unit> targets)
     {
         CombatStats combatStats = actingUnit.GetComponent<CombatStats>();
-        AttackInfo attack = GetAttackInfo(combatStats);
+        Attack attack = GetAttackData(combatStats);
         foreach (Unit target in targets)
         {
             bool hit = target.combatStats.ReceiveAttack(attack, actingUnit);
@@ -38,11 +38,11 @@ public class AttackWithEffectActionDefinition : ActionDefinition, ICanAttack
         }
     }
 
-    public AttackInfo GetAttackInfo(CombatStats combatStatsModifier = null)
+    public Attack GetAttackData(CombatStats combatStatsModifier = null)
     {
         if (combatStatsModifier == null)
         {
-            return new AttackInfo(MinDamage, MaxDamage, HitChance, CritChance, DamageType);
+            return new Attack(MinDamage, MaxDamage, HitChance, CritChance, DamageType);
         }
         else
         {
@@ -50,7 +50,7 @@ public class AttackWithEffectActionDefinition : ActionDefinition, ICanAttack
             int _maxDamage = (int)(MaxDamage * combatStatsModifier.DamageMultiplier);
             int _hitChance = HitChance + combatStatsModifier.HitChanceModifier;
             int _critChance = CritChance + combatStatsModifier.CritChanceModifier;
-            return new AttackInfo(_minDamage, _maxDamage, _hitChance, _critChance, DamageType);
+            return new Attack(_minDamage, _maxDamage, _hitChance, _critChance, DamageType);
         }
     }
 

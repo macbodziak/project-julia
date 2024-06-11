@@ -78,7 +78,7 @@ public class MouseCursorManager : MonoBehaviour
         ICanAttack attackDefinition = ActionManager.Instance.SelectedAction.actionDefinition as ICanAttack;
         if (attackDefinition != null)
         {
-            AttackInfo attackInfo = attackDefinition.GetAttackInfo(ActionManager.Instance.SelectedUnit.combatStats);
+            Attack attackInfo = attackDefinition.GetAttackData(ActionManager.Instance.SelectedUnit.combatStats);
             hitChancetext = (100 - target.combatStats.GetRequiredHitRoll(attackInfo)) + "%";
             return true;
         }
