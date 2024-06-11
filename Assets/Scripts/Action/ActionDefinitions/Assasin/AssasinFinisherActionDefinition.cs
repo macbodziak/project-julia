@@ -1,16 +1,23 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
-[CreateAssetMenu(fileName = "Attack Action Definition", menuName = "Scriptable Objects/Actions/Attack Action Definition", order = 1)]
-public class AttackActionDefinition : ActionDefinition, ICanAttack
+[CreateAssetMenu(fileName = "Assasin Finisher Action Definition", menuName = "Scriptable Objects/Actions/Assasin/Assasin Finisher Action Definition", order = 200)]
+
+//<summary>
+//if target has one of the listed status effects or has HP below 25%, the crit chance goes up to 50% (+45 from the starting 5%)
+//if this is a killing blow, AP gets refunded
+//</summary>
+//
+public class AssasinFinisherActionDefinition : ActionDefinition, ICanAttack
 {
     [SerializeField] private int minDamage;
     [SerializeField] private int maxDamage;
     [SerializeField] private int hitChance;
     [SerializeField] private int critChance;
     [SerializeField] private DamageType damageType;
+
+    private Unit attacker = null;
 
     public int MinDamage { get => minDamage; protected set => minDamage = value; }
     public int MaxDamage { get => maxDamage; protected set => maxDamage = value; }
@@ -20,11 +27,16 @@ public class AttackActionDefinition : ActionDefinition, ICanAttack
 
     public override void ExecuteLogic(Unit actingUnit, List<Unit> targets)
     {
+        attacker = actingUnit;
+        CombatStats combatStats = actingUnit.GetComponent<CombatStats>();
+
         foreach (Unit target in targets)
         {
             Attack attack = GetAttackData(actingUnit, target);
+            target.combatStats.ThisUnitTookDamageEvent += HandleTargetTookDamage;
             bool hit = target.combatStats.ReceiveAttack(attack, actingUnit);
-
+            target.combatStats.ThisUnitTookDamageEvent -= HandleTargetTookDamage;
+            attacker = null;
             if (hit)
             {
                 // PlayVisualEffect(VisualEffectOnHitPrefab, target.transform.position + new Vector3(0f, 1.2f, 0f));
@@ -48,12 +60,32 @@ public class AttackActionDefinition : ActionDefinition, ICanAttack
         _hitChance = Mathf.Clamp(_hitChance, 0, 95);
 
         int _critChance = CritChance + attacker.combatStats.CritChanceModifier;
+
+        if (target.statusEffectController.HasStatusEffect(StatusEffectType.Stunned) ||
+        target.statusEffectController.HasStatusEffect(StatusEffectType.Blinded) ||
+        target.statusEffectController.HasStatusEffect(StatusEffectType.Marked) ||
+        target.combatStats.CurrentHealthPoints / target.combatStats.MaxHealthPoints < 0.25f
+        )
+        {
+            _critChance += 45;
+        }
+
         _critChance = Mathf.Clamp(_critChance, 0, 95);
+        Debug.Log("total crit chance = " + _critChance);
         return new Attack(_minDamage, _maxDamage, _hitChance, _critChance, DamageType);
     }
 
     public DamageType GetDamageType()
     {
         return DamageType;
+    }
+
+
+    private void HandleTargetTookDamage(object sender, DamageTakenEventArgs eventArgs)
+    {
+        if (eventArgs.IsKillingBlow)
+        {
+            attacker.combatStats.ResetActionPoints();
+        }
     }
 }

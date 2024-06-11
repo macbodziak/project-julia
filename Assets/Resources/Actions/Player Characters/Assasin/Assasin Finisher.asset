@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c3ce378b7bbd6439bb3d01ccfee917, type: 3}
+  m_Name: Assasin Finisher
+  m_EditorClassIdentifier: 
+  m_name: Finisher
+  m_actionPointCost: 2
+  m_powerPointCost: 0
+  m_cooldown: 4
+  m_animationTrigger: DualAttack_2
+  m_sprite: {fileID: 21300000, guid: 232b7b5ef957d56438bd4dfbd29319a0, type: 3}
+  m_targetingMode: 0
+  m_numberOfTargets: 0
+  m_visualEffectOnHit: {fileID: 9027644276923738143, guid: a64651520b76cfe4f8b47580541a3a25, type: 3}
+  m_soundEffect: {fileID: 8300000, guid: c540d97b531a3401f8fc577ff5f9bf92, type: 3}
+  minDamage: 30
+  maxDamage: 40
+  hitChance: 90
+  critChance: 5
+  damageType: 0

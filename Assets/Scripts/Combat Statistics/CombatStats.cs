@@ -172,13 +172,13 @@ public class CombatStats : MonoBehaviour
     }
 
 
-    public int ApplyResistance(int damageAmount, DamageType damageType)
-    {
-        float totalResitance = GetTotalDamageResistance(damageType);
-        totalResitance = Mathf.Clamp(totalResitance, -100, 100);
-        float modifier = (100f - totalResitance) / 100f;
-        return (int)(damageAmount * modifier);
-    }
+    // public int ApplyResistance(int damageAmount, DamageType damageType)
+    // {
+    //     float totalResitance = GetTotalDamageResistance(damageType);
+    //     totalResitance = Mathf.Clamp(totalResitance, -100, 100);
+    //     float modifier = (100f - totalResitance) / 100f;
+    //     return (int)(damageAmount * modifier);
+    // }
 
 
     public int GetRequiredHitRoll(Attack attack)
@@ -244,7 +244,7 @@ public class CombatStats : MonoBehaviour
         bool isCritical = false;
         //make hit roll 
         int hitRoll = UnityEngine.Random.Range(0, 100);
-        int requiredRoll = GetRequiredHitRoll(attack);
+        int requiredRoll = 100 - attack.HitChance;
 
         Debug.Log(gameObject + " : required Roll: <color=#ffa8a8>" + requiredRoll + "</color> actual Roll: <color=#ffa8a8>" + hitRoll + "</color>");
 
@@ -312,7 +312,7 @@ public class CombatStats : MonoBehaviour
 
     public void TakeDamage(int damage, DamageType damageType, bool isCritical, bool playAnimation = true)
     {
-        damage = ApplyResistance(damage, damageType);
+        // damage = ApplyResistance(damage, damageType);
         CurrentHealthPoints -= damage;
 
         if (CurrentHealthPoints <= 0)
