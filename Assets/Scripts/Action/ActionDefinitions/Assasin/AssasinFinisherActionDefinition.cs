@@ -17,7 +17,6 @@ public class AssasinFinisherActionDefinition : ActionDefinition, ICanAttack
     [SerializeField] private int critChance;
     [SerializeField] private DamageType damageType;
 
-    private Unit attacker = null;
 
     public int MinDamage { get => minDamage; protected set => minDamage = value; }
     public int MaxDamage { get => maxDamage; protected set => maxDamage = value; }
@@ -25,25 +24,26 @@ public class AssasinFinisherActionDefinition : ActionDefinition, ICanAttack
     public int CritChance { get => critChance; protected set => critChance = value; }
     public DamageType DamageType { get => damageType; protected set => damageType = value; }
 
+
     public override void ExecuteLogic(Unit actingUnit, List<Unit> targets)
     {
-        attacker = actingUnit;
-        CombatStats combatStats = actingUnit.GetComponent<CombatStats>();
-
         foreach (Unit target in targets)
         {
             Attack attack = GetAttackData(actingUnit, target);
-            target.combatStats.ThisUnitTookDamageEvent += HandleTargetTookDamage;
-            bool hit = target.combatStats.ReceiveAttack(attack, actingUnit);
-            target.combatStats.ThisUnitTookDamageEvent -= HandleTargetTookDamage;
-            attacker = null;
-            if (hit)
+            AttackResult attackResult = target.combatStats.ReceiveAttack(attack, actingUnit);
+            if (attackResult.Hit)
             {
                 // PlayVisualEffect(VisualEffectOnHitPrefab, target.transform.position + new Vector3(0f, 1.2f, 0f));
                 GameObject vfx = PlayVisualEffect(VisualEffectOnHitPrefab, target.transform);
+
+                if (attackResult.IsKillingBlow)
+                {
+                    actingUnit.combatStats.ResetActionPoints();
+                }
             }
         }
     }
+
 
     public Attack GetAttackData(Unit attacker, Unit target)
     {
@@ -75,17 +75,10 @@ public class AssasinFinisherActionDefinition : ActionDefinition, ICanAttack
         return new Attack(_minDamage, _maxDamage, _hitChance, _critChance, DamageType);
     }
 
+
     public DamageType GetDamageType()
     {
         return DamageType;
     }
 
-
-    private void HandleTargetTookDamage(object sender, DamageTakenEventArgs eventArgs)
-    {
-        if (eventArgs.IsKillingBlow)
-        {
-            attacker.combatStats.ResetActionPoints();
-        }
-    }
 }

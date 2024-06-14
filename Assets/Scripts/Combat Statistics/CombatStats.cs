@@ -239,7 +239,7 @@ public class CombatStats : MonoBehaviour
     }
 
 
-    public bool ReceiveAttack(Attack attack, Unit attacker)
+    public AttackResult ReceiveAttack(Attack attack, Unit attacker)
     {
         bool isCritical = false;
         //make hit roll 
@@ -262,14 +262,16 @@ public class CombatStats : MonoBehaviour
                 isCritical = true;
                 damageReceived *= CRIT_MULTIPLIER;
             }
-            TakeDamage(damageReceived, attack.Type, isCritical, true);
-            return true;
+
+            bool isKillingBlow = TakeDamage(damageReceived, attack.Type, isCritical, true);
+
+            return new AttackResult(true, damageReceived, attack.Type, isCritical, isKillingBlow);
         }
         else
         {
             OnDodge();
             AnyUnitDodgedAttackEvent?.Invoke(this, new DodgedEventArgs(attacker, attack.Type));
-            return false;
+            return new AttackResult(false, 0, attack.Type, false, false);
         }
     }
 
@@ -310,8 +312,10 @@ public class CombatStats : MonoBehaviour
     }
 
 
-    public void TakeDamage(int damage, DamageType damageType, bool isCritical, bool playAnimation = true)
+    //return true if this was a killing blow
+    public bool TakeDamage(int damage, DamageType damageType, bool isCritical, bool playAnimation = true)
     {
+        bool isKillingBlow = false;
         // damage = ApplyResistance(damage, damageType);
         CurrentHealthPoints -= damage;
 
@@ -319,6 +323,7 @@ public class CombatStats : MonoBehaviour
         {
             CurrentHealthPoints = 0;
             OnDeath();
+            isKillingBlow = true;
         }
         else
         {
@@ -328,9 +333,9 @@ public class CombatStats : MonoBehaviour
                 PlayDamageTakenAnimation();
             }
         }
-
-        AnyUnitTookDamageEvent?.Invoke(this, new DamageTakenEventArgs(damage, damageType, isCritical, CurrentHealthPoints <= 0));
-        ThisUnitTookDamageEvent?.Invoke(this, new DamageTakenEventArgs(damage, damageType, isCritical, CurrentHealthPoints <= 0));
+        AnyUnitTookDamageEvent?.Invoke(this, new DamageTakenEventArgs(damage, damageType, isCritical, isKillingBlow));
+        ThisUnitTookDamageEvent?.Invoke(this, new DamageTakenEventArgs(damage, damageType, isCritical, isKillingBlow));
+        return isKillingBlow;
     }
 
 

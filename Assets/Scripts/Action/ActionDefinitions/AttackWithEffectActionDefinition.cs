@@ -15,9 +15,9 @@ public class AttackWithEffectActionDefinition : AttackActionDefinition
         foreach (Unit target in targets)
         {
             Attack attack = GetAttackData(actingUnit, target);
-            bool hit = target.combatStats.ReceiveAttack(attack, actingUnit);
+            AttackResult attackResult = target.combatStats.ReceiveAttack(attack, actingUnit);
 
-            if (hit)
+            if (attackResult.Hit)
             {
                 GameObject vfx = PlayVisualEffect(VisualEffectOnHitPrefab, target.transform);
                 if (target.combatStats.CurrentHealthPoints > 0)

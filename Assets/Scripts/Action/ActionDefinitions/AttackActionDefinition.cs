@@ -23,9 +23,9 @@ public class AttackActionDefinition : ActionDefinition, ICanAttack
         foreach (Unit target in targets)
         {
             Attack attack = GetAttackData(actingUnit, target);
-            bool hit = target.combatStats.ReceiveAttack(attack, actingUnit);
+            AttackResult attackResult = target.combatStats.ReceiveAttack(attack, actingUnit);
 
-            if (hit)
+            if (attackResult.Hit)
             {
                 // PlayVisualEffect(VisualEffectOnHitPrefab, target.transform.position + new Vector3(0f, 1.2f, 0f));
                 GameObject vfx = PlayVisualEffect(VisualEffectOnHitPrefab, target.transform);
