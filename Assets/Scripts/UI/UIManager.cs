@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI stateText;
     [SerializeField] private TextMeshProUGUI actionNameText;
     [SerializeField] private Button endTurnButton;
+    [SerializeField] private Button quitButton;
     [SerializeField] private TextMeshProUGUI endTurnText;
     [SerializeField] private TextMeshProUGUI currentTurnPlayerText;
     [SerializeField] private EncounterOverScreen encounterOverScreen;
@@ -48,6 +49,8 @@ public class UIManager : MonoBehaviour
 
         stateText.text = "Input State" + InputManager.Instance.CurrentState;
         endTurnButton.onClick.AddListener(TurnManager.Instance.EndTurn);
+        //todo - to implement proper quitting
+        quitButton.onClick.AddListener(() => Application.Quit());
 
         //register with event publishers
         ActionManager.Instance.SelectedUnitChangedEvent += HandleSelectedUnitChanged;
